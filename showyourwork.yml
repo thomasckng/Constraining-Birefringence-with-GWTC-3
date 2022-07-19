@@ -1,2 +1,19 @@
 version: 0.3.0
 
+dependencies:
+    src/scripts/GW150914_corner.py
+        - src/data/IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5
+        - GW150914_birefringence(frequency_independent).json
+        - GW150914_birefringence.json
+
+datasets:
+    10.5281/zenodo.6513631:
+        destination: src/data/LIGO_GWTC3
+        contents:
+            IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5:
+
+    10.5072/zenodo.1085755:
+        destination: src/data/non_GR
+        contents:
+            GW150914_birefringence(frequency_independent).json:
+            GW150914_birefringence.json:
