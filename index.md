@@ -1,37 +1,8 @@
-## Welcome to GitHub Pages
+**Thomas C.K. Ng** (The Chinese University of Hong Kong)
 
-You can use the [editor on GitHub](https://github.com/thomasckng/Constraining-Birefringence-with-GWTC-3/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Abstract
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/thomasckng/Constraining-Birefringence-with-GWTC-3/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+1. Motivation: Verify Chern-Simons Theory which suggest there is gravitational wave (GW) amplitude birefringence.
+2. GW amplitude birefringence is a property of space that enhance one polarisation and suppress another during propagation of GW.
+3. By performing parameter estimation on GW event in GWTC-3, the third LIGO-Virgo catalog, we can constrain the strength of birefringence.
+4. What's new? Previous studies usually assume birefringence is frequency independent, which is preliminary assumption. We include the frequency dependence, which allows us to further constrain the strength of birefringence
