@@ -30,6 +30,9 @@ markdown: kramdown
 twitter_username: ckng419
 github_username:  thomasckng
 
+author:
+  name: Thomas Ng
+
 # Build settings
 theme: jekyll-theme-minimal
 plugins:
