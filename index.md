@@ -1,7 +1,6 @@
 ---
 layout: default
 title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
-permalink: /Constraining-Birefringence-with-GWTC-3/
 ---
 
 **Thomas C.K. Ng** (The Chinese University of Hong Kong)
