@@ -20,25 +20,39 @@ title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
 
 ### GW Amplitude Birefringence
 
-We assume GWs are generated as GR described. During the propagation, the amlitude of two polarisation will be enhanced or suppressed as:
+GW amplitude birefringence is a property of space suggested by some beyong-GR theories such as Chern-Simons Theory,
+while GR suggest there is not.
+With birefringence, amplitude of one GW polarisation is enhanced while the other is suppressed during propagation of the GW.
+As a result, the observed amplitude ratio of the two polarsation under birefringence depends not only on $$\iota$$,
+the angle between our line of sight and the orbital angular momentum of the binary black holes,
+but also $$\kappa$$, the dimensionless opacity parameter that represent the strength of the birefringence,
+while this ratio only depends on $$\iota$$ in GR.
+
+We assume GWs are generated as GR described, and the effect of birefringence was took into account during the propagation.
+During the propagation, the amlitude of two polarisation will be enhanced or suppressed as:
 
 $$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,$$
 
 where $$h_L$$ and $$h_R$$ are the amplitude of left and right polarizations of the GWs respectively, $$d_C$$ is the comoving distance to the merger,
-$$f$$ is the frequency of the GWs and $$\kappa$$ is the dimensionless opacity parameter that represent the strength of the birefringence.
+and $$f$$ is the frequency component of the GWs.
 Note that, previous studies usually ingore the frequency term.
+
+To constrain $$\kappa$$, parameter estimations with data from the third LIGO-Virgo catalog, GWTC-3, was performed using Bilby,
+a bayesian toolkit for GW analysis which is able to calculate posterior of GW parameters based on signals from
+interferometer and priors of the parameters provided.
 
 ### Result on GW150914
 
-With the frequency independent birefringence model, the posteriors look different from the posteriors with GR.
+With the frequency independent birefringence model (previous studies), the posteriors look different from the posteriors with GR.
 This is because there is a degeneracy between $$\kappa$$ and $$\iota$$ without the frequency dependence,
-where $$\iota$$ is the angle between our line of sight and the orbital angular momentum of the binary black holes,
 so $$\iota$$ was less constrained compared to the PE with GR.
 On the other hand, with the frequency dependent birefringence model, the posteriors look similar to the posteriors with GR.
 This is because the degeneracy was broken by the frequency dependence. In this case, the posteriors can recover the PE with GR,
 and the most probable value of $$\kappa$$ is close to $$0$$, which means the birefringence is weak or absent, and GR can be recovered.
 
-### Result on GWTC-3
+### Preliminary Result on GWTC-3
+
+
 
 ## More about the author
 
