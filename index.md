@@ -13,20 +13,20 @@
 ### GW Amplitude Birefringence
 
 We assume GWs are generated as GR described. During the propagation, the amlitude of two polarisation will be enhanced or suppressed as:
-$$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,$$
-where $h_L$ and $h_R$ are the amplitude of left and right polarizations of the GWs respectively, $d_C$ is the comoving distance to the merger,
-$f$ is the frequency of the GWs and $\kappa$ is the dimensionless opacity parameter that represent the strength of the birefringence.
+\[h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,\]
+where \(h_L\) and \(h_R\) are the amplitude of left and right polarizations of the GWs respectively, \(d_C\) is the comoving distance to the merger,
+\(f\) is the frequency of the GWs and \(\kappa\) is the dimensionless opacity parameter that represent the strength of the birefringence.
 Note that, previous studies usually ingore the frequency term.
 
 ### Result on GW150914
 
 With the frequency independent birefringence model, the posteriors look different from the posteriors with GR.
-This is because there is a degeneracy between $\kappa$ and $\iota$ without the frequency dependence,
-where $\iota$ is the angle between our line of sight and the orbital angular momentum of the binary black holes,
-so $\iota$ was less constrained compared to the PE with GR.
+This is because there is a degeneracy between \(\kappa\) and \(\iota\) without the frequency dependence,
+where \(\iota\) is the angle between our line of sight and the orbital angular momentum of the binary black holes,
+so \(\iota\) was less constrained compared to the PE with GR.
 On the other hand, with the frequency dependent birefringence model, the posteriors look similar to the posteriors with GR.
 This is because the degeneracy was broken by the frequency dependence. In this case, the posteriors can recover the PE with GR,
-and the most probable value of $\kappa$ is close to 0, which means the birefringence is weak or absent, and GR can be recovered.
+and the most probable value of \(\kappa\) is close to 0, which means the birefringence is weak or absent, and GR can be recovered.
 
 ### Result on GWTC-3
 
