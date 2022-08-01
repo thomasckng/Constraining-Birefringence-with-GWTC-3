@@ -1,4 +1,18 @@
 title: Constraining gravitational wave amplitude birefringence with GWTC-3
 baseurl: /Constraining-Birefringence-with-GWTC-3
 theme: jekyll-theme-minimal
-markdown: kramdown
+
+ # Defaults
+ defaults:
+   # _posts
+   - scope:
+       path: ""
+       type: posts
+     values:
+       layout: single
+       author_profile: true
+       read_time: true
+       comments: true
+       share: true
+       related: true
+       mathjax: true
