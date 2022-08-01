@@ -1,7 +1,3 @@
-<!-- Mathjax Support -->
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
 **Thomas C.K. Ng** (The Chinese University of Hong Kong)
 
@@ -40,3 +36,8 @@ and the most probable value of \(\kappa\) is close to 0, which means the birefri
 
 Thomas Ng is a undergraduate student at The Chinese University of Hong Kong, who will graduate in summer 2023.
 He is currently working at Flatiron Institute for this summer. [GitHub](https://github.com/thomasckng)
+
+<!-- Mathjax Support -->
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
