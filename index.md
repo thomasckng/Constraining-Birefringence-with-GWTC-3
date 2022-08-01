@@ -1,3 +1,6 @@
+---
+usemathjax: true
+---
 
 **Thomas C.K. Ng** (The Chinese University of Hong Kong)
 
