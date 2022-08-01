@@ -3,6 +3,10 @@ layout: default
 title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
 ---
 
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 **Thomas C.K. Ng** (The Chinese University of Hong Kong)
 
 ## Abstract
