@@ -43,6 +43,8 @@ interferometer and priors of the parameters provided.
 
 ### Result on GW150914
 
+<img src="{{site.baseurl}}/public/image/GW150914_3_parameters.png"/> 
+
 With the frequency independent birefringence model (previous studies), the posteriors look different from the posteriors with GR.
 This is because there is a degeneracy between $$\kappa$$ and $$\iota$$ without the frequency dependence,
 so $$\iota$$ was less constrained compared to the PE with GR.
