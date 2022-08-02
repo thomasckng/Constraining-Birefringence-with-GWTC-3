@@ -23,13 +23,13 @@ title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
 GW amplitude birefringence is a property of space suggested by some beyong-GR theories such as Chern-Simons Theory,
 while GR suggest there is not.
 With birefringence, amplitude of one GW polarisation is enhanced while the other is suppressed during propagation of the GW.
-As a result, the observed amplitude ratio of the two polarsation under birefringence depends not only on $$\iota$$,
+As a result, the observed amplitude ratio of the two polarisation under birefringence depends not only on $$\iota$$,
 the angle between our line of sight and the orbital angular momentum of the binary black holes,
 but also $$\kappa$$, the dimensionless opacity parameter that represent the strength of the birefringence,
 while this ratio only depends on $$\iota$$ in GR.
 
 We assume GWs are generated as GR described, and the effect of birefringence was took into account during the propagation.
-During the propagation, the amlitude of two polarisation will be enhanced or suppressed as:
+During the propagation, the amplitude of two polarisation will be enhanced or suppressed as:
 
 $$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,$$
 
@@ -61,5 +61,5 @@ and the most probable value of $$\kappa$$ is close to $$0$$, which means the bir
 
 <img src="{{site.baseurl}}/public/image/Thomas.jpg"/> 
 
-Thomas Ng is a undergraduate student at The Chinese University of Hong Kong, who will graduate in summer 2023.
+Thomas Ng is an undergraduate student at The Chinese University of Hong Kong, who will graduate in summer 2023.
 He is currently working at Flatiron Institute for this summer. [GitHub](https://github.com/thomasckng)
