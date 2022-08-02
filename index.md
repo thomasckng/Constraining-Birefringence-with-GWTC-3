@@ -55,7 +55,7 @@ and the most probable value of $$\kappa$$ is close to $$0$$, which means the bir
 
 ### Preliminary Result on GWTC-3
 
-We are performing parameter estimations on 76 events to further constrain $$/kappa$$. The preliminary results show $$/kappa$$ can be well constrained around $$0$$, which can then be use to constrain the correction of multiple beyond-GR theories. We are currently finalizing the parameter estimation results to make sure all estimations on each event are correctly preformed.
+We are performing parameter estimations on 76 events to further constrain $$\kappa$$. The preliminary results show $$\kappa$$ can be well constrained around $$0$$, which can then be use to constrain the correction of multiple beyond-GR theories. We are currently finalizing the parameter estimation results to make sure all estimations on each event are correctly preformed.
 
 ## More about the author
 
