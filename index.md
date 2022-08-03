@@ -15,30 +15,32 @@ title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
 ## Abstract
 
 1. Motivation: **constrain Chern-Simons gravity** and other theories that predict gravitational-wave (GW) amplitude birefringence.
-2. Amplitude birefringence consists of the **enhancement of one GW polarisation over the other** during propagation of the signal.
-3. By performing **parameter estimation** on GW events in GWTC-3, the third LIGO-Virgo catalog, we can constrain the strength of birefringence.
-4. What's new? Previous studies often assumed birefringence is **frequency independent**, which is a zeroth-order approximation; we include the predicted **frequency dependence**, allowing us to further constrain the strength of birefringence, and study more events than previous studies.
+2. **Amplitude birefringence** consists of the **enhancement of one GW polarisation over the other** during propagation of the signal.
+3. By performing **parameter estimation** on GW events in GWTC-3, the third LIGO-Virgo catalog, we can **constrain the strength of birefringence**.
+4. What's new? **Previous studies** often assumed birefringence is **frequency independent**, which is a zeroth-order approximation; **we include** the predicted **frequency dependence**, allowing us to further constrain the strength of birefringence, and study more events than previous studies.
 
-## Main Poster
+## Main Poster (~3 mins read)
 
 ### GW Amplitude Birefringence
 
 GW amplitude birefringence is a property of space suggested by some theories beyond general relativity (GR) such as Chern-Simons gravity;
 in contrast, **GR predicts there is no birefringence**.
-According to GR, the observed amplitude ratio of the two circular polarisations depends **only on the inclination $$\iota$$** for a nonprecessing binary,
-where $$\iota$$ is the angle between our line of sight and the orbital angular momentum of the binary black holes.
-With birefringence, amplitude of one GW polarisation is enhanced while the other is suppressed during propagation of the GW.
-As a result, the observed amplitude ratio under birefringence depends **not only on $$\iota$$, but also on $$\kappa$$**,
+
+**According to GR**, the observed **amplitude ratio** of the two circular polarisations **depends only on the inclination $$\iota$$** for a nonprecessing binary,
+where $$\iota$$ is the angle between our line of sight and the orbital angular momentum of the binary.
+**With birefringence**, amplitude of one GW polarisation is enhanced while the other is suppressed during propagation of the GW.
+As a result, the observed amplitude ratio under birefringence **depends not only on $$\iota$$, but also on $$\kappa$$**,
 the dimensionless opacity parameter that represent the strength of the birefringence.
 
-To implement this modification to the waveform, we **assume that GWs are generated as GR described**,
-and the effect of **birefringence** is taken into account during the **propagation**.
+To implement this modification to the waveform, **we assume that GWs are generated as GR described**,
+and the effect of **birefringence** is taken into account **during the propagation**.
 During the propagation, the amplitude of two polarisations will be enhanced or suppressed as given by:
 
-$$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,$$
+$$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,$$
 
 where $$h_L$$ and $$h_R$$ are the amplitude of left and right polarisations of the GWs respectively, $$d_C$$ is the comoving distance to the merger,
-and $$f$$ is the frequency component of the GWs. This equation described the effect of birefringence after GWs are generated following GR. The amplitude of one polarisation is enhanced exponentially as the GW travels **longer distance**, and there is **larger enhancement for the higher frequency** part of the GW.
+and $$f$$ is the frequency component of the GWs. This equation described the effect of birefringence after GWs are generated following GR. The amplitude of one polarisation is enhanced exponentially as the GW travels **longer distance**, and there is **larger enhancement for the higher frequency** part of the GW,
+vice versa for the other polarisation.
 Note that, previous studies usually ignore the frequency term.
 
 To constrain $$\kappa$$, we perform **parameter estimations** with data from the third LIGO-Virgo catalog,
