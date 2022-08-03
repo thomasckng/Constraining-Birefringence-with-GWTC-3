@@ -19,7 +19,7 @@ title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
 3. By performing **parameter estimation** on GW events in GWTC-3, the third LIGO-Virgo catalog, we can **constrain the strength of birefringence**.
 4. What's new? **Previous studies** often assumed birefringence is **frequency independent**, which is a zeroth-order approximation; **we include** the predicted **frequency dependence**, allowing us to further constrain the strength of birefringence, and study more events than previous studies.
 
-## Main Poster
+## Main Poster (~3 mins read)
 
 ### GW Amplitude Birefringence
 
@@ -27,7 +27,7 @@ GW amplitude birefringence is a property of space suggested by some theories bey
 in contrast, **GR predicts there is no birefringence**.
 
 **According to GR**, the observed **amplitude ratio** of the two circular polarisations **depends only on the inclination $$\iota$$** for a nonprecessing binary,
-where $$\iota$$ is the angle between our line of sight and the orbital angular momentum of the binary black holes.
+where $$\iota$$ is the angle between our line of sight and the orbital angular momentum of the binary.
 **With birefringence**, amplitude of one GW polarisation is enhanced while the other is suppressed during propagation of the GW.
 As a result, the observed amplitude ratio under birefringence **depends not only on $$\iota$$, but also on $$\kappa$$**,
 the dimensionless opacity parameter that represent the strength of the birefringence.
