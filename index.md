@@ -25,34 +25,35 @@ title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
 
 GW amplitude birefringence is a property of space suggested by some theories beyond general relativity (GR) such as Chern-Simons gravity;
 in contrast, GR predicts there is no birefringence.
+According to GR, the observed amplitude ratio of the two circular polarisations depends only on the inclination $$\iota$$ for a nonprecessing binary,
+where $$\iota$$ is the angle between our line of sight and the orbital angular momentum of the binary black holes.
 With birefringence, amplitude of one GW polarisation is enhanced while the other is suppressed during propagation of the GW.
-As a result, the observed amplitude ratio of the two polarisations under birefringence depends not only on the inclination $$\iota$$,
-the angle between our line of sight and the orbital angular momentum of the binary black holes,
-but also on $$\kappa$$, the dimensionless opacity parameter that represent the strength of the birefringence,
-while this ratio only depends on $$\iota$$ in GR.
-**[MI: this explanation is a bit backwards: you should first explain that the observed ratio of R vs L in GR only depends on the inclination (for a nonprecessing binary); then state that's no longer true if there is birefringence]**
+As a result, the observed amplitude ratio under birefringence depends not only on $$\iota$$,
+but also on $$\kappa$$, the dimensionless opacity parameter that represent the strength of the birefringence.
 
-**[MI: this paragraph starts abruptly; say something like "To implement this modification to the waveform, we assume that..."]**
-We assume GWs are generated as GR described, and the effect of birefringence is taken into account during the propagation.
+To implement this modification to the waveform, we assume that GWs are generated as GR described,
+and the effect of birefringence is taken into account during the propagation.
 During the propagation, the amplitude of two polarisations will be enhanced or suppressed as given by:
 
 $$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,$$
 
 where $$h_L$$ and $$h_R$$ are the amplitude of left and right polarisations of the GWs respectively, $$d_C$$ is the comoving distance to the merger,
 and $$f$$ is the frequency component of the GWs.
-Note that, previous studies usually ingore the frequency term.
+Note that, previous studies usually ignore the frequency term.
 **[MI: you need to explain with the superscripts "GR" and "Biref" mean]**
 
-To constrain $$\kappa$$, we perform parameter estimations with data from the third LIGO-Virgo catalog, GWTC-3 using Bilby, **[MI: link to Bilby url]**
+To constrain $$\kappa$$, we perform parameter estimations with data from the third LIGO-Virgo catalog,
+GWTC-3 using <a href="https://lscsoft.docs.ligo.org/bilby/">Bilby</a>,
 a Bayesian toolkit for GW data analysis which is able to calculate posteriors of GW parameters based on data from
 interferometer and priors of the parameters in question.
 
 ### Result on GW150914
 
 <img src="{{site.baseurl}}/public/image/GW150914_3_parameters.png"/> 
-<a href="{{site.baseurl}}/public/image/GW150914_9_parameters.png">More Parameters</a>
+<a href="{{site.baseurl}}/public/image/GW150914_9_parameters.png">more parameters</a>
 
-With the frequency independent birefringence model (previous studies **[MI: link to a previous study]**), the posterior **[MI: for which parameters]** looks different from the posteriors with GR.
+With the frequency independent birefringence model (<a href="https://arxiv.org/abs/2101.11153">previous studies</a>),
+the posterior of $$\cos\iota$$ looks different from the posteriors with GR.
 This is because, for a nonprecessing system, there is a degeneracy between $$\kappa$$ and $$\iota$$ without the frequency dependence,
 so $$\iota$$ was less constrained compared to the PE with GR.
 **[MI: not only it was less constrained: there are some specific degeneracies between $$\kappa$$ and $$\iota$$---can you explain them?]**
@@ -63,7 +64,10 @@ and the most probable value of $$\kappa$$ is close to $$0$$, which means the bir
 
 ### Preliminary Result on GWTC-3
 
-
+We are performing parameter estimations on $$76$$ events in GWTC-3 to further constrain $$\kappa$$.
+The preliminary results show $$\kappa$$ can be well constrained around $$0$$,
+which can then be use to constrain the correction of multiple beyond-GR theories.
+We are currently finalizing the parameter estimation results to make sure all estimations on each event are correctly preformed.
 
 ## More about the author
 
