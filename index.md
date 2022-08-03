@@ -32,6 +32,27 @@ where $$\iota$$ is the angle between our line of sight and the orbital angular m
 As a result, the observed amplitude ratio under birefringence **depends not only on $$\iota$$, but also on $$\kappa$$**,
 the dimensionless opacity parameter that represent the strength of the birefringence.
 
+<style>
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+</style>
+
+<div class="video-wrapper">
+    <iframe src="{{site.baseurl}}/public/video/birefringence.mp4" allowfullscreen></iframe>
+</div>
+
 To implement this modification to the waveform, **we assume that GWs are generated as GR described**,
 and the effect of **birefringence** is taken into account **during the propagation**.
 During the propagation, the amplitude of two polarisations will be enhanced or suppressed as given by:
