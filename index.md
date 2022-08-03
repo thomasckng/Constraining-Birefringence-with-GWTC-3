@@ -31,16 +31,15 @@ With birefringence, amplitude of one GW polarisation is enhanced while the other
 As a result, the observed amplitude ratio under birefringence depends **not only on $$\iota$$, but also on $$\kappa$$**,
 the dimensionless opacity parameter that represent the strength of the birefringence.
 
-To implement this modification to the waveform, we assume that GWs are generated as GR described,
-and the effect of birefringence is taken into account during the propagation.
+To implement this modification to the waveform, we **assume that GWs are generated as GR described**,
+and the effect of **birefringence** is taken into account during the **propagation**.
 During the propagation, the amplitude of two polarisations will be enhanced or suppressed as given by:
 
 $$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,$$
 
 where $$h_L$$ and $$h_R$$ are the amplitude of left and right polarisations of the GWs respectively, $$d_C$$ is the comoving distance to the merger,
-and $$f$$ is the frequency component of the GWs.
+and $$f$$ is the frequency component of the GWs. This equation described the effect of birefringence after GWs are generated following GR. The amplitude of one polarisation is enhanced exponentially as the GW travels **longer distance**, and there is **larger enhancement for the higher frequency** part of the GW.
 Note that, previous studies usually ignore the frequency term.
-<!-- **[MI: you need to explain with the superscripts "GR" and "Biref" mean]** -->
 
 To constrain $$\kappa$$, we perform **parameter estimations** with data from the third LIGO-Virgo catalog,
 **GWTC-3** using <a href="https://lscsoft.docs.ligo.org/bilby/">Bilby</a>,
@@ -56,7 +55,7 @@ With the frequency independent birefringence model (<a href="https://arxiv.org/a
 the **posterior of $$\cos\iota$$ looks different** from the posteriors with GR.
 This is because, for a nonprecessing system, there is a **degeneracy between $$\kappa$$ and $$\iota$$** without the frequency dependence,
 so $$\iota$$ was less constrained compared to the PE with GR.
-<!-- **[MI: not only it was less constrained: there are some specific degeneracies between $$\kappa$$ and $$\iota$$---can you explain them?]** -->
+**[MI: not only it was less constrained: there are some specific degeneracies between $$\kappa$$ and $$\iota$$---can you explain them?]**
 On the other hand, with the frequency dependent birefringence model, the posteriors look similar to the posteriors with GR.
 This is because the degeneracy was broken by the frequency dependence. In this case, the posteriors can recover the PE with GR,
 and **the most probable value of $$\kappa$$ is close to $$0$$**, which means the birefringence is weak or absent, and **GR can be recovered**.
@@ -67,7 +66,7 @@ We are performing parameter estimations on $$76$$ events in GWTC-3 to further co
 The preliminary results show $$\kappa$$ can be **well constrained around $$0$$**,
 which can then be use to constrain multiple beyond-GR theories.
 We are currently finalizing the parameter estimation results to make sure all estimations on each event are correctly preformed.
-<!-- **[MI: the most important thing to highlight is that the constraint on $$\kappa$$ is very tight]** -->
+**[MI: the most important thing to highlight is that the constraint on $$\kappa$$ is very tight]**
 
 ## More about the author
 
