@@ -36,7 +36,7 @@ To implement this modification to the waveform, **we assume that GWs are generat
 and the effect of **birefringence** is taken into account **during the propagation**.
 During the propagation, the amplitude of two polarisations will be enhanced or suppressed as given by:
 
-$$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,,$$
+$$h_\mathrm{L,R}^{\mathrm{Biref}}=h_\mathrm{L,R}^{\mathrm{GR}}\times\exp\left(\pm\kappa\frac{d_C}{1\mathrm{ Gpc}}\frac{f}{100\mathrm{ Hz}}\right)\,$$
 
 where $$h_L$$ and $$h_R$$ are the amplitude of left and right polarisations of the GWs respectively, $$d_C$$ is the comoving distance to the merger,
 and $$f$$ is the frequency component of the GWs. This equation described the effect of birefringence after GWs are generated following GR. The amplitude of one polarisation is enhanced exponentially as the GW travels **longer distance**, and there is **larger enhancement for the higher frequency** part of the GW,
