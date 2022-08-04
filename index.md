@@ -9,7 +9,7 @@ title: "Constraining gravitational wave amplitude birefringence with GWTC-3"
 
 **Thomas C.K. Ng** (The Chinese University of Hong Kong),
 **Maximiliano Isi** (Flatiron Institute),
-**Kaze Wong** (Flatiron Institute),
+**Kaze W.K. Wong** (Flatiron Institute),
 **Will M. Farr** (Flatiron Institute, Stony Brook)
 
 ## Abstract
@@ -80,10 +80,11 @@ and priors for the parameters in question.
 With the frequency independent birefringence model (<a href="https://arxiv.org/abs/2101.11153">previous studies</a>),
 the **posterior for $$\cos\iota$$ looks different** from the posterior assuming GR.
 This is because, for a nonprecessing system, there is a **degeneracy between $$\kappa$$ and $$\iota$$** if the frequency dependence is not included.
-To reconstruct the amplitude ratio from the interferometer data, an $$\iota$$ representing a more face-on inspiral can pair with a positive $$\kappa$$,
-or an $$\iota$$ representing a more face-off inspiral with a negative $$\kappa$$. As a result, many pairs of $$\iota$$ and $$\kappa$$ can be plausible with the frequency independence.
+To reconstruct the amplitude ratio from the interferometer data, an $$\iota$$ representing a more face-off inspiral can pair with a positive $$\kappa$$,
+or an $$\iota$$ representing a more face-on inspiral with a negative $$\kappa$$. As a result, many pairs of $$\iota$$ and $$\kappa$$ can be plausible with the frequency independence.
+
 On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
-This is because the degeneracy was broken by the frequency dependence, as the effect of the birefringence will be different from the one of changing $$\iota$$.
+This is because the **degeneracy was broken by the frequency dependence**, as the effect of the birefringence will be different from the one of changing $$\iota$$.
 In this case, the posteriors can recover the GR distributions for the binary parameters,
 and **the most probable value of $$\kappa$$ is close to $$0$$**, which means the birefringence is weak or absent, and **GR can be recovered**.
 
