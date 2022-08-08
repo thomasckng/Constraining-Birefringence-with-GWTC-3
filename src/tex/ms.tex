@@ -25,19 +25,27 @@
             \item GR broke down at some scale, find a new theory
             \item CS: beyond-GR theory
             \item test CS property (GW amplitude birefringence)
-            \item GW have 2 polarisations
-            \item GR: polarisation ratio depends on iota
+        \end{enumerate}
+        \item Amplitude Birefringence
+        \begin{enumerate}
+            \item GW amplitude birefringence is a property of space from beyond-GR theory
+            \item birefringence: enhance one and suppress another
+            \item GR predicts there is no birefringence
+            \item GR: amplitude ratio depends on $\iota$ only
+            \item nonGR: also depends on $\kappa$, $d_C$ and $f$
         \end{enumerate}
     \end{enumerate}
     \item Method
     \begin{enumerate}
-        \item
+        \item Assume GW are generated as GR described
+        \item birefringence is considered during the propagation
+        \item 
     \end{enumerate}
     \item Results
     \begin{enumerate}
         \item GW150914
         \begin{enumerate}
-            \item
+            \item 
         \end{enumerate}
         \item GWTC-3
         \begin{enumerate}
@@ -53,7 +61,7 @@
         \end{enumerate}
         \item Future Study
         \begin{enumerate}
-            \item Data from better detector
+            \item Better data from detector
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
@@ -62,25 +70,25 @@
 Since Einstein proposed his theory of general relativity (GR), it was tested in a wide range of length scales.
 After a century, we know that GR do not agree with quantum theories at some length scale.
 To unify both theories, we need to study the possibility of different beyond-GR theories.
-Some beyond-GR theories such as Chern-Simons theory (CS) suggested that gravitational waves (GWs) amplitude birefringence is a property of space,
-which GR does not included.
+Some beyond-GR theories such as Chern-Simons theory (CS) suggested that gravitational waves (GWs) amplitude birefringence is a property of space;
+in contrast, GR predicts there is no birefringence.
 
 GW consist of two linear polarizations (i.e. $+$ and $\times$) similar to electromagnetic waves,
 which could be transformed into two circular polarizations (i.e. left and right) by $h_{\mathrm{R}, \mathrm{L}} = h_+ \pm i h_\times$.
-In GR, the amplitude ratio of the left and right polarisations only depends on $\iota$,
-the angle between our line of sight and the orbital angular momentum of the binary black holes (BBH).
+In GR, the amplitude ratio of the left and right polarisations only depends on the inclination $\iota$ for a nonprecessing binary,
+the angle between our line of sight and the orbital angular momentum of the binary.
 \begin{equation}
     \left(\frac{h_\mathrm{L}}{h_\mathrm{R}}\right)_\mathrm{GR}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2\,,
-\end{equation}where $h_L$ and $h_R$ are the amplitude of left and right polarizations of the GWs respectively.
+\end{equation}where $h_L$ and $h_R$ are the Fourier amplitude of left and right polarizations of the GWs respectively.
 
 For other studies on the birefringence property such as \citet{Maria_2021}, the amplitude ratio depends on not only $\iota$,
 but also the distance to the merger and the strength of the birefringence.
 \begin{equation}
     \left(\frac{h_\mathrm{L_{obs}}}{h_\mathrm{R_{obs}}}\right)_\mathrm{Biref}^\mathrm{old}=\frac{e^{d_C\widetilde{\kappa}}\left(1-\cos\iota\right)^2}{e^{-d_C\widetilde{\kappa}}\left(1+\cos\iota\right)^2}\,,
-\end{equation}where $d_C$ is the comoving distance to the merger, $\widetilde{\kappa}$ is the opacity parameter that represent
+\end{equation}where $d_C$ is the comoving distance to the binary, $\widetilde{\kappa}$ is the opacity parameter that represent
 the strength of the birefringence with units of $L^{-1}$, and $h_\mathrm{L_{obs}}$ and $h_\mathrm{R_{obs}}$ are
-the observed amplitude of left and right polarizations of the GW respectively. Note that GR is recovered if $\kappa$ is 0.
-This is a preliminary version of the birefringence model in CS, which assume there is no frequency dependence.
+the observed Fourier amplitude of left and right polarizations of the GW respectively. Note that GR is recovered if $\kappa$ is 0.
+This is a zeroth-order approximation of the birefringence model in CS, which assume there is no frequency dependence.
 This would create a degeneracy between kappa and iota, as they can affect the amplitude ratio in the same way.
 
 In this paper, we considered the frequency dependence of the birefringence as well.
@@ -96,7 +104,7 @@ Estimations on $\kappa$ using Bilby with data from the third LIGO-Virgo catalog,
 Bilby is a bayesian toolkit for GW analysis, which could calculate posterior of GW waveform parameters based on signals from
 interferometer and priors of the parameters provided. \citep{Ashton_2019}
 
-We assume GWs are produced at the BBH following GR. As the GWs propagate through space,
+We assume GWs are generated at the binary as GR described. As the GWs propagate through space,
 the effect of the birefringence will be built up as the distance increases.
 To implement the amplitude birefringence on Bilby, waveforms are modified according to the following equation:
 \begin{equation}
@@ -107,12 +115,16 @@ To implement the amplitude birefringence on Bilby, waveforms are modified accord
 This modification allows Bilby to perform estimations on $\kappa$, as the waveforms will depends on $\kappa$ as well.
 
 Consider GW150914, the first detected GW by LIGO. In figure \ref{fig:GW150914_corner}, the posteriors of the parameters of the GW150914 is shown.
-With the frequency independent birefringence model, the posteriors look different from the posteriors with GR.
-This is because there is a degeneracy between $\kappa$ and $\iota$ without the frequency dependence,
-so $\iota$ was less constrained compared to the PE with GR.
-On the other hand, with the frequency dependent birefringence model, the posteriors look similar to the posteriors with GR.
-This is because the degeneracy was broken by the frequency dependence. In this case, the posteriors can recover the PE with GR,
-and the most probable value of $\kappa$ is close to 0, which means the birefringence is weak or absent, and GR can be recovered.
+With the frequency independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
+This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
+To reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$,
+or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
+As a result,many pairs of $\iota$ and $\kappa$ can be plausible with the frequency independence.
+
+On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
+This is because the degeneracy was broken by the frequency dependence, as the effect of the birefringence will be different from the one of changing $$\iota$$.
+In this case, the posteriors can recover the GR distributions for the binary parameters,
+and the most probable value of $$\kappa$$ is close to $$0$$, which means the birefringence is weak or absent, and GR can be recovered.
 
 \begin{figure*}[h]
     \script{GW150914_corner.py}
