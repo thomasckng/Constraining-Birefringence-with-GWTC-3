@@ -25,7 +25,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: /Constraining-Birefringence-with-GWTC-3/ # the subpath of your site, e.g. /blog
 url: https://thomasckng.github.io # the base hostname & protocol for your site, e.g. http://example.com
 markdown: kramdown
-twitter_username: ckng419
+twitter_username: thomas_ckng
 github_username:  thomasckng
 
 author:
