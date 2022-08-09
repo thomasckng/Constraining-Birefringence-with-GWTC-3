@@ -49,7 +49,7 @@
         \end{enumerate}
         \item GWTC-3
         \begin{enumerate}
-            \item
+            \item 
         \end{enumerate}
     \end{enumerate}
     \item Discussion
@@ -61,7 +61,9 @@
         \end{enumerate}
         \item Future Study
         \begin{enumerate}
-            \item Better data from detector
+            \item More events from detector
+            \item Higher order terms
+            \item Longer sampling
         \end{enumerate}
     \end{enumerate}
 \end{enumerate}
@@ -70,9 +72,13 @@
 Since Einstein proposed his theory of general relativity (GR), it was tested in a wide range of length scales.
 After a century, we know that GR do not agree with quantum theories at some length scale.
 To unify both theories, we need to study the possibility of different beyond-GR theories.
-Some beyond-GR theories such as Chern-Simons theory (CS) suggested that gravitational waves (GWs) amplitude birefringence is a property of space;
-in contrast, GR predicts there is no birefringence.
+Some beyond-GR theories such as Chern-Simons theory (CS) suggested that there is gravitational wave (GW) amplitude birefringence,
+while GR predicts there is no birefringence.
 
+GW amplitude birefringence is a property of space which consists of the enhancement of one GW polarisation over the other during the propagation of the wave.
+To illustrate the property, \textbf{[use snapshot from the animation to explain both frequency-dependent and frequency-independent birefringence]}
+
+Before we discuss more about GW amplitude birefringence, we need to understand the case of GR.
 GW consist of two linear polarizations (i.e. $+$ and $\times$) similar to electromagnetic waves,
 which could be transformed into two circular polarizations (i.e. left and right) by $h_{\mathrm{R}, \mathrm{L}} = h_+ \pm i h_\times$.
 In GR, the amplitude ratio of the left and right polarisations only depends on the inclination $\iota$ for a nonprecessing binary,
@@ -82,7 +88,7 @@ the angle between our line of sight and the orbital angular momentum of the bina
 \end{equation}where $h_L$ and $h_R$ are the Fourier amplitude of left and right polarizations of the GWs respectively.
 
 For other studies on the birefringence property such as \citet{Maria_2021}, the amplitude ratio depends on not only $\iota$,
-but also the distance to the merger and the strength of the birefringence.
+but also the distance to the binary and the strength of the birefringence.
 \begin{equation}
     \left(\frac{h_\mathrm{L_{obs}}}{h_\mathrm{R_{obs}}}\right)_\mathrm{Biref}^\mathrm{old}=\frac{e^{d_C\widetilde{\kappa}}\left(1-\cos\iota\right)^2}{e^{-d_C\widetilde{\kappa}}\left(1+\cos\iota\right)^2}\,,
 \end{equation}where $d_C$ is the comoving distance to the binary, $\widetilde{\kappa}$ is the opacity parameter that represent
@@ -100,7 +106,8 @@ This frequency dependence provides stronger enhancement or suppression from the 
 Also, the frequency dependence can break the degeneracy between kappa and iota,
 as this would make the effect of the birefringence affect the amplitude ratio differently compared to iota.
 
-Estimations on $\kappa$ using Bilby with data from the third LIGO-Virgo catalog, GWTC-3, was performed to constrain the plausible range of $\kappa$.
+Estimations on $\kappa$ using Bilby with data from the third LIGO-Virgo catalog \textbf{[cite LIGO]}, GWTC-3,
+was performed to constrain the plausible range of $\kappa$.
 Bilby is a bayesian toolkit for GW analysis, which could calculate posterior of GW waveform parameters based on signals from
 interferometer and priors of the parameters provided. \citep{Ashton_2019}
 
@@ -130,10 +137,10 @@ and the most probable value of $$\kappa$$ is close to $$0$$, which means the bir
     \script{GW150914_corner.py}
     \includegraphics[width=\textwidth]{figures/GW150914_corner.png}
     \caption{The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-    The three sets of plots are the parameter estimations (PE) done by LIGO with GR \citep{LIGO_2021},
+    The three sets of plots are the parameter estimations (PEs) done by LIGO with GR \citep{LIGO_2021},
     the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
     Note that there is no posterior of $\kappa$ for the PE from LIGO, as the LIGO PE is based on GR,
-    which does not suggest GWs amplitude birefringence.}
+    which does not suggest GW amplitude birefringence.}
     \label{fig:GW150914_corner}
 \end{figure*}
 
