@@ -36,10 +36,14 @@ After a century, we know that GR do not agree with quantum theories at some leng
 To unify both theories, we need to study the possibility of different beyond-GR theories.
 Some beyond-GR theories such as Chern-Simons theory (CS) suggested that there is gravitational wave (GW) amplitude birefringence,
 while GR predicts there is no birefringence.
-GW amplitude birefringence is a property of space which consists of the enhancement of one GW polarisation over the other during the propagation of the wave.
 
-% To illustrate the effect of amplitude birefringence,
-% the amplitudes of two polarisations of a artificial GW signal are shown in figure \textbf{[X]}.
+GW amplitude birefringence is a property of space which consists of the enhancement of one GW polarisation over the other during the propagation of the wave.
+The longer the GW travels, the larger the effect of birefringence.
+To illustrate the effect of amplitude birefringence,
+the observed amplitudes of two polarisations of an artificial GW signal example are shown in figure \textbf{[X]}.
+\textbf{[add figure similar to the animation in the website]}
+With birefringence, the amplitude is modified during the propagation,
+and the observed amplitudes will be different compare to the amplitudes when they are generated at the binary.
 
 Before we discuss more about GW amplitude birefringence, we need to understand the case of GR.
 GW consist of two linear polarizations (i.e. $+$ and $\times$) similar to electromagnetic waves,
@@ -89,16 +93,16 @@ This modification allows Bilby to perform estimations on $\kappa$, as the wavefo
 
 \subsection{Result for GW150914}
 
-\begin{figure*}[h]
+\begin{figure}[h!]
     \script{GW150914_corner.py}
-    \includegraphics[width=\textwidth]{figures/GW150914_corner.png}
+    \includegraphics[width=\columnwidth]{figures/GW150914_corner.png}
     \caption{The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
     The three sets of plots are the PEs done by LIGO with GR \citep{LIGO_2021},
     the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
     Note that there is no posterior of $\kappa$ for the PE from LIGO, as the LIGO PE is based on GR,
     which does not suggest GW amplitude birefringence.}
     \label{fig:GW150914_corner}
-\end{figure*}
+\end{figure}
 
 Consider GW150914, the first detected GW by LIGO. In figure \ref{fig:GW150914_corner}, the posteriors of the parameters of the GW150914 is shown.
 With the frequency independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
@@ -113,6 +117,10 @@ In this case, the posteriors can recover the GR distributions for the binary par
 and the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent, and GR can be recovered.
 
 \subsection{Result on GWTC-3}
+
+We then perform PE on $71$ binary black hole merger events in GWTC-3 to further constrain $\kappa$.
+The posteriors for $\kappa$ of the events are shown in figure \textbf{[X]}, which shows $\kappa$ tend to be $0$.
+The combined posterior for $\kappa$ was calculated and shown in figure \textbf{[X]}, which allows us to constrain $\kappa$ within \textbf{[the number we get]}.
 
 \section{Discussion}
 
@@ -155,10 +163,13 @@ and the most probable value of $\kappa$ is close to $0$, which means the birefri
     \end{enumerate}
     \item Method
     \begin{enumerate}
-        \item PE on GWTC-3 to constrain $\kappa$
-        \item Assume GW are generated as GR described
-        \item birefringence is considered during the propagation
-        \item waveform modification
+        \item Parameter Estimation
+        \begin{enumerate}
+            \item PE on GWTC-3 to constrain $\kappa$
+            \item Assume GW are generated as GR described
+            \item birefringence is considered during the propagation
+            \item waveform modification
+        \end{enumerate}
     \end{enumerate}
     \item Results
     \begin{enumerate}
