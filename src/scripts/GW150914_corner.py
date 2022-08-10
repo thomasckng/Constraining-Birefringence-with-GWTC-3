@@ -37,6 +37,6 @@ g.axes[1,0].set_ylabel("$d_L$")
 g.axes[2,1].set_xlabel("$d_L$")
 g.axes[2,0].set_ylabel("$\cos\iota$")
 g.axes[2,2].set_xlabel("$\cos\iota$")
-g._legend.set_bbox_to_anchor((0.65, 0.85))
+g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
 
 g.savefig(fname=paths.figures/"GW150914_corner.png", bbox_inches="tight", dpi=300)
