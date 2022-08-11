@@ -37,11 +37,23 @@ To unify both theories, we need to study the possibility of different beyond-GR 
 Some beyond-GR theories such as Chern-Simons theory (CS) suggested that there is gravitational wave (GW) amplitude birefringence,
 while GR predicts there is no birefringence.
 
+\begin{figure}[h!]
+    \script{birefringence.py}
+    \includegraphics[width=\columnwidth]{figures/birefringence.png}
+    \caption{
+        The observed amplitudes of two polarisations of an artificial GW signal under different model.
+        The top panel shows the case of GR, the amplitudes are unmodified.
+        For the middle and bottom panel, they shows the case of birefringence.
+        Left-handed polarisation is favored by the birefringence in the middle panel,
+        and right-handed polarisation is favored by the birefringence in the bottom panel.
+    }
+    \label{fig:birefringence}
+\end{figure}
+
 GW amplitude birefringence is a property of space which consists of the enhancement of one GW polarisation over the other during the propagation of the wave.
 The longer the GW travels, the larger the effect of birefringence.
 To illustrate the effect of amplitude birefringence,
-the observed amplitudes of two polarisations of an artificial GW signal example are shown in figure \textbf{[X]}.
-\textbf{[add figure similar to the animation in the website]}
+the observed amplitudes of two polarisations of an artificial GW signal example are shown in figure \ref{fig:birefringence}.
 With birefringence, the amplitude is modified during the propagation,
 and the observed amplitudes will be different compare to the amplitudes when they are generated at the binary.
 
@@ -75,9 +87,9 @@ as this would make the effect of the birefringence affect the amplitude ratio di
 
 \section{Method}
 
-To constrain $\kappa$, we perform parameter estimation (PE) with data from the third LIGO-Virgo catalog \citep{LIGO_2021}, GWTC-3, using Bilby,
+To constrain $\kappa$, we perform parameter estimation (PE) with data from the third LIGO-Virgo catalog \citep{GWTC-2.1, GWTC-3}, GWTC-3, using Bilby,
 a Bayesian toolkit for GW data analysis which is able to calculate posteriors of GW parameters based on interferometer data
-and priors for the parameters in question. \citep{Ashton_2019}
+and priors for the parameters in question. \citep{Bilby}
 
 We assume GWs are generated at the binary as GR described. As the GWs propagate through space,
 the effect of the birefringence will be built up as the distance increases.
@@ -89,6 +101,11 @@ To implement the amplitude birefringence on Bilby, waveforms are modified accord
 \end{equation}
 This modification allows Bilby to perform estimations on $\kappa$, as the waveforms will depends on $\kappa$ as well.
 
+After modifying Bilby, we set the prior on $\kappa$ to be a $\delta$ function at $0$, which is the same as using GR,
+to test if the PEs could recover the PE done by LIGO in \citet{GWTC-2.1, GWTC-3}. These control tests result can be found in the data release.
+We then set the prior on $\kappa$ to a uniform function between $-1$ and $1$, and perform PEs on the modified waveforms.
+In both case, we use the same configuration as in \citep{GWTC-2.1, GWTC-3} for each individual events.
+
 \section{Results}
 
 \subsection{Result for GW150914}
@@ -96,11 +113,13 @@ This modification allows Bilby to perform estimations on $\kappa$, as the wavefo
 \begin{figure}[h!]
     \script{GW150914_corner.py}
     \includegraphics[width=\columnwidth]{figures/GW150914_corner.png}
-    \caption{The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-    The three sets of plots are the PEs done by LIGO with GR \citep{LIGO_2021},
+    \caption{
+        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
+    The three sets of plots are the PEs done by LIGO with GR \citep{GWTC-2.1, GWTC-3},
     the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
     Note that there is no posterior of $\kappa$ for the PE from LIGO, as the LIGO PE is based on GR,
-    which does not suggest GW amplitude birefringence.}
+    which does not suggest GW amplitude birefringence.
+    }
     \label{fig:GW150914_corner}
 \end{figure}
 
@@ -169,6 +188,8 @@ The combined posterior for $\kappa$ was calculated and shown in figure \textbf{[
             \item Assume GW are generated as GR described
             \item birefringence is considered during the propagation
             \item waveform modification
+            \item GR control test
+            \item same configuration as LIGO
         \end{enumerate}
     \end{enumerate}
     \item Results

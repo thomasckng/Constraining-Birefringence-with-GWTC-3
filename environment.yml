@@ -2,12 +2,13 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - numpy=1.19.2
-  - pip=21.0.1
-  - python=3.9
+  - numpy
+  - pip
+  - python
   - pip:
-      - matplotlib==3.4.3
+      - matplotlib
       - h5py
       - bilby
       - pandas
       - seaborn
+      - gwpy
