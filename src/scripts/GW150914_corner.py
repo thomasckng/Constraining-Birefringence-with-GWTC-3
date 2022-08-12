@@ -5,6 +5,8 @@ import seaborn as sns
 from bilby.gw.result import CBCResult
 import paths
 
+sns.set_theme(palette='colorblind', font_scale=1.2)
+
 nsamples = 5000
 
 with h5py.File(paths.data/"IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5", 'r') as f:
@@ -30,7 +32,7 @@ result = pd.concat([result_bilby,result_extra,result_ligo], ignore_index=True)
 g = sns.pairplot(result,
                  vars=['kappa', 'luminosity_distance', 'cos_iota'],
                  corner=True, kind='kde', hue='with',
-                 diag_kws=dict(common_norm=False), plot_kws=dict(common_norm=False, levels=5))
+                 diag_kws=dict(common_norm=False), plot_kws=dict(common_norm=False, levels=[(1.-0.954499736),(1.-0.682689492)]))
 
 g.axes[2,0].set_xlabel("$\kappa$")
 g.axes[1,0].set_ylabel("$d_L$")
