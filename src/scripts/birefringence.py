@@ -5,6 +5,9 @@ import lal
 import seaborn as sns
 import paths
 from matplotlib import rc
+import os
+from pathlib import Path
+os.environ["PATH"] += os.pathsep + str(Path.home() / "bin")
 
 sns.set_theme(palette='colorblind', font_scale=1.2)
 
