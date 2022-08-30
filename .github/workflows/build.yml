@@ -14,13 +14,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install TinyTex for matplotlib LaTeX rendering
-        id: tinytex
+      - name: Installation for matplotlib LaTeX rendering
+        id: matplotlib LaTex
         shell: bash -l {0}
         run: |
-          wget -qO- "https://yihui.org/tinytex/install-bin-unix.sh" | sh
-          sudo ~/bin/tlmgr install type1cm cm-super underscore dvipng type1ec
-          sudo apt install texlive texlive-latex-extra texlive-fonts-recommended dvipng
+          sudo apt install texlive texlive-latex-extra texlive-fonts-recommended dvipng cm-super
 
       - name: Build the article PDF
         id: build
