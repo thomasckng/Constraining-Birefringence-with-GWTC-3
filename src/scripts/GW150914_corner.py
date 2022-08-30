@@ -1,15 +1,18 @@
 import h5py
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
 from bilby.gw.result import CBCResult
 import paths
-from matplotlib import rc
 
 sns.set_theme(palette='colorblind', font_scale=1.2)
 
-rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
-rc('text', usetex=True)
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "serif",
+    "font.serif": ["Computer Modern Roman"],
+})
 
 nsamples = 5000
 

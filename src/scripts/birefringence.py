@@ -4,12 +4,14 @@ import lalsimulation as lalsim
 import lal
 import seaborn as sns
 import paths
-from matplotlib import rc
 
 sns.set_theme(palette='colorblind', font_scale=1.2)
 
-rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
-rc('text', usetex=True)
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "serif",
+    "font.serif": ["Computer Modern Roman"],
+})
 
 approximant = lalsim.SimInspiralGetApproximantFromString("IMRPhenomD")
 
