@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
 
       - name: Installation for matplotlib LaTeX rendering
-        id: matplotlib LaTex
+        id: matplotlib_LaTex
         shell: bash -l {0}
         run: |
           sudo apt install texlive texlive-latex-extra texlive-fonts-recommended dvipng cm-super
