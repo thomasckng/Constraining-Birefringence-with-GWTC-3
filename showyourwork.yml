@@ -1,19 +1,35 @@
 version: 0.3.0
 
 dependencies:
-    src/scripts/GW150914_corner.py:
+    src/scripts/corner_GW150914.py:
         - src/data/IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5
         - src/data/GW150914_birefringence(frequency_independent).json
-        - src/data/GW150914_birefringence.json
+        - src/data/samples_posterior_nonGR.feather
+
+    src/scripts/corner_GW190521.py:
+        - src/data/IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_nocosmo.h5
+        - src/data/samples_posterior_nonGR.feather
+
+    src/scripts/corner_Gaussian.py:
+        - src/data/samples_Gaussian.npz
+
+    src/scripts/kappa_stacked.py:
+        - src/data/samples_posterior_nonGR.feather
+    
+    src/scripts/violin_kappa.py:
+        - src/data/samples_posterior_nonGR.feather
+        - src/data/samples_Gaussian.npz
 
 datasets:
     10.5281/zenodo.6513631:
         destination: src/data/
         contents:
             IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5:
+            IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_nocosmo.h5:
 
-    10.5072/zenodo.1085755:
+    10.5072/zenodo.1130721:
         destination: src/data/
         contents:
             GW150914_birefringence(frequency_independent).json:
-            GW150914_birefringence.json:
+            samples_Gaussian.npz:
+            samples_posterior_nonGR.feather:

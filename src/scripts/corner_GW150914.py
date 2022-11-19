@@ -21,9 +21,10 @@ with h5py.File(paths.data/"IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_n
     result_ligo = pd.DataFrame.from_records(f["posterior_samples"][()])
 result_ligo = result_ligo.sample(n=nsamples)
 result_ligo['kappa'] = np.zeros(len(result_ligo))
-result_ligo['with'] = np.full(len(result_ligo), r"GR (LIGO)")
+result_ligo['with'] = np.full(len(result_ligo), r"GR (LVK)")
 
-result_bilby = CBCResult.from_json(filename=paths.data/"GW150914_birefringence.json").posterior
+result_bilby = pd.read_feather(paths.data/"samples_posterior_nonGR.feather")
+result_bilby = result_bilby[result_bilby.event == "GW150914"]
 result_bilby = result_bilby.sample(n=nsamples)
 result_bilby['with'] = np.full(len(result_bilby), r"Non-GR (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])

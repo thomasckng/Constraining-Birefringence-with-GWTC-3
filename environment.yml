@@ -13,3 +13,4 @@ dependencies:
       - seaborn
       - lalsuite
       - latex
+      - pyarrow

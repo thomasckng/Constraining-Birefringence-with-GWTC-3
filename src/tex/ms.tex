@@ -50,7 +50,7 @@ In \citet{Yamada_2020} and \citet{Wang_2021}, they both modeled the waveform und
 % What's new?
 In this paper, we used a birefringence model with higher order terms which include the frequency dependence of amplitude birefringence to perform a more accurate parameter estimation (PE).
 We also performed Bayesian inference on events in GWTC-3, the third GW transient catalog.
-We included 70 binary black hole merger events with smallest false alarm rate $\leq1\mathrm{yr^{-1}}$, which are listed in \citet{GWTC_3_population}.\footnote{GW190720 is included in list, however, we could not successfully perform PE with it. Details on GW190720 will be mention in Discussion.}
+We included 70 binary black hole merger events with smallest false alarm rate $\leq1\mathrm{yr^{-1}}$, which are listed in \citet{GWTC_3_population}.\footnote{GW190720 is included in the list in \citet{GWTC_3_population}, however, we could not successfully perform PE with it. Details on GW190720 will be mention in Discussion.}
 
 % Section guide
 In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, and mention the configuration we used in the PE.
@@ -133,9 +133,9 @@ In figure \ref{fig:kappa_stacked}, we show the individual posterior of $\kappa$ 
 
 \begin{figure}[h]
     \script{kappa_stacked.py}
-    % \includegraphics[width=\columnwidth]{figures/kappa_stacked.pdf}
+    \includegraphics[width=\columnwidth]{figures/kappa_stacked.pdf}
     \caption{
-        The posterior of $kappa$ for all 70 events included in this study.
+        The posterior of $\kappa$ for all 70 events included in this study.
         Each color represent a different event.
         These posterior are used to calculate the constraint on $\kappa$ in the following.
     }
@@ -153,7 +153,7 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
 
 \begin{figure}[h]
     \script{corner_Gaussian.py}
-    % \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
+    \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
     \caption{
         The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
     }
@@ -164,16 +164,16 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
 
 % Violin plot
 
-\begin{figure}[h]
+\begin{figure*}[ht]
     \script{violin_kappa.py}
-    % \includegraphics[width=\columnwidth]{figures/violin_kappa.pdf}
+    \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
     \caption{
-        The violin plot shows the posterior of $kappa$ for all 70 events included in this study.
+        The violin plot shows the posterior of $\kappa$ for all 70 events included in this study.
         Each violin represents a different event.
         The violins are sorted by the quotient of median and standard deviation of the posterior.
     }
     \label{fig:violin_kappa}
-\end{figure}
+\end{figure*}
 
 % Trend (mass & distance)
 
@@ -212,7 +212,7 @@ and the most probable value of $\kappa$ is close to $0$, which means the birefri
 
 \begin{figure}[h]
     \script{corner_GW190521.py}
-    % \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
+    \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
         The colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE done by us with the frequency dependent birefringence.
