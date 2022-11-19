@@ -48,4 +48,4 @@ g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
 g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
 
-g.savefig(fname=paths.figures/"GW150914_corner.pdf", bbox_inches="tight", dpi=300)
+g.savefig(fname=paths.figures/"corner_GW150914.pdf", bbox_inches="tight", dpi=300)
