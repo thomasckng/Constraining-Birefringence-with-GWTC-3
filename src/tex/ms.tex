@@ -28,12 +28,16 @@
 \date{\today}
 
 \begin{abstract}
-
+    One of the major problems that physicists are facing nowadays is Einstein's theory of general relativity does not agree with quantum theories at some length scales.
+    In recent decades, theorist has been working on many beyond-GR theories to unify both of them.
+    Some of these theories such as Chern-Simons gravity suggest that there is gravitational wave amplitude birefringence.
+    In our study, we perform parameter estimation to constrain the strength of GW amplitude birefringence.
+    Compare to similar previous studies on the same topic, we perform PE on more events, including events in the third LIGO-Virgo catalog, and we used a more accurate model of birefringence to describe the phenomenon.
+    % results
 \end{abstract}
 
 \section{Introduction}
 \label{sec:Introduction}
-
 % Motivation
 Since Einstein proposed his theory of general relativity (GR), it was tested in a wide range of length scales.
 After a century, we know that GR does not agree with quantum theories at some length scale.
@@ -59,7 +63,6 @@ In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study, and provi
 
 \section{Method}
 \label{sec:Method}
-
 % Waveform modification
 GW consist of two linear polarizations (i.e. $+$ and $\times$) similar to electromagnetic waves, which could be transformed into two circular polarizations (i.e. left-handed and right-handed) by
 \begin{equation}
@@ -126,36 +129,35 @@ These control tests result can be found in the data release.
 
 \section{Results}
 \label{sec:Results}
-
 \subsection{Result on GWTC-3}
 % Stacked kappa posterior plot
-In figure \ref{fig:kappa_stacked}, we show the individual posterior of $\kappa$ of each events.
-
 \begin{figure}[h]
     \script{kappa_stacked.py}
     \includegraphics[width=\columnwidth]{figures/kappa_stacked.pdf}
     \caption{
         The posterior of $\kappa$ for all 70 events included in this study.
         Each color represent a different event.
-        These posterior are used to calculate the constraint on $\kappa$ in the following.
+        These posterior are used to calculate the population constraint on $\kappa$ in the following.
     }
     \label{fig:kappa_stacked}
 \end{figure}
 
 % How to calculate the combined posterior
-
+In figure \ref{fig:kappa_stacked}, we show the individual posterior of $\kappa$ of each events obtained from PE.
 We assume $\kappa$ is different for each event, and the population distribution of $\kappa$ is a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$.
 We then performed hierarchical modeling to construct the likelihood function of $\mu$ and $\sigma$ given interferometer data.
 To sample the posterior distribution of $\mu$ and $\sigma$, we used a generic sampling package, flowMC \citep{flowMC}, with prior of $\mu$ and $\sigma$ being uniform distributions.
 The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian}.
 
 % Corner plot of mean and standard deviation of kappa
-
 \begin{figure}[h]
     \script{corner_Gaussian.py}
     \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
     \caption{
         The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
+        2D contour plot shows 1 $\sigma$ and 90\% confidence level.
+        Orange line represent the median value of the posterior.
+        The median of $\mu$ and $\sigma$ are \variable{output/mu_median.txt} and \variable{output/sigma_median.txt}, respectively.
     }
     \label{fig:corner_Gaussian}
 \end{figure}
@@ -163,7 +165,10 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
 % Constraint on $\kappa$
 
 % Violin plot
-
+In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each events in the form of violin plot.
+There are some events with $\kappa$ distribution deviate from $\kappa=0$.
+Also, there are some events with bimodal $\kappa$ distribution.
+We are going to discuss some of these events in the following.
 \begin{figure*}[ht]
     \script{violin_kappa.py}
     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
@@ -171,6 +176,9 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
         The violin plot shows the posterior of $\kappa$ for all 70 events included in this study.
         Each violin represents a different event.
         The violins are sorted by the quotient of median and standard deviation of the posterior.
+        Blue horizontal line represent the median value of $\mu$, and blue region represent 1 $\sigma$ confidence level.
+        Orange horizontal line represent $\kappa=0$.
+        This plot shows that there are some events with $\kappa$ distribution significantly deviate from $0$.
     }
     \label{fig:violin_kappa}
 \end{figure*}
@@ -180,8 +188,10 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
 % Constraining power
 
 % Case study
+% Case: GW170818
+\subsection{Result on GW170818}
 
-% Case 1: GW150914
+% Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
 
 \begin{figure}[h]
@@ -189,15 +199,17 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-        The three colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
+        Colors in the plot represent the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
+        2D contour plot shows 1 $\sigma$ and 90\% confidence level.
         Note that there is no posterior of $\kappa$ for the PE from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
-        The plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
+        This plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
     }
     \label{fig:corner_GW150914}
 \end{figure}
 
+Some events have bimodal $\kappa$ distribution, but before we show a bimodal event, we should understand the mechanism of a unimodal $\kappa$ distribution.
 Consider GW150914, the first GW detected by LIGO.
-In figure \ref{fig:GW150914_corner}, we show the posteriors of the parameters of GW150914.
+In figure \ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
 With the frequency independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
 This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
 To reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$, or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
@@ -208,35 +220,36 @@ This is because the degeneracy was broken by the frequency dependence, as the ef
 In this case, the posteriors can recover the GR distributions for the binary parameters,
 and the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent, and GR can be recovered.
 
-% Case 2: GW190521 (massive BBH)
-
+% Case: GW190521 (massive BBH)
+\subsection{Result on GW190521}
 \begin{figure}[h]
     \script{corner_GW190521.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
-        The colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE done by us with the frequency dependent birefringence.
-        The plot shows that frequency dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
+        Colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE done by us with the frequency dependent birefringence.
+        2D contour plot shows 1 $\sigma$ and 90\% confidence level.
+        This plot shows that frequency dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
     }
     \label{fig:corner_GW190521}
 \end{figure}
 
+Now, we show a bimodal $\kappa$ distribution.
 Consider GW190521, the most massive binary black hole merger in the events we included.
 The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency dependent birefringence model, as shown in figure \ref{fig:corner_GW190521}.
 This is because the frequency range of the signal is much smaller due to the large mass of the binary.
 The effect of birefringence at different frequency within the range is similar, thus the degeneracy cannot be broken.
+This can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
 
 \section{Discussion}
 \label{sec:Discussion}
 
 % Reasons for special events
-
 % Special event 1: GW190720
 
 % Special event 2: GW200129
 
 % Future work
-
 % BNS
 A future work is to perform PE on binary neutron star mergers, such as GW170817.
 The frequency range of the signal is much larger compared to the binary black hole mergers, thus the difference of the effect of birefringence at different frequency within the range can be more significant.
@@ -247,10 +260,11 @@ Therefore, we may need to wait for future PE methods and tools to further our wo
 % More observations with higher SNR
 Another future work is to apply the same method to more events with higher signal-to-noise ratio (SNR).
 LVK will release more events with higher SNR in the future.
+Data with higher SNR allows us to obtain more precise PE results, which also allows us to constrain the birefringence effect more precisely.
+And more events will allow us to calculate a more constrained population posterior of $\kappa$.
 
 \section{Acknowledgements}
 \label{sec:Acknowledgements}
-
 
 
 \bibliography{bib}

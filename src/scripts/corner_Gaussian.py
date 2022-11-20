@@ -14,6 +14,13 @@ plt.rcParams.update({
 
 samples_Gaussian = np.load(paths.data/"samples_Gaussian.npz")["chains"]
 samples_Gaussian = samples_Gaussian.reshape(-1, 2)
+mu_median = np.median(samples_Gaussian[:,0])
+sigma_median = np.median(samples_Gaussian[:,1])
+
+with open(paths.output/"mu_median.txt", "w") as f:
+    f.write(f"${mu_median:.3f}\\pm{np.std(samples_Gaussian[:,1]):.3f}$")
+with open(paths.output/"sigma_median.txt", "w") as f:
+    f.write(f"${sigma_median:.3f}\\pm{np.std(samples_Gaussian[:,1]):.3f}$")
 
 df = pd.DataFrame()
 df['mu'] = samples_Gaussian.reshape(-1,2)[:,0]
@@ -25,6 +32,10 @@ g = sns.pairplot(df,
                 corner=True, kind='kde',
                 diag_kws=dict(common_norm=False, cut=0), plot_kws=dict(common_norm=False, levels=[
                         (1.-0.90),(1.-0.3935)], cut=0))
+g.axes[0,0].axvline(mu_median, color=sns.color_palette()[3])
+g.axes[1,1].axvline(sigma_median, color=sns.color_palette()[3])
+g.axes[1,0].axvline(mu_median, color=sns.color_palette()[3])
+g.axes[1,0].axhline(sigma_median, color=sns.color_palette()[3])
 
 g.axes[1,1].set_xlabel("$\\sigma$")
 g.axes[1,0].set_xlabel("$\\mu$")
