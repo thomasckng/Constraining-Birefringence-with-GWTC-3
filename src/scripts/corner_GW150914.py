@@ -23,7 +23,7 @@ result_ligo = result_ligo.sample(n=nsamples)
 result_ligo['kappa'] = np.zeros(len(result_ligo))
 result_ligo['with'] = np.full(len(result_ligo), r"GR (LVK)")
 
-result_bilby = pd.read_feather(paths.data/"samples_posterior_nonGR.feather")
+result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW150914"]
 result_bilby = result_bilby.sample(n=nsamples)
 result_bilby['with'] = np.full(len(result_bilby), r"Non-GR (frequency dependent)")
