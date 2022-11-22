@@ -17,11 +17,6 @@ samples_Gaussian = samples_Gaussian.reshape(-1, 2)
 mu_median = np.median(samples_Gaussian[:,0])
 sigma_median = np.median(samples_Gaussian[:,1])
 
-with open(paths.output/"mu_mean.txt", "w") as f:
-    f.write(f"${np.mean(samples_Gaussian[:,0]):.3f}\\pm{np.std(samples_Gaussian[:,0]):.3f}$")
-with open(paths.output/"sigma_mean.txt", "w") as f:
-    f.write(f"${np.mean(samples_Gaussian[:,1]):.3f}\\pm{np.std(samples_Gaussian[:,1]):.3f}$")
-
 df = pd.DataFrame()
 df['mu'] = samples_Gaussian.reshape(-1,2)[:,0]
 df['sigma'] = samples_Gaussian.reshape(-1,2)[:,1]

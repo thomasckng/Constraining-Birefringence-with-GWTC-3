@@ -156,16 +156,21 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
     \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
     \caption{
         The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
-        2D contour plot shows 39.35\% and 90\% confidence level.
-        Orange line represent the median value of the posterior.
+        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+        Orange line represent the median of $\mu$ and $\sigma$, which are \variable{output/mu_median.txt} and \variable{output/sigma_median.txt} respectively,.
         The mean of $\mu$ and $\sigma$ are \variable{output/mu_mean.txt} and \variable{output/sigma_mean.txt}, respectively.
     }
     \label{fig:corner_Gaussian}
 \end{figure}
 
 % Constraint on $\kappa$
+We then calculate the constraint on $\kappa$ from the posterior of $\mu$ and $\sigma$.
+% constraint
 
 % Comparison with previous studies
+In \citet{Maria_2021}, the authors gave a constraint on GW amplitude birefringence by performing statistical analysis on GWTC-2.
+We convert the constraint to the same format as ours to make comparison.
+They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma$.
 
 % Violin plot
 In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each events in the form of violin plot.
@@ -202,7 +207,7 @@ We are going to discuss some of these events in the following.
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
         Colors in the plot represent the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
-        2D contour plot shows 39.35\% and 90\% confidence level.
+        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
         Note that there is no posterior of $\kappa$ for the PE from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
         This plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
     }
@@ -230,7 +235,7 @@ and the most probable value of $\kappa$ is close to $0$, which means the birefri
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
         Colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE done by us with the frequency dependent birefringence.
-        2D contour plot shows 39.35\% and 90\% confidence level.
+        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
         This plot shows that frequency dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
     }
     \label{fig:corner_GW190521}

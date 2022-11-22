@@ -20,6 +20,12 @@ dependencies:
         - src/data/samples_posterior_birefringence.feather
         - src/data/samples_Gaussian_without_GW200129.npz
 
+    src/tex/ms.tex:
+        - src/tex/output/mu_mean.txt
+        - src/tex/output/sigma_mean.txt
+        - src/tex/output/mu_median.txt
+        - src/tex/output/sigma_median.txt
+
 datasets:
     10.5281/zenodo.6513631:
         destination: src/data/
