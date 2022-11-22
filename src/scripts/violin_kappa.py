@@ -15,7 +15,7 @@ plt.rcParams.update({
 result_dict = {}
 median_std_dict = {}
 result_DataFrame = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
-result_DataFrame = result_DataFrame[result_DataFrame.event != "GW200129"] # remove GW200129
+result_DataFrame = result_DataFrame[result_DataFrame.event != "GW200129_065458"] # remove GW200129
 for event in result_DataFrame['event'].unique():
     result_dict[event] = result_DataFrame[result_DataFrame.event == event]
     median_std_dict[event] = abs(result_dict[event]['kappa'].median()/result_dict[event]['kappa'].std())

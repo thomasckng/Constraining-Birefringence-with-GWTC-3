@@ -25,6 +25,7 @@ dependencies:
         - src/tex/output/sigma_mean.txt
         - src/tex/output/mu_median.txt
         - src/tex/output/sigma_median.txt
+        - src/tex/output/kappa_mean.txt
 
 datasets:
     10.5281/zenodo.6513631:

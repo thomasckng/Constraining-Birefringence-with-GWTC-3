@@ -33,7 +33,7 @@
     Some of these theories such as Chern-Simons gravity suggest that there is gravitational wave (GW) amplitude birefringence.
     In our study, we perform parameter estimation (PE) to constrain the strength of GW amplitude birefringence.
     Compare to similar previous studies on the same topic, we perform PE on more events, including events in the third LIGO-Virgo catalog (GWTC-3), and we used a more accurate model of birefringence to describe the phenomenon.
-    % results
+    We were able to obtain a constrain an order of magnitude tighter than previous studies which used GWTC-2.
 \end{abstract}
 
 \section{Introduction}
@@ -165,18 +165,25 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
 
 % Constraint on $\kappa$
 We then calculate the constraint on $\kappa$ from the posterior of $\mu$ and $\sigma$.
-% constraint
+We generated a Gaussian distribution for each sample of $\mu$ and $\sigma$.
+The Gaussian distributions were then added up to obtain the population distribution of $\kappa$.
+The mean of the population distribution of $\kappa$ is \variable{output/kappa_mean.txt}.
+Note that GR is recovered if $\kappa$ is $0$.
 
 % Comparison with previous studies
 In \citet{Maria_2021}, the authors gave a constraint on GW amplitude birefringence by performing statistical analysis on GWTC-2.
 We convert the constraint to the same format as ours to make comparison.
 They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma$.
+We were able to obtain a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1 \sigma$.
+This is a order of magnitude improvement in constraining $\kappa$.
+This is due to the fact that we have much more events from GWTC-3 compared to GWTC-2.
 
 % Violin plot
 In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each events in the form of violin plot.
 There are some events with $\kappa$ distribution deviate from $\kappa=0$.
 Also, there are some events with bimodal $\kappa$ distribution.
 We are going to discuss some of these events in the following.
+
 \begin{figure*}[ht]
     \script{violin_kappa.py}
     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
@@ -200,20 +207,6 @@ We are going to discuss some of these events in the following.
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
-
-\begin{figure}[h]
-    \script{corner_GW150914.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
-    \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-        Colors in the plot represent the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
-        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        Note that there is no posterior of $\kappa$ for the PE from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
-        This plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
-    }
-    \label{fig:corner_GW150914}
-\end{figure}
-
 Some events have bimodal $\kappa$ distribution, but before we show a bimodal event, we should understand the mechanism of a unimodal $\kappa$ distribution.
 Consider GW150914, the first GW detected by LIGO.
 In figure \ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
@@ -227,8 +220,29 @@ This is because the degeneracy was broken by the frequency dependence, as the ef
 In this case, the posteriors can recover the GR distributions for the binary parameters,
 and the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent, and GR can be recovered.
 
+\begin{figure}[h]
+    \script{corner_GW150914.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
+    \caption{
+        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
+        Colors in the plot represent the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with both frequency independent and dependent birefringence respectively.
+        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+        Note that there is no posterior of $\kappa$ for the PE from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
+        This plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
+    }
+    \label{fig:corner_GW150914}
+\end{figure}
+
 % Case: GW190521 (massive BBH)
 \subsection{Result on GW190521}
+
+Now, we show a bimodal $\kappa$ distribution.
+Consider GW190521, the most massive binary black hole merger in the events we included.
+The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency dependent birefringence model, as shown in figure \ref{fig:corner_GW190521}.
+This is because the frequency range of the signal is much smaller due to the large mass of the binary.
+The effect of birefringence at different frequency within the range is similar, thus the degeneracy cannot be broken.
+This can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
+
 \begin{figure}[h]
     \script{corner_GW190521.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
@@ -240,13 +254,6 @@ and the most probable value of $\kappa$ is close to $0$, which means the birefri
     }
     \label{fig:corner_GW190521}
 \end{figure}
-
-Now, we show a bimodal $\kappa$ distribution.
-Consider GW190521, the most massive binary black hole merger in the events we included.
-The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency dependent birefringence model, as shown in figure \ref{fig:corner_GW190521}.
-This is because the frequency range of the signal is much smaller due to the large mass of the binary.
-The effect of birefringence at different frequency within the range is similar, thus the degeneracy cannot be broken.
-This can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
 
 \section{Discussion}
 \label{sec:Discussion}

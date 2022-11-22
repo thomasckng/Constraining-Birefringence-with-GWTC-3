@@ -26,13 +26,13 @@ result_ligo['with'] = np.full(len(result_ligo), r"GR (LVK)")
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW150914"]
 result_bilby = result_bilby.sample(n=nsamples)
-result_bilby['with'] = np.full(len(result_bilby), r"Non-GR (frequency dependent)")
+result_bilby['with'] = np.full(len(result_bilby), r"birefringence (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
 result_extra = CBCResult.from_json(filename=paths.data/"GW150914_birefringence(frequency_independent).json").posterior
 result_extra = result_extra.sample(n=nsamples)
 result_extra['kappa'] = result_extra['kappa'] * 1000 # different scale was used in the frequency independent data
-result_extra['with'] = np.full(len(result_extra), r"Non-GR (frequency independent)")
+result_extra['with'] = np.full(len(result_extra), r"birefringence (frequency independent)")
 result_extra['cos_iota'] = np.cos(result_extra['iota'])
 
 result = pd.concat([result_bilby,result_extra,result_ligo], ignore_index=True)
