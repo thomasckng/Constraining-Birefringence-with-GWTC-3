@@ -149,6 +149,7 @@ We assume $\kappa$ is different for each event, and the population distribution 
 We then performed hierarchical modeling to construct the likelihood function of $\mu$ and $\sigma$ given interferometer data.
 To sample the posterior distribution of $\mu$ and $\sigma$, we used a generic sampling package, flowMC \citep{flowMC}, with prior of $\mu$ and $\sigma$ being uniform distributions.
 The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian}.
+The mean of $\mu$ and $\sigma$ are \variable{output/Gaussian_mean.txt}, respectively.
 
 % Corner plot of mean and standard deviation of kappa
 \begin{figure}[h]
@@ -157,8 +158,7 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
     \caption{
         The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        Orange line represent the median of $\mu$ and $\sigma$, which are \variable{output/mu_median.txt} and \variable{output/sigma_median.txt} respectively,.
-        The mean of $\mu$ and $\sigma$ are \variable{output/mu_mean.txt} and \variable{output/sigma_mean.txt}, respectively.
+        Orange line represent the median of $\mu$ and $\sigma$.
     }
     \label{fig:corner_Gaussian}
 \end{figure}

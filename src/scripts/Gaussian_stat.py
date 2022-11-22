@@ -10,15 +10,9 @@ df = pd.DataFrame()
 df['mu'] = samples_Gaussian.reshape(-1,2)[:,0]
 df['sigma'] = samples_Gaussian.reshape(-1,2)[:,1]
 
-with open(paths.output/"mu_mean.txt", "w") as f:
-    f.write(f"${np.mean(df['mu']):.3f}\\pm{np.std(df['mu']):.3f}$")
-with open(paths.output/"sigma_mean.txt", "w") as f:
-    f.write(f"${np.mean(df['sigma']):.3f}\\pm{np.std(df['sigma']):.3f}$")
-with open(paths.output/"mu_median.txt", "w") as f:
-    f.write(f"${np.median(df['mu']):.3f}$")
-with open(paths.output/"sigma_median.txt", "w") as f:
-    f.write(f"${np.median(df['sigma']):.3f}$")
-
+with open(paths.output/"Gaussian_mean.txt", "w") as f:
+    f.write(f"${np.mean(df['mu']):.3f}\\pm{np.std(df['mu']):.3f}$ and ${np.mean(df['sigma']):.3f}\\pm{np.std(df['sigma']):.3f}$")
+    
 kappa = np.linspace(-1, 1, 50000)
 df = df.sample(10000)
 
