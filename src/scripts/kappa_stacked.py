@@ -13,6 +13,7 @@ plt.rcParams.update({
 
 result_dict = {}
 result_DataFrame = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
+result_DataFrame = result_DataFrame[result_DataFrame.event != "GW200129"] # remove GW200129
 for event in result_DataFrame['event'].unique():
     result_dict[event] = result_DataFrame[result_DataFrame.event == event]
 

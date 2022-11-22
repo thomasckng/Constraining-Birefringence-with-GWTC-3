@@ -54,7 +54,8 @@ In \citet{Yamada_2020} and \citet{Wang_2021}, they both modeled the waveform und
 % What's new?
 In this paper, we used a birefringence model with higher order terms which include the frequency dependence of amplitude birefringence to perform a more accurate parameter estimation (PE).
 We also performed Bayesian inference on events in GWTC-3, the third GW transient catalog.
-We included 70 binary black hole merger events with smallest false alarm rate $\leq1\mathrm{yr^{-1}}$, which are listed in \citet{GWTC_3_population}.\footnote{GW190720 is included in the list in \citet{GWTC_3_population}, however, we could not successfully perform PE with it. Details on GW190720 will be mention in Discussion.}
+We included 69 binary black hole merger events with smallest false alarm rate $\leq1\mathrm{yr^{-1}}$.
+These events are also listed in TABLE I in \citet{GWTC_3_population}.\footnote{GW190720 and GW200129 are included in the list in \citet{GWTC_3_population}, but we did not include them in this study. Details in Discussion.}
 
 % Section guide
 In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, and mention the configuration we used in the PE.
@@ -135,7 +136,7 @@ These control tests result can be found in the data release.
     \script{kappa_stacked.py}
     \includegraphics[width=\columnwidth]{figures/kappa_stacked.pdf}
     \caption{
-        The posterior of $\kappa$ for all 70 events included in this study.
+        The posterior of $\kappa$ for all 69 events included in this study.
         Each color represent a different event.
         These posterior are used to calculate the population constraint on $\kappa$ in the following.
     }
@@ -155,14 +156,16 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
     \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
     \caption{
         The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
-        2D contour plot shows 1 $\sigma$ and 90\% confidence level.
+        2D contour plot shows 39.35\% and 90\% confidence level.
         Orange line represent the median value of the posterior.
-        The median of $\mu$ and $\sigma$ are \variable{output/mu_median.txt} and \variable{output/sigma_median.txt}, respectively.
+        The mean of $\mu$ and $\sigma$ are \variable{output/mu_mean.txt} and \variable{output/sigma_mean.txt}, respectively.
     }
     \label{fig:corner_Gaussian}
 \end{figure}
 
 % Constraint on $\kappa$
+
+% Comparison with previous studies
 
 % Violin plot
 In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each events in the form of violin plot.
@@ -173,7 +176,7 @@ We are going to discuss some of these events in the following.
     \script{violin_kappa.py}
     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
     \caption{
-        The violin plot shows the posterior of $\kappa$ for all 70 events included in this study.
+        The violin plot shows the posterior of $\kappa$ for all 69 events included in this study.
         Each violin represents a different event.
         The violins are sorted by the quotient of median and standard deviation of the posterior.
         Blue horizontal line represent the median value of $\mu$, and blue region represent 1 $\sigma$ confidence level.
@@ -189,7 +192,6 @@ We are going to discuss some of these events in the following.
 
 % Case study
 % Case: GW170818
-\subsection{Result on GW170818}
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
@@ -200,7 +202,7 @@ We are going to discuss some of these events in the following.
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
         Colors in the plot represent the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with the frequency independent birefringence and the frequency dependent birefringence respectively.
-        2D contour plot shows 1 $\sigma$ and 90\% confidence level.
+        2D contour plot shows 39.35\% and 90\% confidence level.
         Note that there is no posterior of $\kappa$ for the PE from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
         This plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
     }
@@ -228,7 +230,7 @@ and the most probable value of $\kappa$ is close to $0$, which means the birefri
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
         Colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE done by us with the frequency dependent birefringence.
-        2D contour plot shows 1 $\sigma$ and 90\% confidence level.
+        2D contour plot shows 39.35\% and 90\% confidence level.
         This plot shows that frequency dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
     }
     \label{fig:corner_GW190521}
@@ -245,11 +247,24 @@ This can be a possible reason why the $\kappa$ distribution of GW190521 is bimod
 \label{sec:Discussion}
 
 % Reasons for special events
+\subsection{Special Events}
 % Special event 1: GW190720
+For GW190720, we could not perform PE with Bilby successfully.
+In LVK PE papers \citep{GWTC-2.1, GWTC-3}, the PE of some events were performed with LALInference \citep{lalsuite} instead of Bilby, GW190720 was one of them.
+We successfully migrate LALInference configuration to Bilby for most of these events and recover similar PE results, except for GW190720.
+Bilby could not evaluate the likelihood function on Virgo data.
+This could bias the population posterior.
 
 % Special event 2: GW200129
+For GW200129, past research suggest there could be a potential glitch in Virgo data. \citep{GW200129}
+We perform 3 sets of PE to check if the glitch would affect the population posterior of $\kappa$.
+In each set, we pick only 2 out of 3 detectors data to perform PE.
+The 2 sets of PE results with Virgo data return a $\kappa$ posterior which strongly suggest a negative $\kappa$.
+We removed this event from our analysis.
+Further investigation is needed to understand the glitch.
 
 % Future work
+\subsection{Future Work}
 % BNS
 A future work is to perform PE on binary neutron star mergers, such as GW170817.
 The frequency range of the signal is much larger compared to the binary black hole mergers, thus the difference of the effect of birefringence at different frequency within the range can be more significant.
