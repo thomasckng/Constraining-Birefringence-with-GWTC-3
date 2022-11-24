@@ -3,6 +3,9 @@
 \usepackage{showyourwork}
 \usepackage{amsfonts,amssymb,amsmath}
 
+\definecolor{rb4}{HTML}{27408B}
+\newcommand{\kw}[1]{{\color{rb4}[KW: #1 ]}}
+
 \begin{document}
 
 \title{Constraining gravitational wave amplitude birefringence with GWTC-3}
@@ -40,46 +43,77 @@
 \section{Introduction}
 \label{sec:Introduction}
 % Motivation
-Since Einstein proposed his theory of general relativity (GR), it was tested in a wide range of length scales.
-After a century, we know that GR does not agree with quantum theories at some length scale.
-To unify both theories, we need to study the possibility of different beyond-GR theories.
-Some beyond-GR theories such as Chern-Simons gravity suggests that there is gravitational wave (GW) amplitude birefringence, while GR predicts there is no birefringence.
-GW amplitude birefringence is a property of space-time which consists of the enhancement of one GW polarization over the other during the propagation of the wave.
-the local modification of the amplitude is small, but it grows with the number of cycles the GW is propagated.
+Since Einstein proposed his theory of general relativity (GR), it was tested in
+a wide range of length scales. After a century, we know that GR does not agree
+with quantum theories at some length scale. To unify both theories, we need to
+study the possibility of different beyond-GR theories. \kw{I think now it kind
+of goes into birefringence too fast. Maybe talk about what effect one may expect
+to see in GW in general a bit?} Some beyond-GR theories such as Chern-Simons
+gravity suggests that there is gravitational wave (GW) amplitude birefringence,
+while GR predicts there is no birefringence. GW amplitude birefringence is a
+property of space-time which consists of the enhancement of one GW polarization
+over the other during the propagation of the wave. the local modification of the
+amplitude is small, but it grows with the number of cycles the GW is propagated.
+
 
 % Previous studies
-Previous studies have constrained amplitude birefringence by performing Bayesian inference.
-In \citet{Okounkova_2022}, they considered the distribution of observed inclination of the GW events in GWTC-2, the second GW transient catalog, and use the distribution to constrain the amplitude birefringence effect with the assumption of frequency independence in GW amplitude birefringence.
-In \citet{Yamada_2020} and \citet{Wang_2021}, they both modeled the waveform under birefringence effect with a simplify assumption and performed Bayesian inference on the events in GWTC-1, the first GW transient catalog.
+Previous studies have constrained amplitude birefringence by performing Bayesian
+inference\kw{This sentence looks odd to me}. In \citet{Okounkova_2022}, they
+considered the distribution of observed inclination of the GW events in GWTC-2,
+the second GW transient catalog, and use the distribution to constrain the
+amplitude birefringence effect with the assumption of frequency independence in
+GW amplitude birefringence. In \citet{Yamada_2020} and \citet{Wang_2021}, they
+both modeled the waveform under birefringence effect with a simplify assumption
+\kw{What is the simplify assumption} and performed Bayesian inference on the
+events in GWTC-1, the first GW transient catalog.
 
 % What's new?
-In this paper, we used a birefringence model with higher order terms which include the frequency dependence of amplitude birefringence to perform a more accurate parameter estimation (PE).
-We also performed Bayesian inference on events in GWTC-3, the third GW transient catalog.
-We included 69 binary black hole merger events with smallest false alarm rate $\leq1\mathrm{yr^{-1}}$.
-These events are also listed in TABLE I in \citet{GWTC_3_population}.\footnote{GW190720 and GW200129 are included in the list in \citet{GWTC_3_population}, but we did not include them in this study. Details in Discussion.}
+In this paper, we used a birefringence model with higher order terms which
+include the frequency dependence of amplitude birefringence to perform a more
+accurate parameter estimation (PE). We also performed Bayesian inference on
+events in GWTC-3, the third GW transient catalog. We included 69 binary black
+hole merger events with smallest false alarm rate $\leq1\mathrm{yr^{-1}}$. These
+events are also listed in TABLE I in
+\citet{GWTC_3_population}.\footnote{GW190720 and GW200129 are included in the
+list in \citet{GWTC_3_population}, but we did not include them in this study.
+Details in Discussion.}
 
 % Section guide
-In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, and mention the configuration we used in the PE.
-In Sec.~\ref{sec:Results}, we show the combined result of the PE, and present the constrain on GW amplitude birefringence we obtained.
-In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study, and provide suggestions for future studies.
+In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform
+model, and mention the configuration we used in the PE. In
+Sec.~\ref{sec:Results}, we show the combined result of the PE, and present the
+constrain on GW amplitude birefringence we obtained. In
+Sec.~\ref{sec:Discussion}, we discuss the limitation of this study, and provide
+suggestions for future studies.
 
 \section{Method}
 \label{sec:Method}
 % Waveform modification
-GW consist of two linear polarizations (i.e. $+$ and $\times$) similar to electromagnetic waves, which could be transformed into two circular polarizations (i.e. left-handed and right-handed) by
+GW consist of two linear polarizations (i.e. $+$ and $\times$) similar to
+electromagnetic waves, which could be transformed into two circular
+polarizations (i.e. left-handed and right-handed) by
 \begin{equation}
     h_{\mathrm{L/R}} = \frac{h_+ \pm i h_\times}{\sqrt{2}}\,,
 \end{equation}
-where $h_{\mathrm{L/R}}$ are the Fourier amplitude of the left-handed and right-handed polarization of the waveform, $h_+$ and $h_\times$ are the Fourier amplitude of the plus and cross polarization of the waveform.
-According to \textbf{[modification reference]}, we modified the waveform model by
+where $h_{\mathrm{L/R}}$ are the Fourier amplitude of the left-handed and
+right-handed polarization of the waveform, $h_+$ and $h_\times$ are the Fourier
+amplitude of the plus and cross polarization of the waveform. According to
+\textbf{[modification reference]}, we modified the waveform model by
 \begin{equation}
     h_\mathrm{L/R}^{\mathrm{br}}=
     h_\mathrm{L/R}^{\mathrm{GR}}\times
     \exp\left(\pm\kappa\frac{d_C}{1\mathrm{Gpc}}\frac{f}{100\mathrm{Hz}}\right)\,,
 \end{equation}
-where $h_\mathrm{L/R}^{\mathrm{br}}$ is the Fourier amplitude of the modified waveform with amplitude birefringence, $h_\mathrm{L/R}^{\mathrm{GR}}$ is the Fourier amplitude of the waveform at the source, $\kappa$ is the dimensionless opacity parameter that represent the strength of the birefringence, $d_C$ is the comoving distance to the source, and $f$ is the Fourier frequency of the waveform.
-We assume GWs are generated by the binary as GR predicts, as the modification at the source is small before the effect accumulate during the propagation.
-As the GWs propagate, the effect of birefringence will be built up with the number of cycles which depends on the distance traveled and the frequency of the GWs.
+where $h_\mathrm{L/R}^{\mathrm{br}}$ is the Fourier amplitude of the modified
+waveform with amplitude birefringence, $h_\mathrm{L/R}^{\mathrm{GR}}$ is the
+Fourier amplitude of the waveform at the source, $\kappa$ is the dimensionless
+opacity parameter that represent the strength of the birefringence, $d_C$ is the
+comoving distance to the source, and $f$ is the Fourier frequency of the
+waveform. We assume GWs are generated by the binary as GR predicts, as the
+modification at the source is small before the effect accumulate during the
+propagation. As the GWs propagate, the effect of birefringence will be built up
+with the number of cycles which depends on the distance traveled and the
+frequency of the GWs.
 
 % Effect on inclination PE
 This modification changes the ratio of the left-handed and right-handed polarization of the waveform, which affects the PE on the inclination as well.
@@ -133,16 +167,16 @@ These control tests result can be found in the data release.
 \label{sec:Results}
 \subsection{Result on GWTC-3}
 % Stacked kappa posterior plot
-\begin{figure}[h]
-    \script{kappa_stacked.py}
-    \includegraphics[width=\columnwidth]{figures/kappa_stacked.pdf}
-    \caption{
-        The posterior of $\kappa$ for all 69 events included in this study.
-        Each color represent a different event.
-        These posterior are used to calculate the population constraint on $\kappa$ in the following.
-    }
-    \label{fig:kappa_stacked}
-\end{figure}
+% \begin{figure}[h]
+%     \script{kappa_stacked.py}
+%     \includegraphics[width=\columnwidth]{figures/kappa_stacked.pdf}
+%     \caption{
+%         The posterior of $\kappa$ for all 69 events included in this study.
+%         Each color represent a different event.
+%         These posterior are used to calculate the population constraint on $\kappa$ in the following.
+%     }
+%     \label{fig:kappa_stacked}
+% \end{figure}
 
 % How to calculate the combined posterior
 In figure \ref{fig:kappa_stacked}, we show the individual posterior of $\kappa$ of each events obtained from PE.
@@ -153,16 +187,16 @@ The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian
 The mean of $\mu$ and $\sigma$ are \variable{output/Gaussian_mean.txt}, respectively.
 
 % Corner plot of mean and standard deviation of kappa
-\begin{figure}[h]
-    \script{corner_Gaussian.py}
-    \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
-    \caption{
-        The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
-        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        Orange line represent the median of $\mu$ and $\sigma$.
-    }
-    \label{fig:corner_Gaussian}
-\end{figure}
+% \begin{figure}[h]
+%     \script{corner_Gaussian.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
+%     \caption{
+%         The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
+%         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+%         Orange line represent the median of $\mu$ and $\sigma$.
+%     }
+%     \label{fig:corner_Gaussian}
+% \end{figure}
 
 % Constraint on $\kappa$
 We then calculate the constraint on $\kappa$ from the posterior of $\mu$ and $\sigma$.
@@ -185,19 +219,19 @@ There are some events with $\kappa$ distribution deviate from $\kappa=0$.
 Also, there are some events with bimodal $\kappa$ distribution.
 We are going to discuss some of these events in the following.
 
-\begin{figure*}[ht]
-    \script{violin_kappa.py}
-    \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
-    \caption{
-        The violin plot shows the posterior of $\kappa$ for all 69 events included in this study.
-        Each violin represents a different event.
-        The violins are sorted by the quotient of median and standard deviation of the posterior.
-        Blue horizontal line represent the median value of $\mu$, and blue region represent 1 $\sigma$ confidence level.
-        Orange horizontal line represent $\kappa=0$.
-        This plot shows that there are some events with $\kappa$ distribution significantly deviate from $0$.
-    }
-    \label{fig:violin_kappa}
-\end{figure*}
+% \begin{figure*}[ht]
+%     \script{violin_kappa.py}
+%     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
+%     \caption{
+%         The violin plot shows the posterior of $\kappa$ for all 69 events included in this study.
+%         Each violin represents a different event.
+%         The violins are sorted by the quotient of median and standard deviation of the posterior.
+%         Blue horizontal line represent the median value of $\mu$, and blue region represent 1 $\sigma$ confidence level.
+%         Orange horizontal line represent $\kappa=0$.
+%         This plot shows that there are some events with $\kappa$ distribution significantly deviate from $0$.
+%     }
+%     \label{fig:violin_kappa}
+% \end{figure*}
 
 % Trend (mass & distance)
 
@@ -221,18 +255,18 @@ This is because the degeneracy was broken by the frequency dependence, as the ef
 In this case, the posteriors can recover the GR distributions for the binary parameters,
 and the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent, and GR can be recovered.
 
-\begin{figure}[h]
-    \script{corner_GW150914.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
-    \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-        Colors in the plot represent the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with both frequency independent and dependent birefringence respectively.
-        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        Note that there is no posterior of $\kappa$ for the PE from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
-        This plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
-    }
-    \label{fig:corner_GW150914}
-\end{figure}
+% \begin{figure}[h]
+%     \script{corner_GW150914.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
+%     \caption{
+%         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
+%         Colors in the plot represent the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE done by us with both frequency independent and dependent birefringence respectively.
+%         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+%         Note that there is no posterior of $\kappa$ for the PE from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
+%         This plot shows that frequency independent birefringence create a degeneracy between $\kappa$ and $\iota$, while the frequency dependent birefringence can break it.
+%     }
+%     \label{fig:corner_GW150914}
+% \end{figure}
 
 % Case: GW190521 (massive BBH)
 \subsection{Result on GW190521}
@@ -244,17 +278,17 @@ This is because the frequency range of the signal is much smaller due to the lar
 The effect of birefringence at different frequency within the range is similar, thus the degeneracy cannot be broken.
 This can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
 
-\begin{figure}[h]
-    \script{corner_GW190521.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
-    \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
-        Colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE done by us with the frequency dependent birefringence.
-        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        This plot shows that frequency dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
-    }
-    \label{fig:corner_GW190521}
-\end{figure}
+% \begin{figure}[h]
+%     \script{corner_GW190521.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
+%     \caption{
+%         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
+%         Colors in the plot are the PE with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE done by us with the frequency dependent birefringence.
+%         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+%         This plot shows that frequency dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
+%     }
+%     \label{fig:corner_GW190521}
+% \end{figure}
 
 \section{Discussion}
 \label{sec:Discussion}
