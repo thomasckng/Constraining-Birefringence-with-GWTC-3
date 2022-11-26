@@ -2,6 +2,7 @@
 
 \usepackage{showyourwork}
 \usepackage{amsfonts,amssymb,amsmath}
+\usepackage{hyperref}
 
 \definecolor{rb4}{HTML}{27408B}
 \newcommand{\kw}[1]{{\color{rb4}[KW: #1 ]}}
@@ -139,8 +140,7 @@ To reconstruct the amplitude ratio from the interferometer data, an $\iota$ repr
 As a result, many pairs of $\iota$ and $\kappa$ can be plausible with the frequency independence.
 
 In contrast, We included the frequency dependence in the modification, which is a first-order approximation of the birefringence model.
-This frequency dependence provides stronger enhancement or suppression from the birefringence to high frequency components of the GW, and visa versa. \kw{Redundant.}
-Also, \kw{You don't need an also here since you are still talking about the same thing} the frequency dependence can break the degeneracy between $\kappa$ and $\iota$, as this would make the effect of the birefringence affect the amplitude ratio differently compared to $\iota$.
+The frequency dependence can break the degeneracy between $\kappa$ and $\iota$, as this would make the effect of the birefringence affect the amplitude ratio differently compared to $\iota$.
 To illustrate the frequency dependence of amplitude birefringence, the observed amplitudes of two polarizations of a simulated GW signal are shown in figure \ref{fig:birefringence}.
 
 \begin{figure}[h]
@@ -169,8 +169,7 @@ check if the PE could recover the PE done by LIGO-Virgo-KAGRA Collaboration
 \kw{State that this is a sanity check} (LVK) in \citet{GWTC-2.1, GWTC-3}. We set
 the prior on $\kappa$ to be a $\delta$ function at $0$, which is the same as
 using GR \kw{This sentence kind of read odd. Add conjunction to link it to the
-GR test.}. These control tests result can be found in the data release.
-\kw{Link}
+GR test.}. These control tests result can be found in the \href{https://zenodo.org/record/7338924}{data release}.
 
 \section{Results}
 \label{sec:Results}
