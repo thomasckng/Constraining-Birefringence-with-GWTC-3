@@ -44,78 +44,55 @@
 \section{Introduction}
 \label{sec:Introduction}
 % Motivation
-Since Einstein proposed his theory of general relativity (GR), it was tested in
-a wide range of length scales. After a century, we know that GR does not agree
-with quantum theories at some length scale. To unify both theories, we need to
-study the possibility of different beyond-GR theories. \kw{I think now it kind
-of goes into birefringence too fast. Maybe talk about what effect one may expect
-to see in GW in general a bit? Say there is polarization modification, phasing
-modification, etc.} Some beyond-GR theories such as Chern-Simons gravity
-suggests that there is gravitational wave (GW) amplitude birefringence, while GR
-predicts there is no birefringence. GW amplitude birefringence is a property of
-space-time which consists of the enhancement of one GW polarization over the
-other during the propagation of the wave. the local modification of the
-amplitude is small, but it grows with the number of cycles the GW is propagated.
+Since Einstein proposed his theory of general relativity (GR), it was tested in a wide range of length scales.
+After a century, we know that GR does not agree with quantum theories at some length scale.
+To unify both theories, we need to study the possibility of different beyond-GR theories.
+\kw{I think now it kind of goes into birefringence too fast.
+Maybe talk about what effect one may expect to see in GW in general a bit?
+Say there is polarization modification, phasing modification, etc.}
+Some beyond-GR theories such as Chern-Simons gravity suggests that there is gravitational wave (GW) amplitude birefringence, while GR predicts there is no birefringence.
+GW amplitude birefringence is a property of space-time which consists of the enhancement of one GW polarization over the other during the propagation of the wave.
+The local modification of the amplitude is small, but it grows with the number of cycles the GW is propagated.
 
 
 % Previous studies
 Previous studies have constrained amplitude birefringence by performing different statistical analysis.
-In \citet{Okounkova_2022}, they considered the distribution of observed inclination of the GW events in GWTC-2,
-the second GW transient catalog, and use the distribution to constrain the
-amplitude birefringence effect with the assumption of frequency independence in
-GW amplitude birefringence. In \citet{Yamada_2020} and \citet{Wang_2021}, they
-both modeled the waveform under birefringence effect with a simplify assumption
-\kw{What is the simplify assumption} and performed parameter estimation (PE) on the
-events in GWTC-1, the first GW transient catalog.
+In \citet{Okounkova_2022}, they considered the distribution of observed inclination of the GW events in GWTC-2, the second GW transient catalog, and use the distribution to constrain the amplitude birefringence effect with the assumption of frequency independence in GW amplitude birefringence.
+In \citet{Yamada_2020} and \citet{Wang_2021}, they both modeled the waveform under birefringence effect with a simplify assumption.
+They assumed the modification of amplitude birefringence is small and performed parameter estimation (PE) on the events in GWTC-1, the first GW transient catalog.
 
 % What's new?
-In this paper, we used a birefringence model with higher order terms which
-include the frequency dependence of amplitude birefringence to perform a more
-accurate PE \kw{I think there is qualitative difference
-between this work and former works, so it is not just more accurate}. We also
-performed Bayesian inference on events in GWTC-3, the third GW transient
-catalog. We included 69 binary black hole merger events with smallest false
-alarm rate $\leq1\mathrm{yr^{-1}}$. These events are also listed in TABLE I in
-\citet{GWTC_3_population}.\footnote{GW190720 and GW200129 are included in the
-list in \citet{GWTC_3_population}, but we did not include them in this study.
+In this paper, we used a birefringence model with higher order terms which include the frequency dependence of amplitude birefringence to perform a more accurate PE.
+\kw{I think there is qualitative difference between this work and former works, so it is not just more accurate}
+We also performed Bayesian inference on events in GWTC-3, the third GW transient catalog.
+We included 69 binary black hole merger events with smallest false alarm rate $\leq1\mathrm{yr^{-1}}$.
+These events are also listed in TABLE I in \citet{GWTC_3_population}.
+~\footnote{GW190720 and GW200129 are included in the list in \citet{GWTC_3_population}, but we did not include them in this study.
 Details in Discussion.}
 
 % Section guide
-In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform
-model, and mention the configuration we used in the PE. In
-Sec.~\ref{sec:Results}, we show the combined result of the PE, and present the
-constrain on GW amplitude birefringence we obtained. In
-Sec.~\ref{sec:Discussion}, we discuss the limitation of this study, and provide
-suggestions for future studies.
+In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, and mention the configuration we used in the PE.
+In Sec.~\ref{sec:Results}, we show the combined result of the PE, and present the constrain on GW amplitude birefringence we obtained.
+In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study, and provide suggestions for future studies.
 
 \section{Method}
 \label{sec:Method}
 % Waveform modification
-GW consist of two independent polarization modes similar to electromagnetic waves,
-which we can choose to represent them in either the linear basis (i.e. $+$ and $\times$)
-or the circular basis (i.e. left-handed and right-handed).
+GW consist of two independent polarization modes similar to electromagnetic waves, which we can choose to represent them in either the linear basis (i.e. $+$ and $\times$) or the circular basis (i.e. left-handed and right-handed).
 They are related by
 \begin{equation}
     h_{\mathrm{L/R}} = \frac{h_+ \pm i h_\times}{\sqrt{2}}\,,
 \end{equation}
-where $h_{\mathrm{L/R}}$ are the amplitude of the left-handed and right-handed
-polarization of the waveform, $h_+$ and $h_\times$ are the Fourier amplitude of
-the plus and cross polarization of the waveform. According to
-\textbf{[modification reference]}, we modified the waveform model by
+where $h_{\mathrm{L/R}}$ are the amplitude of the left-handed and right-handed polarization of the waveform, $h_+$ and $h_\times$ are the Fourier amplitude of the plus and cross polarization of the waveform.
+According to \textbf{[modification reference]}, we modified the waveform model by
 \begin{equation}
     h_\mathrm{L/R}^{\mathrm{br}}=
     h_\mathrm{L/R}^{\mathrm{GR}}\times
     \exp\left(\pm\kappa\frac{d_C}{1\mathrm{Gpc}}\frac{f}{100\mathrm{Hz}}\right)\,,
 \end{equation}
-where $h_\mathrm{L/R}^{\mathrm{br}}$ is the Fourier amplitude of the modified
-waveform with amplitude birefringence, $h_\mathrm{L/R}^{\mathrm{GR}}$ is the
-Fourier amplitude of the waveform as GR predicts, $\kappa$ is the dimensionless opacity parameter that
-represent the strength of the birefringence, $d_C$ is the comoving distance to
-the source, and $f$ is the Fourier frequency of the waveform. We assume GWs are
-generated by the binary as GR predicts, as the modification at the source is
-small before the effect accumulate during the propagation. As the GWs propagate,
-the effect of birefringence will be built up with the number of cycles which
-depends on the distance traveled and the frequency of the GWs.
+where $h_\mathrm{L/R}^{\mathrm{br}}$ is the Fourier amplitude of the modified waveform with amplitude birefringence, $h_\mathrm{L/R}^{\mathrm{GR}}$ is the Fourier amplitude of the waveform as GR predicts, $\kappa$ is the dimensionless opacity parameter that represent the strength of the birefringence, $d_C$ is the comoving distance to the source, and $f$ is the Fourier frequency of the waveform.
+We assume GWs are generated by the binary as GR predicts, as the modification at the source is small before the effect accumulate during the propagation.
+As the GWs propagate, the effect of birefringence will be built up with the number of cycles which depends on the distance traveled and the frequency of the GWs.
 
 % Effect on inclination PE
 In GR, the amplitude ratio of the left-handed and right-handed polarizations only depends on the inclination for a nonprecessing binary.
@@ -124,15 +101,16 @@ The relationship between the amplitude ratio and the inclination is
 \begin{equation}
     \frac{h_\mathrm{L}}{h_\mathrm{R}}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2\,,
 \end{equation}
-where $\iota$ is the inclination, the angle between our line of sight and the orbital angular
-momentum of the binary. Therefore, the PE on $\iota$ depends on the amplitude ratio.
+where $\iota$ is the inclination, the angle between our line of sight and the orbital angular momentum of the binary.
+Therefore, the PE on $\iota$ depends on the amplitude ratio.
 
 With the modification we implemented, the amplitude ratio of the left-handed and right-handed polarizations becomes 
 \begin{equation}
     \frac{h_\mathrm{L_{obs}}}{h_\mathrm{R_{obs}}}=\frac{\left(1-\cos\iota\right)^2}{\left(1+\cos\iota\right)^2}\exp\left({2\kappa\frac{d_C}{1\mathrm{Gpc}}\frac{f}{100\mathrm{Hz}}}\right)\,,
 \end{equation}
 where $h_\mathrm{L_{obs}}$ and $h_\mathrm{R_{obs}}$ are the observed Fourier amplitude of left-handed and right-handed polarizations of the GWs.
-As the amplitude ratio does not only depends on $\iota$ with this modification, but also $\kappa$ and $d_C$, the PE on $\iota$ and $d_C$ are affected. Note that GR is recovered if $\kappa$ is $0$.
+As the amplitude ratio does not only depends on $\iota$ with this modification, but also $\kappa$ and $d_C$, the PE on $\iota$ and $d_C$ are affected.
+Note that GR is recovered if $\kappa$ is $0$.
 
 In \citet{Okounkova_2022}, they assume the effect of birefringence is independent of the frequency, which is a zeroth-order approximation of the birefringence model in Chern-Simons gravity.
 This would create a degeneracy between $\kappa$ and $\iota$, as they can affect the amplitude ratio in the same way.
@@ -156,27 +134,19 @@ To illustrate the frequency dependence of amplitude birefringence, the observed 
 \end{figure}
 
 % Parameter estimation
-The major objective of this study is to constrain GW amplitude birefringence,
-which is represented by the opacity parameter $\kappa$. To constrain $\kappa$,
-we perform PE with data from the third GW transient catalog \citep{GWTC-2.1,
-GWTC-3}, GWTC-3, using Bilby, a Bayesian toolkit for GW data analysis which is
-able to calculate posteriors of GW parameters based on interferometer data and
-priors for the parameters in question \citep{Bilby}. We set the prior on
-$\kappa$ to a uniform distribution between $-1$ and $1$, and perform PE using
-the modified waveforms. In both case, we use the same PE configuration as in
-\citet{GWTC-2.1, GWTC-3} for each individual events. We also perform test to
-check if the PE could recover the PE done by LIGO-Virgo-KAGRA Collaboration
-\kw{State that this is a sanity check} (LVK) in \citet{GWTC-2.1, GWTC-3}. We set
-the prior on $\kappa$ to be a $\delta$ function at $0$, which is the same as
-using GR \kw{This sentence kind of read odd. Add conjunction to link it to the
-GR test.}. These control tests result can be found in the \href{https://zenodo.org/record/7338924}{data release}.
+The major objective of this study is to constrain GW amplitude birefringence, which is represented by the opacity parameter $\kappa$.
+To constrain $\kappa$, we perform PE with data from the third GW transient catalog \citep{GWTC-2.1, GWTC-3}, GWTC-3, using Bilby, a Bayesian toolkit for GW data analysis which is able to calculate posteriors of GW parameters based on interferometer data and priors for the parameters in question \citep{Bilby}. \
+We set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$, and perform PE using the modified waveforms.
+We use the same PE configuration as in \citet{GWTC-2.1, GWTC-3} for each individual events.
+We also perform sanity test to check if our PE could recover the PE done by LIGO-Virgo-KAGRA Collaboration (LVK) in \citet{GWTC-2.1, GWTC-3}.
+To implement the sanity check, we need to assume there is no birefringence by setting the prior on $\kappa$ to be a $\delta$ function at $0$, which means GR is recovered.
+These sanity tests result can be found in the \href{https://zenodo.org/record/7338924}{data release}.
 
 \section{Results}
 \label{sec:Results}
 
-\kw{Looking at the current draft, I do think maybe we should first talk about
- individual constraints first, then population constraints. Tho we should give a
- brief summary of the structure at the beginning of this section}
+\kw{Looking at the current draft, I do think maybe we should first talk about individual constraints first, then population constraints.
+Tho we should give a brief summary of the structure at the beginning of this section}
 \subsection{Result on GWTC-3}
 % Stacked kappa posterior plot
 % \begin{figure}[h]
@@ -192,20 +162,29 @@ GR test.}. These control tests result can be found in the \href{https://zenodo.o
 
 % How to calculate the combined posterior
 In figure \ref{fig:kappa_stacked}, we show the individual posterior of $\kappa$
-of each events obtained from PE. \kw{Rewrite the following paragraph in the
-following way: 1. There are a set of measured $\kappa$ 2. State that there can
-either be a single true $\kappa$ or a distribution of $\kappa$ 3. Describe
-hierarchical Bayesian, which is essentially stacking the individual results
-together. 4. Your choice of model and reason behind such choice.} We assume
-$\kappa$ is different for each event, and the population distribution of
-$\kappa$ is a Gaussian distribution with mean $\mu$ and standard deviation
-$\sigma$. We then performed hierarchical modeling \kw{Need to describe what
-hierarchical modelling is} to construct the likelihood function of $\mu$ and
-$\sigma$ given interferometer data. To sample the posterior distribution of
-$\mu$ and $\sigma$, we used a generic sampling package, flowMC \citep{flowMC},
-with prior of $\mu$ and $\sigma$ being uniform distributions. The posterior of
-$\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian}. The mean of
-$\mu$ and $\sigma$ are \variable{output/Gaussian_mean.txt}, respectively.
+of each events obtained from PE. 
+
+
+
+
+
+\kw{Rewrite the following paragraph in the following way:
+1. There are a set of measured $\kappa$
+2. State that there can either be a single true $\kappa$ or a distribution of $\kappa$
+3. Describe hierarchical Bayesian, which is essentially stacking the individual results together.
+4. Your choice of model and reason behind such choice.} 
+
+
+
+
+
+We assume $\kappa$ is different for each event, and the population distribution of $\kappa$ is a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$.
+We then performed hierarchical modeling
+\kw{Need to describe what hierarchical modelling is}
+to construct the likelihood function of $\mu$ and $\sigma$ given interferometer data.
+To sample the posterior distribution of $\mu$ and $\sigma$, we used a generic sampling package, flowMC \citep{flowMC}, with prior of $\mu$ and $\sigma$ being uniform distributions.
+The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian}.
+The mean of $\mu$ and $\sigma$ are \variable{output/Gaussian_mean.txt}, respectively.
 
 % Corner plot of mean and standard deviation of kappa
 % \begin{figure}[h]
@@ -263,25 +242,19 @@ We are going to discuss some of these events in the following.
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
-Some events have bimodal $\kappa$ distribution, but before we show a bimodal
-event, we should understand the mechanism of a unimodal $\kappa$ distribution.
+Some events have bimodal $\kappa$ distribution, but before we show a bimodalcevent, we should understand the mechanism of a unimodal $\kappa$ distribution.
 \kw{Just say what you are trying to say, instead of leaving a cliff hanger}
-Consider GW150914, the first GW detected by LIGO. In figure
-\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
-With the frequency independent birefringence model, the posteriors for
-$\cos\iota$ look different from the posteriors assuming GR. This is because, for
-a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if
-the frequency dependence is not included. To reconstruct the amplitude ratio
-from the interferometer data, an $\iota$ representing a more face-off inspiral
-can pair with a positive $\kappa$, or an $\iota$ representing a more face-on
-inspiral with a negative $\kappa$. As a result, many pairs of $\iota$ and
-$\kappa$ can be plausible with the frequency independence. \kw{Many pairs
-doesn't mean bimodelity, you should say why the middle part is constrained to be small as well.}
+Consider GW150914, the first GW detected by LIGO.
+In figure \ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
+With the frequency independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
+This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
+To reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$, or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
+As a result, many pairs of $\iota$ and $\kappa$ can be plausible with the frequency independence.
+\kw{Many pairs doesn't mean bimodelity, you should say why the middle part is constrained to be small as well.}
 
 On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
 This is because the degeneracy was broken by the frequency dependence, as the effect of birefringence will be different from the one of changing $\iota$.
-In this case, the posteriors can recover the GR distributions for the binary parameters,
-and the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent, and GR can be recovered.
+In this case, the posteriors can recover the GR distributions for the binary parameters, and the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent, and GR can be recovered.
 
 % \begin{figure}[h]
 %     \script{corner_GW150914.py}
