@@ -31,12 +31,12 @@
 \date{\today}
 
 \begin{abstract}
-    One of the major problems that physicists are facing nowadays is Einstein's theory of general relativity (GR) does not agree with quantum theories at some length scales.
-    In recent decades, theorist has been working on many beyond-GR theories to unify both of them.
-    Some of these theories such as Chern-Simons gravity suggest that there is gravitational wave (GW) amplitude birefringence.
+    One of the major problems physicists are facing nowadays is that Einstein's theory of general relativity (GR) does not agree with quantum theories at some length scales.
+    In recent decades, theorists have been working on many beyond-GR theories to unify both.
+    Some of these theories, such as Chern-Simons gravity, suggest that there is gravitational wave (GW) amplitude birefringence.
     In our study, we perform parameter estimation (PE) to constrain the strength of GW amplitude birefringence.
-    Compare to similar previous studies on the same topic, we perform PE on more events, including events in the third LIGO-Virgo catalog (GWTC-3), and we used a more accurate model of birefringence to describe the phenomenon.
-    We were able to obtain a constrain an order of magnitude tighter than previous studies which used GWTC-2.
+    Compared to similar previous studies on the same topic, we performed PE on more events, including events in the third LIGO-Virgo catalog (GWTC-3), and used a more accurate birefringence model to describe the phenomenon.
+    We obtained a constraint an order of magnitude tighter than previous studies which used GWTC-2.
 \end{abstract}
 
 \maketitle
@@ -145,8 +145,11 @@ These sanity tests result can be found in the \href{https://zenodo.org/record/73
 \section{Results}
 \label{sec:Results}
 
-\kw{Looking at the current draft, I do think maybe we should first talk about individual constraints first, then population constraints.
-Tho we should give a brief summary of the structure at the beginning of this section}
+In this section, we will present the results of individual PE first.
+Then, we will show the population constraint we obtained from the PE of all events in GWTC-3.
+At last, we will discuss some of the special events.
+\kw{Looking at the current draft, I do think maybe we should first talk about individual constraints first, then population constraints.}
+
 \subsection{Result on GWTC-3}
 % Stacked kappa posterior plot
 % \begin{figure}[h]
@@ -161,27 +164,16 @@ Tho we should give a brief summary of the structure at the beginning of this sec
 % \end{figure}
 
 % How to calculate the combined posterior
-In figure \ref{fig:kappa_stacked}, we show the individual posterior of $\kappa$
-of each events obtained from PE. 
-
-
-
-
-
-\kw{Rewrite the following paragraph in the following way:
-1. There are a set of measured $\kappa$
-2. State that there can either be a single true $\kappa$ or a distribution of $\kappa$
-3. Describe hierarchical Bayesian, which is essentially stacking the individual results together.
-4. Your choice of model and reason behind such choice.} 
-
-
-
-
-
-We assume $\kappa$ is different for each event, and the population distribution of $\kappa$ is a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$.
-We then performed hierarchical modeling
-\kw{Need to describe what hierarchical modelling is}
-to construct the likelihood function of $\mu$ and $\sigma$ given interferometer data.
+In figure \ref{fig:kappa_stacked}, we show the individual posterior of $\kappa$ of each events obtained from PE.
+These individual posteriors can then be treated as a set of measured $\kappa$ posterior.
+We can either assume that $\kappa$ is a single value constant, or that $\kappa$ is a random variable with a probability distribution.
+In this study, we assume $\kappa$ is a random variable, and the population distribution of $\kappa$ is a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$.
+With Bayesian hierarchical modelling, which is a method to combine multiple measurements of a random variable by assuming the measurements are independent and identically distributed, we can calculate the posterior of $\mu$ and $\sigma$ from the set of measured $\kappa$ posterior.
+The posterior of $\mu$ and $\sigma$ can be calculated by
+\begin{equation}
+    P(\mu,\sigma|\{d_i\})\propto P(\mu,\sigma)\prod_{i}\int\frac{P(\kappa|d_i)}{P(\kappa)}P(\kappa|\mu,\sigma)\,d\kappa\,,
+\end{equation}
+where function $P$ is the probability density function, and $\{d_i\}$ is the set of GW event data.
 To sample the posterior distribution of $\mu$ and $\sigma$, we used a generic sampling package, flowMC \citep{flowMC}, with prior of $\mu$ and $\sigma$ being uniform distributions.
 The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian}.
 The mean of $\mu$ and $\sigma$ are \variable{output/Gaussian_mean.txt}, respectively.
@@ -242,15 +234,15 @@ We are going to discuss some of these events in the following.
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
-Some events have bimodal $\kappa$ distribution, but before we show a bimodalcevent, we should understand the mechanism of a unimodal $\kappa$ distribution.
-\kw{Just say what you are trying to say, instead of leaving a cliff hanger}
-Consider GW150914, the first GW detected by LIGO.
+In this study, we included frequency dependence of birefringence.
+This would affect the posterior of $\kappa$ obtained from PE.
+Consider GW150914, the first GW detected by LIGO, as an example.
 In figure \ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
 With the frequency independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
 This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
 To reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$, or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
-As a result, many pairs of $\iota$ and $\kappa$ can be plausible with the frequency independence.
-\kw{Many pairs doesn't mean bimodelity, you should say why the middle part is constrained to be small as well.}
+As a result, degeneracy between $\iota$ and $\kappa$ is formed with the frequency independence.
+\kw{you should say why the middle part is constrained to be small.}
 
 On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
 This is because the degeneracy was broken by the frequency dependence, as the effect of birefringence will be different from the one of changing $\iota$.
@@ -271,8 +263,7 @@ In this case, the posteriors can recover the GR distributions for the binary par
 
 % Case: GW190521 (massive BBH)
 \subsection{Result on GW190521}
-
-Now, we show a bimodal $\kappa$ distribution.
+Even with the frequency dependent birefringence model, some events still have a bimodal $\kappa$ distribution.
 Consider GW190521, the most massive binary black hole merger in the events we included.
 The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency dependent birefringence model, as shown in figure \ref{fig:corner_GW190521}.
 This is because the frequency range of the signal is much smaller due to the large mass of the binary.
@@ -321,12 +312,10 @@ However, performing PE on binary neutron star mergers requires much more computa
 Therefore, we may need to wait for future PE methods and tools to further our work.
 
 % More observations with higher SNR
-Another future work is to apply the same method to more events with higher signal-to-noise ratio (SNR).
+Another future work is to apply the same method to more events, and events with higher signal-to-noise ratio (SNR).
 LVK will release more events with higher SNR in the future.
-Data with higher SNR allows us to obtain more precise PE results, which also allows us to constrain the birefringence effect more precisely.
-And more events will allow us to calculate a more constrained population posterior of $\kappa$.
-
-\kw{Mention two things that drive the population constrain to be better: better event (which you already did), and more events}
+Using data with higher SNR allows us to obtain more precise PE results, which also allows us to constrain the birefringence effect more precisely.
+And using data from more events will allow us to calculate a more constrained population posterior of $\kappa$.
 
 \section{Acknowledgements}
 \label{sec:Acknowledgements}
