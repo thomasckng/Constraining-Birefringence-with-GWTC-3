@@ -49,13 +49,13 @@ freq = np.arange(len(hl))*df
 
 kappa = -0.5
 
-hl_bi_L = hl * np.exp(kappa*(dist_mpc/1000)*(freq/100))
-hr_bi_L = hr * np.exp(-kappa*(dist_mpc/1000)*(freq/100))
+hl_bi_with_freq = hl * np.exp(kappa*(dist_mpc/1000)*(freq/100))
+hr_bi_with_freq = hr * np.exp(-kappa*(dist_mpc/1000)*(freq/100))
 
-plt.loglog(freq, abs(hl), ls='--', color=sns.color_palette()[0], label=r"L (GR)")
-plt.loglog(freq, abs(hr), ls='--', color=sns.color_palette()[3], label=r"R (GR)")
-plt.loglog(freq, abs(hl_bi_L), color=sns.color_palette()[0], label=r"L (birefringence)")
-plt.loglog(freq, abs(hr_bi_L), color=sns.color_palette()[3], label=r"R (birefringence)")
+plt.loglog(freq, abs(hl), ls=':', color=sns.color_palette()[0], label=r"L (GR)")
+plt.loglog(freq, abs(hr), ls=':', color=sns.color_palette()[3], label=r"R (GR)")
+plt.loglog(freq, abs(hl_bi_with_freq), color=sns.color_palette()[0], label=r"L (birefringence)")
+plt.loglog(freq, abs(hr_bi_with_freq), color=sns.color_palette()[3], label=r"R (birefringence)")
 plt.xlim(f_min+1,f_max-10)
 plt.ylim(1e-38,1e-20)
 plt.legend()
