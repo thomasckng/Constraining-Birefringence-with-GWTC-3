@@ -1,5 +1,8 @@
 version: 0.3.0
 
+stamp:
+  enabled: false
+
 dependencies:
     src/scripts/corner_GW150914.py:
         - src/data/IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5

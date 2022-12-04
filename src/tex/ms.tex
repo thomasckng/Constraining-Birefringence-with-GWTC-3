@@ -40,29 +40,25 @@
 \section{Introduction}
 \label{sec:Introduction}
 % Motivation
-Gravitational waves (GWs) have been used to test Einstein's theory of general relativity (GR) since the first detection in 2015.
+Gravitational waves (GWs) have been used to test Einstein's theory of general relativity (GR) with detections by LIGO-Virgo-KAGRA Collaboration (LVK) \citep{LIGO, Virgo, KAGRA}.
 To study the possibility of different beyond-GR theories, we can observe if GWs have any deviation from GR.
 Some beyond-GR theories, such as Chern-Simons gravity, suggest that there is gravitational wave amplitude birefringence, while GR predicts no birefringence.
 GW amplitude birefringence is a property of space-time that consists of the enhancement of one GW polarization over the other as the wave propagates.
 
 % Previous studies
 Previous studies have constrained amplitude birefringence by performing different statistical analyses.
-% cite ligo, virgo
-\citet{Yamada_2020} and \citet{Wang_2021} both performed parameter estimation (PE) on the events in GWTC-1, the first GW transient catalog, using birefringence templates.
-% cite GWTC-1
-\citet{Okounkova_2022} considered the distribution of observed inclinations of the GW events in GWTC-2, the second GW transient catalog, to look for signs of birefringence.
-% cite GWTC-2
+\citet{Yamada_2020} and \citet{Wang_2021} both performed parameter estimation (PE) on the events in the first GW transient catalog \citep{GWTC-1}, GWTC-1, using birefringence templates.
+\citet{Okounkova_2022} considered the distribution of observed inclinations of the GW events in the second GW transient catalog \citep{GWTC-2}, GWTC-2, to look for signs of birefringence.
 
 % What's new?
-In this study, we used a frequency-dependent birefringence model to constrain the strength of GW amplitude birefringence.
+In this study, we used a frequency-dependent birefringence model to constrain the strength of GW amplitude birefringence by performing PE.
 This model is a better approximation of the birefringence effect than the frequency-independent model used in \citet{Okounkova_2022}.
-Compared to previous studies, we also performed PE on more events, including events in GWTC-3, the third GW transient catalog.
+Compared to previous studies, we also performed PE on more events, including events in the third GW transient catalog \citep{GWTC-3}, GWTC-3.
 We consider 70 binary black hole merger events with a false alarm rate $\leq1\mathrm{yr^{-1}}$.
-These events are also listed in TABLE I in \citet{GWTC_3_population}.\footnote{
-GW190720 and GW200129 are included in the list in \citet{GWTC_3_population}, but we did not include them in this study.
-% remove GW200129 from the footnote
+These events are also listed in TABLE I in \citet{GWTC-3_population}.\footnote{
+GW190720 is included in the list in \citet{GWTC-3_population}, but we did not include it in this study.
 Details in Discussion.}
-% what we will do with the results
+We then give the population constraint on the strength of GW amplitude birefringence by using the PE results.
 
 % Section guide
 In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, mention the configuration we used in the PE and show the method we used to obtain the population constraint on GW amplitude birefringence.
@@ -101,18 +97,14 @@ Note that when $\kappa=0$, the waveform is the same as GR predicts.
 
 \subsection{Effect on inclination}
 % Effect on inclination PE results
-In GR, the amplitude ratio of the left-handed and right-handed polarizations only depends on the inclination for a nonprecessing binary.
-% For a nonprecessing binary, the amplitude ratio of the left-handed and right-handed polarizations only depends on the inclination. dominated by quadrupolar mode radiation. 2-2 mode
+In GR, the amplitude ratio of the left-handed and right-handed polarizations only depends on the inclination for the dominant $(2,\pm 2)$ angular mode of nonprecessing binaries.
 The relationship between the amplitude ratio and the inclination is
 \begin{equation}
     \frac{h_\mathrm{L}}{h_\mathrm{R}}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2\,,
 \end{equation}
 where $\iota$ is the inclination, the angle between our line of sight and the orbital angular momentum of the binary.
-The waveform modification by the birefringence effect changes the ratio of the left-handed and right-handed polarization of the waveform.
-% birfringence can alter the ratio of the polarization of the waveform
-Thus, the birefringence effect will affect the PE result on $\iota$.
-% will -> could/ without freq the effect will affect
-%base on masha
+Birefringence can alter the ratio between polarizations of the waveform.
+Thus, the birefringence effect could affect the PE result on $\iota$ based on \citet{Okounkova_2022}.
 
 Based on the modification we implemented, the amplitude ratio of the left-handed and right-handed polarizations would be given by
 \begin{equation}
@@ -144,16 +136,13 @@ To illustrate the frequency dependence of amplitude birefringence, the observed 
 
 \subsection{Parameter estimation}
 % Parameter estimation
-To constrain $\kappa$, we perform PE with data from the third GW transient catalog \citep{GWTC-2.1, GWTC-3}, GWTC-3, using Bilby, a Bayesian toolkit for GW data analysis which can calculate posteriors of GW parameters based on interferometer data and priors for the parameters in question \citep{Bilby}.
+To constrain $\kappa$, we perform PE with data from the third GW transient catalog \citep{GWTC-2.1, GWTC-3}, GWTC-3, using Bilby \citep{Bilby}, a Bayesian toolkit for GW data analysis which can calculate posteriors of GW parameters based on interferometer data and priors for the parameters in question.
 We modified Bilby to include the birefringence effect in the likelihood function.
-We then perform PE on intrinsic and extrinsic parameters including $\kappa$.
-We set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
-We use the same PE configuration as in \citet{GWTC-2.1, GWTC-3} for each event.
-% cite GWOSC
-We also perform a sanity test to check if our PE could recover the PE results done by LIGO-Virgo-KAGRA Collaboration (LVK) in \citet{GWTC-2.1, GWTC-3}.
+We then perform PE on intrinsic and extrinsic parameters including $\kappa$ with open data from the Gravitational Wave Open Science Center \citep{GWOSC}.
+For PE configuration, we use the same PE configuration as in \citet{GWTC-2.1, GWTC-3} for each event and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+We also perform a sanity test to check if our PE could recover the PE results done by LVK in \citet{GWTC-2.1, GWTC-3}.
 To implement the sanity check, we need to assume there is no birefringence by setting $\kappa$ to be $0$, which forces the PE results to be consistent with GR.
-These sanity tests result can be found in the \href{https://zenodo.org/record/7338924}{data release}.
-% cite the zenodo data release in bib
+These sanity tests result can be found in \citet{dataset}.
 
 \subsection{Bayesian hierarchical modeling}
 % Bayesian Hierarchical Modeling
@@ -324,7 +313,7 @@ Bilby could not evaluate the likelihood function on Virgo data.
 As a result, we excluded this event from our analysis.
 
 % Special event 2: GW200129
-For GW200129, past research suggests a potential glitch in Virgo data. \citep{GW200129}
+For GW200129, past research suggests a potential glitch in Virgo data. \citep{GW200129_glitch}
 We perform three sets of PE to check if the glitch would affect the population posterior of $\kappa$.
 We pick only two out of three detector data in each set to perform PE.
 The two sets of PE results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
@@ -352,6 +341,12 @@ And using data from more events will allow us to calculate a more constrained po
 \label{sec:Acknowledgements}
 M.~I., K.~W.~K.~W.~, and W.~M.~F.~ are funded by the Center for Computational Astrophysics at the Flatiron Institute.
 The Flatiron Institute provided the computational resources used in this work.
+
+This research has made use of data or software obtained from the Gravitational Wave Open Science Center (gwosc.org), a service of LIGO Laboratory, the LIGO Scientific Collaboration, the Virgo Collaboration, and KAGRA.
+LIGO Laboratory and Advanced LIGO are funded by the United States National Science Foundation (NSF) as well as the Science and Technology Facilities Council (STFC) of the United Kingdom, the Max-Planck-Society (MPS), and the State of Niedersachsen/Germany for support of the construction of Advanced LIGO and construction and operation of the GEO600 detector.
+Additional support for Advanced LIGO was provided by the Australian Research Council.
+Virgo is funded, through the European Gravitational Observatory (EGO), by the French Centre National de Recherche Scientifique (CNRS), the Italian Istituto Nazionale di Fisica Nucleare (INFN) and the Dutch Nikhef, with contributions by institutions from Belgium, Germany, Greece, Hungary, Ireland, Japan, Monaco, Poland, Portugal, Spain.
+KAGRA is supported by Ministry of Education, Culture, Sports, Science and Technology (MEXT), Japan Society for the Promotion of Science (JSPS) in Japan; National Research Foundation (NRF) and Ministry of Science and ICT (MSIT) in Korea; Academia Sinica (AS) and National Science and Technology Council (NSTC) in Taiwan.
 
 \pagebreak
 \bibliography{bib}
