@@ -23,6 +23,10 @@ dependencies:
         - src/data/samples_posterior_birefringence.feather
         - src/data/samples_Gaussian_without_GW200129.npz
 
+    src/scripts/posterior_kappa.py:
+        - src/data/samples_posterior_birefringence.feather
+        - src/data/samples_Gaussian_without_GW200129.npz
+
     src/tex/ms.tex:
         - src/tex/output/mu_median.txt
         - src/tex/output/sigma_median.txt
