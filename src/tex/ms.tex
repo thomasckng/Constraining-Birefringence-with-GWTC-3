@@ -57,7 +57,7 @@ Compared to previous studies, we also performed PE on more events, including eve
 We consider 70 binary black hole merger events with a false alarm rate $\leq1\mathrm{yr^{-1}}$.
 These events are also listed in TABLE I in \citet{GWTC-3_population}.\footnote{
 GW190720 is included in the list in \citet{GWTC-3_population}, but we did not include it in this study.
-Details in Discussion.}
+Details in Sec.~\ref{sec:GW190720}.}
 We then give the population constraint on the strength of GW amplitude birefringence by using the PE results.
 
 % Section guide
@@ -145,7 +145,7 @@ The PE results are published in \citet{dataset}.
 We assume $\kappa$ is the same for all events and calculate a posterior distribution of $\kappa$.
 The posterior distribution is given by
 \begin{equation}
-    p(\kappa|\{d\})\propto \prod{i}p(\kappa|d_i)\,,
+    p(\kappa|\{d\})\propto \prod_{i}p(\kappa|d_i)\,,
     \label{eq:restricted_posterior}
 \end{equation}
 where $p$ is the probability density function, $i$ is the index of the event, $\{d\}$ is the set of data including all events, and $d_i$ is the data of a single event.
@@ -173,7 +173,7 @@ Note that $p(\kappa)$ is the prior of $\kappa$, which is a uniform distribution 
 We chose the prior of $\mu$ and $\sigma$ being uniform distributions.
 Equation \ref{eq:posterior_of_mu_sigma} can then be simplified to
 \begin{equation}
-    p(\mu,\sigma|\{d_i\})\propto\prod_{i}\int p(\kappa_i|d_i)\mathcal{N}(\mu,\sigma)\,d\kappa_i\,.
+    p(\mu,\sigma|\{d\})\propto\prod_{i}\int p(\kappa_i|d_i)\mathcal{N}(\mu,\sigma)\,d\kappa_i\,.
 \end{equation}
 To sample the posterior distribution of $\mu$ and $\sigma$, we used a sampling package, flowMC \citep{flowMC}.
 
@@ -184,7 +184,8 @@ It could be due to our model does not fully capture the physics of birefringence
 We then calculate the generic posterior distribution of $\kappa$ from the posterior of $\mu$ and $\sigma$.
 The constraint was calculated by
 \begin{equation}
-    p(\kappa|\{d_i\})=\int \mathcal{N}(\mu,\sigma)p(\mu,\sigma|\{d_i\})\,d\mu\,d\sigma\,.
+    p(\kappa|\{d\})=\int \mathcal{N}(\mu,\sigma)p(\mu,\sigma|\{d\})\,d\mu\,d\sigma\,.
+    \label{eq:generic_posterior}
 \end{equation}
 
 \section{Results}
@@ -193,37 +194,31 @@ In this section, we present the results of our study.
 We first show the PE results of all events and present the results of Bayesian hierarchical modeling.
 Then, we will discuss some special events individually.
 
-% np.choose and weight for drawing samples
-
 \subsection{Result on GWTC-3}
 % Violin plot
 In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each event in the form of a violin plot.
-The posteriors of $\kappa$ for most events are concentrated around $0$, which means the PE results are consistent with GR.
-Some events with $\kappa$ distribution deviate from $\kappa=0$.
-Also, there are some events with bimodal $\kappa$ distribution.
-We are going to discuss some of these events in the following.
-% mention about GW200129
+The median and confidence interval of $\kappa$ are calculated with the restricted posterior distribution of $\kappa$, which is given by equation \ref{eq:restricted_posterior}.
+We excluded GW200129 from the calculation of the median and confidence interval of $\kappa$.
+Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
 
 \begin{figure*}[ht]
     \script{violin_kappa.py}
     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
     \caption{
-        The violin plot shows the posterior of $\kappa$ for all 69 events in this study.
+        The violin plot shows the posterior of $\kappa$ for 69 events in this study.
         Each violin represents a different event.
-        The violins are sorted by the quotient of the median and standard deviation of the posterior.
-        The blue horizontal line represents the median value of $\mu$, and the blue region represents 1 $\sigma$ confidence level.
-        The Orange horizontal line represents $\kappa=0$.
-        This plot shows that most events are consistent with GR.
+        The color of the violins represents the quotient of the median and standard deviation of the posterior.
+        The orange horizontal solid line represents the median of $\kappa$, and the orange dashed lines enclose the $90\%$ confidence interval.
+        The yellow horizontal solid line represents $\kappa=0$.
     }
     \label{fig:violin_kappa}
 \end{figure*}
-% order time, color median/std
-% symmetrical credible interval 5 to 95 percentile (np.percentile)
 
 \subsection{Bayesian hierarchical modeling}
 % Corner plot of the mean and standard deviation of kappa
 The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian}.
-The mean of $\mu$ and $\sigma$ are \variable{output/Gaussian_mean.txt}, respectively.
+The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_median.txt}.
+The median of $\sigma$ within $90\%$ confidence interval is \variable{output/sigma_median.txt}.
 The posterior of $\mu$ is concentrated around $0$, which means the population constraint on $\kappa$ is consistent with GR.
 
 \begin{figure}[h]
@@ -240,10 +235,24 @@ The posterior of $\mu$ is concentrated around $0$, which means the population co
 
 \subsection{Constaint on $\kappa$}
 % Constraint on $\kappa$
-With the posteriors of $\mu$ and $\sigma$, the population constraint on $\kappa$ was calculated.
-The mean of the population distribution of $\kappa$ is \variable{output/kappa_mean.txt}.
+In figure \ref{fig:posterior_kappa}, we show both the restricted posterior of $\kappa$ and the generic posterior of $\kappa$.
+The restricted posterior of $\kappa$ is calculated by equation \ref{eq:restricted_posterior} with the assumption that $\kappa$ is a single value constant.
+The generic posterior of $\kappa$ is calculated by equation \ref{eq:generic_posterior} with the assumption that $\kappa$ is a true value drawn from a Gaussian distribution.
+The median of the restricted posterior of $\kappa$ within $90\%$ confidence interval is \variable{output/restricted_kappa_median.txt}.
+The median of the generic posterior of $\kappa$ within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
 Note that the result is consistent with GR when $\kappa=0$.
-% include both Hierarchical and stacking
+
+\begin{figure}[h]
+    \script{posterior_kappa.py}
+    \includegraphics[width=\columnwidth]{figures/posterior_kappa.pdf}
+    \caption{
+        The generic and restricted posterior of $\kappa$.
+        The orange solid line shows the restricted posterior of $\kappa$, and the orange dashed lines enclose the $90\%$ confidence interval.
+        The blue solid line shows the generic posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval.
+        The pink vertical solid line represents $\kappa=0$.
+    }
+    \label{fig:posterior_kappa}
+\end{figure}
 
 % Case study
 % Case: GW170818
@@ -270,7 +279,7 @@ Therefore, the PE result with frequency dependence is consistent with GR.
         Colors in the plot represent the PE result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE results done by us with both frequency independent and dependent birefringence respectively.
         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
         Note that there is no posterior of $\kappa$ for the PE result from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
-        This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while the frequency-dependent birefringence can break it.
+        This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while frequency-dependent birefringence can break it.
     }
     \label{fig:corner_GW150914}
 \end{figure}
@@ -296,21 +305,20 @@ Therefore, the narrow frequency range can be a possible reason why the $\kappa$ 
     \label{fig:corner_GW190521}
 \end{figure}
 
-\section{Discussion}
-\label{sec:Discussion}
+% Case: GW200129 (glitch in Virgo data)
+\subsection{Exclusion of GW200129}
+\label{sec:GW200129}
+The reason for the exclusion is that past research suggests a potential glitch in GW200129 Virgo data. \citep{GW200129_glitch}
+We perform three sets of PE to check if the glitch would affect the population posterior of $\kappa$.
+We pick only two out of three detector data in each set to perform PE.
+The two sets of PE results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
+Further investigation is needed to understand the glitch.
+Thus, we did not include this event in our analysis.
+% show result included and excluded
 
-% Comparison with previous studies\
-\citet{Okounkova_2022} gave a constraint on GW amplitude birefringence by performing statistical analysis on GWTC-2.
-We convert the constraint to the same format as ours to make a comparison.
-They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma$.
-We obtained a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1 \sigma$.
-Our result is an order of magnitude improvement in constraining $\kappa$.
-The main reason is that we have more events from GWTC-3 than GWTC-2.
-
-% Reasons for special events
-\subsection{Special Events}
-
-% Special event 1: GW190720
+% Case: GW190720 (failed PE)
+\subsection{Exclusion of GW190720}
+\label{sec:GW190720}
 For GW190720, we could not perform PE with Bilby successfully.
 In LVK PE papers \citep{GWTC-2.1, GWTC-3}, the PE of some events was performed with LALInference \citep{lalsuite} instead of Bilby.
 GW190720 was one of them.
@@ -318,14 +326,17 @@ We successfully migrated the LALInference configuration to Bilby for most of the
 Bilby could not evaluate the likelihood function on Virgo data.
 As a result, we excluded this event from our analysis.
 
-% Special event 2: GW200129
-For GW200129, past research suggests a potential glitch in Virgo data. \citep{GW200129_glitch}
-We perform three sets of PE to check if the glitch would affect the population posterior of $\kappa$.
-We pick only two out of three detector data in each set to perform PE.
-The two sets of PE results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
-Further investigation is needed to understand the glitch.
-Thus, we did not include this event in our analysis.
-% show result included it first
+\section{Discussion}
+\label{sec:Discussion}
+
+% Comparison with previous studies
+\subsection{Comparison with Previous Studies}
+\citet{Okounkova_2022} gave a constraint on GW amplitude birefringence by performing statistical analysis on GWTC-2.
+We convert the constraint to the same format as ours to make a comparison.
+They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma$.
+We obtained a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1 \sigma$.
+Our result is an order of magnitude improvement in constraining $\kappa$.
+The main reason is that we have more events from GWTC-3 than GWTC-2.
 
 % Future work
 \subsection{Future Work}

@@ -1,8 +1,18 @@
-rule compute_Gaussian_stat:
+rule compute_Gaussian_result:
     input:
         "src/data/samples_Gaussian_without_GW200129.npz"
     output:
-        "src/tex/output/Gaussian_mean.txt",
-        "src/tex/output/kappa_mean.txt"
+        "src/tex/output/mu_median.txt",
+        "src/tex/output/sigma_median.txt"
     script:
-        "src/scripts/Gaussian_stat.py"
+        "src/scripts/Gaussian_result.py"
+
+rule compute_kappa_constraint:
+    input:
+        "src/data/samples_Gaussian_without_GW200129.npz",
+        "src/data/samples_posterior_birefringence.feather"
+    output:
+        "src/tex/output/restricted_kappa_median.txt",
+        "src/tex/output/generic_kappa_median.txt"
+    script:
+        "src/scripts/kappa_constraint.py"

@@ -24,8 +24,10 @@ dependencies:
         - src/data/samples_Gaussian_without_GW200129.npz
 
     src/tex/ms.tex:
-        - src/tex/output/Gaussian_mean.txt
-        - src/tex/output/kappa_mean.txt
+        - src/tex/output/mu_median.txt
+        - src/tex/output/sigma_median.txt
+        - src/tex/output/restricted_kappa_median.txt
+        - src/tex/output/generic_kappa_median.txt
 
 datasets:
     10.5281/zenodo.6513631:
