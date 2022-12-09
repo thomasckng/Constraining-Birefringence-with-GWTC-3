@@ -44,14 +44,15 @@ ll = ll - np.max(ll)
 likelihood = np.exp(ll)
 likelihood = likelihood / np.trapz(likelihood, x=kappa)
 
+plt.axvline(0, color=sns.color_palette()[4])
 sns.kdeplot(np.array(samples_reweighted).reshape(-1), label="generic", color=sns.color_palette()[0])
 plt.axvline(np.percentile(a=np.array(samples_reweighted).reshape(-1),q=5), color=sns.color_palette()[0], linestyle=':')
 plt.axvline(np.percentile(a=np.array(samples_reweighted).reshape(-1),q=95), color=sns.color_palette()[0], linestyle=':')
 plt.plot(kappa,likelihood, label="restricted", color=sns.color_palette()[3])
 plt.axvline(np.interp(0.05,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa), color=sns.color_palette()[3], linestyle=':')
 plt.axvline(np.interp(0.95,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa), color=sns.color_palette()[3], linestyle=':')
-plt.axvline(0, color=sns.color_palette()[4])
-plt.xlim(-.2, .2)
+
+plt.xlim(-.15, .15)
 plt.ylabel("$p(\kappa|\{d\})$")
 plt.legend()
 

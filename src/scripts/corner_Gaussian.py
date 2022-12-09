@@ -36,4 +36,6 @@ g.axes[1,1].set_xlabel("$\\sigma$")
 g.axes[1,0].set_xlabel("$\\mu$")
 g.axes[1,0].set_ylabel("$\\sigma$")
 
+g.axes[1,1].set_xlim(0.0)
+
 g.savefig(fname=paths.figures/"corner_Gaussian.pdf", bbox_inches="tight", dpi=300)

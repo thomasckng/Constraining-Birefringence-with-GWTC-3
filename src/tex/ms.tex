@@ -208,8 +208,8 @@ Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
         The violin plot shows the posterior of $\kappa$ for 69 events in this study.
         Each violin represents a different event.
         The color of the violins represents the quotient of the median and standard deviation of the posterior.
-        The orange horizontal solid line represents the median of $\kappa$, and the orange dashed lines enclose the $90\%$ confidence interval.
-        The yellow horizontal solid line represents $\kappa=0$.
+        The blue horizontal solid line represents the median of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval.
+        The pink horizontal solid line represents $\kappa=0$.
     }
     \label{fig:violin_kappa}
 \end{figure*}
@@ -236,10 +236,10 @@ The posterior of $\mu$ is concentrated around $0$, which means the population co
 \subsection{Constaint on $\kappa$}
 % Constraint on $\kappa$
 In figure \ref{fig:posterior_kappa}, we show both the restricted posterior of $\kappa$ and the generic posterior of $\kappa$.
-The restricted posterior of $\kappa$ is calculated by equation \ref{eq:restricted_posterior} with the assumption that $\kappa$ is a single value constant.
-The generic posterior of $\kappa$ is calculated by equation \ref{eq:generic_posterior} with the assumption that $\kappa$ is a true value drawn from a Gaussian distribution.
-The median of the restricted posterior of $\kappa$ within $90\%$ confidence interval is \variable{output/restricted_kappa_median.txt}.
-The median of the generic posterior of $\kappa$ within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
+The restricted posterior is calculated by equation \ref{eq:restricted_posterior} with the assumption that $\kappa$ is a single value constant.
+The generic posterior is calculated by equation \ref{eq:generic_posterior} with the assumption that $\kappa$ is a true value drawn from a Gaussian distribution.
+The median of the restricted posterior within $90\%$ confidence interval is \variable{output/restricted_kappa_median.txt}.
+The median of the generic posterior within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
 Note that the result is consistent with GR when $\kappa=0$.
 
 \begin{figure}[h]
