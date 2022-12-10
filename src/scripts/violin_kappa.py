@@ -51,7 +51,7 @@ g.axhline(np.interp(0.95,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(10
 g.axhline(np.interp(0.5,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa),color=sns.color_palette()[0])
 g.axhline(0, color=sns.color_palette()[4])
 g.figure.autofmt_xdate(rotation=45)
-g.figure.set_size_inches(30,10)
+g.figure.set_size_inches(40,10)
 g.figure.colorbar(plt.cm.ScalarMappable(norm=mpl.colors.Normalize(color_DataFrame['median_over_std'].min(),
                                                                   color_DataFrame['median_over_std'].max()),
                                         cmap=sns.color_palette("rocket_r", as_cmap=True)),

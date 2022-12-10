@@ -166,7 +166,7 @@ We chose a Gaussian distribution as the underlying distribution of $\kappa$ beca
 
 With the posterior of $\kappa$ from PE on each event, the posterior of $\mu$ and $\sigma$ can be calculated by
 \begin{equation}
-    p(\mu,\sigma|\{d\})\propto p(\mu,\sigma)\prod_{i}\int\frac{p(\kappa_i|d_i)}{p(\kappa_i}p(\kappa_i|\mu,\sigma)\,d\kappa_i\,,
+    p(\mu,\sigma|\{d\})\propto p(\mu,\sigma)\prod_{i}\int\frac{p(\kappa_i|d_i)}{p(\kappa_i)}p(\kappa_i|\mu,\sigma)\,d\kappa_i\,,
     \label{eq:posterior_of_mu_sigma}
 \end{equation}
 Note that $p(\kappa)$ is the prior of $\kappa$, which is a uniform distribution between $-1$ and $1$ in this study.
@@ -216,7 +216,7 @@ Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
 
 \subsection{Bayesian hierarchical modeling}
 % Corner plot of the mean and standard deviation of kappa
-The posterior of $\mu$ and $\sigma$ are shown in figure \ref{fig:corner_Gaussian}.
+We then show the result of Bayesian hierarchical modeling in figure \ref{fig:corner_Gaussian}.
 The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_median.txt}.
 The median of $\sigma$ within $90\%$ confidence interval is \variable{output/sigma_median.txt}.
 The posterior of $\mu$ is concentrated around $0$, which means the population constraint on $\kappa$ is consistent with GR.
@@ -247,8 +247,8 @@ Note that the result is consistent with GR when $\kappa=0$.
     \includegraphics[width=\columnwidth]{figures/posterior_kappa.pdf}
     \caption{
         The generic and restricted posterior of $\kappa$.
-        The orange solid line shows the restricted posterior of $\kappa$, and the orange dashed lines enclose the $90\%$ confidence interval.
-        The blue solid line shows the generic posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval.
+        The blue solid line shows the restricted posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval.
+        The orange solid line shows the generic posterior of $\kappa$, and the orange dashed lines enclose the $90\%$ confidence interval.
         The pink vertical solid line represents $\kappa=0$.
     }
     \label{fig:posterior_kappa}
