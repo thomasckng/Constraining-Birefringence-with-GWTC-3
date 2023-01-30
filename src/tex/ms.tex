@@ -183,27 +183,29 @@ We apply a distance prior uniform in comoving volume \mi{is this right?}, and se
 
 \mi{list here any special considerations for individual events}
 
-The PE results are published in \citet{dataset}.
+In order to validate our \ac{PE} implementation, we reproduce the \ac{LVK} \ac{PE} results obtained assuming \ac{GR} by enforcing $\kappa = 0$; this also has the advantage of producing \ac{GR} runs that are directly comparable to our birefringent runs.
+All our \ac{PE} results, including the \ac{GR} valudation runs, are published in \citet{dataset}.
 
 \subsection{Collective analysis}
 
-We assume $\kappa$ is the same for all events and calculate a posterior distribution of $\kappa$.
-The posterior distribution is given by
+\subsubsection{Shared birefringence parameter}
+
+Since birefringence is a property of spacetime and we are targeting a propagation effect not intrinsic to any source, we should expect $\kappa$ to take the same value for all signals, whether it vanishes or not.
+\mi{caveats?}
+Under this assumption, the posterior on $\kappa$ inferred collectively from all events with a uniform prior is simply the product of the individual posteriors,%
+\footnote{Had the $\kappa$ prior been nonuniform, then the individual \emph{likelihoods} would need to be multiplied, as opposed to the posteriors.}
 \begin{equation}
-    p(\kappa|\{d\})\propto \prod_{i}p(\kappa|d_i)\,,
+    p(\kappa \mid \{d_i\})\propto \prod_{i}p(\kappa \mid d_i)\,,
     \label{eq:restricted_posterior}
 \end{equation}
-where $p$ is the probability density function, $i$ is the index of the event, $\{d\}$ is the set of data including all events, and $d_i$ is the data of a single event.
-Equation \ref{eq:restricted_posterior} shows that the posterior distribution of $\kappa$ is the product of the posterior distribution of $\kappa$ for each event.
-This posterior distribution is a restricted posterior distribution because we assume $\kappa$ is the same for all events.
+where $d_i$ is the strain data for the $i$\textsuperscript{th} event.
+We use this expression to obtain the primary constraint presented in this work.
 
-Note that we also perform a sanity test to check if our PE could recover the PE results done by LVK in \citet{GWTC-2.1, GWTC-3}.
-To implement the sanity check, we set $\kappa$ to be $0$, which forces the PE results to be consistent with GR.
-These sanity test results are also attached in \citet{dataset}.
+\subsubsection{Nonshared birefringence parameters}
 
 % Bayesian Hierarchical Modeling
-We then perform Bayesian hierarchical modeling to further analyze the constraint on $\kappa$.
-Bayesian hierarchical modeling is a method to check if our waveform model can fully describe the amplitude birefringence effect.
+In order to further characterize our set of measurements, and identify potential outliers, we carry out an additional collective analysis that allows $\kappa$ to take different values for each events.
+To do this, we make use of hierarchical Bayesian inference to model the distribuion of $\kappa$'s consistent with the observed data.
 Here, instead of assuming all events share the same value of $\kappa$, we assume $\kappa$ from each event is a true value drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$.
 We chose a Gaussian distribution as the underlying distribution of $\kappa$ because it captures the correct mean and the standard deviation of the distribution no matter what the underlying distribution is.
 
