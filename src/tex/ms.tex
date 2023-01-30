@@ -46,6 +46,8 @@
 \acro{BBH}{binary black hole}
 \acro{LVK}{LIGO-Virgo-KAGRA Collaboration}
 \acro{PE}{parameter estimation}
+\acro{FAR}{false-alarm rate}
+\acro{GWOSC}{the Gravitational Wave Open Science Center}
 \end{acronym}
 
 \section{Introduction}
@@ -66,7 +68,7 @@ Previous studies have constrained amplitude birefringence by performing differen
 In this study, we used a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE}.
 This model is a better approximation of the birefringence effect than the frequency-independent model used in \citet{Okounkova_2022}.
 Compared to previous studies, we also performed \ac{PE} on more events, including events in the third \ac{GW} transient catalog \citep{GWTC-3}, GWTC-3.
-We consider 70 binary black hole merger events with a false alarm rate $\leq1\mathrm{yr^{-1}}$.
+We consider 70 binary black hole merger events with a \ac{FAR} $\leq1\mathrm{yr^{-1}}$.
 These events are also listed in Table I in \citet{GWTC-3_population}.\footnote{
 GW190720 is included in the list in \citet{GWTC-3_population}, but we did not include it in this study.
 Details in Sec.~\ref{sec:GW190720}.}
@@ -161,7 +163,7 @@ This assumption results in a full degeneracy between $\kappa$ and $\iota$:
 to reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$, or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
 That fact can be used to constrain frequency-independent birefringence by searching for features in the distribution of inferred inclinations \cite{Okounkova_2022}.
 
-By implementing Eq.~\eqref{eq:modified_amplitude_ratio}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
+By implementing Eq.~\eqref{eq:waveform_modification}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
 Nevertheless, there exist systems for which the degeneracy cannot be perfectly broken because not enough frequencies are available in the data.
 As we will see in Sec.~\ref{sec:Results}, this is the case for heavy \acp{BBH}, which are only in the sensitive band of the detectors for a few cycles.
 
@@ -169,13 +171,21 @@ As we will see in Sec.~\ref{sec:Results}, this is the case for heavy \acp{BBH}, 
 \section{Method}
 \label{sec:Method}
 
-\subsection{Parameter estimation}
-% Parameter estimation
-To constrain $\kappa$, we perform PE with data from the third GW transient catalog \citep{GWTC-2.1, GWTC-3}, GWTC-3, using Bilby \citep{Bilby}, a Bayesian toolkit for GW data analysis which can calculate posteriors of GW parameters based on interferometer data and priors for the parameters in question.
-We modified Bilby to include the birefringence effect in the likelihood function.
-We then perform PE on intrinsic and extrinsic parameters including $\kappa$ with open data from the Gravitational Wave Open Science Center \citep{GWOSC}.
-For PE configuration, we use the same PE configuration as in \citet{GWTC-2.1, GWTC-3} for each event and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+\subsection{Single-event parameter estimation}
+
+To constrain birefringence, we reanalyze events from GWTC-3 \citep{GWTC-2.1, GWTC-3} implementing Eq.~\eqref{eq:waveform_modification} to directly obtain a posterior on $\kappa$ from the strain of each event.
+We analyze the 70 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$; to avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
+We procure strain data from \ac{GWOSC} \citep{GWOSC}.
+
+We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
+We depart from the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3} \mi{cite actual zenodo link}, with \textsc{IMRPhenomXPHM} as the reference waveform.
+We apply a distance prior uniform in comoving volume \mi{is this right?}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+
+\mi{list here any special considerations for individual events}
+
 The PE results are published in \citet{dataset}.
+
+\subsection{Collective analysis}
 
 We assume $\kappa$ is the same for all events and calculate a posterior distribution of $\kappa$.
 The posterior distribution is given by
@@ -191,7 +201,6 @@ Note that we also perform a sanity test to check if our PE could recover the PE 
 To implement the sanity check, we set $\kappa$ to be $0$, which forces the PE results to be consistent with GR.
 These sanity test results are also attached in \citet{dataset}.
 
-\subsection{Bayesian hierarchical modeling}
 % Bayesian Hierarchical Modeling
 We then perform Bayesian hierarchical modeling to further analyze the constraint on $\kappa$.
 Bayesian hierarchical modeling is a method to check if our waveform model can fully describe the amplitude birefringence effect.
