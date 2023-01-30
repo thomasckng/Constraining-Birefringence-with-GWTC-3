@@ -141,6 +141,7 @@ We modified Bilby to include the birefringence effect in the likelihood function
 We then perform PE on intrinsic and extrinsic parameters including $\kappa$ with open data from the Gravitational Wave Open Science Center \citep{GWOSC}.
 For PE configuration, we use the same PE configuration as in \citet{GWTC-2.1, GWTC-3} for each event and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 The PE results are published in \citet{dataset}.
+% cite LIGO PE zenodo
 
 We assume $\kappa$ is the same for all events and calculate a posterior distribution of $\kappa$.
 The posterior distribution is given by
@@ -192,6 +193,7 @@ The constraint was calculated by
 In this section, we present the results of our study.
 We first show the PE results of all events and present the results of Bayesian hierarchical modeling.
 Then, we will discuss some special events individually.
+% What special treatment do we give to events
 
 \subsection{Result on GWTC-3}
 % Violin plot
@@ -199,6 +201,7 @@ In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each eve
 The median and confidence interval of $\kappa$ are calculated with the restricted posterior distribution of $\kappa$, which is given by equation \ref{eq:restricted_posterior}.
 We excluded GW200129 from the calculation of the median and confidence interval of $\kappa$ in figure \ref{fig:violin_kappa}.
 Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
+% mention excluded from all combined results
 
 \begin{figure*}[ht]
     \script{violin_kappa.py}
@@ -212,6 +215,7 @@ Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
     }
     \label{fig:violin_kappa}
 \end{figure*}
+% show the excluded events visually different
 
 \subsection{Bayesian hierarchical modeling}
 % Corner plot of the mean and standard deviation of kappa
@@ -219,6 +223,9 @@ We then show the result of Bayesian hierarchical modeling in figure \ref{fig:cor
 The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_median.txt}.
 The median of $\sigma$ within $90\%$ confidence interval is \variable{output/sigma_median.txt}.
 The posterior of $\mu$ is concentrated around $0$, which means the population constraint on $\kappa$ is consistent with GR.
+% talk about what events pull sigma in figure 2
+% reweighted posterior of individual events in a single histogram
+% create a session for all the outliers
 
 \begin{figure}[h]
     \script{corner_Gaussian.py}
@@ -254,6 +261,7 @@ Note that the result is consistent with GR when $\kappa=0$.
 \end{figure}
 
 % Case study
+
 % Case: GW170818
 
 % Case: GW150914 (example of broken degeneracy)
@@ -291,6 +299,8 @@ The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-de
 The reason could be this GW event's frequency range is too narrow to break the degeneracy.
 The effect of birefringence at different frequencies within the range is similar, so the degeneracy cannot be broken.
 Therefore, the narrow frequency range can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
+% 0 is still in the 90%. there is much probability that kappa is not 0 due to degeneracy.
+% Send Max the GW190521 full corner
 
 \begin{figure}[h]
     \script{corner_GW190521.py}
@@ -314,6 +324,7 @@ The two sets of PE results with Virgo data return a $\kappa$ posterior that stro
 Further investigation is needed to understand the glitch.
 Thus, we did not include this event in our analysis.
 % show result included and excluded
+% exclusion from what?
 
 % Case: GW190720 (failed PE)
 \subsection{Exclusion of GW190720}
@@ -336,6 +347,8 @@ They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma
 We obtained a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1 \sigma$.
 Our result is an order of magnitude improvement in constraining $\kappa$.
 The main reason is that we have more events from GWTC-3 than GWTC-2.
+
+% Comparison with the previous paper with the equation related to the parameter they used
 
 % Future work
 \subsection{Future work}
