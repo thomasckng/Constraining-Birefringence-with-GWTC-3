@@ -4,6 +4,8 @@
 \usepackage{amsfonts,amssymb,amsmath}
 \usepackage[nolist,nohyperlinks]{acronym}
 
+\newcommand*{\mi}[1]{\textsf{\color{magenta} [\textbf{MAX:} #1]}}
+
 \begin{document}
 
 \title{Constraining gravitational wave amplitude birefringence with GWTC-3}
@@ -51,7 +53,7 @@
 % Motivation
 \Ac{GW} detections by the \ac{LVK} \citep{LIGO, Virgo, KAGRA} are now routinely used to test various aspects of Einstein's theory of \ac{GR} \citep{LIGOScientific:2016lio,LIGOScientific:2018dkp,LIGOScientific:2021sio}.
 Among those, measurements of the basic properties of \acp{GW}, like their speed and polarization, can directly probe the fundamental symmetries of the underlying theory of gravity \citep{Will:2018bme}.
-For instance, the unequal propagation of \ac{GW} polarization states would reveal that spacetime is birefringent, a smoking gun for parity-odd theories like Chern-Simons gravity \citep{Jackiw:2003pm, Alexander:2009tp, Sopuerta:2009iy}.
+For instance, unequal propagation of \ac{GW} polarization states would reveal that spacetime is birefringent, a smoking gun for parity-odd theories like Chern-Simons gravity \citep{Jackiw:2003pm, Alexander:2009tp, Sopuerta:2009iy}.
 Here we constrain the magnitude of possible amplitude birefringence using \ac{BBH} signals from the latest \ac{LVK} catalog, GWTC-3.
 % GW amplitude birefringence is a property of space-time that consists of the enhancement of one GW polarization over the other as the wave propagates.
 
@@ -75,35 +77,48 @@ In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform m
 In Sec.~\ref{sec:Results}, we present the population constraint on \ac{GW} amplitude birefringence we obtained and show the results of individual \ac{PE}.
 In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provide suggestions for future studies.
 
-\section{Method}
-\label{sec:Method}
+\section{Background}
+\label{sec:Background}
 
-\subsection{Waveform modification}
+\subsection{Birefringence}
+\label{sec:waveform}
+
 % GW polarization
-GWs comprise two independent polarization modes, just like electromagnetic waves, which are usually represented in the linear states (i.e. $+$ and $\times$).
-For a given Fourier mode, they can be combined into left and right circular states (i.e. left-handed and right-handed).
-They are related by
+In \ac{GR}, \acp{GW} are comprised of two independent polarization modes, usually represented in the linear basis of plus ($+$) and cross ($\times$) states.
+In the Fourier domain, they can be combined into left-handed (L) and right-handed (R) circular states \cite{Isi:2022mbx},
 \begin{equation}
-    h_{\mathrm{L/R}} = \frac{h_+ \pm i h_\times}{\sqrt{2}}\,,
+    h_{\mathrm{L/R}} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
 \end{equation}
-where $h_{\mathrm{L/R}}$ are the amplitude of the left-handed and right-handed polarization of the waveform, $h_+$ and $h_\times$ are the amplitude of the plus and cross polarization of the waveform.
+where $h$ is the frequency domain strain, with the plus and minus signs for L and R respectively.
+These circular modes represent eigenstates of the helicity operator (helicity $\pm2$) and posses a definite parity.
+Einstein's theory, which is parity even, predicts no difference in the dynamics of these two states.
 
 % Waveform modification
-GW amplitude birefringence would enhance one polarization mode over the other.
-In theories like Chern- Simons gravity, the observed Fourier waveform takes the form of
+Yet, parity odd extensions of \ac{GR} may make distinctions between the two circular polarizations, which can manifest in both the generation and propagation of \acp{GW}.
+The latter can manifest in changes to the relative amplitude and phase of the polarizations that accrue as the wave propagates, giving us hope to detect initially small effects that compound over long propagation distances.
+
+In particular, \emph{amplitude} birefringence would enhance one polarization mode over the other.
+To first order in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source takes the form of
 \begin{equation}
-    h_\mathrm{L/R}^{\mathrm{br}}=
-    h_\mathrm{L/R}^{\mathrm{GR}}\times
+    h_\mathrm{L/R}^{\mathrm{br}}(f) =
+    h_\mathrm{L/R}^{\mathrm{GR}}(f) \times
     \exp\left(\pm\kappa\frac{d_C}{1\mathrm{Gpc}}\frac{f}{100\mathrm{Hz}}\right)\,,
     \label{eq:waveform_modification}
 \end{equation}
-where $h_\mathrm{L/R}^{\mathrm{br}}$ is the Fourier amplitude of the observed waveform with amplitude birefringence, $h_\mathrm{L/R}^{\mathrm{GR}}$ is the Fourier amplitude of the waveform emitted, $\kappa$ is the dimensionless opacity parameter that represents the strength of the birefringence, $d_C$ is the comoving distance to the source, and $f$ is the frequency of the waveform.
-We assume the intrinsic modification is small, so we can use GR waveform templates to describe the emitted waveform.
+where the emitted waveform $h_\mathrm{L/R}^{\mathrm{GR}}$ is modified by an exponential birefringent factor to yield the observed waveform $h_\mathrm{L/R}^{\mathrm{br}}$.
+The overall magnitude of this effect for a given distance and frequency $f$ is set by a dimensionless opacity parameter, $\kappa$, which encodes the intrinsic strength of the birefringence.
+The emitted waveform for a given source (i.e., the waveform observed very close to the source) will generally differ from the analogous waveform predicted by \ac{GR}; however, since we expect most viable modifications to \ac{GR} to be intrinsically small, it is standard to approximate the emitted waveform by the prediction from \ac{GR} (hence the notation $h^{\rm GR}$ above).
 
-Although the intrinsic modification is small, the effect accumulates as the GW propagates.
-As the GWs propagate, the effect of birefringence will be built up with the number of cycles which depends on the distance traveled and the frequency of the GWs.
-According to equation \ref{eq:waveform_modification}, a positive $\kappa$ means the left-handed polarization is enhanced over the right-handed polarization, while a negative $\kappa$ means the opposite.
-Note that when $\kappa=0$, the waveform is the same as GR predicts.
+Although the intrinsic modification is small, the effect targeted by Eq.~\eqref{eq:waveform_modification} accumulates as the \ac{GW} propagates.
+During propagation, the effect of birefringence will be built up with the number of cycles which depends on the distance traveled and the frequency of the \acp{GW}.
+According to Eq.~\eqref{eq:waveform_modification}, a positive $\kappa$ means the left-handed polarization is enhanced over the right-handed polarization, while a negative $\kappa$ means the opposite;
+when $\kappa=0$, the observed waveform is the same as \ac{GR} predicts, meaning there is no birefringence.
+
+Equation \eqref{eq:waveform_modification} can be derived as the first order effect in an expansion for multiple extensions of \ac{GR}.
+In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity.
+Since it originates from an expansion, Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, $\left|\kappa\right| \left(d_C/1\mathrm{Gpc}\right) \left(f/100\mathrm{Hz}\right) < 1$.
+Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
+\mi{specify what the parameter for the expansion is, add citations, and check with a theorist}
 
 \subsection{Effect on inclination}
 % Effect on inclination PE results
@@ -143,6 +158,9 @@ To illustrate the frequency dependence of amplitude birefringence, the observed 
     }
     \label{fig:birefringence}
 \end{figure}
+
+\section{Method}
+\label{sec:Method}
 
 \subsection{Parameter estimation}
 % Parameter estimation
