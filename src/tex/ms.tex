@@ -53,7 +53,7 @@
 % Motivation
 \Ac{GW} detections by the \ac{LVK} \citep{LIGO, Virgo, KAGRA} are now routinely used to test various aspects of Einstein's theory of \ac{GR} \citep{LIGOScientific:2016lio,LIGOScientific:2018dkp,LIGOScientific:2021sio}.
 Among those, measurements of the basic properties of \acp{GW}, like their speed and polarization, can directly probe the fundamental symmetries of the underlying theory of gravity \citep{Will:2018bme}.
-For instance, unequal propagation of \ac{GW} polarization states would reveal that spacetime is birefringent, a smoking gun for parity-odd theories like Chern-Simons gravity \citep{Jackiw:2003pm, Alexander:2009tp, Sopuerta:2009iy}.
+For instance, unequal propagation of \ac{GW} polarization states would reveal that spacetime is birefringent, a smoking gun for parity-odd theories like Chern-Simons gravity \citep{Jackiw:2003pm,Alexander:2009tp,Sopuerta:2009iy}.
 Here we constrain the magnitude of possible amplitude birefringence using \ac{BBH} signals from the latest \ac{LVK} catalog, GWTC-3.
 % GW amplitude birefringence is a property of space-time that consists of the enhancement of one GW polarization over the other as the wave propagates.
 
@@ -87,7 +87,7 @@ In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provid
 In \ac{GR}, \acp{GW} are comprised of two independent polarization modes, usually represented in the linear basis of plus ($+$) and cross ($\times$) states.
 In the Fourier domain, they can be combined into left-handed (L) and right-handed (R) circular states \cite{Isi:2022mbx},
 \begin{equation}
-    h_{\mathrm{L/R}} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
+    h_{{L/R}} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
 \end{equation}
 where $h$ is the frequency domain strain, with the plus and minus signs for L and R respectively.
 These circular modes represent eigenstates of the helicity operator (helicity $\pm2$) and posses a definite parity.
@@ -100,14 +100,14 @@ The latter can manifest in changes to the relative amplitude and phase of the po
 In particular, \emph{amplitude} birefringence would enhance one polarization mode over the other.
 To first order in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source takes the form of
 \begin{equation}
-    h_\mathrm{L/R}^{\mathrm{br}}(f) =
-    h_\mathrm{L/R}^{\mathrm{GR}}(f) \times
-    \exp\left(\pm\kappa\frac{d_C}{1\mathrm{Gpc}}\frac{f}{100\mathrm{Hz}}\right)\,,
+    h_{L/R}^{\mathrm{br}}(f) =
+    h_{L/R}^{\mathrm{GR}}(f) \times
+    \exp\left(\pm\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\,\mathrm{Hz}}\right)\,,
     \label{eq:waveform_modification}
 \end{equation}
-where the emitted waveform $h_\mathrm{L/R}^{\mathrm{GR}}$ is modified by an exponential birefringent factor to yield the observed waveform $h_\mathrm{L/R}^{\mathrm{br}}$.
+where the emitted waveform $h_{L/R}^{\mathrm{GR}}$ is modified by an exponential birefringent factor to yield the observed waveform $h_{L/R}^{\mathrm{br}}$.
 The overall magnitude of this effect for a given distance and frequency $f$ is set by a dimensionless opacity parameter, $\kappa$, which encodes the intrinsic strength of the birefringence.
-The emitted waveform for a given source (i.e., the waveform observed very close to the source) will generally differ from the analogous waveform predicted by \ac{GR}; however, since we expect most viable modifications to \ac{GR} to be intrinsically small, it is standard to approximate the emitted waveform by the prediction from \ac{GR} (hence the notation $h^{\rm GR}$ above).
+The emitted waveform for a given source (i.e., the waveform observed very close to the source) will generally differ from the analogous waveform predicted by \ac{GR}; however, since we expect most viable modifications to \ac{GR} to be intrinsically small, it is standard to approximate the emitted waveform by the prediction from \ac{GR} (hence the notation ``$h^{\rm GR}$'' above).
 
 Although the intrinsic modification is small, the effect targeted by Eq.~\eqref{eq:waveform_modification} accumulates as the \ac{GW} propagates.
 During propagation, the effect of birefringence will be built up with the number of cycles which depends on the distance traveled and the frequency of the \acp{GW}.
@@ -116,38 +116,35 @@ when $\kappa=0$, the observed waveform is the same as \ac{GR} predicts, meaning 
 
 Equation \eqref{eq:waveform_modification} can be derived as the first order effect in an expansion for multiple extensions of \ac{GR}.
 In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity.
-Since it originates from an expansion, Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, $\left|\kappa\right| \left(d_C/1\mathrm{Gpc}\right) \left(f/100\mathrm{Hz}\right) < 1$.
+Since it originates from an expansion, Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
+\begin{equation}
+\left|\kappa\right| \left(d_C/1\,\mathrm{Gpc}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, .
+\end{equation}
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
 \mi{specify what the parameter for the expansion is, add citations, and check with a theorist}
 
-\subsection{Effect on inclination}
-% Effect on inclination PE results
-In GR, the amplitude ratio of the left-handed and right-handed polarizations only depends on the inclination for the dominant $(2,\pm 2)$ angular mode of nonprecessing binaries.
-The relationship between the amplitude ratio and the inclination is
-\begin{equation}
-    \frac{h_\mathrm{L}}{h_\mathrm{R}}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2\,,
-\end{equation}
-where $\iota$ is the inclination, the angle between our line of sight and the orbital angular momentum of the binary.
-Birefringence can alter the ratio between polarizations of the waveform.
-Thus, the birefringence effect could affect the PE result on $\iota$ based on \citet{Okounkova_2022}.
+\subsection{Relation to inclination}
 
-Based on the modification we implemented, the amplitude ratio of the left-handed and right-handed polarizations would be given by
+% Effect on inclination PE results
+Under certain conditions, the effect of birefringence can be degenerate with a change in the orientation of the source with respect to the line of sight.
+Concretely, for a nonprecessing compact binary inspiral in \ac{GR}, the observed amplitude ratio of the left-handed and right-handed polarizations is only a function of the inclination $\iota$, the angle between the orbital angular momentum of the source and the line of sight.
+For  the dominant $\ell = |m| = 2$ angular mode of the radiation, the relation between the amplitude ratio and the inclination is
 \begin{equation}
-    \frac{h_\mathrm{L_{obs}}}{h_\mathrm{R_{obs}}}=\frac{\left(1-\cos\iota\right)^2}{\left(1+\cos\iota\right)^2}\exp\left({2\kappa\frac{d_C}{1\mathrm{Gpc}}\frac{f}{100\mathrm{Hz}}}\right)\,,
+    \frac{h_{L}^\mathrm{GR}}{h^\mathrm{GR}_{R}}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2\,
+\end{equation}
+for all frequencies (see, e.g., Sec.~IIIC in \cite{Isi:2022mbx}).
+
+Since birefringence impacts the observed amplitude ratio of left- and right-handed modes, it could also affect inferences about the source inclination \cite{Alexander:2009tp}.
+However, the two effects are degenerate only if the frequency dependence of Eq.~\eqref{eq:waveform_modification} is neglected.
+This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied polarization ratio for the $\ell = |m| = 2$ mode of a nonprecessing source is
+\begin{equation}
+    \frac{h_{L}^\mathrm{br}}{h_{R}^\mathrm{br}}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2
+    \exp\left({2\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}}\right)\, .
     \label{eq:modified_amplitude_ratio}
 \end{equation}
-where $h_\mathrm{L_{obs}}$ and $h_\mathrm{R_{obs}}$ are the observed amplitude of left-handed and right-handed polarizations of the GWs.
-As the amplitude ratio does not only depends on $\iota$ with this modification but also $\kappa$ and $d_C$, the PE results on $\iota$ and $d_C$ are affected.
+For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will generate dephasing in the time domain waveform (Fig~\ref{fig:birefringence}).
 
-\citet{Okounkova_2022} assume the effect of birefringence is independent of the frequency, which is a zeroth-order approximation of the birefringence model in Chern-Simons gravity.
-This assumption would create a degeneracy between $\kappa$ and $\iota$, as they can affect the amplitude ratio similarly.
-To reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$, or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
-
-In contrast, we included the frequency dependence in the equation \ref{eq:modified_amplitude_ratio}, which is a first-order approximation of the birefringence model.
-The frequency dependence can break the degeneracy between $\kappa$ and $\iota$, as this would make the effect of the birefringence affect the amplitude ratio differently compared to $\iota$.
-To illustrate the frequency dependence of amplitude birefringence, the observed amplitudes of two polarizations of a simulated GW signal are shown in figure \ref{fig:birefringence}.
-
-\begin{figure}[h]
+\begin{figure}
     \script{birefringence.py}
     \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
     \caption{
@@ -158,6 +155,16 @@ To illustrate the frequency dependence of amplitude birefringence, the observed 
     }
     \label{fig:birefringence}
 \end{figure}
+
+\citet{Okounkova_2022} took the effect of birefringence to be independent of the frequency, which is a zeroth-order approximation of the birefringence model in Chern-Simons gravity.
+This assumption results in a full degeneracy between $\kappa$ and $\iota$:
+to reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$, or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
+That fact can be used to constrain frequency-independent birefringence by searching for features in the distribution of inferred inclinations \cite{Okounkova_2022}.
+
+By implementing Eq.~\eqref{eq:modified_amplitude_ratio}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
+Nevertheless, there exist systems for which the degeneracy cannot be perfectly broken because not enough frequencies are available in the data.
+As we will see in Sec.~\ref{sec:Results}, this is the case for heavy \acp{BBH}, which are only in the sensitive band of the detectors for a few cycles.
+
 
 \section{Method}
 \label{sec:Method}
