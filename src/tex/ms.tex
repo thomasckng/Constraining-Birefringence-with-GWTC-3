@@ -2,6 +2,7 @@
 
 \usepackage{showyourwork}
 \usepackage{amsfonts,amssymb,amsmath}
+\usepackage[nolist,nohyperlinks]{acronym}
 
 \begin{document}
 
@@ -35,32 +36,43 @@
 
 \maketitle
 
+\begin{acronym}
+\acro{GW}{gravitational wave}
+\acro{GR}{general relativity}
+\acro{CBC}{compact-binary coalescence}
+\acro{BH}{black hole}
+\acro{BBH}{binary black hole}
+\acro{LVK}{LIGO-Virgo-KAGRA Collaboration}
+\acro{PE}{parameter estimation}
+\end{acronym}
+
 \section{Introduction}
 \label{sec:Introduction}
 % Motivation
-Gravitational waves (GWs) have been used to test Einstein's theory of general relativity (GR) with detections by LIGO-Virgo-KAGRA Collaboration (LVK) \citep{LIGO, Virgo, KAGRA}.
-To study the possibility of different beyond-GR theories, we can observe if GWs have any deviation from GR.
-Some beyond-GR theories, such as Chern-Simons gravity, suggest that there is gravitational wave amplitude birefringence, while GR predicts no birefringence.
-GW amplitude birefringence is a property of space-time that consists of the enhancement of one GW polarization over the other as the wave propagates.
+\Ac{GW} detections by the \ac{LVK} \citep{LIGO, Virgo, KAGRA} are now routinely used to test various aspects of Einstein's theory of \ac{GR} \citep{LIGOScientific:2016lio,LIGOScientific:2018dkp,LIGOScientific:2021sio}.
+Among those, measurements of the basic properties of \acp{GW}, like their speed and polarization, can directly probe the fundamental symmetries of the underlying theory of gravity \citep{Will:2018bme}.
+For instance, the unequal propagation of \ac{GW} polarization states would reveal that spacetime is birefringent, a smoking gun for parity-odd theories like Chern-Simons gravity \citep{Jackiw:2003pm, Alexander:2009tp, Sopuerta:2009iy}.
+Here we constrain the magnitude of possible amplitude birefringence using \ac{BBH} signals from the latest \ac{LVK} catalog, GWTC-3.
+% GW amplitude birefringence is a property of space-time that consists of the enhancement of one GW polarization over the other as the wave propagates.
 
 % Previous studies
 Previous studies have constrained amplitude birefringence by performing different statistical analyses.
-\citet{Yamada_2020} and \citet{Wang_2021} both performed parameter estimation (PE) on the events in the first GW transient catalog \citep{GWTC-1}, GWTC-1, using birefringence templates.
-\citet{Okounkova_2022} considered the distribution of observed inclinations of the GW events in the second GW transient catalog \citep{GWTC-2}, GWTC-2, to look for signs of birefringence.
+\citet{Yamada_2020} and \citet{Wang_2021} both performed \ac{PE} on the events in the first \ac{GW} transient catalog \citep{GWTC-1}, GWTC-1, using birefringent templates.
+\citet{Okounkova_2022} considered the distribution of observed inclinations of the \ac{GW} events in the second \ac{GW} transient catalog \citep{GWTC-2}, GWTC-2, to look for signs of birefringence.
 
 % What's new?
-In this study, we used a frequency-dependent birefringence model to constrain the strength of GW amplitude birefringence by performing PE.
+In this study, we used a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE}.
 This model is a better approximation of the birefringence effect than the frequency-independent model used in \citet{Okounkova_2022}.
-Compared to previous studies, we also performed PE on more events, including events in the third GW transient catalog \citep{GWTC-3}, GWTC-3.
+Compared to previous studies, we also performed \ac{PE} on more events, including events in the third \ac{GW} transient catalog \citep{GWTC-3}, GWTC-3.
 We consider 70 binary black hole merger events with a false alarm rate $\leq1\mathrm{yr^{-1}}$.
-These events are also listed in TABLE I in \citet{GWTC-3_population}.\footnote{
+These events are also listed in Table I in \citet{GWTC-3_population}.\footnote{
 GW190720 is included in the list in \citet{GWTC-3_population}, but we did not include it in this study.
 Details in Sec.~\ref{sec:GW190720}.}
-We then give the population constraint on the strength of GW amplitude birefringence by using the PE results.
+We then give the population constraint on the strength of \ac{GW} amplitude birefringence by using the \ac{PE} results.
 
 % Section guide
-In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, mention the configuration we used in the PE and show the method we used to obtain the population constraint on GW amplitude birefringence.
-In Sec.~\ref{sec:Results}, we present the population constraint on GW amplitude birefringence we obtained and show the results of individual PE.
+In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, mention the configuration we used in the \ac{PE} and show the method we used to obtain the population constraint on \ac{GW} amplitude birefringence.
+In Sec.~\ref{sec:Results}, we present the population constraint on \ac{GW} amplitude birefringence we obtained and show the results of individual \ac{PE}.
 In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provide suggestions for future studies.
 
 \section{Method}
