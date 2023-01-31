@@ -30,8 +30,8 @@
 \date{\today}
 
 \begin{abstract}
-    The propagation of gravitational waves can reveal fundamental feature of the structure of spacetime.
-    For instance, differences in the propagation of gravitational-wave polarizations would be a smoking gun of parity violations in the gravitational sector, as expected from birefringent theories like Chern-Simons gravity.
+    The propagation of gravitational waves can reveal fundamental features of the structure of spacetime.
+    For instance, differences in the propagation of gravitational-wave polarizations would be a smoking gun for parity violations in the gravitational sector, as expected from birefringent theories like Chern-Simons gravity.
     Here we look for evidence of amplitude birefringence in the latest LIGO-Virgo catalog (GWTC-3) through the use of birefringent templates inspired by dynamical Chern-Simons gravity.
     From 70 binary-black-hole signals, we obtain the most precise constraints on amplitude birefringence yet, an order of magnitude more stringent than previous results.
 \end{abstract}
@@ -57,7 +57,6 @@
 Among those, measurements of the basic properties of \acp{GW}, like their speed and polarization, can directly probe the fundamental symmetries of the underlying theory of gravity \citep{Will:2018bme}.
 For instance, unequal propagation of \ac{GW} polarization states would reveal that spacetime is birefringent, a smoking gun for parity-odd theories like Chern-Simons gravity \citep{Jackiw:2003pm,Alexander:2009tp,Sopuerta:2009iy}.
 Here we constrain the magnitude of possible amplitude birefringence using \ac{BBH} signals from the latest \ac{LVK} catalog, GWTC-3.
-% GW amplitude birefringence is a property of space-time that consists of the enhancement of one GW polarization over the other as the wave propagates.
 
 % Previous studies
 Previous studies have constrained amplitude birefringence by performing different statistical analyses.
@@ -75,6 +74,7 @@ Details in Sec.~\ref{sec:GW190720}.}
 We then give the population constraint on the strength of \ac{GW} amplitude birefringence by using the \ac{PE} results.
 
 % Section guide
+In Sec.~\ref{sec:Background}, we briefly review the background of \ac{GW} amplitude birefringence.
 In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, mention the configuration we used in the \ac{PE} and show the method we used to obtain the population constraint on \ac{GW} amplitude birefringence.
 In Sec.~\ref{sec:Results}, we present the population constraint on \ac{GW} amplitude birefringence we obtained and show the results of individual \ac{PE}.
 In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provide suggestions for future studies.
@@ -92,7 +92,7 @@ In the Fourier domain, they can be combined into left-handed (L) and right-hande
     h_{{L/R}} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
 \end{equation}
 where $h$ is the frequency domain strain, with the plus and minus signs for L and R respectively.
-These circular modes represent eigenstates of the helicity operator (helicity $\pm2$) and posses a definite parity.
+These circular modes represent eigenstates of the helicity operator (helicity $\pm2$) and possess a definite parity.
 Einstein's theory, which is parity even, predicts no difference in the dynamics of these two states.
 
 % Waveform modification
@@ -179,13 +179,13 @@ We analyze the 70 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
-We depart from the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3} \mi{@Thomas cite actual zenodo link}, with \textsc{IMRPhenomXPHM} as the reference waveform.
-We apply a distance prior uniform in comoving volume \mi{@Thomas is this right?}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+We depart from the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, with \textsc{IMRPhenomXPHM} as the reference waveform.
+We apply a distance prior uniform in comoving volume instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 
-\mi{@Thomas list here any special considerations for individual events}
+For GW190521, we increase the maximum distance of the distance prior to $1.5$ times the original value, as the birefringence effect enables the probability of a larger distance.
 
 In order to validate our \ac{PE} implementation, we reproduce the \ac{LVK} \ac{PE} results obtained assuming \ac{GR} by enforcing $\kappa = 0$; this also has the advantage of producing \ac{GR} runs that are directly comparable to our birefringent runs.
-All our \ac{PE} results, including the \ac{GR} valudation runs, are published in \citet{dataset}.
+All our \ac{PE} results, including the \ac{GR} validation runs, are published in \citet{dataset}.
 
 \subsection{Collective analysis}
 
@@ -223,7 +223,7 @@ Furhter choosing the hyperpriors on $\mu$ and $\sigma$ to be uniform, Eq.~\eqref
 \begin{equation}
     p(\mu,\sigma\mid\{d\})\propto\prod_{i}\int p(\kappa_i\mid d_i)\mathcal{N}(\mu,\sigma)\,d\kappa_i\,.
 \end{equation}
-%
+
 We also calculate the expected population distribution of $\kappa$ marginalized over $\mu$ and $\sigma$.
 This is given by
 \begin{equation}
@@ -243,7 +243,7 @@ Then, we will discuss some special events individually.
     \script{violin_kappa.py}
     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
     \caption{
-        The violin plot shows the posterior of $\kappa$ for 69 events in this study.
+        The violin plot shows the posterior of $\kappa$ for 70 events in this study.
         Each violin represents a different event.
         The color of the violins represents the quotient of the median and standard deviation of the posterior.
         The blue horizontal solid line represents the median of the restricted posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval of the restricted posterior of $\kappa$.
@@ -251,12 +251,13 @@ Then, we will discuss some special events individually.
     }
     \label{fig:violin_kappa}
 \end{figure*}
+% show the excluded events visually different
 
 \subsection{Result on GWTC-3}
 % Violin plot
 In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each event in the form of a violin plot.
 The median and confidence interval of $\kappa$ are calculated with the restricted posterior distribution of $\kappa$, which is given by equation \ref{eq:restricted_posterior}.
-We excluded GW200129 from the calculation of the median and confidence interval of $\kappa$.
+We excluded GW200129 from the calculation of collective analysis.
 Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
 
 \subsection{Bayesian hierarchical modeling}
@@ -286,6 +287,7 @@ The generic posterior is calculated by equation \ref{eq:generic_posterior} with 
 The median of the restricted posterior within $90\%$ confidence interval is \variable{output/restricted_kappa_median.txt}.
 The median of the generic posterior within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
 Note that the result is consistent with GR when $\kappa=0$.
+% talk about what events pull sigma in figure 2
 
 \begin{figure}
     \script{posterior_kappa.py}
@@ -300,7 +302,11 @@ Note that the result is consistent with GR when $\kappa=0$.
 \end{figure}
 
 % Case study
+
+% Create sessions for all the outliers
+
 % Case: GW170818
+\subsection{Result on GW170818}
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
@@ -337,6 +343,8 @@ The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-de
 The reason could be this GW event's frequency range is too narrow to break the degeneracy.
 The effect of birefringence at different frequencies within the range is similar, so the degeneracy cannot be broken.
 Therefore, the narrow frequency range can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
+Note that $\kappa=0$ is still within the $90\%$ confidence interval, with a non-negligible probability.
+The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa$ and $\iota$ cannot be broken in this case.
 
 \begin{figure}[h]
     \script{corner_GW190521.py}
@@ -355,11 +363,11 @@ Therefore, the narrow frequency range can be a possible reason why the $\kappa$ 
 \label{sec:GW200129}
 The reason for the exclusion is that past research suggests a potential glitch in GW200129 Virgo data. \citep{GW200129_glitch}
 We perform three sets of PE to check if the glitch would affect the population posterior of $\kappa$.
-We pick only two out of three detector data in each set to perform PE.
+We pick only two out of three detector data in each set to perform PE. (i.e. LIGO-Hanford and LIGO-Livingston for the first set, LIGO-Hanford and Virgo for the second set, and LIGO-Livingston and Virgo for the third set.)
 The two sets of PE results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
 Further investigation is needed to understand the glitch.
-Thus, we did not include this event in our analysis.
-% show result included and excluded
+Thus, we did not include this event in our collective analysis.
+% show results included and excluded
 
 % Case: GW190720 (failed PE)
 \subsection{Exclusion of GW190720}
@@ -382,6 +390,8 @@ They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma
 We obtained a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1 \sigma$.
 Our result is an order of magnitude improvement in constraining $\kappa$.
 The main reason is that we have more events from GWTC-3 than GWTC-2.
+
+% Comparison with the previous paper with the equation related to the parameter they used
 
 % Future work
 \subsection{Future work}
@@ -409,6 +419,9 @@ Additional support for Advanced LIGO was provided by the Australian Research Cou
 Virgo is funded, through the European Gravitational Observatory (EGO), by the French Centre National de Recherche Scientifique (CNRS), the Italian Istituto Nazionale di Fisica Nucleare (INFN) and the Dutch Nikhef, with contributions by institutions from Belgium, Germany, Greece, Hungary, Ireland, Japan, Monaco, Poland, Portugal, Spain.
 KAGRA is supported by Ministry of Education, Culture, Sports, Science and Technology (MEXT), Japan Society for the Promotion of Science (JSPS) in Japan; National Research Foundation (NRF) and Ministry of Science and ICT (MSIT) in Korea; Academia Sinica (AS) and National Science and Technology Council (NSTC) in Taiwan.
 \end{acknowledgments}
+
+\appendix
+\section{}
 
 \bibliography{bib}
 
