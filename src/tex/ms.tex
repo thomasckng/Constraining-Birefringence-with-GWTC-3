@@ -154,6 +154,7 @@ For an isolated Fourier mode of definite frequency $f$, the effect of birefringe
         The amplitudes, as GR predicts, are shown in dotted lines with blue and orange colors representing the left-handed and right-handed polarizations.
         The amplitudes with birefringence are shown in solid lines with blue and orange colors representing the left-handed and right-handed polarizations.
         This plot shows the effect of amplitude birefringence with frequency dependence.
+        \mi{@Thomas can you add a panel with the time-domain waveforms (maybe just for L or R)?}
     }
     \label{fig:birefringence}
 \end{figure}
@@ -178,10 +179,10 @@ We analyze the 70 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
-We depart from the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3} \mi{cite actual zenodo link}, with \textsc{IMRPhenomXPHM} as the reference waveform.
-We apply a distance prior uniform in comoving volume \mi{is this right?}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+We depart from the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3} \mi{@Thomas cite actual zenodo link}, with \textsc{IMRPhenomXPHM} as the reference waveform.
+We apply a distance prior uniform in comoving volume \mi{@Thomas is this right?}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 
-\mi{list here any special considerations for individual events}
+\mi{@Thomas list here any special considerations for individual events}
 
 In order to validate our \ac{PE} implementation, we reproduce the \ac{LVK} \ac{PE} results obtained assuming \ac{GR} by enforcing $\kappa = 0$; this also has the advantage of producing \ac{GR} runs that are directly comparable to our birefringent runs.
 All our \ac{PE} results, including the \ac{GR} valudation runs, are published in \citet{dataset}.
@@ -193,7 +194,7 @@ All our \ac{PE} results, including the \ac{GR} valudation runs, are published in
 Since birefringence is a property of spacetime and we are targeting a propagation effect not intrinsic to any source, we should expect $\kappa$ to take the same value for all signals, whether it vanishes or not.
 \mi{caveats?}
 Under this assumption, the posterior on $\kappa$ inferred collectively from all events with a uniform prior is simply the product of the individual posteriors,%
-\footnote{Had the $\kappa$ prior been nonuniform, then the individual \emph{likelihoods} would need to be multiplied, as opposed to the posteriors.}
+\footnote{Had the $\kappa$ prior been nonuniform, then we would need to multiply the individual \emph{likelihoods}, not to the posteriors.}
 \begin{equation}
     p(\kappa \mid \{d_i\})\propto \prod_{i}p(\kappa \mid d_i)\,,
     \label{eq:restricted_posterior}
@@ -204,10 +205,14 @@ We use this expression to obtain the primary constraint presented in this work.
 \subsubsection{Nonshared birefringence parameters}
 
 % Bayesian Hierarchical Modeling
-In order to further characterize our set of measurements, and identify potential outliers, we carry out an additional collective analysis that allows $\kappa$ to take different values for each events.
-To do this, we make use of hierarchical Bayesian inference to model the distribuion of $\kappa$'s consistent with the observed data.
-Here, instead of assuming all events share the same value of $\kappa$, we assume $\kappa$ from each event is a true value drawn from a Gaussian distribution with mean $\mu$ and standard deviation $\sigma$.
-We chose a Gaussian distribution as the underlying distribution of $\kappa$ because it captures the correct mean and the standard deviation of the distribution no matter what the underlying distribution is.
+In order to further characterize our set of measurements, and identify potential outliers, we carry out an additional collective analysis that allows $\kappa$ to take different values for each event \cite{Zimmerman:2019wzo,Isi:2022cii}.
+To do this, we apply hierarchical Bayesian inference \cite{Loredo:2004nn} to model the distribution of $\kappa$'s consistent with the observed data:
+we posit that there is a specific value of the parameter, $\kappa_i$, associated to each event, drawn from some unknown distribution of underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
+If we are interested in constraining the first two moments of the distribution, it is convenient to parametrize the $\kappa_i$'s as drawn from a Gaussian with unknown mean $\mu$ and variance $\sigma^2$, i.e., $\kappa_i \sim \mathcal{N}(\mu, \sigma^2)$ \cite{Isi:2019asy}, and measure those hyperparameters from the collection of observed data.
+
+If \ac{GR} is correct and there is no birefringence, we should find the observed $\kappa$ distribution to be consistent with a delta function at the origin ($\kappa_i = 0$ for all $i$, or $\mu=\sigma=0$); on the other hand, if spacetime is birefringent, we expect to find a delta function at some nonzero value ($\kappa_i = \kappa \neq 0$, or $\mu = \kappa$ and $\sigma=0$).
+But this analysis also has the power to reveal unexpected physics or systematics in our measurements: if $\sigma$ is confidently found to be nonzero, this would imply that our set of measurements are statistically unlikely to originate from a unique $\kappa$ value.
+This could signal further physics than is implied by Eq.~\eqref{eq:waveform_modification} \mi{which physics? @Will, any ideas?} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
 
 With the posterior of $\kappa$ from PE on each event, the posterior of $\mu$ and $\sigma$ can be calculated by
 \begin{equation}
@@ -222,10 +227,6 @@ Equation \ref{eq:posterior_of_mu_sigma} can then be simplified to
 \end{equation}
 To sample the posterior distribution of $\mu$ and $\sigma$, we used a sampling package, flowMC \citep{flowMC}.
 
-If our model can fully describe the birefringence effect, the true value of $\kappa$ should be a single value, and the Gaussian distribution should have a standard deviation of $0$.
-If the standard deviation obtained is not $0$, it means our model cannot fully describe the birefringence effect.
-It could be due to our model does not fully capture the physics of birefringence, or there is a systematic error in the data.
-
 We then calculate the generic posterior distribution of $\kappa$ from the posterior of $\mu$ and $\sigma$.
 The constraint was calculated by
 \begin{equation}
@@ -239,14 +240,7 @@ In this section, we present the results of our study.
 We first show the PE results of all events and present the results of Bayesian hierarchical modeling.
 Then, we will discuss some special events individually.
 
-\subsection{Result on GWTC-3}
-% Violin plot
-In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each event in the form of a violin plot.
-The median and confidence interval of $\kappa$ are calculated with the restricted posterior distribution of $\kappa$, which is given by equation \ref{eq:restricted_posterior}.
-We excluded GW200129 from the calculation of the median and confidence interval of $\kappa$.
-Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
-
-\begin{figure*}[ht]
+\begin{figure*}
     \script{violin_kappa.py}
     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
     \caption{
@@ -259,6 +253,13 @@ Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
     \label{fig:violin_kappa}
 \end{figure*}
 
+\subsection{Result on GWTC-3}
+% Violin plot
+In figure \ref{fig:violin_kappa}, we show the posterior of $\kappa$ for each event in the form of a violin plot.
+The median and confidence interval of $\kappa$ are calculated with the restricted posterior distribution of $\kappa$, which is given by equation \ref{eq:restricted_posterior}.
+We excluded GW200129 from the calculation of the median and confidence interval of $\kappa$.
+Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
+
 \subsection{Bayesian hierarchical modeling}
 % Corner plot of the mean and standard deviation of kappa
 We then show the result of Bayesian hierarchical modeling in figure \ref{fig:corner_Gaussian}.
@@ -266,7 +267,7 @@ The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_med
 The median of $\sigma$ within $90\%$ confidence interval is \variable{output/sigma_median.txt}.
 The posterior of $\mu$ is concentrated around $0$, which means the population constraint on $\kappa$ is consistent with GR.
 
-\begin{figure}[h]
+\begin{figure}
     \script{corner_Gaussian.py}
     \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
     \caption{
@@ -287,7 +288,7 @@ The median of the restricted posterior within $90\%$ confidence interval is \var
 The median of the generic posterior within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
 Note that the result is consistent with GR when $\kappa=0$.
 
-\begin{figure}[h]
+\begin{figure}
     \script{posterior_kappa.py}
     \includegraphics[width=\columnwidth]{figures/posterior_kappa.pdf}
     \caption{
@@ -316,7 +317,7 @@ This is because the frequency dependence broke the degeneracy, as the effect of 
 In this case, the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent.
 Therefore, the PE result with frequency dependence is consistent with GR.
 
-\begin{figure}[h]
+\begin{figure}
     \script{corner_GW150914.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
     \caption{
