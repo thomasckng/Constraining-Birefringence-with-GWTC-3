@@ -139,9 +139,8 @@ To illustrate the frequency dependence of amplitude birefringence, the observed 
 To constrain $\kappa$, we perform PE with data from the third GW transient catalog \citep{GWTC-2.1, GWTC-3}, GWTC-3, using Bilby \citep{Bilby}, a Bayesian toolkit for GW data analysis which can calculate posteriors of GW parameters based on interferometer data and priors for the parameters in question.
 We modified Bilby to include the birefringence effect in the likelihood function.
 We then perform PE on intrinsic and extrinsic parameters including $\kappa$ with open data from the Gravitational Wave Open Science Center \citep{GWOSC}.
-For PE configuration, we use the same PE configuration as in \citet{GWTC-2.1, GWTC-3} for each event and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+For PE configuration, we use the same PE configuration as in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} for each event and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 The PE results are published in \citet{dataset}.
-% cite LIGO PE zenodo
 
 We assume $\kappa$ is the same for all events and calculate a posterior distribution of $\kappa$.
 The posterior distribution is given by
@@ -224,7 +223,6 @@ The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_med
 The median of $\sigma$ within $90\%$ confidence interval is \variable{output/sigma_median.txt}.
 The posterior of $\mu$ is concentrated around $0$, which means the population constraint on $\kappa$ is consistent with GR.
 % talk about what events pull sigma in figure 2
-% reweighted posterior of individual events in a single histogram
 % create a session for all the outliers
 
 \begin{figure}[h]
@@ -300,7 +298,6 @@ The reason could be this GW event's frequency range is too narrow to break the d
 The effect of birefringence at different frequencies within the range is similar, so the degeneracy cannot be broken.
 Therefore, the narrow frequency range can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
 % 0 is still in the 90%. there is much probability that kappa is not 0 due to degeneracy.
-% Send Max the GW190521 full corner
 
 \begin{figure}[h]
     \script{corner_GW190521.py}
@@ -376,6 +373,10 @@ Additional support for Advanced LIGO was provided by the Australian Research Cou
 Virgo is funded, through the European Gravitational Observatory (EGO), by the French Centre National de Recherche Scientifique (CNRS), the Italian Istituto Nazionale di Fisica Nucleare (INFN) and the Dutch Nikhef, with contributions by institutions from Belgium, Germany, Greece, Hungary, Ireland, Japan, Monaco, Poland, Portugal, Spain.
 KAGRA is supported by Ministry of Education, Culture, Sports, Science and Technology (MEXT), Japan Society for the Promotion of Science (JSPS) in Japan; National Research Foundation (NRF) and Ministry of Science and ICT (MSIT) in Korea; Academia Sinica (AS) and National Science and Technology Council (NSTC) in Taiwan.
 \end{acknowledgments}
+
+\appendix
+\section{}
+
 
 \bibliography{bib}
 
