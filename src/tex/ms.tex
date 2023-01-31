@@ -193,14 +193,13 @@ All our \ac{PE} results, including the \ac{GR} valudation runs, are published in
 
 Since birefringence is a property of spacetime and we are targeting a propagation effect not intrinsic to any source, we should expect $\kappa$ to take the same value for all signals, whether it vanishes or not.
 \mi{caveats?}
-Under this assumption, the posterior on $\kappa$ inferred collectively from all events with a uniform prior is simply the product of the individual posteriors,%
-\footnote{Had the $\kappa$ prior been nonuniform, then we would need to multiply the individual \emph{likelihoods}, not to the posteriors.}
+Under this assumption, the posterior on $\kappa$ inferred collectively from all events with a uniform prior is simply obtained from the product of the individual likelihoods, $p(d_i \mid \kappa) \propto p(\kappa \mid d_i)/p(\kappa)$, such that
 \begin{equation}
-    p(\kappa \mid \{d_i\})\propto \prod_{i}p(\kappa \mid d_i)\,,
+    p(\kappa \mid \{d_i\})\propto p(\kappa) \prod_{i}\frac{p(\kappa \mid d_i)}{p(\kappa)}\,,
     \label{eq:restricted_posterior}
 \end{equation}
-where $d_i$ is the strain data for the $i$\textsuperscript{th} event.
-We use this expression to obtain the primary constraint presented in this work.
+where $d_i$ is the strain data for the $i$\textsuperscript{th} event, and $p(\kappa)$ is the prior on $\kappa$; since the prior is uniform, in our case Eq.~\eqref{eq:restricted_posterior} reduces to the product of the posteriors, namely $p(\kappa \mid \{d_i\}) \propto \prod_{i}p(\kappa \mid d_i)$.
+We use Eq.~\eqref{eq:restricted_posterior} to obtain the primary constraint presented in this work.
 
 \subsubsection{Nonshared birefringence parameters}
 
@@ -214,25 +213,25 @@ If \ac{GR} is correct and there is no birefringence, we should find the observed
 But this analysis also has the power to reveal unexpected physics or systematics in our measurements: if $\sigma$ is confidently found to be nonzero, this would imply that our set of measurements are statistically unlikely to originate from a unique $\kappa$ value.
 This could signal further physics than is implied by Eq.~\eqref{eq:waveform_modification} \mi{which physics? @Will, any ideas?} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
 
-With the posterior of $\kappa$ from PE on each event, the posterior of $\mu$ and $\sigma$ can be calculated by
+Starting from the posterior on $\kappa$ from each event, the posterior on the hyperparameters $\mu$ and $\sigma$ can be calculated by
 \begin{equation}
-    p(\mu,\sigma|\{d\})\propto p(\mu,\sigma)\prod_{i}\int\frac{p(\kappa_i|d_i)}{p(\kappa_i)}p(\kappa_i|\mu,\sigma)\,d\kappa_i\,,
+    p(\mu,\sigma \mid \{d\})\propto p(\mu,\sigma)\prod_{i}\int\frac{p(\kappa_i\mid d_i)}{p(\kappa_i)}p(\kappa_i\mid\mu,\sigma)\,d\kappa_i\,,
     \label{eq:posterior_of_mu_sigma}
 \end{equation}
-Note that $p(\kappa)$ is the prior of $\kappa$, which is a uniform distribution between $-1$ and $1$ in this study.
-We chose the prior of $\mu$ and $\sigma$ being uniform distributions.
-Equation \ref{eq:posterior_of_mu_sigma} can then be simplified to
+where $p(\kappa)$ is the prior initially applied to $\kappa$ during \ac{PE}, which in our case is a uniform distribution $\mathcal{U}[-1,1]$.
+Furhter choosing the hyperpriors on $\mu$ and $\sigma$ to be uniform, Eq.~\eqref{eq:posterior_of_mu_sigma} simplifies to
 \begin{equation}
-    p(\mu,\sigma|\{d\})\propto\prod_{i}\int p(\kappa_i|d_i)\mathcal{N}(\mu,\sigma)\,d\kappa_i\,.
+    p(\mu,\sigma\mid\{d\})\propto\prod_{i}\int p(\kappa_i\mid d_i)\mathcal{N}(\mu,\sigma)\,d\kappa_i\,.
 \end{equation}
-To sample the posterior distribution of $\mu$ and $\sigma$, we used a sampling package, flowMC \citep{flowMC}.
-
-We then calculate the generic posterior distribution of $\kappa$ from the posterior of $\mu$ and $\sigma$.
-The constraint was calculated by
+%
+We also calculate the expected population distribution of $\kappa$ marginalized over $\mu$ and $\sigma$.
+This is given by
 \begin{equation}
-    p(\kappa|\{d\})=\int \mathcal{N}(\mu,\sigma)p(\mu,\sigma|\{d\})\,d\mu\,d\sigma\,.
+            p(\kappa\mid \{d\})=\int \mathcal{N}(\mu,\sigma)p(\mu,\sigma\mid \{d\})\,d\mu\,d\sigma\, , 
     \label{eq:generic_posterior}
 \end{equation}
+and represents our overall expectation for $\kappa$, given the observed set of individual measurements.
+To sample the posterior distribution of $\mu$ and $\sigma$, we use the sampling package \textsc{flowMC} \citep{flowMC}.
 
 \section{Results}
 \label{sec:Results}
