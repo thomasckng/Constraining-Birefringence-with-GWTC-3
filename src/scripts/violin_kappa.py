@@ -58,5 +58,7 @@ g.figure.colorbar(plt.cm.ScalarMappable(norm=mpl.colors.Normalize(color_DataFram
                   label="$|\mathrm{median}/\sigma|$",
                   ax=g.axes
                  )
+g.axes.collections[59].set_linewidth(3) # GW200129_065458
+g.axes.collections[59].set_edgecolor(sns.color_palette()[9])
 
 g.figure.savefig(fname=paths.figures/"violin_kappa.pdf", bbox_inches="tight", dpi=300)

@@ -248,10 +248,10 @@ Then, we will discuss some special events individually.
         The color of the violins represents the quotient of the median and standard deviation of the posterior.
         The blue horizontal solid line represents the median of the restricted posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval of the restricted posterior of $\kappa$.
         The pink horizontal solid line represents $\kappa=0$.
+        GW200129 is shown with light blue edges, as it is excluded from the calculation of collective analysis.
     }
     \label{fig:violin_kappa}
 \end{figure*}
-% show the excluded events visually different
 
 \subsection{Result on GWTC-3}
 % Violin plot
@@ -423,21 +423,21 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 \appendix
 \section{Corner plots of special events}
 \label{sec:corner_plots}
-\begin{figure}
+\begin{figure}[h]
     \script{corner_GW170818.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
     \caption{Corner plot of GW170818.}
     \label{fig:corner_GW170818}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
     \script{corner_GW200129.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
     \caption{Corner plot of GW200129.}
     \label{fig:corner_GW200129}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h]
     \script{corner_GW200224.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW200224.pdf}
     \caption{Corner plot of GW200224.}

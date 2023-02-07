@@ -13,7 +13,7 @@ plt.rcParams.update({
     "font.serif": ["Computer Modern Roman"],
 })
 
-nsamples = 5000
+nsamples = 3000
 
 with h5py.File(paths.data/"IGWN-GWTC3p0-v1-GW200224_222234_PEDataRelease_mixed_nocosmo.h5", 'r') as f:
     f = f['C01:IMRPhenomXPHM']
