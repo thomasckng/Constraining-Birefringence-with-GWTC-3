@@ -147,8 +147,8 @@ This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied
 For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will generate dephasing in the time domain waveform (Fig~\ref{fig:birefringence}).
 
 \begin{figure}
-    \script{birefringence.py}
-    \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
+    \script{birefringence_frequency_domain.py}
+    \includegraphics[width=\columnwidth]{figures/birefringence_frequency_domain.pdf}
     \caption{
         The observed Fourier amplitude of two polarizations of a simulated GW signal with and without birefringence.
         The amplitudes, as GR predicts, are shown in dotted lines with blue and orange colors representing the left-handed and right-handed polarizations.
@@ -156,7 +156,7 @@ For an isolated Fourier mode of definite frequency $f$, the effect of birefringe
         This plot shows the effect of amplitude birefringence with frequency dependence.
         \mi{@Thomas can you add a panel with the time-domain waveforms (maybe just for L or R)?}
     }
-    \label{fig:birefringence}
+    \label{fig:birefringence_frequency_domain}
 \end{figure}
 
 \citet{Okounkova_2022} took the effect of birefringence to be independent of the frequency, which is a zeroth-order approximation of the birefringence model in Chern-Simons gravity.
@@ -180,7 +180,7 @@ We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
 We depart from the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, with \textsc{IMRPhenomXPHM} as the reference waveform.
-We apply a distance prior uniform in comoving volume instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+We apply a distance prior which is uniform in comoving volume and source frame time instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 
 For GW190521, we increase the maximum distance of the distance prior to $1.5$ times the original value, as the birefringence effect enables the probability of a larger distance.
 
@@ -421,7 +421,6 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 \end{acknowledgments}
 
 \appendix
-\section{Corner plots of special events}
 \label{sec:corner_plots}
 \begin{figure}[h]
     \script{corner_GW170818.py}
@@ -443,6 +442,20 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
     \caption{Corner plot of GW200224.}
     \label{fig:corner_GW200224}
 \end{figure}
+
+% \begin{figure}
+%     \script{birefringence_time_domain.py}
+%     \includegraphics[width=\columnwidth]{figures/birefringence_time_domain.pdf}
+%     \caption{
+%         % The observed Fourier amplitude of two polarizations of a simulated GW signal with and without birefringence.
+%         % The signal, as GR predicts, is shown in the upper panel, and the signal with birefringence is shown in the lower panel.
+%         % The signals in the upper panel are shown in dashed blue and dotted orange lines representing the left-handed and right-handed polarizations.
+%         % Note that the 
+%         % The amplitudes with birefringence are shown in solid lines with blue and orange colors representing the left-handed and right-handed polarizations.
+%         This plot shows the effect of amplitude birefringence with frequency dependence.
+%     }
+%     \label{fig:birefringence_time_domain}
+% \end{figure}
 
 \bibliography{bib}
 

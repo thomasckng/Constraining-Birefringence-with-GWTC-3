@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import kde_contour as kde_contour
 import paths
 
 sns.set_theme(palette='colorblind', font_scale=1.2)
@@ -22,20 +23,48 @@ df['mu'] = samples_Gaussian.reshape(-1,2)[:,0]
 df['sigma'] = samples_Gaussian.reshape(-1,2)[:,1]
 df = df.sample(10000)
 
-g = sns.pairplot(df,
-                vars=['mu', 'sigma'],
-                corner=True, kind='kde',
-                diag_kws=dict(common_norm=False, cut=0), plot_kws=dict(common_norm=False, levels=[
-                        (1.-0.90),(1.-0.3935)], cut=0))
-g.axes[0,0].axvline(mu_median, color=sns.color_palette()[3])
-g.axes[1,1].axvline(sigma_median, color=sns.color_palette()[3])
-g.axes[1,0].axvline(mu_median, color=sns.color_palette()[3])
-g.axes[1,0].axhline(sigma_median, color=sns.color_palette()[3])
+kde_1d_sigma = kde_contour.Bounded_1d_kde(df['sigma'], xlow=0)
+df['sigma_kde'] = kde_1d_sigma(df['sigma'])
+df = df.sort_values(['sigma'])
 
-g.axes[1,1].set_xlabel("$\\sigma$")
-g.axes[1,0].set_xlabel("$\\mu$")
-g.axes[1,0].set_ylabel("$\\sigma$")
+fig = plt.figure(figsize=(5,5))
+ax1 = fig.add_subplot(221)
+ax3 = fig.add_subplot(223)
+ax4 = fig.add_subplot(224)
 
-g.axes[1,1].set_xlim(0.0)
+ax1.axvline(mu_median, color=sns.color_palette()[3])
+sns.kdeplot(df['mu'], fill=True, ax=ax1)
 
-g.savefig(fname=paths.figures/"corner_Gaussian.pdf", bbox_inches="tight", dpi=300)
+ax1.set_xlabel("")
+ax1.set_ylabel("")
+ax1.set_xlim(-.07,.07)
+ax1.set_ylim(0)
+ax1.set_xticks([])
+ax1.set_yticks([])
+ax1.set_box_aspect(1)
+
+ax4.axvline(sigma_median, color=sns.color_palette()[3])
+ax4.fill_between(df['sigma'], df['sigma_kde'], np.zeros(len(df['sigma'])), alpha=0.2)
+ax4.plot(df['sigma'], df['sigma_kde'])
+
+ax4.set_xlabel("$\\sigma$")
+ax4.set_xlim(0)
+ax4.set_ylim(0)
+ax4.set_yticks([])
+ax4.get_lines()[1].set_linewidth(1)
+ax4.set_box_aspect(1)
+
+ax3.axvline(mu_median, color=sns.color_palette()[3])
+ax3.axhline(sigma_median, color=sns.color_palette()[3])
+kde_contour.kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=ax3,
+                               color=sns.color_palette()[0], levels=[0.90,0.3935])
+
+ax3.set_xlabel("$\\mu$")
+ax3.set_ylabel("$\\sigma$")
+ax3.set_xlim(-.07,.07)
+ax3.set_ylim(0)
+ax3.set_box_aspect(1)
+
+fig.tight_layout(pad=0)
+
+fig.savefig(fname=paths.figures/"corner_Gaussian.pdf", bbox_inches="tight", dpi=300)
