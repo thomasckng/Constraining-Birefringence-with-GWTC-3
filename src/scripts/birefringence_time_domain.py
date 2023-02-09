@@ -25,7 +25,7 @@ m2_msun = 10
 chi1 = [0, 0, 0]
 chi2 = [0, 0, 0]
 dist_mpc = 1000
-inclination = np.pi * 0.9
+inclination = np.pi / 2
 phi_ref = 0
 
 m1_kg = m1_msun*lal.MSUN_SI
@@ -43,40 +43,37 @@ hp_time, hc_time = lalsim.SimInspiralChooseTDWaveform(m1_kg, m2_kg,
                                             dt, f_min, f_ref,
                                             None, approximant)
 
-hl_time = (hp_time.data.data + (hc_time.data.data * 1j)) /np.sqrt(2)
-hr_time = (hp_time.data.data - (hc_time.data.data * 1j)) /np.sqrt(2)
-
-time = np.arange(len(hl_time))*dt
+time = np.arange(hp_time.data.length)*dt
 
 hp_freq_fft = np.fft.fft(hp_time.data.data, norm="ortho")
 hc_freq_fft = np.fft.fft(hc_time.data.data, norm="ortho")
-
 n = np.fft.fftfreq(len(hp_freq_fft))
 freq_fft = n[:len(n)//2]*len(n)//4
 
 hl_freq_fft = (hp_freq_fft + (hc_freq_fft * 1j)) /np.sqrt(2)
 hr_freq_fft = (hp_freq_fft - (hc_freq_fft * 1j)) /np.sqrt(2)
 
-kappa = -0.01
+kappa = 0.01
 
 hl_bi_freq_fft = hl_freq_fft[::2] * np.exp(kappa*(dist_mpc/1000)*(freq_fft/100))
 hr_bi_freq_fft = hr_freq_fft[::2] * np.exp(-kappa*(dist_mpc/1000)*(freq_fft/100))
 
-plt.subplot(211)
-plt.plot(time+0.02, hl_time, ls='--', color=sns.color_palette()[0], label=r"L (GR)")
-plt.plot(time+0.02, hr_time, ls=':', color=sns.color_palette()[3], label=r"R (GR)")
-plt.xlim(8.3,8.5)
-plt.legend()
-plt.ylabel(r"$|{h}|$")
-plt.yticks([])
+fig, axs = plt.subplots(2,1,sharex=True)
 
-plt.subplot(212)
-plt.plot(time[::2]+0.051, np.fft.ifft(hl_bi_freq_fft, norm="ortho"), ls='-', color=sns.color_palette()[0], label=r"L (birefringence)")
-plt.plot(time[::2]+0.051, np.fft.ifft(hr_bi_freq_fft, norm="ortho"), ls='-', color=sns.color_palette()[3], label=r"R (birefringence)")
-plt.xlim(8.3,8.5)
-plt.legend()
-plt.ylabel(r"$|{h}|$")
-plt.xlabel(r"$t\mathrm{(s)}$")
-plt.yticks([])
+axs[0].plot(time+0.02, np.fft.ifft(hl_freq_fft, norm="ortho").real, ls='--', color=sns.color_palette()[0], label=r"L (GR)")
+axs[0].plot(time+0.02, np.fft.ifft(hr_freq_fft, norm="ortho").real, ls=':', color=sns.color_palette()[3], label=r"R (GR)")
+axs[0].legend()
+axs[0].set_ylabel(r"${h}$")
+axs[0].set_yticks([])
+
+axs[1].plot(time[::2]+0.051, np.fft.ifft(hl_bi_freq_fft, norm="ortho").real, ls='-', color=sns.color_palette()[0], label=r"L (birefringence)")
+axs[1].plot(time[::2]+0.051, np.fft.ifft(hr_bi_freq_fft, norm="ortho").real, ls='-', color=sns.color_palette()[3], label=r"R (birefringence)")
+axs[1].set_xlim(8.3,8.5)
+axs[1].legend()
+axs[1].set_ylabel(r"${h}$")
+axs[1].set_xlabel(r"$t\mathrm{(s)}$")
+axs[1].set_yticks([])
+
+fig.tight_layout(pad=0.3)
 
 plt.savefig(fname=paths.figures/"birefringence_time_domain.pdf", bbox_inches="tight", dpi=300)
