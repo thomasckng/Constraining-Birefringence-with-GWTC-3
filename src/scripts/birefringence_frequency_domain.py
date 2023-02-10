@@ -16,9 +16,9 @@ plt.rcParams.update({
 approximant = lalsim.SimInspiralGetApproximantFromString("IMRPhenomD")
 
 # frequency array parameters
-df = 0.25
+df = 0.125
 f_min = 20
-f_max = 2030
+f_max = 2048
 f_ref = 100
 
 # source parameters
@@ -27,8 +27,11 @@ m2_msun = 10
 chi1 = [0, 0, 0]
 chi2 = [0, 0, 0]
 dist_mpc = 400
-inclination = np.pi / 4
+inclination = np.pi/2
 phi_ref = 0
+
+# birefringence
+kappa = 0.6
 
 m1_kg = m1_msun*lal.MSUN_SI
 m2_kg = m2_msun*lal.MSUN_SI
@@ -42,25 +45,63 @@ hp_freq, hc_freq = lalsim.SimInspiralChooseFDWaveform(m1_kg, m2_kg,
                                             df, f_min, f_max, f_ref,
                                             None, approximant)
 
-hl_freq = (hp_freq.data.data + (hc_freq.data.data * 1j)) /np.sqrt(2)
-hr_freq = (hp_freq.data.data - (hc_freq.data.data * 1j)) /np.sqrt(2)
+freq = np.arange(len(hp_freq.data.data))*df
 
-freq = np.arange(len(hl_freq))*df
+# let's shift the peak of the waveform `tshift` s before the end of the segment
+tshift = 1
+hp_fd = hp_freq.data.data * np.exp(2j*np.pi*freq*tshift)
+hc_fd = hc_freq.data.data * np.exp(2j*np.pi*freq*tshift)
 
-kappa = -0.5
+hl_fd = (hp_fd + (hc_fd * 1j)) /np.sqrt(2)
+hr_fd = (hp_fd - (hc_fd * 1j)) /np.sqrt(2)
 
-hl_bi_freq = hl_freq * np.exp(kappa*(dist_mpc/1000)*(freq/100))
-hr_bi_freq = hr_freq * np.exp(-kappa*(dist_mpc/1000)*(freq/100))
+# apply birefringent transformation and get corresponding plus and cross
+hl_bi_fd = hl_fd * np.exp(kappa*(dist_mpc/1000)*(freq/100))
+hr_bi_fd = hr_fd * np.exp(-kappa*(dist_mpc/1000)*(freq/100))
 
-plt.loglog(freq, np.abs(hl_freq), ls=':', color=sns.color_palette()[0], label=r"L (GR)")
-plt.loglog(freq, np.abs(hr_freq), ls=':', color=sns.color_palette()[3], label=r"R (GR)")
-plt.loglog(freq, np.abs(hl_bi_freq), color=sns.color_palette()[0], label=r"L (birefringence)")
-plt.loglog(freq, np.abs(hr_bi_freq), color=sns.color_palette()[3], label=r"R (birefringence)")
-plt.xlim(f_min+1,f_max-10)
-plt.ylim(1e-38,1e-20)
-plt.legend()
-plt.ylabel(r"$|\tilde{h}|$")
-plt.xlabel(r"$f\mathrm{(Hz)}$")
-plt.yticks([])
+hp_bi_fd = (hl_bi_fd + hr_bi_fd) / np.sqrt(2)
+hc_bi_fd = 1j*(hl_bi_fd - hr_bi_fd) / np.sqrt(2)
 
-plt.savefig(fname=paths.figures/"birefringence_frequency_domain.pdf", bbox_inches="tight", dpi=300)
+# IFFT all plus and cross
+hp_td = np.fft.irfft(hp_fd)
+hc_td = np.fft.irfft(hc_fd)
+
+hp_bi_td = np.fft.irfft(hp_bi_fd)
+hc_bi_td = np.fft.irfft(hc_bi_fd)
+
+time = np.arange(len(hp_bi_td))/(2*max(freq))
+t0 = time[-1] - tshift
+time -= t0
+
+fig, axs = plt.subplots(2,1, figsize=(10,8))
+
+c1 = sns.color_palette()[0]
+c2 = sns.color_palette()[3]
+axs[0].loglog(freq, np.abs(hl_fd), ls=':', c=c1, label=r"L (GR)")
+axs[0].loglog(freq, np.abs(hr_fd), ls=':', c=c2, label=r"R (GR)")
+axs[0].loglog(freq, np.abs(hl_bi_fd), c=c1, label=r"L (BR)")
+axs[0].loglog(freq, np.abs(hr_bi_fd), c=c2, label=r"R (BR)")
+axs[0].set_xlim(f_min+1,f_max-10)
+axs[0].set_ylim(1e-30,1e-20)
+axs[0].legend()
+axs[0].set_ylabel(r"$|\tilde{h}|$")
+axs[0].set_xlabel(r"$f\mathrm{(Hz)}$")
+axs[0].set_yticks([])
+
+axs[1].plot(time, hp_td, ls=':', c=c1, label="GR")
+axs[1].plot(time, hp_bi_td, ls='-', c=c2, label="BR")
+axs[1].set_ylabel(r"$h_+$")
+
+# axs[2].plot(time, hc_td, ls=':', c=c1, label=r"$+$ (GR)")
+# axs[2].plot(time, hc_bi_td, ls='-', c=c2, label=r"$+$ (BR)")
+# axs[2].set_ylabel(r"$h_\times$")
+
+for ax in axs[1:]:
+    ax.legend()
+    ax.set_xlabel(r"$t\mathrm{(s)}$")
+    ax.set_xlim(-0.05, 0.01)
+    ax.set_yticks([])
+
+fig.tight_layout(pad=0.3)
+fig.savefig(paths.figures/"birefringence_frequency_domain.pdf",
+            bbox_inches="tight")
