@@ -89,7 +89,7 @@ In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provid
 In \ac{GR}, \acp{GW} are comprised of two independent polarization modes, usually represented in the linear basis of plus ($+$) and cross ($\times$) states.
 In the Fourier domain, they can be combined into left-handed (L) and right-handed (R) circular states \cite{Isi:2022mbx},
 \begin{equation}
-    h_{{L/R}} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
+    h_{L/R} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
 \end{equation}
 where $h$ is the frequency domain strain, with the plus and minus signs for L and R respectively.
 These circular modes represent eigenstates of the helicity operator (helicity $\pm2$) and possess a definite parity.
@@ -144,7 +144,7 @@ This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied
     \exp\left({2\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}}\right)\, .
     \label{eq:modified_amplitude_ratio}
 \end{equation}
-For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will generate dephasing in the time domain waveform (Fig~\ref{fig:birefringence}).
+For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will generate dephasing in the time domain waveform (Fig~\ref{fig:birefringence_frequency_domain}).
 
 \begin{figure}
     \script{birefringence_frequency_domain.py}
@@ -308,6 +308,12 @@ Note that the result is consistent with GR when $\kappa=0$.
 % Case: GW170818
 \subsection{Result on GW170818}
 
+% Case: GW190412
+\subsection{Result on GW190412}
+
+% Case: GW200224
+\subsection{Result on GW200224}
+
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
 In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from PE.
@@ -391,7 +397,10 @@ We obtained a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1
 Our result is an order of magnitude improvement in constraining $\kappa$.
 The main reason is that we have more events from GWTC-3 than GWTC-2.
 
-% Comparison with the previous paper with the equation related to the parameter they used
+\citet{Wang_2021} performed PE on GWTC-1 events with a frequency-dependent birefringence model.
+They formulated the birefringence effect as corrections to the GW waveform on a linear basis.
+We convert their constraint to the same units as ours with the derivation in Appendix~\ref{sec:M_PV_derivation}.
+% Discussion on the difference between our work and theirs
 
 % Future work
 \subsection{Future work}
@@ -421,8 +430,59 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 \end{acknowledgments}
 
 \appendix
-\section{}
+
+\section{Relation between $\kappa$ and $M_{PV}$}
+\label{sec:M_PV_derivation}
+
+\citet{Wang_2021} formulated the birefringence effect as
+\begin{equation}
+    h_{+/\times}^{PV}(f) = h_{+/\times}^{GR}(f)\mp h_{\times/+}^{GR}(f)(i\delta h-\delta\Psi)\,,
+\end{equation}
+where $h_{+/\times}^{PV}(f)$ is the modified \ac{GW} waveform in the linear basis, $h_{+/\times}^{GR}(f)$ is the \ac{GW} waveform in the linear basis as \ac{GR} predicts, $\delta h$ is the amplitude modification, and $\delta\Psi$ is the phase modification.
+We can rewrite the equation as
+\begin{equation}
+\begin{split}
+    h_{L/R}^{PV}(f)&=h_{L/R}^{GR}(f)(1\mp\delta h\mp i\delta\Psi)\\
+    &\approx h_{L/R}^{GR}(f)e^{(\mp\delta h\mp i\delta\Psi)}
+\end{split}
+\,,
+\end{equation}
+where $h_{L/R}^{PV}(f)$ is the modified \ac{GW} waveform in the circular basis, $h_{L/R}^{GR}(f)$ is the \ac{GW} waveform in the circular basis as \ac{GR} predicts.
+This equation applies to any birefringence model that allows the assumption that the modification to \ac{GR} is small when observed very near the source.
+To make a comparison with our work, we can choose $\delta\Psi=0$, which is a case that \citet{Wang_2021} considered.
+In their work, they parametrized $\delta h=-A_\nu\pi f$, while
+\begin{equation}
+    A_\nu=M_{PV}^{-1}(\alpha_\nu(z=0)-\alpha_\nu(z)(1+z))\,,
+\end{equation}
+where $A_\nu$ is the parity-violating parameter for amplitude birefringence, $M_{PV}$ is the characteristic energy scale, and $\alpha_\nu$ is a arbitrary functions determined by the birefringence model.
+They then chose $\alpha_\nu=1$.
+Therefore, we can rewrite the equation as
+\begin{equation}
+    h_{L/R}^{PV}(f)= h_{L/R}^{GR}(f)\exp\left(\mp\frac{\pi zf}{M_{PV}}\right)\,.
+\end{equation}
+This equation takes the same form as \eqref{eq:waveform_modification}.
+We can then find the relation between $M_{PV}$ and $\kappa$ by
+\begin{equation}
+    \left|\mp\frac{\pi zf}{M_{PV}}\right|=\left|\pm\kappa\frac{d_C}{1\,\mathrm{Gpc}}\frac{f}{100\,\mathrm{Hz}}\right|\,.
+\end{equation}
+Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of light, we can rewrite the equation as
+\begin{equation}
+    \kappa=\frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{PV}^{-1}\,.
+\end{equation}
+
+\section{Illustration of birefringence}
+\label{sec:time_domain}
+
+\begin{figure}[h]
+    \script{birefringence_time_domain.py}
+    \includegraphics[width=\columnwidth]{figures/birefringence_time_domain.pdf}
+    \caption{The observed time domain signal with and without birefringence.}
+    \label{fig:birefringence_time_domain}
+\end{figure}
+
+\section{Corner plots of special events}
 \label{sec:corner_plots}
+
 \begin{figure}[h]
     \script{corner_GW170818.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
@@ -442,13 +502,6 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
     \includegraphics[width=\columnwidth]{figures/corner_GW200224.pdf}
     \caption{Corner plot of GW200224.}
     \label{fig:corner_GW200224}
-\end{figure}
-
-\begin{figure}
-    \script{birefringence_time_domain.py}
-    \includegraphics[width=\columnwidth]{figures/birefringence_time_domain.pdf}
-    \caption{The observed time domain signal with and without birefringence.}
-    \label{fig:birefringence_time_domain}
 \end{figure}
 
 \bibliography{bib}
