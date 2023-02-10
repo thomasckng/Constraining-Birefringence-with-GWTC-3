@@ -26,8 +26,8 @@ m1_msun = 10
 m2_msun = 10
 chi1 = [0, 0, 0]
 chi2 = [0, 0, 0]
-dist_mpc = 1000
-inclination = np.pi * 0.9
+dist_mpc = 400
+inclination = np.pi / 4
 phi_ref = 0
 
 m1_kg = m1_msun*lal.MSUN_SI

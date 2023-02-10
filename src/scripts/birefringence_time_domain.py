@@ -16,7 +16,9 @@ plt.rcParams.update({
 approximant = lalsim.SimInspiralGetApproximantFromString("IMRPhenomD")
 
 # frequency array parameters
+df = 0.125
 f_min = 20
+f_max = 1024
 f_ref = 100
 
 # source parameters
@@ -24,55 +26,67 @@ m1_msun = 10
 m2_msun = 10
 chi1 = [0, 0, 0]
 chi2 = [0, 0, 0]
-dist_mpc = 1000
-inclination = np.pi / 2
+dist_mpc = 400
+inclination = np.pi /4
 phi_ref = 0
 
 m1_kg = m1_msun*lal.MSUN_SI
 m2_kg = m2_msun*lal.MSUN_SI
 distance = dist_mpc*1e6*lal.PC_SI
 
-# time array parameters
-dt = 1e-4
-
-hp_time, hc_time = lalsim.SimInspiralChooseTDWaveform(m1_kg, m2_kg,
+hp_freq, hc_freq = lalsim.SimInspiralChooseFDWaveform(m1_kg, m2_kg,
                                             chi1[0], chi1[1], chi1[2],
                                             chi2[0], chi2[1], chi2[2],
                                             distance, inclination,
                                             phi_ref, 0, 0., 0.,
-                                            dt, f_min, f_ref,
+                                            df, f_min, f_max, f_ref,
                                             None, approximant)
+freq = np.arange(len(hp_freq.data.data))*df
 
-time = np.arange(hp_time.data.length)*dt
+# let's shift the peak of the waveform 1 s before the end of the segment
+hp_fd = hp_freq.data.data * np.exp(2j*np.pi*freq)
+hc_fd = hc_freq.data.data * np.exp(2j*np.pi*freq)
 
-hp_freq_fft = np.fft.fft(hp_time.data.data, norm="ortho")
-hc_freq_fft = np.fft.fft(hc_time.data.data, norm="ortho")
-n = np.fft.fftfreq(len(hp_freq_fft))
-freq_fft = n[:len(n)//2]*len(n)//4
+hl_fd = (hp_fd + (hc_fd * 1j)) /np.sqrt(2)
+hr_fd = (hp_fd - (hc_fd * 1j)) /np.sqrt(2)
 
-hl_freq_fft = (hp_freq_fft + (hc_freq_fft * 1j)) /np.sqrt(2)
-hr_freq_fft = (hp_freq_fft - (hc_freq_fft * 1j)) /np.sqrt(2)
 
-kappa = 0.01
+kappa = -0.5
 
-hl_bi_freq_fft = hl_freq_fft[::2] * np.exp(kappa*(dist_mpc/1000)*(freq_fft/100))
-hr_bi_freq_fft = hr_freq_fft[::2] * np.exp(-kappa*(dist_mpc/1000)*(freq_fft/100))
+# apply birefringent transformation and get corresponding plus and cross
+hl_bi_fd = hl_fd * np.exp(kappa*(dist_mpc/1000)*(freq/100))
+hr_bi_fd = hr_fd * np.exp(-kappa*(dist_mpc/1000)*(freq/100))
+
+hp_bi_fd = (hl_bi_fd + hr_bi_fd) / np.sqrt(2)
+hc_bi_fd = 1j*(hl_bi_fd - hr_bi_fd) / np.sqrt(2)
+
+# IFFT all plus and cross
+hp_td = np.fft.irfft(hp_fd)
+hc_td = np.fft.irfft(hc_fd)
+
+hp_bi_td = np.fft.irfft(hp_bi_fd)
+hc_bi_td = np.fft.irfft(hc_bi_fd)
+
+time = np.arange(len(hp_bi_td))/(2*max(freq))
 
 fig, axs = plt.subplots(2,1,sharex=True)
 
-axs[0].plot(time+0.02, np.fft.ifft(hl_freq_fft, norm="ortho").real, ls='--', color=sns.color_palette()[0], label=r"L (GR)")
-axs[0].plot(time+0.02, np.fft.ifft(hr_freq_fft, norm="ortho").real, ls=':', color=sns.color_palette()[3], label=r"R (GR)")
+t0 = time[-1] - 1
+axs[0].plot(time-t0, hp_td, ls='-', color=sns.color_palette()[0], label=r"$+$ (GR)")
+axs[0].plot(time-t0, hc_td, ls=':', color=sns.color_palette()[3], label=r"$\times$ (GR)")
 axs[0].legend()
 axs[0].set_ylabel(r"${h}$")
 axs[0].set_yticks([])
 
-axs[1].plot(time[::2]+0.051, np.fft.ifft(hl_bi_freq_fft, norm="ortho").real, ls='-', color=sns.color_palette()[0], label=r"L (birefringence)")
-axs[1].plot(time[::2]+0.051, np.fft.ifft(hr_bi_freq_fft, norm="ortho").real, ls='-', color=sns.color_palette()[3], label=r"R (birefringence)")
-axs[1].set_xlim(8.3,8.5)
+axs[1].plot(time-t0, hp_bi_td, ls='-', color=sns.color_palette()[0], label=r"$+$ (BR)")
+axs[1].plot(time-t0, hc_bi_td, ls=':', color=sns.color_palette()[3], label=r"$\times$ (BR)")
 axs[1].legend()
 axs[1].set_ylabel(r"${h}$")
 axs[1].set_xlabel(r"$t\mathrm{(s)}$")
 axs[1].set_yticks([])
+
+for ax in axs:
+  ax.set_xlim(-0.4, 0.05)
 
 fig.tight_layout(pad=0.3)
 
