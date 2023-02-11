@@ -141,11 +141,11 @@ This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied
     \exp\left({2\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}}\right)\, .
     \label{eq:modified_amplitude_ratio}
 \end{equation}
-For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will generate dephasing in the time domain waveform (Fig~\ref{fig:birefringence_frequency_domain}).
+For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will generate dephasing in the time domain waveform (Fig~\ref{fig:birefringence}).
 
 \begin{figure}
-    \script{birefringence_frequency_domain.py}
-    \includegraphics[width=\columnwidth]{figures/birefringence_frequency_domain.pdf}
+    \script{birefringence.py}
+    \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
     \caption{
         The observed Fourier amplitude of two polarizations of a simulated GW signal with and without birefringence.
         The amplitudes, as GR predicts, are shown in dotted lines with blue and orange colors representing the left-handed and right-handed polarizations.
@@ -153,7 +153,7 @@ For an isolated Fourier mode of definite frequency $f$, the effect of birefringe
         This plot shows the effect of amplitude birefringence with frequency dependence.
         \mi{@Thomas can you add a panel with the time-domain waveforms (maybe just for L or R)?}
     }
-    \label{fig:birefringence_frequency_domain}
+    \label{fig:birefringence}
 \end{figure}
 
 \citet{Okounkova_2022} took the effect of birefringence to be independent of the frequency, which is a zeroth-order approximation of the birefringence model in Chern-Simons gravity.
@@ -468,13 +468,13 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
 \end{equation}
 
 \section{Illustration of birefringence}
-\label{sec:time_domain}
+\label{sec:birefringence_appendix}
 
 \begin{figure}[h]
-    \script{birefringence_time_domain.py}
-    \includegraphics[width=\columnwidth]{figures/birefringence_time_domain.pdf}
+    \script{birefringence_appendix.py}
+    \includegraphics[width=\columnwidth]{figures/birefringence_appendix.pdf}
     \caption{The observed time domain signal with and without birefringence.}
-    \label{fig:birefringence_time_domain}
+    \label{fig:birefringence_appendix}
 \end{figure}
 
 \section{Corner plots of special events}
