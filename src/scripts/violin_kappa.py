@@ -83,8 +83,8 @@ cb = g.figure.colorbar(plt.cm.ScalarMappable(norm=mpl.colors.Normalize(color_Dat
 cb.ax.tick_params(direction='in')
 cb.ax.set_ylabel("$|\mu/\sigma|$", rotation=0, labelpad=30)
 
-g.axes.collections[59].set_linewidth(3) # GW200129_065458
-g.axes.collections[59].set_edgecolor(sns.color_palette()[9])
+g.axes.collections[60].set_linewidth(3) # GW200129_065458
+g.axes.collections[60].set_edgecolor(sns.color_palette()[9])
 
 for collection, color in zip(g.axes.collections, color_dict.values()):
     collection.set_facecolor(color)
