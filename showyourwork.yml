@@ -13,10 +13,6 @@ dependencies:
         - src/data/IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5
         - src/data/samples_posterior_birefringence.feather
 
-    src/scripts/corner_GW190720.py:
-        - src/data/IGWN-GWTC2p1-v2-GW190720_000836_PEDataRelease_mixed_nocosmo.h5
-        - src/data/samples_posterior_birefringence.feather
-
     src/scripts/corner_GW190521.py:
         - src/data/IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_nocosmo.h5
         - src/data/samples_posterior_birefringence.feather
@@ -56,7 +52,6 @@ datasets:
             IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5:
             IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5:
             IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_nocosmo.h5:
-            IGWN-GWTC2p1-v2-GW190720_000836_PEDataRelease_mixed_nocosmo.h5:
 
     10.5281/zenodo.5546663:
         destination: src/data/
