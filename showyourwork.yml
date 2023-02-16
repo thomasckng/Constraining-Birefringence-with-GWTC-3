@@ -39,6 +39,9 @@ dependencies:
         - src/data/samples_posterior_birefringence.feather
         - src/data/samples_Gaussian_without_GW200129.npz
 
+    src/scripts/reweighed_kappa.py:
+        - reweighted_kappa_samples_without_GW200129.feather
+
     src/tex/ms.tex:
         - src/tex/output/mu_median.txt
         - src/tex/output/sigma_median.txt
@@ -59,9 +62,10 @@ datasets:
             IGWN-GWTC3p0-v1-GW200129_065458_PEDataRelease_mixed_nocosmo.h5:
             IGWN-GWTC3p0-v1-GW200224_222234_PEDataRelease_mixed_nocosmo.h5:
 
-    10.5072/zenodo.1164994:
+    10.5072/zenodo.1165244:
         destination: src/data/
         contents:
             GW150914_birefringence(frequency_independent).json:
             samples_Gaussian_without_GW200129.npz:
             samples_posterior_birefringence.feather:
+            reweighted_kappa_samples_without_GW200129.feather:
