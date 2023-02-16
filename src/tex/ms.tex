@@ -33,7 +33,7 @@
     The propagation of gravitational waves can reveal fundamental features of the structure of spacetime.
     For instance, differences in the propagation of gravitational-wave polarizations would be a smoking gun for parity violations in the gravitational sector, as expected from birefringent theories like Chern-Simons gravity.
     Here we look for evidence of amplitude birefringence in the latest LIGO-Virgo catalog (GWTC-3) through the use of birefringent templates inspired by dynamical Chern-Simons gravity.
-    From 70 binary-black-hole signals, we obtain the most precise constraints on amplitude birefringence yet, an order of magnitude more stringent than previous results.
+    From 71 binary-black-hole signals, we obtain the most precise constraints on amplitude birefringence yet, an order of magnitude more stringent than previous results.
 \end{abstract}
 
 \maketitle
@@ -67,7 +67,7 @@ Previous studies have constrained amplitude birefringence by performing differen
 In this study, we used a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE} on \ac{LVK} binaries.
 This model is a better approximation of the birefringence effect than the frequency-independent model used in \citet{Okounkova_2022}.
 Compared to previous studies, we also performed \ac{PE} on more events, including events in the third \ac{GW} transient catalog \citep{GWTC-3}, GWTC-3.
-We consider 70 binary black hole merger events with a \ac{FAR} $\leq1\mathrm{yr^{-1}}$, as listed in Table I of \citet{GWTC-3_population}.
+We consider 71 binary black hole merger events with a \ac{FAR} $\leq1\mathrm{yr^{-1}}$, as listed in Table I of \citet{GWTC-3_population}.
 We use the results from individual events to place a collective population constraint on the strength of \ac{GW} amplitude birefringence from GWTC-3.
 
 % Section guide
@@ -151,7 +151,6 @@ For an isolated Fourier mode of definite frequency $f$, the effect of birefringe
         The amplitudes, as GR predicts, are shown in dotted lines with blue and orange colors representing the left-handed and right-handed polarizations.
         The amplitudes with birefringence are shown in solid lines with blue and orange colors representing the left-handed and right-handed polarizations.
         This plot shows the effect of amplitude birefringence with frequency dependence.
-        \mi{@Thomas can you add a panel with the time-domain waveforms (maybe just for L or R)?}
     }
     \label{fig:birefringence}
 \end{figure}
@@ -172,7 +171,7 @@ As we will see in Sec.~\ref{sec:Results}, this is the case for heavy \acp{BBH}, 
 \subsection{Single-event parameter estimation}
 
 To constrain birefringence, we reanalyze events from GWTC-3 \citep{GWTC-2.1, GWTC-3} implementing Eq.~\eqref{eq:waveform_modification} to directly obtain a posterior on $\kappa$ from the strain of each event.
-We analyze the 70 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$; to avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
+We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$; to avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
@@ -240,7 +239,7 @@ Then, we will discuss some special events individually.
     \script{violin_kappa.py}
     \includegraphics[width=\textwidth]{figures/violin_kappa.pdf}
     \caption{
-        The violin plot shows the posterior of $\kappa$ for 70 events in this study.
+        The violin plot shows the posterior of $\kappa$ for 71 events in this study.
         Each violin represents a different event.
         The color of the violins represents the quotient of the median and standard deviation of the posterior.
         The blue horizontal solid line represents the median of the restricted posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval of the restricted posterior of $\kappa$.
@@ -372,16 +371,6 @@ Further investigation is needed to understand the glitch.
 Thus, we did not include this event in our collective analysis.
 % show results included and excluded
 
-% Case: GW190720 (failed PE)
-\subsection{Exclusion of GW190720}
-\label{sec:GW190720}
-For GW190720, we could not perform PE with Bilby successfully.
-In LVK PE papers \citep{GWTC-2.1, GWTC-3}, the PE of some events was performed with LALInference \citep{lalsuite} instead of Bilby.
-GW190720 was one of them.
-We successfully migrated the LALInference configuration to Bilby for most of these events and recovered similar PE results, except for GW190720.
-Bilby could not evaluate the likelihood function on Virgo data.
-As a result, we excluded this event from our analysis.
-
 \section{Discussion}
 \label{sec:Discussion}
 
@@ -480,21 +469,28 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
 \section{Corner plots of special events}
 \label{sec:corner_plots}
 
-\begin{figure}[h]
+\begin{figure}
     \script{corner_GW170818.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
     \caption{Corner plot of GW170818.}
     \label{fig:corner_GW170818}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}
+    \script{corner_GW190720.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW190720.pdf}
+    \caption{Corner plot of GW190720.}
+    \label{fig:corner_GW190720}
+\end{figure}
+
+\begin{figure}
     \script{corner_GW200129.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
     \caption{Corner plot of GW200129.}
     \label{fig:corner_GW200129}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}
     \script{corner_GW200224.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW200224.pdf}
     \caption{Corner plot of GW200224.}
