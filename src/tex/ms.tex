@@ -175,10 +175,11 @@ We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
-We depart from the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, with \textsc{IMRPhenomXPHM} as the reference waveform.
-We apply a distance prior which is uniform in comoving volume and source frame time instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+We take the \ac{PE} configuration as in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
+We apply a distance prior which is uniform in comoving volume and source frame time instead of a power law distribution used in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 
-For GW190521, we increase the maximum distance of the distance prior to $1.5$ times the original value, as the birefringence effect enables the probability of a larger distance.
+For GW190521, we increase the maximum distance of the distance prior to $1.5\times$ the original value, as the birefringence effect enables the probability of a larger distance.
+For GW190720, we decrease the analysis segment to 8 s from 16 s, in order to accomodate missing data near the edges of the 16 s segment in Virgo.
 
 In order to validate our \ac{PE} implementation, we reproduce the \ac{LVK} \ac{PE} results obtained assuming \ac{GR} by enforcing $\kappa = 0$; this also has the advantage of producing \ac{GR} runs that are directly comparable to our birefringent runs.
 All our \ac{PE} results, including the \ac{GR} validation runs, are published in \citet{dataset}.
