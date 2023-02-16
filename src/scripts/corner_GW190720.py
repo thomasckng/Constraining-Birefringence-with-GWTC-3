@@ -23,7 +23,7 @@ result_ligo['kappa'] = np.zeros(len(result_ligo))
 result_ligo['with'] = np.full(len(result_ligo), r"GR (LVK)")
 
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
-result_bilby = result_bilby[result_bilby.event == "GW190720"]
+result_bilby = result_bilby[result_bilby.event == "GW190720_000836"]
 result_bilby = result_bilby.sample(n=nsamples)
 result_bilby['with'] = np.full(len(result_bilby), r"birefringence (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
