@@ -103,5 +103,4 @@ for ax in axs[1:]:
     ax.set_yticks([])
 
 fig.tight_layout(pad=0.3)
-fig.savefig(paths.figures/"birefringence.pdf",
-            bbox_inches="tight")
+fig.savefig(paths.figures/"birefringence.pdf", bbox_inches="tight")
