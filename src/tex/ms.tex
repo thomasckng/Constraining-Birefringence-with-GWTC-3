@@ -56,7 +56,7 @@
 \Ac{GW} detections by the \ac{LVK} \citep{LIGO, Virgo, KAGRA} are now routinely used to test various aspects of Einstein's theory of \ac{GR} \citep{LIGOScientific:2016lio,LIGOScientific:2018dkp,LIGOScientific:2021sio}.
 Among those, measurements of the basic properties of \acp{GW}, like their speed and polarization, can directly probe the fundamental symmetries of the underlying theory of gravity \citep{Will:2018bme}.
 For instance, unequal propagation of \ac{GW} polarization eigenstates would reveal that spacetime is birefringent, a smoking gun for parity-odd theories like Chern-Simons gravity \citep{Jackiw:2003pm,Alexander:2009tp,Sopuerta:2009iy}.
-Here we constrain the magnitude of possible amplitude birefringence using \ac{BBH} signals from the latest \ac{LVK} catalog, GWTC-3.
+Here we constrain the magnitude of possible amplitude birefringence using \ac{BBH} signals from the latest \ac{LVK} catalog, GWTC-3 \citep{GWTC-3}.
 
 % Previous studies
 Previous studies have constrained amplitude birefringence by performing different statistical analyses.
@@ -64,9 +64,9 @@ Previous studies have constrained amplitude birefringence by performing differen
 \citet{Okounkova_2022} considered the distribution of observed inclinations of the \ac{GW} events in the second \ac{GW} transient catalog \citep{GWTC-2}, GWTC-2, to look for signs of birefringence.
 
 % What's new?
-In this study, we used a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE} on \ac{LVK} binaries.
-This model is a better approximation of the birefringence effect than the frequency-independent model used in \citet{Okounkova_2022}.
-Compared to previous studies, we also performed \ac{PE} on more events, including events in the third \ac{GW} transient catalog \citep{GWTC-3}, GWTC-3.
+In this study, we use a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE} on \ac{LVK} binaries.
+This model is a better approximation of the birefringence effect expected from theory than the frequency-independent model used in \citet{Okounkova_2022}.
+Compared to other studies, we perform \ac{PE} on more events, including events new to the third \ac{GW} transient catalog \citep{GWTC-3}, GWTC-3.
 We consider 71 binary black hole merger events with a \ac{FAR} $\leq1\mathrm{yr^{-1}}$, as listed in Table I of \citet{GWTC-3_population}.
 We use the results from individual events to place a collective population constraint on the strength of \ac{GW} amplitude birefringence from GWTC-3.
 
@@ -84,7 +84,7 @@ In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provid
 
 % GW polarization
 In \ac{GR}, \acp{GW} are comprised of two independent polarization modes, usually represented in the linear basis of plus ($+$) and cross ($\times$) states.
-In the Fourier domain, they can be combined into left-handed (L) and right-handed (R) circular states \cite{Isi:2022mbx},
+In the Fourier domain, these can be combined into left-handed (L) and right-handed (R) circular states \cite{Isi:2022mbx},
 \begin{equation}
     h_{L/R} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
 \end{equation}
@@ -93,11 +93,11 @@ These circular modes represent eigenstates of the helicity operator (helicity $\
 Einstein's theory, which is parity even, predicts no difference in the dynamics of these two states.
 
 % Waveform modification
-Yet, parity odd extensions of \ac{GR} may make distinctions between the two circular polarizations, which can manifest in both the generation and propagation of \acp{GW}.
+Yet, parity odd extensions of \ac{GR} may make distinctions between the two circular polarizations, which appear in both the generation and propagation of \acp{GW}.
 The latter can manifest in changes to the relative amplitude and phase of the polarizations that accrue as the wave propagates, giving us hope to detect initially small effects that compound over long propagation distances.
 
 In particular, \emph{amplitude} birefringence would enhance one polarization mode over the other.
-To first order in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source takes the form of
+To first order in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source can be written as
 \begin{equation}
     h_{L/R}^{\mathrm{br}}(f) =
     h_{L/R}^{\mathrm{GR}}(f) \times
@@ -141,17 +141,17 @@ This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied
     \exp\left({2\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}}\right)\, .
     \label{eq:modified_amplitude_ratio}
 \end{equation}
-For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will generate dephasing in the time domain waveform (Fig~\ref{fig:birefringence}).
+For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will affect the time domain waveform nontrivially (Fig~\ref{fig:birefringence}).
 
 \begin{figure}
     \script{birefringence.py}
     \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
     \caption{
-        The observed Fourier amplitude of two polarizations of a simulated GW signal with and without birefringence.
-        The amplitudes, as GR predicts, are shown in dotted lines with blue and orange colors representing the left-handed and right-handed polarizations.
-        The amplitudes with birefringence are shown in solid lines with blue and orange colors representing the left-handed and right-handed polarizations.
-        This plot shows the effect of amplitude birefringence with frequency dependence.
-    }
+        \emph{Illustration of amplitude birefringence.} The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is lineraly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
+        However, if spacetime were birefringent following Eq.~\protect\eqref{eq:waveform_modification}, the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
+        In the time domain, this manifests as a time-dependent amplification of the waveform, with a stronger effect at later times when the chirp reaches a higher instantaneous frequency (bottom).
+        For this example, the black holes do not spin and have equal masses $m_1 = m_2 = 10\, M_\odot$, and we have chosen a luminosity distance $d_L = 400\, {\rm Mpc}$ and $\kappa = 0.6$.
+        }
     \label{fig:birefringence}
 \end{figure}
 

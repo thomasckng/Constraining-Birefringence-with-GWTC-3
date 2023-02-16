@@ -5,7 +5,7 @@ import lal
 import seaborn as sns
 import paths
 
-sns.set_theme(palette='colorblind', font_scale=1.2)
+sns.set_theme(palette='colorblind', font_scale=1.5)
 
 plt.rcParams.update({
     "text.usetex": True,
@@ -86,7 +86,7 @@ axs[0].set_ylim(1e-30,1e-20)
 axs[0].legend()
 axs[0].set_ylabel(r"$|\tilde{h}|$")
 axs[0].set_xlabel(r"$f\mathrm{(Hz)}$")
-axs[0].set_yticks([])
+#axs[0].set_yticks([])
 
 axs[1].plot(time, hp_td, ls=':', c=c1, label="GR")
 axs[1].plot(time, hp_bi_td, ls='-', c=c2, label="BR")
@@ -100,7 +100,7 @@ for ax in axs[1:]:
     ax.legend()
     ax.set_xlabel(r"$t\mathrm{(s)}$")
     ax.set_xlim(-0.05, 0.01)
-    ax.set_yticks([])
+ #   ax.set_yticks([])
 
 fig.tight_layout(pad=0.3)
 fig.savefig(paths.figures/"birefringence.pdf", bbox_inches="tight")
