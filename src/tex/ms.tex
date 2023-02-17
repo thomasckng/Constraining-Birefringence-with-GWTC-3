@@ -123,6 +123,7 @@ Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref
 \mi{specify what the parameter for the expansion is, add citations, and check with a theorist}
 
 \subsection{Relation to inclination}
+\label{sec:inclination}
 
 % Effect on inclination PE results
 Under certain conditions, the effect of birefringence can be degenerate with a change in the orientation of the source with respect to the line of sight.
@@ -263,11 +264,20 @@ Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 ar
 When considered individually, the events that best constrain $\kappa$ are \mi{THOMAS: list 3-5 events with the narrowest posterior---maybe also add a little table showing their median $\pm$ their 90\% CL, like $\tilde{\kappa}^{+x}_{-y}$ where $\tilde{\kappa}$ is the posterior median value, $x$ is the distance from the median to the 95\% percentile and $y$ is the distance to the 5\% percentile}
 
 The event that shows the largest tension with $\kappa = 0$ is GW170818, for which $|\mu / \sigma| = \dots$ \mi{THOMAS: fill in these values}
+Additionally, the GW200129 result shows features that could be indicative of contamination from non-Gaussian instrumental noise, so we exclude it from the collective analysis.
+We discuss both these events in detail below.
 
-We excluded GW200129 from the calculation of collective analysis.
-Details of the exclusion are discussed in Sec.~\ref{sec:GW200129}.
+Another set of events stand out in Fig.~\ref{fig:violin_kappa} due evident bimodality in the $\kappa$ posterior.
+That is the case for GW170104, GW190413\_134308, GW190521, GW190805\_211137, and GW191105\_143521.
+\mi{THOMAS: can you list the total masses of these events?}
+We understand this effect to be a consequence of the narrow sets of frequencies that are visible for these heavy events, as we mentioned in Sec.~\ref{sec:inclination} and further demonstrate below.
 
 \subsection{Bayesian hierarchical modeling}
+
+Figure \ref{fig:violin_kappa} shows some variance in the distribution of $\kappa$ posteriors, including some apparent outliers like GW170818.
+This is not unexpected: assuming independent Gaussian noise, we might expect up to ${\sim}3$ events in a sample of 71 events to deviate from the true value of $\kappa$ by ${\sim}2\sigma$.
+\mi{WIP}
+
 % Corner plot of the mean and standard deviation of kappa
 We then show the result of Bayesian hierarchical modeling in figure \ref{fig:corner_Gaussian}.
 The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_median.txt}.
