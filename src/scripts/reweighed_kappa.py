@@ -13,7 +13,7 @@ plt.rcParams.update({
 
 df_kappa = pd.read_feather(paths.data/'reweighted_kappa_samples_without_GW200129.feather')
 
-g = sns.histplot(df_kappa.drop(axis=1, labels="GW170818"), element='step', common_norm=False, stat='density', fill=False, binwidth=0.01)
+g = sns.histplot(df_kappa, element='step', common_norm=False, stat='density', fill=False, binwidth=0.01)
 g.get_legend().remove()
 g.set_xlabel('$\kappa$')
 g.set_ylabel('$p(\kappa|\mu,\sigma)$')
