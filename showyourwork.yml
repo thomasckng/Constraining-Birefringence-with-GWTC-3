@@ -40,7 +40,7 @@ dependencies:
         - src/data/samples_Gaussian_without_GW200129.npz
 
     src/scripts/reweighed_kappa.py:
-        - reweighted_kappa_samples_without_GW200129.feather
+        - src/data/reweighted_kappa_samples_without_GW200129.feather
 
     src/tex/ms.tex:
         - src/tex/output/mu_median.txt
