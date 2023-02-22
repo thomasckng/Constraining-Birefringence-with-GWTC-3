@@ -42,6 +42,12 @@ dependencies:
     src/scripts/reweighed_kappa.py:
         - src/data/reweighted_kappa_samples_without_GW200129.feather
 
+    src/scripts/corner_Gaussian_appendix_1.py:
+        - src/data/samples_Gaussian.npz
+
+    src/scripts/corner_Gaussian_appendix_2.py:
+        - src/data/samples_Gaussian_without_GW170818_GW200129.npz
+
     src/tex/ms.tex:
         - src/tex/output/mu_median.txt
         - src/tex/output/sigma_median.txt
@@ -66,6 +72,8 @@ datasets:
         destination: src/data/
         contents:
             GW150914_birefringence(frequency_independent).json:
+            samples_Gaussian.npz:
             samples_Gaussian_without_GW200129.npz:
+            samples_Gaussian_without_GW170818_GW200129.npz:
             samples_posterior_birefringence.feather:
             reweighted_kappa_samples_without_GW200129.feather:

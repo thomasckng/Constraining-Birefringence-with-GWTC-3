@@ -520,6 +520,35 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
     \label{fig:corner_GW200224}
 \end{figure}
 
+\section{Alternative results for Bayesian hierarchical modeling}
+\label{sec:alternative_results}
+
+\begin{figure}
+    \script{corner_Gaussian_appendix_1.py}
+    \includegraphics[width=\columnwidth]{figures/corner_Gaussian_appendix_1.pdf}
+    \caption{
+        Kept all events.
+        % The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
+        % 2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+        % The orange line represents the median of $\mu$ and $\sigma$.
+        % The plot shows that the population constraint on $\kappa$ is consistent with GR.
+    }
+    \label{fig:corner_Gaussian_appendix_1}
+\end{figure}
+
+\begin{figure}
+    \script{corner_Gaussian_appendix_2.py}
+    \includegraphics[width=\columnwidth]{figures/corner_Gaussian_appendix_2.pdf}
+    \caption{
+        Excluded GW170818 and GW200129.
+        % The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
+        % 2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+        % The orange line represents the median of $\mu$ and $\sigma$.
+        % The plot shows that the population constraint on $\kappa$ is consistent with GR.
+    }
+    \label{fig:corner_Gaussian_appendix_2}
+\end{figure}
+
 \bibliography{bib}
 
 \end{document}
