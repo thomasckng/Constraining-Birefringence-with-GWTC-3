@@ -113,7 +113,7 @@ During propagation, the effect of birefringence will be built up with the number
 According to Eq.~\eqref{eq:waveform_modification}, a positive $\kappa$ means the left-handed polarization is enhanced over the right-handed polarization, while a negative $\kappa$ means the opposite;
 when $\kappa=0$, the observed waveform is the same as \ac{GR} predicts, meaning there is no birefringence.
 
-Eq.~\eqref{eq:waveform_modification} can be derived as the first order effect in an expansion away from \ac{GR} under multiple frameworks.
+Equation \eqref{eq:waveform_modification} can be derived as the first order effect in an expansion away from \ac{GR} under multiple frameworks.
 In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity.
 Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
 \begin{equation}
@@ -199,6 +199,7 @@ where $d_i$ is the strain data for the $i$\textsuperscript{th} event, and $p(\ka
 We use Eq.~\eqref{eq:restricted_posterior} to obtain the primary constraint presented in this work.
 
 \subsubsection{Nonshared birefringence parameters}
+\label{sec:method:hier}
 
 % Bayesian Hierarchical Modeling
 In order to further characterize our set of measurements, and identify potential outliers, we carry out an additional collective analysis that allows $\kappa$ to take different values for each event \cite{Zimmerman:2019wzo,Isi:2022cii}.
@@ -259,7 +260,7 @@ This shows the posterior distribution on $\kappa$ (abscissa) obtained for each e
 The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line);
 this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
 
-Fig.~\ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
+Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}.
 \begin{table}
     \caption{Events that best constrain $\kappa$, where $\tilde{\kappa}$ is the posterior median of $\kappa$.} 
@@ -275,6 +276,7 @@ We discuss both of these events in detail below.
 
 Another set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
 That is the case for the events listed in Table~\ref{tab:bimodal_events_mass}.
+
 \begin{table}
     \caption{Events that show bimodality in the $\kappa$ posterior, where the total mass of the binary is given in solar masses.}
     \begin{ruledtabular}
@@ -286,15 +288,11 @@ We understand this effect to be a consequence of the narrow sets of frequencies 
 
 \subsection{Bayesian hierarchical modeling}
 
-Fig.~\ref{fig:violin_kappa} shows some variance in the distribution of $\kappa$ posteriors, including some apparent outliers like GW170818.
-This is not unexpected: assuming independent Gaussian noise, we might expect up to ${\sim}3$ events in a sample of 71 events to deviate from the true value of $\kappa$ by ${\sim}2\sigma$.
-\mi{WIP}
+Figure \ref{fig:violin_kappa} shows a degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
+This is not unexpected: assuming independent Gaussian noise for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
 
-% Corner plot of the mean and standard deviation of kappa
-We then show the result of Bayesian hierarchical modeling in Fig.~\ref{fig:corner_Gaussian}.
-The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_median.txt}.
-The median of $\sigma$ within $90\%$ confidence interval is \variable{output/sigma_median.txt}.
-The posterior of $\mu$ is concentrated around $0$, which means the population constraint on $\kappa$ is consistent with GR.
+To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
+By characterizing the population mean and standard deviation over $\kappa$, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
 
 \begin{figure}
     \script{corner_Gaussian.py}
@@ -306,6 +304,21 @@ The posterior of $\mu$ is concentrated around $0$, which means the population co
         The plot shows that the population constraint on $\kappa$ is consistent with GR.
     }
     \label{fig:corner_Gaussian}
+\end{figure}
+
+We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, which shows the posterior on the population mean $\mu$ and standard deviation $\sigma$ inferred from the collection of observations in Fig.~\ref{fig:violin_kappa}.
+This posterior supports lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals, we constrain $\mu =$ \variable{output/mu_median.txt} and $\sigma =$ \variable{output/sigma_median.txt}, for 90\%-credible symmetric intervals around the median \mi{THOMAS: for $\sigma$ it would make more sense to report the one-sided 90\%-credible upper limit here, i.e.i, the 90th percentile, as $\sigma < XX$}.
+However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peaks away from the origin, indicating some preference for a nonzero variance.
+This could be a sign of the presence of outliers in our sample.
+
+As a check for outliers, we reconsider the set of measurements in Fig.~\ref{fig:violin_kappa} in light of the hierarchical result for $\mu$ and $\sigma$ in Fig.~\ref{fig:corner_Gaussian}.
+This amounts to reweighting the $\kappa$ posterior for each event under a population prior marginalized over $\mu$ and $\sigma$, conditional on the measurements from all other events \cite{Callister:T2100301}.
+
+\begin{figure}
+    \script{reweighed_kappa.py}
+    \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
+    \caption{Reweighted $\kappa$ distributions.}
+    \label{fig:reweighted_kappa}
 \end{figure}
 
 \subsection{Constaint on $\kappa$}
@@ -505,16 +518,6 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
     \includegraphics[width=\columnwidth]{figures/corner_GW200224.pdf}
     \caption{Corner plot of GW200224.}
     \label{fig:corner_GW200224}
-\end{figure}
-
-\section{Reweighed kappa distributions}
-\label{sec:reweighed_kappa}
-
-\begin{figure}
-    \script{reweighed_kappa.py}
-    \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
-    \caption{Reweighed $\kappa$ distributions.}
-    \label{fig:reweighed_kappa}
 \end{figure}
 
 \bibliography{bib}
