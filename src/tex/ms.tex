@@ -307,7 +307,7 @@ By characterizing the population mean and standard deviation over $\kappa$, this
 \end{figure}
 
 We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, which shows the posterior on the population mean $\mu$ and standard deviation $\sigma$ inferred from the collection of observations in Fig.~\ref{fig:violin_kappa}.
-This posterior supports lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals, we constrain $\mu =$ \variable{output/mu_median.txt} and $\sigma =$ \variable{output/sigma_median.txt}, for 90\%-credible symmetric intervals around the median \mi{THOMAS: for $\sigma$ it would make more sense to report the one-sided 90\%-credible upper limit here, i.e.i, the 90th percentile, as $\sigma < XX$}.
+This posterior supports the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals, we constrain $\mu =$ \variable{output/mu_median.txt} for 90\%-credible symmetric intervals around the median, and $\sigma <$ \variable{output/sigma_median.txt} for the 90\%-credible one-sided upper limit.
 However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peaks away from the origin, indicating some preference for a nonzero variance.
 This could be a sign of the presence of outliers in our sample.
 
