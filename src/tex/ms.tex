@@ -148,7 +148,7 @@ For an isolated Fourier mode of definite frequency $f$, the effect of birefringe
     \script{birefringence.py}
     \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
     \caption{
-        \emph{Illustration of amplitude birefringence.} The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is lineraly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
+        \emph{Illustration of amplitude birefringence.} The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is linearly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
         However, if spacetime were birefringent following Eq.~\protect\eqref{eq:waveform_modification}, the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
         In the time domain, this manifests as a time-dependent amplification of the waveform, with a stronger effect at later times when the chirp reaches a higher instantaneous frequency (bottom).
         For this example, the black holes do not spin and have equal masses $m_1 = m_2 = 10\, M_\odot$, and we have chosen a luminosity distance $d_L = 400\, {\rm Mpc}$ and $\kappa = 0.6$.
@@ -180,7 +180,7 @@ We take the \ac{PE} configuration as in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_datase
 We apply a distance prior which is uniform in comoving volume and source frame time instead of a power law distribution used in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 
 For GW190521, we increase the maximum distance of the distance prior to $1.5\times$ the original value, as the birefringence effect enables the probability of a larger distance.
-For GW190720, we decrease the analysis segment to 8 s from 16 s, in order to accomodate missing data near the edges of the 16 s segment in Virgo.
+For GW190720, we decrease the analysis segment to 8 s from 16 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
 
 In order to validate our \ac{PE} implementation, we reproduce the \ac{LVK} \ac{PE} results obtained assuming \ac{GR} by enforcing $\kappa = 0$; this also has the advantage of producing \ac{GR} runs that are directly comparable to our birefringent runs.
 All our \ac{PE} results, including the \ac{GR} validation runs, are published in \citet{dataset}.
@@ -208,7 +208,7 @@ we posit that there is a specific value of the parameter, $\kappa_i$, associated
 If we are interested in constraining the first two moments of the distribution, it is convenient to parametrize the $\kappa_i$'s as drawn from a Gaussian with unknown mean $\mu$ and variance $\sigma^2$, i.e., $\kappa_i \sim \mathcal{N}(\mu, \sigma^2)$ \cite{Isi:2019asy}, and measure those hyperparameters from the collection of observed data.
 
 If \ac{GR} is correct and there is no birefringence, we should find the observed $\kappa$ distribution to be consistent with a delta function at the origin ($\kappa_i = 0$ for all $i$, or $\mu=\sigma=0$); on the other hand, if spacetime is birefringent, we expect to find a delta function at some nonzero value ($\kappa_i = \kappa \neq 0$, or $\mu = \kappa$ and $\sigma=0$).
-But this analysis also has the power to reveal unexpected physics or systematics in our measurements: if $\sigma$ is confidently found to be nonzero, this would imply that our set of measurements are statistically unlikely to originate from a unique $\kappa$ value.
+But this analysis also has the power to reveal unexpected physics or systematics in our measurements: if $\sigma$ is confidently found to be nonzero, this would imply that our set of measurements is statistically unlikely to originate from a unique $\kappa$ value.
 This could signal further physics than is implied by Eq.~\eqref{eq:waveform_modification} \mi{which physics? @Will, any ideas?} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
 
 Starting from the posterior on $\kappa$ from each event, the posterior on the hyperparameters $\mu$ and $\sigma$ can be calculated by
@@ -261,15 +261,42 @@ The collective measurement obtained by assuming a shared $\kappa$ across events,
 this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
 
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
-When considered individually, the events that best constrain $\kappa$ are \mi{THOMAS: list 3-5 events with the narrowest posterior---maybe also add a little table showing their median $\pm$ their 90\% CL, like $\tilde{\kappa}^{+x}_{-y}$ where $\tilde{\kappa}$ is the posterior median value, $x$ is the distance from the median to the 95\% percentile and $y$ is the distance to the 5\% percentile}
+When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events}.
+\begin{table}
+    \begin{ruledtabular}
+        \begin{tabular}{ll}
+            Event & $\tilde{\kappa}$\\
+            \hline
+            \variable{output/best_events.txt}
+        \end{tabular}
+    \end{ruledtabular}
+    \caption{
+        Events that best constrain $\kappa$.
+        $\tilde{\kappa}$ is the posterior median of $\kappa$.
+    }
+    \label{tab:best_events}
+\end{table}
 
-The event that shows the largest tension with $\kappa = 0$ is GW170818, for which $|\mu / \sigma| = \dots$ \mi{THOMAS: fill in these values}
+The event that shows the largest tension with $\kappa = 0$ is GW170818, for which $|\mu / \sigma| =$ \variable{output/GW170818_constraint.txt}.
 Additionally, the GW200129 result shows features that could be indicative of contamination from non-Gaussian instrumental noise, so we exclude it from the collective analysis.
-We discuss both these events in detail below.
+We discuss both of these events in detail below.
 
-Another set of events stand out in Fig.~\ref{fig:violin_kappa} due evident bimodality in the $\kappa$ posterior.
+Another set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
 That is the case for GW170104, GW190413\_134308, GW190521, GW190805\_211137, and GW191105\_143521.
-\mi{THOMAS: can you list the total masses of these events?}
+\begin{table}\
+    \begin{ruledtabular}
+        \begin{tabular}{ll}
+            Event & Total Mass ($(M_{\odot})$)\\
+            \hline
+            \variable{output/bimodal_events_mass.txt}
+        \end{tabular}
+    \end{ruledtabular}
+    \caption{
+        Events that show bimodality in the $\kappa$ posterior.
+        The total mass of the binary is given in solar masses.
+    }
+    \label{tab:bimodal_events_mass}
+\end{table}
 We understand this effect to be a consequence of the narrow sets of frequencies that are visible for these heavy events, as we mentioned in Sec.~\ref{sec:inclination} and further demonstrate below.
 
 \subsection{Bayesian hierarchical modeling}
@@ -350,7 +377,7 @@ Therefore, the PE result with frequency dependence is consistent with GR.
     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-        Colors in the plot represent the PE result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE results done by us with both frequency independent and dependent birefringence respectively.
+        Colors in the plot represent the PE result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE results done by us with both frequency-independent and dependent birefringence respectively.
         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
         Note that there is no posterior of $\kappa$ for the PE result from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
         This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while frequency-dependent birefringence can break it.
@@ -476,9 +503,6 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
 \begin{equation}
     \kappa=\frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{PV}^{-1}\,.
 \end{equation}
-
-\section{Illustration of birefringence}
-\label{sec:birefringence_appendix}
 
 \section{Corner plots of special events}
 \label{sec:corner_plots}

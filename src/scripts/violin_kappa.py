@@ -18,16 +18,16 @@ result_DataFrame = pd.read_feather(paths.data/"samples_posterior_birefringence.f
 events = result_DataFrame['event'].unique()
 
 result_dict = {}
-color_DataFrame = pd.DataFrame(columns=['event', 'median_over_std'])
+color_DataFrame = pd.DataFrame(columns=['event', 'mean_over_std'])
 i = 0
 for event in events:
     df = pd.DataFrame()
     result_dict[event] = result_DataFrame[result_DataFrame.event == event]
     color_DataFrame.loc[i] = [event, abs(result_dict[event]['kappa'].mean()/result_dict[event]['kappa'].std())]
     i += 1
-color_DataFrame['color_index'] = [round(np.interp(color_DataFrame.loc[i]['median_over_std'],
-                                                  np.array([color_DataFrame['median_over_std'].min(),
-                                                  color_DataFrame['median_over_std'].max()]),
+color_DataFrame['color_index'] = [round(np.interp(color_DataFrame.loc[i]['mean_over_std'],
+                                                  np.array([color_DataFrame['mean_over_std'].min(),
+                                                  color_DataFrame['mean_over_std'].max()]),
                                                   np.array([0,255]))) for i in range(len(color_DataFrame))]
 color_dict={}
 for i in range(len(color_DataFrame)):
@@ -71,8 +71,8 @@ g.axes.tick_params(axis='y', labelsize=30)
 yl = g.axes.get_yticklabels()
 g.axes.set_yticklabels(yl, va='bottom')
 
-cb = g.figure.colorbar(plt.cm.ScalarMappable(norm=mpl.colors.Normalize(color_DataFrame['median_over_std'].min(),
-                                                                  color_DataFrame['median_over_std'].max()),
+cb = g.figure.colorbar(plt.cm.ScalarMappable(norm=mpl.colors.Normalize(color_DataFrame['mean_over_std'].min(),
+                                                                  color_DataFrame['mean_over_std'].max()),
                                         cmap=sns.color_palette("rocket_r", as_cmap=True)),
                   #label="$|\mu/\sigma|$",
                   ax=g.axes,
