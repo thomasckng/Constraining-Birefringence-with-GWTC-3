@@ -17,13 +17,13 @@ rule compute_kappa_constraint:
     script:
         "src/scripts/kappa_constraint.py"
 
-rule compute_best_events:
+rule compute_best_events_kappa:
     input:
         "src/data/samples_posterior_birefringence.feather"
     output:
-        "src/tex/output/best_events.txt",
+        "src/tex/output/best_events_kappa.txt",
     script:
-        "src/scripts/best_events.py"
+        "src/scripts/best_events_kappa.py"
 
 rule compute_GW170818_constraint:
     input:
@@ -40,4 +40,3 @@ rule compute_bimodal_events_mass:
         "src/tex/output/bimodal_events_mass.txt",
     script:
         "src/scripts/bimodal_events_mass.py"
-        

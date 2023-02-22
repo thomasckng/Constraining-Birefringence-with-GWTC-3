@@ -113,7 +113,7 @@ During propagation, the effect of birefringence will be built up with the number
 According to Eq.~\eqref{eq:waveform_modification}, a positive $\kappa$ means the left-handed polarization is enhanced over the right-handed polarization, while a negative $\kappa$ means the opposite;
 when $\kappa=0$, the observed waveform is the same as \ac{GR} predicts, meaning there is no birefringence.
 
-Equation \eqref{eq:waveform_modification} can be derived as the first order effect in an expansion away from \ac{GR} under multiple frameworks.
+Eq.~\eqref{eq:waveform_modification} can be derived as the first order effect in an expansion away from \ac{GR} under multiple frameworks.
 In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity.
 Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
 \begin{equation}
@@ -142,7 +142,7 @@ This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied
     \exp\left({2\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}}\right)\, .
     \label{eq:modified_amplitude_ratio}
 \end{equation}
-For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will affect the time domain waveform nontrivially (Fig~\ref{fig:birefringence}).
+For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will affect the time domain waveform nontrivially (Fig.~\ref{fig:birefringence}).
 
 \begin{figure}
     \script{birefringence.py}
@@ -164,7 +164,6 @@ That fact can be used to constrain frequency-independent birefringence by search
 By implementing Eq.~\eqref{eq:waveform_modification}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
 Nevertheless, there exist systems for which the degeneracy cannot be perfectly broken because not enough frequencies are available in the data.
 As we will see in Sec.~\ref{sec:Results}, this is the case for heavy \acp{BBH}, which are only in the sensitive band of the detectors for a few cycles.
-
 
 \section{Method}
 \label{sec:Method}
@@ -260,21 +259,14 @@ This shows the posterior distribution on $\kappa$ (abscissa) obtained for each e
 The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line);
 this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
 
-Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
-When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events}.
+Fig.~\ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
+When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}.
 \begin{table}
+    \caption{Events that best constrain $\kappa$, where $\tilde{\kappa}$ is the posterior median of $\kappa$.} 
     \begin{ruledtabular}
-        \begin{tabular}{ll}
-            Event & $\tilde{\kappa}$\\
-            \hline
-            \variable{output/best_events.txt}
-        \end{tabular}
+        \variable{output/best_events_kappa.txt}
     \end{ruledtabular}
-    \caption{
-        Events that best constrain $\kappa$.
-        $\tilde{\kappa}$ is the posterior median of $\kappa$.
-    }
-    \label{tab:best_events}
+    \label{tab:best_events_kappa}
 \end{table}
 
 The event that shows the largest tension with $\kappa = 0$ is GW170818, for which $|\mu / \sigma| =$ \variable{output/GW170818_constraint.txt}.
@@ -282,31 +274,24 @@ Additionally, the GW200129 result shows features that could be indicative of con
 We discuss both of these events in detail below.
 
 Another set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
-That is the case for GW170104, GW190413\_134308, GW190521, GW190805\_211137, and GW191105\_143521.
-\begin{table}\
+That is the case for the events listed in Table~\ref{tab:bimodal_events_mass}.
+\begin{table}
+    \caption{Events that show bimodality in the $\kappa$ posterior, where the total mass of the binary is given in solar masses.}
     \begin{ruledtabular}
-        \begin{tabular}{ll}
-            Event & Total Mass ($(M_{\odot})$)\\
-            \hline
-            \variable{output/bimodal_events_mass.txt}
-        \end{tabular}
+        \variable{output/bimodal_events_mass.txt}
     \end{ruledtabular}
-    \caption{
-        Events that show bimodality in the $\kappa$ posterior.
-        The total mass of the binary is given in solar masses.
-    }
     \label{tab:bimodal_events_mass}
 \end{table}
 We understand this effect to be a consequence of the narrow sets of frequencies that are visible for these heavy events, as we mentioned in Sec.~\ref{sec:inclination} and further demonstrate below.
 
 \subsection{Bayesian hierarchical modeling}
 
-Figure \ref{fig:violin_kappa} shows some variance in the distribution of $\kappa$ posteriors, including some apparent outliers like GW170818.
+Fig.~\ref{fig:violin_kappa} shows some variance in the distribution of $\kappa$ posteriors, including some apparent outliers like GW170818.
 This is not unexpected: assuming independent Gaussian noise, we might expect up to ${\sim}3$ events in a sample of 71 events to deviate from the true value of $\kappa$ by ${\sim}2\sigma$.
 \mi{WIP}
 
 % Corner plot of the mean and standard deviation of kappa
-We then show the result of Bayesian hierarchical modeling in figure \ref{fig:corner_Gaussian}.
+We then show the result of Bayesian hierarchical modeling in Fig.~\ref{fig:corner_Gaussian}.
 The median of $\mu$ within $90\%$ confidence interval is \variable{output/mu_median.txt}.
 The median of $\sigma$ within $90\%$ confidence interval is \variable{output/sigma_median.txt}.
 The posterior of $\mu$ is concentrated around $0$, which means the population constraint on $\kappa$ is consistent with GR.
@@ -325,9 +310,9 @@ The posterior of $\mu$ is concentrated around $0$, which means the population co
 
 \subsection{Constaint on $\kappa$}
 % Constraint on $\kappa$
-In figure \ref{fig:posterior_kappa}, we show both the restricted posterior of $\kappa$ and the generic posterior of $\kappa$.
-The restricted posterior is calculated by equation \ref{eq:restricted_posterior} with the assumption that $\kappa$ is a single value constant.
-The generic posterior is calculated by equation \ref{eq:generic_posterior} with the assumption that $\kappa$ is a true value drawn from a Gaussian distribution.
+In Fig.~\ref{fig:posterior_kappa}, we show both the restricted posterior of $\kappa$ and the generic posterior of $\kappa$.
+The restricted posterior is calculated by Eq.~\eqref{eq:restricted_posterior} with the assumption that $\kappa$ is a single value constant.
+The generic posterior is calculated by Eq.~\eqref{eq:generic_posterior} with the assumption that $\kappa$ is a true value drawn from a Gaussian distribution.
 The median of the restricted posterior within $90\%$ confidence interval is \variable{output/restricted_kappa_median.txt}.
 The median of the generic posterior within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
 Note that the result is consistent with GR when $\kappa=0$.
@@ -350,19 +335,13 @@ Note that the result is consistent with GR when $\kappa=0$.
 % Create sessions for all the outliers
 
 % Case: GW170818
-\subsection{Result on GW170818}
-
-% Case: GW190412
-\subsection{Result on GW190412}
-
-% Case: GW200224
-\subsection{Result on GW200224}
+% \subsection{Result on GW170818}
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
 In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from PE.
 Consider GW150914, the first GW detected by LIGO, as an example.
-In figure \ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
+In Fig.~\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
 With the frequency-independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
 This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
 % explain the kappa gap
@@ -389,7 +368,7 @@ Therefore, the PE result with frequency dependence is consistent with GR.
 \subsection{Result on GW190521}
 Even with the frequency-dependent birefringence model, some events still have a bimodal $\kappa$ distribution.
 Consider GW190521, the most massive binary black hole merger in the events we included.
-The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-dependent birefringence model, as shown in figure \ref{fig:corner_GW190521}.
+The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-dependent birefringence model, as shown in Fig.~\ref{fig:corner_GW190521}.
 The reason could be this GW event's frequency range is too narrow to break the degeneracy.
 The effect of birefringence at different frequencies within the range is similar, so the degeneracy cannot be broken.
 Therefore, the narrow frequency range can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
@@ -494,7 +473,7 @@ Therefore, we can rewrite the equation as
 \begin{equation}
     h_{L/R}^{PV}(f)= h_{L/R}^{GR}(f)\exp\left(\mp\frac{\pi zf}{M_{PV}}\right)\,.
 \end{equation}
-This equation takes the same form as \eqref{eq:waveform_modification}.
+This equation takes the same form as Eq.~\eqref{eq:waveform_modification}.
 We can then find the relation between $M_{PV}$ and $\kappa$ by
 \begin{equation}
     \left|\mp\frac{\pi zf}{M_{PV}}\right|=\left|\pm\kappa\frac{d_C}{1\,\mathrm{Gpc}}\frac{f}{100\,\mathrm{Hz}}\right|\,.
