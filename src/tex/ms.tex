@@ -175,8 +175,8 @@ We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
-We take the \ac{PE} configuration as in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
-We apply a distance prior which is uniform in comoving volume and source frame time instead of a power law distribution used in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+We take the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
+We apply a distance prior which is uniform in comoving volume and source frame time instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
 
 For GW190521, we increase the maximum distance of the distance prior to $1.5\times$ the original value, as the birefringence effect enables the probability of a larger distance.
 For GW190720, we decrease the analysis segment to 8 s from 16 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
@@ -345,10 +345,22 @@ Note that the result is consistent with GR when $\kappa=0$.
 
 % Case study
 
-% Create sessions for all the outliers
-
 % Case: GW170818
-% \subsection{Result on GW170818}
+\subsection{Result on GW170818}
+GW170818 gave the largest tension with $\kappa=0$.
+Figure \ref{fig:corner_GW170818} shows the birefringence effect allows a region of $\kappa>0$.
+This region corresponds to a larger distance and a smaller inclination angle.
+This is a sensible result because a smaller inclination angle will make the amplitude ratio between the two circular polarizations smaller.
+Then the birefringence effect will increase the amplitude ratio during the propagation.
+The larger distance is for compensating the combined effect of a nonzero $\kappa$ and a smaller inclination angle.
+We can see this effect in other events as well, but not as strongly as in GW170818.
+
+\begin{figure}
+    \script{corner_GW170818.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
+    \caption{Corner plot of GW170818.}
+    \label{fig:corner_GW170818}
+\end{figure}
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
@@ -496,14 +508,14 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
     \kappa=\frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{PV}^{-1}\,.
 \end{equation}
 
-\section{Corner plots of special events}
+\section{Special events}
 \label{sec:corner_plots}
 
 \begin{figure}
-    \script{corner_GW170818.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
+    \script{corner_GW170818_appendix.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW170818_appendix.pdf}
     \caption{Corner plot of GW170818.}
-    \label{fig:corner_GW170818}
+    \label{fig:corner_GW170818_appendix}
 \end{figure}
 
 \begin{figure}

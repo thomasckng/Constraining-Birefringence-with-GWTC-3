@@ -48,6 +48,10 @@ dependencies:
     src/scripts/corner_Gaussian_appendix_2.py:
         - src/data/samples_Gaussian_without_GW170818_GW200129.npz
 
+    src/scripts/corner_GW170818_appendix.py:
+        - src/data/IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5
+        - src/data/samples_posterior_birefringence.feather
+
     src/tex/ms.tex:
         - src/tex/output/mu_median.txt
         - src/tex/output/sigma_median.txt

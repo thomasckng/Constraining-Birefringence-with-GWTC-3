@@ -13,7 +13,7 @@ plt.rcParams.update({
     "font.serif": ["Computer Modern Roman"],
 })
 
-nsamples = 3000
+nsamples = 5000
 
 with h5py.File(paths.data/"IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5", 'r') as f:
     f = f['C01:IMRPhenomXPHM']
@@ -31,41 +31,16 @@ result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 result = pd.concat([result_bilby,result_ligo], ignore_index=True)
 
 g = sns.pairplot(result,
-                    vars=['kappa', 'mass_ratio', 'chirp_mass', 'luminosity_distance',
-                            'dec', 'ra', 'theta_jn', 'psi', 'a_1','a_2','tilt_1','tilt_2','phi_12','phi_jl',
-                            'phase', 'geocent_time', 'log_likelihood',
-                            ],
+                    vars=['kappa', 'luminosity_distance', 'cos_iota'],
                     corner=True, kind='kde', hue='with',
                     diag_kws=dict(common_norm=False), plot_kws=dict(common_norm=False, levels=[
                             (1.-0.90),(1.-0.3935)]))
 
-g.axes[16,0].set_xlabel("$\kappa$")
-g.axes[1,0].set_ylabel("$q$")
-g.axes[16,1].set_xlabel("$q$")
-g.axes[2,0].set_ylabel("$\\mathcal{M}$[$M_{\\odot}$]")
-g.axes[16,2].set_xlabel("$\\mathcal{M}$[$M_{\\odot}$]")
-g.axes[3,0].set_ylabel("$d_L$")
-g.axes[16,3].set_xlabel("$d_L$")
-g.axes[4,0].set_ylabel("DEC")
-g.axes[16,4].set_xlabel("DEC")
-g.axes[5,0].set_ylabel("RA")
-g.axes[16,5].set_xlabel("RA")
-g.axes[6,0].set_ylabel("$\\theta_{JN}$")
-g.axes[16,6].set_xlabel("$\\theta_{JN}$")
-g.axes[7,0].set_ylabel("$\\psi$")
-g.axes[16,7].set_xlabel("$\\psi$")
-g.axes[8,0].set_ylabel("$a_1$")
-g.axes[16,8].set_xlabel("$a_1$")
-g.axes[9,0].set_ylabel("$a_2$")
-g.axes[16,9].set_xlabel("$a_2$")
-g.axes[10,0].set_ylabel("$\\theta_1$")
-g.axes[16,10].set_xlabel("$\\theta_1$")
-g.axes[11,0].set_ylabel("$\\theta_2$")
-g.axes[16,11].set_xlabel("$\\theta_2$")
-g.axes[12,0].set_ylabel("$\\Delta\\phi$")
-g.axes[16,12].set_xlabel("$\\Delta\\phi$")
-g.axes[13,0].set_ylabel("$\\phi_{JL}$")
-g.axes[16,13].set_xlabel("$\\phi_{JL}$")
-g.fig.legends[0].set_bbox_to_anchor((0.9,0.5))
+g.axes[2,0].set_xlabel(r"$\kappa$")
+g.axes[1,0].set_ylabel(r"$d_L$")
+g.axes[2,1].set_xlabel(r"$d_L$")
+g.axes[2,0].set_ylabel(r"$\cos\iota$")
+g.axes[2,2].set_xlabel(r"$\cos\iota$")
+g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
 
 g.savefig(fname=paths.figures/"corner_GW170818.pdf", bbox_inches="tight", dpi=300)
