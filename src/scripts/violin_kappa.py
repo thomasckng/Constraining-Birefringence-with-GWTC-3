@@ -33,7 +33,7 @@ color_dict={}
 for i in range(len(color_DataFrame)):
     color_dict[color_DataFrame.loc[i]['event']] = sns.color_palette("rocket_r", as_cmap=True, desat=None).colors[color_DataFrame.loc[i]['color_index']]
 
-kernels = [scipy.stats.gaussian_kde(result_dict[event]['kappa']) for event in events[events != "GW200129_065458"]]
+kernels = [scipy.stats.gaussian_kde(result_dict[event]['kappa']) for event in events]
 kappa = np.linspace(-.1, .1, 1000)
 ll = [np.sum([np.log(ker(k)) for ker in kernels]) for k in kappa]
 ll = ll - np.max(ll)
@@ -83,8 +83,8 @@ cb = g.figure.colorbar(plt.cm.ScalarMappable(norm=mpl.colors.Normalize(color_Dat
 cb.ax.tick_params(direction='in')
 cb.ax.set_ylabel("$|\mu/\sigma|$", rotation=0, labelpad=30)
 
-g.axes.collections[60].set_linewidth(3) # GW200129_065458
-g.axes.collections[60].set_edgecolor(sns.color_palette()[9])
+# g.axes.collections[60].set_linewidth(3) # GW200129_065458
+# g.axes.collections[60].set_edgecolor(sns.color_palette()[9])
 
 for collection, color in zip(g.axes.collections, color_dict.values()):
     collection.set_facecolor(color)

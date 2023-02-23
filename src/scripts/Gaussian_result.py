@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import paths
 
-samples_Gaussian = np.load(paths.data/"samples_Gaussian_without_GW200129.npz")["chains"]
+samples_Gaussian = np.load(paths.data/"samples_Gaussian.npz")["chains"]
 df = pd.DataFrame()
 df['mu'] = samples_Gaussian.reshape(-1,2)[:,0]
 df['sigma'] = samples_Gaussian.reshape(-1,2)[:,1]

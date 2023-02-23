@@ -1,6 +1,6 @@
 rule compute_Gaussian_result:
     input:
-        "src/data/samples_Gaussian_without_GW200129.npz"
+        "src/data/samples_Gaussian.npz"
     output:
         "src/tex/output/mu_median.txt",
         "src/tex/output/sigma_median.txt"
@@ -9,7 +9,7 @@ rule compute_Gaussian_result:
 
 rule compute_kappa_constraint:
     input:
-        "src/data/samples_Gaussian_without_GW200129.npz",
+        "src/data/samples_Gaussian.npz",
         "src/data/samples_posterior_birefringence.feather"
     output:
         "src/tex/output/restricted_kappa_median.txt",

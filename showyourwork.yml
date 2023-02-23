@@ -18,14 +18,11 @@ dependencies:
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_GW200129.py:
-        - src/data/IGWN-GWTC3p0-v1-GW200129_065458_PEDataRelease_mixed_nocosmo.h5
         - src/data/samples_posterior_birefringence.feather
-
-    src/scripts/corner_GW200224.py:
-        - src/data/IGWN-GWTC3p0-v1-GW200224_222234_PEDataRelease_mixed_nocosmo.h5
-        - src/data/samples_posterior_birefringence.feather
+        - src/data/GW200129_065458_birefringence_without_V1.json.gz
 
     src/scripts/corner_Gaussian.py:
+        - src/data/samples_Gaussian.npz
         - src/data/samples_Gaussian_without_GW200129.npz
 
     src/scripts/kappa_stacked.py:
@@ -33,24 +30,14 @@ dependencies:
     
     src/scripts/violin_kappa.py:
         - src/data/samples_posterior_birefringence.feather
-        - src/data/samples_Gaussian_without_GW200129.npz
+        - src/data/samples_Gaussian.npz
 
     src/scripts/posterior_kappa.py:
         - src/data/samples_posterior_birefringence.feather
-        - src/data/samples_Gaussian_without_GW200129.npz
+        - src/data/samples_Gaussian.npz
 
     src/scripts/reweighed_kappa.py:
         - src/data/reweighted_kappa_samples_without_GW200129.feather
-
-    src/scripts/corner_Gaussian_appendix_1.py:
-        - src/data/samples_Gaussian.npz
-
-    src/scripts/corner_Gaussian_appendix_2.py:
-        - src/data/samples_Gaussian_without_GW170818_GW200129.npz
-
-    src/scripts/corner_GW170818_appendix.py:
-        - src/data/IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5
-        - src/data/samples_posterior_birefringence.feather
 
     src/tex/ms.tex:
         - src/tex/output/mu_median.txt
@@ -66,18 +53,12 @@ datasets:
             IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5:
             IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_nocosmo.h5:
 
-    10.5281/zenodo.5546663:
+    10.5072/zenodo.1167258:
         destination: src/data/
         contents:
-            IGWN-GWTC3p0-v1-GW200129_065458_PEDataRelease_mixed_nocosmo.h5:
-            IGWN-GWTC3p0-v1-GW200224_222234_PEDataRelease_mixed_nocosmo.h5:
-
-    10.5072/zenodo.1165244:
-        destination: src/data/
-        contents:
+            GW200129_065458_birefringence_without_V1.json.gz:
             GW150914_birefringence(frequency_independent).json:
             samples_Gaussian.npz:
             samples_Gaussian_without_GW200129.npz:
-            samples_Gaussian_without_GW170818_GW200129.npz:
             samples_posterior_birefringence.feather:
             reweighted_kappa_samples_without_GW200129.feather:

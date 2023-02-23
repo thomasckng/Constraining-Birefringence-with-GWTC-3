@@ -204,7 +204,7 @@ We use Eq.~\eqref{eq:restricted_posterior} to obtain the primary constraint pres
 % Bayesian Hierarchical Modeling
 In order to further characterize our set of measurements, and identify potential outliers, we carry out an additional collective analysis that allows $\kappa$ to take different values for each event \cite{Zimmerman:2019wzo,Isi:2022cii}.
 To do this, we apply hierarchical Bayesian inference \cite{Loredo:2004nn} to model the distribution of $\kappa$'s consistent with the observed data:
-we posit that there is a specific value of the parameter, $\kappa_i$, associated to each event, drawn from some unknown distribution of underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
+we posit that there is a specific value of the parameter, $\kappa_i$, associated with each event, drawn from some unknown distribution of underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
 If we are interested in constraining the first two moments of the distribution, it is convenient to parametrize the $\kappa_i$'s as drawn from a Gaussian with unknown mean $\mu$ and variance $\sigma^2$, i.e., $\kappa_i \sim \mathcal{N}(\mu, \sigma^2)$ \cite{Isi:2019asy}, and measure those hyperparameters from the collection of observed data.
 
 If \ac{GR} is correct and there is no birefringence, we should find the observed $\kappa$ distribution to be consistent with a delta function at the origin ($\kappa_i = 0$ for all $i$, or $\mu=\sigma=0$); on the other hand, if spacetime is birefringent, we expect to find a delta function at some nonzero value ($\kappa_i = \kappa \neq 0$, or $\mu = \kappa$ and $\sigma=0$).
@@ -235,7 +235,7 @@ To sample the posterior distribution of $\mu$ and $\sigma$, we use the sampling 
 \label{sec:Results}
 
 In this section, we present the results of our study.
-We first show the PE results of all events and present the results of Bayesian hierarchical modeling.
+We first show the \ac{PE} results of all events and present the results of Bayesian hierarchical modeling.
 Then, we will discuss some special events individually.
 
 \begin{figure}
@@ -271,7 +271,7 @@ When considered individually, the events that best constrain $\kappa$ are listed
 \end{table}
 
 The event that shows the largest tension with $\kappa = 0$ is GW170818, for which $|\mu / \sigma| =$ \variable{output/GW170818_constraint.txt}.
-Additionally, the GW200129 result shows features that could be indicative of contamination from non-Gaussian instrumental noise, so we exclude it from the collective analysis.
+Additionally, the GW200129 result shows features that could be indicative of contamination from non-Gaussian instrumental noise.
 We discuss both of these events in detail below.
 
 Another set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
@@ -364,7 +364,7 @@ We can see this effect in other events as well, but not as strongly as in GW1708
 
 % Case: GW150914 (example of broken degeneracy)
 \subsection{Result on GW150914}
-In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from PE.
+In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from \ac{PE}.
 Consider GW150914, the first GW detected by LIGO, as an example.
 In Fig.~\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
 With the frequency-independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
@@ -374,16 +374,16 @@ This is because, for a nonprecessing system, there is a degeneracy between $\kap
 On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
 This is because the frequency dependence broke the degeneracy, as the effect of birefringence will differ from the effect of changing $\iota$.
 In this case, the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent.
-Therefore, the PE result with frequency dependence is consistent with GR.
+Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
 
 \begin{figure}
     \script{corner_GW150914.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-        Colors in the plot represent the PE result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3}, the PE results done by us with both frequency-independent and dependent birefringence respectively.
+        Colors in the plot represent the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, the \ac{PE} results done by us with both frequency-independent and dependent birefringence respectively.
         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        Note that there is no posterior of $\kappa$ for the PE result from LVK, as the LVK PE is based on GR, which does not suggest GW amplitude birefringence.
+        Note that there is no posterior of $\kappa$ for the \ac{PE} result from LVK, as the LVK \ac{PE} is based on GR, which does not suggest GW amplitude birefringence.
         This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while frequency-dependent birefringence can break it.
     }
     \label{fig:corner_GW150914}
@@ -405,7 +405,7 @@ The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa
     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
     \caption{
         The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
-        Colors in the plot are the PE result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3} and the PE result done by us with the frequency-dependent birefringence.
+        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with the frequency-dependent birefringence.
         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
         This plot shows that frequency-dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
     }
@@ -413,15 +413,28 @@ The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa
 \end{figure}
 
 % Case: GW200129 (glitch in Virgo data)
-\subsection{Exclusion of GW200129}
+\subsection{Contamination of GW200129}
 \label{sec:GW200129}
-The reason for the exclusion is that past research suggests a potential glitch in GW200129 Virgo data. \citep{GW200129_glitch}
-We perform three sets of PE to check if the glitch would affect the population posterior of $\kappa$.
-We pick only two out of three detector data in each set to perform PE. (i.e. LIGO-Hanford and LIGO-Livingston for the first set, LIGO-Hanford and Virgo for the second set, and LIGO-Livingston and Virgo for the third set.)
-The two sets of PE results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
+Past research suggests a potential glitch in GW200129 Virgo data. \citep{GW200129_glitch}
+We perform three sets of \ac{PE} to check if the glitch would affect the population posterior of $\kappa$.
+We pick only two out of three detector data in each set to perform \ac{PE}. (i.e. LIGO-Hanford and LIGO-Livingston for the first set, LIGO-Hanford and Virgo for the second set, and LIGO-Livingston and Virgo for the third set.)
+The two sets of \ac{PE} results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
 Further investigation is needed to understand the glitch.
-Thus, we did not include this event in our collective analysis.
-% show results included and excluded
+% Thus, we did not include this event in our collective analysis.
+
+Figure~\ref{fig:corner_GW200129} shows the posteriors of the parameters of GW200129 are strongly affected by the Virgo data.
+
+\begin{figure}
+    \script{corner_GW200129.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
+    \caption{
+        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW200129.
+        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with and without Virgo data.
+        2D contour plot shows $39.35\%$ and $90\%$ confidence level.
+        This plot shows that Virgo data may contain a glitch, which affects the \ac{PE} result.
+    }
+    \label{fig:corner_GW200129}
+\end{figure}
 
 \section{Discussion}
 \label{sec:Discussion}
@@ -435,7 +448,7 @@ We obtained a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1
 Our result is an order of magnitude improvement in constraining $\kappa$.
 The main reason is that we have more events from GWTC-3 than GWTC-2.
 
-\citet{Wang_2021} performed PE on GWTC-1 events with a frequency-dependent birefringence model.
+\citet{Wang_2021} performed \ac{PE} on GWTC-1 events with a frequency-dependent birefringence model.
 They formulated the birefringence effect as corrections to the GW waveform on a linear basis.
 We convert their constraint to the same units as ours with the derivation in Appendix~\ref{sec:M_PV_derivation}.
 % Discussion on the difference between our work and theirs
@@ -443,17 +456,17 @@ We convert their constraint to the same units as ours with the derivation in App
 % Future work
 \subsection{Future work}
 % BNS
-Future work is to perform PE on binary neutron star mergers, such as GW170817.
+Future work is to perform \ac{PE} on binary neutron star mergers, such as GW170817.
 The frequency range of the signal is much wider compared to the binary black hole mergers.
 Thus, the difference in the effect of birefringence at different frequencies within the range can be more significant.
-The PE on binary neutron star mergers can allow us to further constrain the birefringence effect and the beyond-GR theories that predict it.
-However, performing PE on binary neutron star mergers requires much more computational resources.
-Therefore, we may need to wait for future PE methods and tools to further our work.
+The \ac{PE} on binary neutron star mergers can allow us to further constrain the birefringence effect and the beyond-GR theories that predict it.
+However, performing \ac{PE} on binary neutron star mergers requires much more computational resources.
+Therefore, we may need to wait for future \ac{PE} methods and tools to further our work.
 
 % More observations with higher SNR
 Another future work is to apply the same method to more GW events and events with a higher signal-to-noise ratio (SNR).
 LVK will release more events with higher SNR in the future.
-Using data with higher SNR allows us to obtain more precise PE results and constrain the birefringence effect more precisely.
+Using data with higher SNR allows us to obtain more precise \ac{PE} results and constrain the birefringence effect more precisely.
 And using data from more events will allow us to calculate a more constrained population posterior of $\kappa$.
 
 \begin{acknowledgments}
@@ -507,59 +520,6 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
 \begin{equation}
     \kappa=\frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{PV}^{-1}\,.
 \end{equation}
-
-\section{Special events}
-\label{sec:corner_plots}
-
-\begin{figure}
-    \script{corner_GW170818_appendix.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW170818_appendix.pdf}
-    \caption{Corner plot of GW170818.}
-    \label{fig:corner_GW170818_appendix}
-\end{figure}
-
-\begin{figure}
-    \script{corner_GW200129.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
-    \caption{Corner plot of GW200129.}
-    \label{fig:corner_GW200129}
-\end{figure}
-
-\begin{figure}
-    \script{corner_GW200224.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW200224.pdf}
-    \caption{Corner plot of GW200224.}
-    \label{fig:corner_GW200224}
-\end{figure}
-
-\section{Alternative results for Bayesian hierarchical modeling}
-\label{sec:alternative_results}
-
-\begin{figure}
-    \script{corner_Gaussian_appendix_1.py}
-    \includegraphics[width=\columnwidth]{figures/corner_Gaussian_appendix_1.pdf}
-    \caption{
-        Kept all events.
-        % The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
-        % 2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        % The orange line represents the median of $\mu$ and $\sigma$.
-        % The plot shows that the population constraint on $\kappa$ is consistent with GR.
-    }
-    \label{fig:corner_Gaussian_appendix_1}
-\end{figure}
-
-\begin{figure}
-    \script{corner_Gaussian_appendix_2.py}
-    \includegraphics[width=\columnwidth]{figures/corner_Gaussian_appendix_2.pdf}
-    \caption{
-        Excluded GW170818 and GW200129.
-        % The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
-        % 2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        % The orange line represents the median of $\mu$ and $\sigma$.
-        % The plot shows that the population constraint on $\kappa$ is consistent with GR.
-    }
-    \label{fig:corner_Gaussian_appendix_2}
-\end{figure}
 
 \bibliography{bib}
 

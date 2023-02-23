@@ -18,11 +18,10 @@ def normal_distribution(x, mu, sigma):
 
 result_dict = {}
 result_DataFrame = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
-result_DataFrame = result_DataFrame[result_DataFrame.event != "GW200129_065458"]
 for event in result_DataFrame['event'].unique():
     result_dict[event] = result_DataFrame[result_DataFrame.event == event]
 
-samples_original = np.load(paths.data/"samples_Gaussian_without_GW200129.npz")["chains"]
+samples_original = np.load(paths.data/"samples_Gaussian.npz")["chains"]
 samples_all = samples_original.reshape(-1, 2)
 
 df_Gaussian_samples_all = pd.DataFrame()
@@ -37,7 +36,7 @@ for _ in range(1000):
     samples_reweighted.append(np.random.choice(a=np.array(result_DataFrame['kappa']), size=1, p=weight))
 
 events = result_DataFrame['event'].unique()
-kernels = [scipy.stats.gaussian_kde(result_dict[event]['kappa']) for event in events[events != "GW200129_065458"]]
+kernels = [scipy.stats.gaussian_kde(result_dict[event]['kappa']) for event in events]
 kappa = np.linspace(-.1, .1, 1000)
 ll = [np.sum([np.log(ker(k)) for ker in kernels]) for k in kappa]
 ll = ll - np.max(ll)
