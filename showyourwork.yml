@@ -19,6 +19,8 @@ dependencies:
 
     src/scripts/corner_GW200129.py:
         - src/data/samples_posterior_birefringence.feather
+        - src/data/GW200129_065458_birefringence_without_H1.json.gz
+        - src/data/GW200129_065458_birefringence_without_L1.json.gz
         - src/data/GW200129_065458_birefringence_without_V1.json.gz
 
     src/scripts/corner_Gaussian.py:
@@ -56,8 +58,10 @@ datasets:
     10.5072/zenodo.1167258:
         destination: src/data/
         contents:
-            GW200129_065458_birefringence_without_V1.json.gz:
             GW150914_birefringence(frequency_independent).json:
+            GW200129_065458_birefringence_without_H1.json.gz:
+            GW200129_065458_birefringence_without_L1.json.gz:
+            GW200129_065458_birefringence_without_V1.json.gz:
             samples_Gaussian.npz:
             samples_Gaussian_without_GW200129.npz:
             samples_posterior_birefringence.feather:
