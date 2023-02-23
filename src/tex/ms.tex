@@ -299,8 +299,9 @@ By characterizing the population mean and standard deviation over $\kappa$, this
     \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
     \caption{
         The posterior of $\mu$ and $\sigma$ of the population distribution of $\kappa$.
+        Blue and orange colors represent the result of the population analysis including or excluding GW200129, respectively.
         2D contour plot shows $39.35\%$ and $90\%$ confidence level.
-        The orange line represents the median of $\mu$ and $\sigma$.
+        The solid lines represent the median of $\mu$ and $\sigma$.
         The plot shows that the population constraint on $\kappa$ is consistent with GR.
     }
     \label{fig:corner_Gaussian}
@@ -329,7 +330,6 @@ The generic posterior is calculated by Eq.~\eqref{eq:generic_posterior} with the
 The median of the restricted posterior within $90\%$ confidence interval is \variable{output/restricted_kappa_median.txt}.
 The median of the generic posterior within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
 Note that the result is consistent with GR when $\kappa=0$.
-% talk about what events pull sigma in figure 2
 
 \begin{figure}
     \script{posterior_kappa.py}
