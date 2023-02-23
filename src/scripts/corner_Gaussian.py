@@ -37,8 +37,8 @@ df_without_GW200129['mu'] = samples_Gaussian_without_GW200129.reshape(-1,2)[:,0]
 df_without_GW200129['sigma'] = samples_Gaussian_without_GW200129.reshape(-1,2)[:,1]
 df_without_GW200129 = df_without_GW200129.sample(10000)
 
-kde_1d_sigma_without_GW200129 = kde_contour.Bounded_1d_kde(df['sigma'], xlow=0)
-df_without_GW200129['sigma_kde'] = kde_1d_sigma_without_GW200129(df['sigma'])
+kde_1d_sigma_without_GW200129 = kde_contour.Bounded_1d_kde(df_without_GW200129['sigma'], xlow=0)
+df_without_GW200129['sigma_kde'] = kde_1d_sigma_without_GW200129(df_without_GW200129['sigma'])
 df_without_GW200129 = df_without_GW200129.sort_values(['sigma'])
 
 fig, axs = plt.subplots(2,2,sharex='col')
