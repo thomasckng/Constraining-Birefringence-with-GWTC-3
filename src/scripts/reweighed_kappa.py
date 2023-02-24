@@ -19,7 +19,7 @@ df = pd.read_feather(paths.data/'reweighted_kappa_samples.feather')
 zscores = pd.Series({e: np.abs(k.mean()/k.std()) for e, k in df.items()})
 zscores.sort_values(ascending=False, inplace=True)
 
-cmap = matplotlib.cm.get_cmap('flare')
+cmap = matplotlib.colormaps['flare']
 norm = matplotlib.colors.Normalize(vmin=0, vmax=zscores.max())
 color = zscores.apply(lambda z: cmap(norm(z), alpha=norm(z)))
 
