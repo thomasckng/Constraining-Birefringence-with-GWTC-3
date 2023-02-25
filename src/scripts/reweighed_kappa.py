@@ -13,7 +13,7 @@ plt.rcParams.update({
     "font.serif": ["Computer Modern Roman"],
 })
 
-df = pd.read_feather(paths.data/'reweighted_kappa_samples_without_GW200129.feather')
+df = pd.read_feather(paths.data/'reweighted_kappa_samples.feather')
 
 # restructure DataFrame to better work with sns.histplot hues
 zscores = pd.Series({e: np.abs(k.mean()/k.std()) for e, k in df.items()})
