@@ -355,7 +355,7 @@ Having established that the collection of detections is globally consistent with
 When considered in isolation, the first of these is the event with the most significant support for $\kappa \neq 0$; the second shows sign of potential noise anomalies; and the third is representative of a class of events with strongly bimodal $\kappa$ posteriors.
 
 \subsubsection{GW170818}
-GW170818 gave the largest tension with $\kappa=0$.
+GW170818 gave the largest tension with $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows the birefringence effect allows a region of $\kappa>0$ for
  larger distance and a smaller inclination angles than would be allowed in the absence of birefringence.
 We can make sense of this result because a smaller inclination angle will make the amplitude ratio between the two circular polarizations smaller.
@@ -374,23 +374,25 @@ We can see this effect in other events as well, but not as strongly as in GW1708
 
 \subsubsection{GW200129}
 \label{sec:GW200129}
-Past research suggests a potential glitch in GW200129 Virgo data. \citep{GW200129_glitch}
-We perform three sets of \ac{PE} to check if the glitch would affect the population posterior of $\kappa$.
-We pick only two out of three detector data in each set to perform \ac{PE}. (i.e. LIGO-Hanford and LIGO-Livingston for the first set, LIGO-Hanford and Virgo for the second set, and LIGO-Livingston and Virgo for the third set.)
-The two sets of \ac{PE} results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
-Further investigation is needed to understand the glitch.
-% Thus, we did not include this event in our collective analysis.
 
-Figure~\ref{fig:corner_GW200129} shows the posteriors of the parameters of GW200129 are strongly affected by the Virgo data.
+GW200129 is the event with the second largest $|\mu_i/\sigma_i|$ in Fig.~\ref{fig:violin_kappa}.
+However, data for this event were affected by a non-Gaussian noise disturbance (glitch) in the Virgo instrument, which was subtracted in the publicly-available data used for parameter estimation \cite{Davis:2022ird}.
+Since previous work suggests the degree of glitch subtraction affects the inference for this event \citep{GW200129_glitch}, we consider whether the apparent preference for $\kappa < 0$ could also be tied to the instrumental artifact.
+
+To this end, we perform three additional \ac{PE} runs for GW200129, considering only two detectors at a time: LIGO Hanford and Virgo (HL), LIGO Livingston and Virgo (LV), and LIGO Hanford and LIGO Livingston (HL).
+If the preference for $\kappa < 0$ is tied to the glitch in Virgo, we expect it to disappear in the HL run, which excludes Virgo data.
+
+This is indeed the case, as we show in Fig.~\ref{fig:corner_GW200129}: all runs including Virgo lean towards $\kappa < 0$ (solid curves in color), whereas the LIGO-only run is fully consistent with $\kappa = 0$ (dashed black).
+While this is not conclusive proof that the glitch itself is driving the result, it does indicate that the Virgo data play a key role in the inference of $\kappa$.
+Since more work would be needed to understand the effect of the glitch, this motivates us to consider the effect of excluding this event from the collective analyses above.
 
 \begin{figure}
     \script{corner_GW200129.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
     \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW200129.
-        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with and without Virgo data.
-        The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
-        This plot shows that Virgo data may contain a glitch, which affects the \ac{PE} result.
+        GW200129 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos{\iota}$, including different sets of detectors in the analysis per the legend.
+        The main run with all three detectors (HLV, filled blue), shows a preference for $\kappa < 0$, as in Fig.~\ref{fig:violin_kappa}; this preference is more pronounced for two-detector runs that include Virgo (HV and LV, orange and green); however, it disappears if we remove Virgo (HL, dashed black).
+        The 2D contours correspond to the $90\%$ credible level.
     }
     \label{fig:corner_GW200129}
 \end{figure}

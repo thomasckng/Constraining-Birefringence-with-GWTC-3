@@ -5,7 +5,7 @@ import numpy as np
 import seaborn as sns
 import paths
 
-sns.set_theme(palette='colorblind', font_scale=1.2)
+sns.set_theme(palette='colorblind', font_scale=1.5)
 
 plt.rcParams.update({
     "text.usetex": True,
@@ -36,8 +36,8 @@ g = sns.pairplot(result,
                  diag_kws=dict(common_norm=False), plot_kws=dict(common_norm=False, levels=[(1.-0.90),(1.-0.3935)]))
 
 g.axes[2,0].set_xlabel(r"$\kappa$")
-g.axes[1,0].set_ylabel(r"$d_L$")
-g.axes[2,1].set_xlabel(r"$d_L$")
+g.axes[1,0].set_ylabel(r"$d_L$ (Mpc)")
+g.axes[2,1].set_xlabel(r"$d_L$ (Mpc)")
 g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
 g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
