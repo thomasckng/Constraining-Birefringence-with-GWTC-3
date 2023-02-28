@@ -1,6 +1,6 @@
 Paper repository for _Constraining gravitational wave amplitude birefringence with GWTC-3_ by Ng, Isi, Wong & Farr (2023).
 
-The paper can be reproduced programatically from this repo using [_showyourwork_](http://show-your.work). Scripts to produce figures can be found in [src/scripts](src/scripts), and data in [src/data](src/data).
+The paper can be reproduced programmatically from this repo using [_showyourwork_](http://show-your.work). Scripts to produce figures and tables can be found in [src/scripts](src/scripts).
 
 <p align="center">
 <a href="https://github.com/showyourwork/showyourwork">
