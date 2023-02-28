@@ -255,13 +255,14 @@ Then, we will discuss some special events individually.
 \subsection{Result on GWTC-3}
 
 % Violin plot
-We present the result of our catalog analysis in Fig.~\ref{fig:violin_kappa}.
-This shows the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate), colored by the distance of the respective posterior mean from the origin in units of standard deviation, i.e., $|\mu/\sigma|$.
+Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis.
+as represented by the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate), colored by the distance of the respective posterior mean from the origin in units of standard deviation, i.e., $|\mu/\sigma|$.
 The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line);
 this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
 
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}.
+
 \begin{table}
     \caption{Events that best constrain $\kappa$.}
     \begin{ruledtabular}
@@ -271,6 +272,7 @@ When considered individually, the events that best constrain $\kappa$ are listed
 \end{table}
 
 The event that shows the largest tension with $\kappa = 0$ is GW170818, for which $|\mu / \sigma| =$ \variable{output/GW170818_constraint.txt}.
+\mi{THOMAS: we don't need that many significant figures, $2.0$ would do}
 Additionally, the GW200129 result shows features that could be indicative of contamination from non-Gaussian instrumental noise.
 We discuss both of these events in detail below.
 
@@ -289,7 +291,7 @@ We understand this effect to be a consequence of the narrow sets of frequencies 
 \subsection{Bayesian hierarchical modeling}
 
 Figure \ref{fig:violin_kappa} shows a degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
-This is not unexpected: assuming independent Gaussian noise for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
+This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
 
 To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
 By characterizing the population mean and standard deviation over $\kappa$, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
