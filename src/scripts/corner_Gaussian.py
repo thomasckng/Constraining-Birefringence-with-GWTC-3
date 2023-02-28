@@ -90,7 +90,7 @@ axs[1,0].set_ylabel("$\\sigma$")
 axs[1,0].set_xlim(-.07,.07)
 axs[1,0].set_ylim(0)
 
-fig.legend(title='GW200129', bbox_to_anchor=(0.93,0.88), frameon=False)
+# fig.legend(title='GW200129', bbox_to_anchor=(0.93,0.88), frameon=False)
 
 fig.delaxes(axs[0,1])
 fig.tight_layout(pad=0.3)
