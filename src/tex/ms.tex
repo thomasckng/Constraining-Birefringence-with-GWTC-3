@@ -346,14 +346,13 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
     \label{fig:posterior_kappa}
 \end{figure}
 
-% Case study
-
-% Case: GW170818
+% Case studies
 \subsection{Notable events}
 
 Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on three events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, and GW190521.
 When considered in isolation, the first of these is the event with the most significant support for $\kappa \neq 0$; the second shows sign of potential noise anomalies; and the third is representative of a class of events with strongly bimodal $\kappa$ posteriors.
 
+% Case: GW170818
 \subsubsection{GW170818}
 GW170818 gave the largest tension with $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows the birefringence effect allows a region of $\kappa>0$ for
@@ -372,6 +371,7 @@ We can see this effect in other events as well, but not as strongly as in GW1708
     \label{fig:corner_GW170818}
 \end{figure}
 
+% Case: GW200129 (glitch in Virgo data)
 \subsubsection{GW200129}
 \label{sec:GW200129}
 
@@ -395,6 +395,29 @@ Since more work would be needed to understand the effect of the glitch, this mot
         The 2D contours correspond to the $90\%$ credible level.
     }
     \label{fig:corner_GW200129}
+\end{figure}
+
+% Case: GW190521 (massive BBH)
+\subsubsection{GW190521}
+Even with the frequency-dependent birefringence model, some events still have a bimodal $\kappa$ distribution.
+Consider GW190521, the most massive binary black hole merger in the events we included.
+The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-dependent birefringence model, as shown in Fig.~\ref{fig:corner_GW190521}.
+The reason could be this GW event's frequency range is too narrow to break the degeneracy.
+The effect of birefringence at different frequencies within the range is similar, so the degeneracy cannot be broken.
+Therefore, the narrow frequency range can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
+Note that $\kappa=0$ is still within the $90\%$ confidence interval, with a non-negligible probability.
+The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa$ and $\iota$ cannot be broken in this case.
+
+\begin{figure}[h]
+    \script{corner_GW190521.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
+    \caption{
+        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
+        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with the frequency-dependent birefringence.
+        The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
+        This plot shows that frequency-dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
+    }
+    \label{fig:corner_GW190521}
 \end{figure}
 
 % Case: GW150914 (example of broken degeneracy)
@@ -424,30 +447,6 @@ Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
     \label{fig:corner_GW150914}
 \end{figure}
 
-% Case: GW190521 (massive BBH)
-\subsubsection{Result on GW190521}
-Even with the frequency-dependent birefringence model, some events still have a bimodal $\kappa$ distribution.
-Consider GW190521, the most massive binary black hole merger in the events we included.
-The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-dependent birefringence model, as shown in Fig.~\ref{fig:corner_GW190521}.
-The reason could be this GW event's frequency range is too narrow to break the degeneracy.
-The effect of birefringence at different frequencies within the range is similar, so the degeneracy cannot be broken.
-Therefore, the narrow frequency range can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
-Note that $\kappa=0$ is still within the $90\%$ confidence interval, with a non-negligible probability.
-The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa$ and $\iota$ cannot be broken in this case.
-
-\begin{figure}[h]
-    \script{corner_GW190521.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
-    \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
-        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with the frequency-dependent birefringence.
-        The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
-        This plot shows that frequency-dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
-    }
-    \label{fig:corner_GW190521}
-\end{figure}
-
-% Case: GW200129 (glitch in Virgo data)
 \section{Discussion}
 \label{sec:Discussion}
 
