@@ -255,28 +255,30 @@ Then, we will discuss some special events individually.
 \subsection{Result on GWTC-3}
 
 % Violin plot
-Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis.
-As represented by the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate), colored by the distance of the respective posterior mean from the origin in units of standard deviation, i.e., $|\mu/\sigma|$.
+Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis
+as represented by the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate). Posteriors are colored by the distance of the respective posterior mean from the origin in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.%
+\footnote{We use the $i$ notation for individual events here to disambiguate from the population mean $\mu$ and standard deviation $\sigma$ of Eq.~\eqref{eq:posterior_of_mu_sigma}.}
 The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line);
 this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
 
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}.
 
+The two events that show the largest tension with $\kappa = 0$ is GW170818, for which $|\mu_i / \sigma_i| = \variable{output/GW170818_constraint.txt}$, and GW200129\_065458 (henceforth GW200129), for which $|\mu_i / \sigma_i| = \dots$.
+\mi{THOMAS: please add the number for GW200129. Also, we don't need that many significant figures, one decimal will do.}
+However, as we discuss further below, we have reason to think that the GW200129 preference for $\kappa < 0$ might be driven by noise anomalies in the Virgo detector; for that reason we consider the effect of excluding it from the joint result below.
+
 \begin{table}
-    \caption{Events that best constrain $\kappa$.}
+    \caption{Events that best constrain $\kappa$, sorted by posterior standard deviation $\sigma_i$.}
     \begin{ruledtabular}
         \variable{output/best_events_kappa.txt}
     \end{ruledtabular}
     \label{tab:best_events_kappa}
 \end{table}
 
-The event that shows the largest tension with $\kappa = 0$ is GW170818, for which $|\mu / \sigma| =$ \variable{output/GW170818_constraint.txt}.
-Additionally, the GW200129 result shows features that could be indicative of contamination from non-Gaussian instrumental noise.
-We discuss both of these events in detail below.
-
-Another set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
+Finally, a set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
 That is the case for the events listed in Table~\ref{tab:bimodal_events_mass}.
+We understand this effect to be a consequence of the narrow sets of frequencies that are visible for these heavy events, as we mentioned in Sec.~\ref{sec:inclination} and further demonstrate below.
 
 \begin{table}
     \caption{Events that show bimodality in the $\kappa$ posterior tend to have high total masses.}
@@ -285,15 +287,14 @@ That is the case for the events listed in Table~\ref{tab:bimodal_events_mass}.
     \end{ruledtabular}
     \label{tab:bimodal_events_mass}
 \end{table}
-We understand this effect to be a consequence of the narrow sets of frequencies that are visible for these heavy events, as we mentioned in Sec.~\ref{sec:inclination} and further demonstrate below.
 
-\subsection{Bayesian hierarchical modeling}
+\subsection{Hierarchical modeling}
 
-Figure \ref{fig:violin_kappa} shows a degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
+Figure \ref{fig:violin_kappa} shows certain variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
 This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
 
 To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
-By characterizing the population mean and standard deviation over $\kappa$, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
+By characterizing the population mean and standard deviation over events, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
 
 \begin{figure}
     \script{corner_Gaussian.py}
@@ -307,28 +308,30 @@ By characterizing the population mean and standard deviation over $\kappa$, this
 \end{figure}
 
 We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, which shows the posterior on the population mean $\mu$ and standard deviation $\sigma$ inferred from the collection of observations in Fig.~\ref{fig:violin_kappa}.
-This posterior supports the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals, we constrain $\mu =$ \variable{output/mu_median.txt} for 90\%-credible symmetric intervals around the median, and $\sigma <$ \variable{output/sigma_median.txt} for the 90\%-credible one-sided upper limit.
+The figure shows two distributions, which result from analyses with (blue) and without (orange) the potentially-contaminated event GW200129; the difference between the two is mainly restricted to a slight shift in $\mu$, indicating that GW200129 has a small effect on our overall population inference.
+
+Both versions of the posterior support the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals of the result including all events, we constrain $\mu =$ \variable{output/mu_median.txt} for 90\%-credible symmetric intervals around the median, and $\sigma <$ \variable{output/sigma_median.txt} for the 90\%-credible one-sided upper limit.
 However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peaks away from the origin, indicating some preference for a nonzero variance.
 This could be a sign of the presence of outliers in our sample.
 
-As a check for outliers, we reconsider the set of measurements in Fig.~\ref{fig:violin_kappa} in light of the hierarchical result for $\mu$ and $\sigma$ in Fig.~\ref{fig:corner_Gaussian}.
+As a check for outliers, we reconsider the set of measurements in Fig.~\ref{fig:violin_kappa} in light of the hierarchical result for $\mu$ and $\sigma$ in Fig.~\ref{fig:corner_Gaussian}, including GW200129 (blue curve).
 This amounts to reweighting the $\kappa$ posterior for each event under a population prior marginalized over $\mu$ and $\sigma$, conditional on the measurements from all other events \cite{Callister:T2100301}.
+Figure \ref{fig:corner_Gaussian} does not show evidence for any of the events being in obvious tension with the population, even though the GW170818 curve stands out from the rest due to its preference for $\kappa > 0$.
+This feature appears to offset a few other events which tend to favor $\kappa < 0$.
+The interaction between these distributions leads to a hyperposterior that is fully consistent with $\mu = 0$ while indicating some support for $\sigma > 0$ (Fig.~\ref{fig:corner_Gaussian}).
+Future observations will determine whether there is truly evidence for a nonvanishing variance in this population.
 
 \begin{figure}
     \script{reweighed_kappa.py}
     \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
-    \caption{Reweighted $\kappa$ distributions.}
+    \caption{Individual-event $\kappa_i$ distributions of Fig.~\ref{fig:violin_kappa} reweighted in light of the population-level inference of Fig.~\ref{fig:corner_Gaussian}, marginalizing over $\mu$ and $\sigma$. Curves are colored by the magnitude of the supported deviation, as represented by the respective posterior $|\mu_i / \sigma_i$; we label the events most in tension with $\kappa_i = 0$ by that same measure.}
     \label{fig:reweighted_kappa}
 \end{figure}
 
-\subsection{Constaint on $\kappa$}
 % Constraint on $\kappa$
-In Fig.~\ref{fig:posterior_kappa}, we show both the restricted posterior of $\kappa$ and the generic posterior of $\kappa$.
-The restricted posterior is calculated by Eq.~\eqref{eq:restricted_posterior} with the assumption that $\kappa$ is a single value constant.
-The generic posterior is calculated by Eq.~\eqref{eq:generic_posterior} with the assumption that $\kappa$ is a true value drawn from a Gaussian distribution.
-The median of the restricted posterior within $90\%$ confidence interval is \variable{output/restricted_kappa_median.txt}.
-The median of the generic posterior within $90\%$ confidence interval is \variable{output/generic_kappa_median.txt}.
-Note that the result is consistent with GR when $\kappa=0$.
+Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ via Eq.~\eqref{eq:generic_posterior}.
+We show the result of doing this in Fig.~\ref{fig:posterior_kappa}, where we also compare to the posterior on $\kappa$ obtained by assuming a shared value across events (same result shown as a blue band in Fig.~\ref{fig:violin_kappa}).
+The hierarchical measurement leads to an expectation that $\kappa_i = $\variable{output/restricted_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies $\kappa = $\variable{output/generic_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.
 
 \begin{figure}
     \script{posterior_kappa.py}
@@ -337,7 +340,8 @@ Note that the result is consistent with GR when $\kappa=0$.
         The generic and restricted posterior of $\kappa$.
         The blue solid line shows the restricted posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval.
         The orange solid line shows the generic posterior of $\kappa$, and the orange dashed lines enclose the $90\%$ confidence interval.
-        The pink vertical solid line represents $\kappa=0$.
+        The dashed line marks the absence of birefringence ($\kappa=0$).
+        \mi{THOMAS: please add a second set of curves \emph{without} GW200129; use the same colors you have now but plot them with a dashed trace}
     }
     \label{fig:posterior_kappa}
 \end{figure}
@@ -345,14 +349,21 @@ Note that the result is consistent with GR when $\kappa=0$.
 % Case study
 
 % Case: GW170818
-\subsection{Result on GW170818}
+\subsection{Notable events}
+
+Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on three events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, and GW190521.
+When considered in isolation, the first of these is the event with the most significant support for $\kappa \neq 0$; the second shows sign of potential noise anomalies; and the third is representative of a class of events with strongly bimodal $\kappa$ posteriors.
+
+\subsubsection{GW170818}
 GW170818 gave the largest tension with $\kappa=0$.
-Figure \ref{fig:corner_GW170818} shows the birefringence effect allows a region of $\kappa>0$.
-This region corresponds to a larger distance and a smaller inclination angle.
-This is a sensible result because a smaller inclination angle will make the amplitude ratio between the two circular polarizations smaller.
+Figure \ref{fig:corner_GW170818} shows the birefringence effect allows a region of $\kappa>0$ for
+ larger distance and a smaller inclination angles than would be allowed in the absence of birefringence.
+We can make sense of this result because a smaller inclination angle will make the amplitude ratio between the two circular polarizations smaller.
 Then the birefringence effect will increase the amplitude ratio during the propagation.
 The larger distance is for compensating the combined effect of a nonzero $\kappa$ and a smaller inclination angle.
 We can see this effect in other events as well, but not as strongly as in GW170818.
+
+\mi{THOMAS: did you have a comment to make about this case being similar to GW150914? Also, were there any other notable differences between the birefringence posterior and the LVK one? e.g., in other parameters like the masses or spins?}
 
 \begin{figure}
     \script{corner_GW170818.py}
@@ -361,8 +372,31 @@ We can see this effect in other events as well, but not as strongly as in GW1708
     \label{fig:corner_GW170818}
 \end{figure}
 
+\subsubsection{GW200129}
+\label{sec:GW200129}
+Past research suggests a potential glitch in GW200129 Virgo data. \citep{GW200129_glitch}
+We perform three sets of \ac{PE} to check if the glitch would affect the population posterior of $\kappa$.
+We pick only two out of three detector data in each set to perform \ac{PE}. (i.e. LIGO-Hanford and LIGO-Livingston for the first set, LIGO-Hanford and Virgo for the second set, and LIGO-Livingston and Virgo for the third set.)
+The two sets of \ac{PE} results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
+Further investigation is needed to understand the glitch.
+% Thus, we did not include this event in our collective analysis.
+
+Figure~\ref{fig:corner_GW200129} shows the posteriors of the parameters of GW200129 are strongly affected by the Virgo data.
+
+\begin{figure}
+    \script{corner_GW200129.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
+    \caption{
+        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW200129.
+        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with and without Virgo data.
+        The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
+        This plot shows that Virgo data may contain a glitch, which affects the \ac{PE} result.
+    }
+    \label{fig:corner_GW200129}
+\end{figure}
+
 % Case: GW150914 (example of broken degeneracy)
-\subsection{Result on GW150914}
+\subsubsection{Result on GW150914}
 In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from \ac{PE}.
 Consider GW150914, the first GW detected by LIGO, as an example.
 In Fig.~\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
@@ -389,7 +423,7 @@ Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
 \end{figure}
 
 % Case: GW190521 (massive BBH)
-\subsection{Result on GW190521}
+\subsubsection{Result on GW190521}
 Even with the frequency-dependent birefringence model, some events still have a bimodal $\kappa$ distribution.
 Consider GW190521, the most massive binary black hole merger in the events we included.
 The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-dependent birefringence model, as shown in Fig.~\ref{fig:corner_GW190521}.
@@ -412,29 +446,6 @@ The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa
 \end{figure}
 
 % Case: GW200129 (glitch in Virgo data)
-\subsection{Contamination of GW200129}
-\label{sec:GW200129}
-Past research suggests a potential glitch in GW200129 Virgo data. \citep{GW200129_glitch}
-We perform three sets of \ac{PE} to check if the glitch would affect the population posterior of $\kappa$.
-We pick only two out of three detector data in each set to perform \ac{PE}. (i.e. LIGO-Hanford and LIGO-Livingston for the first set, LIGO-Hanford and Virgo for the second set, and LIGO-Livingston and Virgo for the third set.)
-The two sets of \ac{PE} results with Virgo data return a $\kappa$ posterior that strongly suggests a negative $\kappa$.
-Further investigation is needed to understand the glitch.
-% Thus, we did not include this event in our collective analysis.
-
-Figure~\ref{fig:corner_GW200129} shows the posteriors of the parameters of GW200129 are strongly affected by the Virgo data.
-
-\begin{figure}
-    \script{corner_GW200129.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
-    \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW200129.
-        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with and without Virgo data.
-        The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
-        This plot shows that Virgo data may contain a glitch, which affects the \ac{PE} result.
-    }
-    \label{fig:corner_GW200129}
-\end{figure}
-
 \section{Discussion}
 \label{sec:Discussion}
 

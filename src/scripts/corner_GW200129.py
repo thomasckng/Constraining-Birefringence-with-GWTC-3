@@ -14,25 +14,26 @@ plt.rcParams.update({
 })
 
 nsamples = 5000
+rng = np.random.default_rng(1234)
 
 result = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result = result[result.event == "GW200129_065458"]
-result = result.sample(n=nsamples)
+result = result.sample(n=nsamples, random_state=rng)
 result['with'] = np.full(len(result), "HLV")
 result['cos_iota'] = np.cos(result['iota'])
 
 result_without_H1 = CBCResult.from_json(filename=paths.data/"GW200129_065458_birefringence_without_H1.json.gz").posterior
-result_without_H1 = result_without_H1.sample(n=nsamples)
+result_without_H1 = result_without_H1.sample(n=nsamples, random_state=rng)
 result_without_H1['with'] = np.full(len(result_without_H1), "LV")
 result_without_H1['cos_iota'] = np.cos([float(result_without_H1['iota'][i]) for i in result_without_H1.index])
 
 result_without_L1 = CBCResult.from_json(filename=paths.data/"GW200129_065458_birefringence_without_L1.json.gz").posterior
-result_without_L1 = result_without_L1.sample(n=nsamples)
+result_without_L1 = result_without_L1.sample(n=nsamples, random_state=rng)
 result_without_L1['with'] = np.full(len(result_without_L1), "HV")
 result_without_L1['cos_iota'] = np.cos([float(result_without_L1['iota'][i]) for i in result_without_L1.index])
 
 result_without_V1 = CBCResult.from_json(filename=paths.data/"GW200129_065458_birefringence_without_V1.json.gz").posterior
-result_without_V1 = result_without_V1.sample(n=nsamples)
+result_without_V1 = result_without_V1.sample(n=nsamples, random_state=rng)
 result_without_V1['with'] = np.full(len(result_without_V1), "HL")
 result_without_V1['cos_iota'] = np.cos([float(result_without_V1['iota'][i]) for i in result_without_V1.index])
 
@@ -70,8 +71,10 @@ g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
 #g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
 
+plt.subplots_adjust(wspace=0.05, hspace=0.05)
+
 for k, c in zip(["HLV", "HV", "LV", "HL"], p):
     g.axes[0,0].plot([], c=c, lw=2, ls='--' if k=="HL" else '-', label=k)
-g.axes[0,0].legend(loc='center left', bbox_to_anchor=(1.1, 0.5))
+g.axes[0,0].legend(loc='center left', bbox_to_anchor=(1.1, 0.5), frameon=False)
 
 g.savefig(fname=paths.figures/"corner_GW200129.pdf", bbox_inches="tight", dpi=300)
