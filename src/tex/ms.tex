@@ -282,7 +282,7 @@ When considered individually, the events that best constrain $\kappa$ are listed
 The two events that show the largest tension with $\kappa = 0$ is GW170818, for which $|\mu_i / \sigma_i| =$ \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which $|\mu_i / \sigma_i| =$ \variable{output/GW200129_constraint.txt}.
 However, as we discuss further below, we have reason to think that the GW200129 preference for $\kappa < 0$ might be driven by noise anomalies in the Virgo detector; for that reason we consider the effect of excluding it from the joint result below.
 
-\begin{table}
+\begin{table}[h]
     \caption{Events that best constrain $\kappa$, sorted by posterior standard deviation $\sigma_i$. CL is the credible level of $\kappa = 0$.}
     \begin{ruledtabular}
         \variable{output/best_events_kappa.txt}
@@ -294,7 +294,7 @@ Finally, a set of events stands out in Fig.~\ref{fig:violin_kappa} due to eviden
 That is the case for the events listed in Table~\ref{tab:bimodal_events_mass}.
 We understand this effect to be a consequence of the narrow sets of frequencies that are visible for these heavy events, as we mentioned in Sec.~\ref{sec:inclination} and further demonstrate below.
 
-\begin{table}
+\begin{table}[h]
     \caption{Events that show bimodality in the $\kappa$ posterior tend to have high total masses. CL is the credible level of $\kappa = 0$.}
     \begin{ruledtabular}
         \variable{output/bimodal_events_mass.txt}
@@ -380,7 +380,7 @@ This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
 
 It is not clear what specific feature of the GW170818 data leads to this posterior structure.
 However, the reason may be related to the fact that this event provides an uncommonly definite measurement of the polarization angle and spin orientations \cite{Varma:2021csh}.
-Indeed, the inferred polarization angle and spins in the birefringent case are are notably different from the \ac{GR} case (Fig. XXX).
+Indeed, the inferred polarization angle and spins in the birefringent case are notably different from the \ac{GR} case (Fig.~\ref{fig:corner_GW170818_appendix}).
 If our inference on $\kappa$ is indeed tied to those parameters, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
 In any case, as we argued in Sec.~\ref{sec:results:hier}, there is no evidence at the moment that this event is inconsistent with the either collection of measurements or with $\kappa = 0$ (Fig.~\ref{fig:reweighted_kappa}).
 
