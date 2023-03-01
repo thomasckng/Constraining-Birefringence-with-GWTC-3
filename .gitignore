@@ -15,4 +15,7 @@ __pycache__
 .DS_Store
 ms.synctex.gz
 
+# VSCode Setup on Will's Funky Laptop
+.vscode
+
 *.swp
