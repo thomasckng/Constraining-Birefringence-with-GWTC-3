@@ -12,18 +12,17 @@ for event in events:
     result_dict[event]['event'] = event.replace("_", r"\_")
     result_dict[event]['kappa'] = result_DataFrame[result_DataFrame.event == event]['kappa'].values
 
-    result_dict[event]['kappa_median'] = result_DataFrame[result_DataFrame.event == event]['kappa'].median()
-    result_dict[event]['kappa_std'] = result_DataFrame[result_DataFrame.event == event]['kappa'].std()
-    result_dict[event]['kappe_95'] = np.quantile(result_DataFrame[result_DataFrame.event == event]['kappa'], 0.95) - result_dict[event]['kappa_median']
-    result_dict[event]['kappe_5'] = result_dict[event]['kappa_median'] - np.quantile(result_DataFrame[result_DataFrame.event == event]['kappa'], 0.05)
+    result_dict[event]['kappa_median'] = np.median(result_dict[event]['kappa'])
+    result_dict[event]['kappa_std'] = result_dict[event]['kappa'].std()
+    result_dict[event]['kappe_95'] = np.quantile(result_dict[event]['kappa'], 0.95) - result_dict[event]['kappa_median']
+    result_dict[event]['kappe_5'] = result_dict[event]['kappa_median'] - np.quantile(result_dict[event]['kappa'], 0.05)
 
     kernel = scipy.stats.gaussian_kde(result_dict[event]['kappa'])
     kde = [kernel(kappa) for kappa in result_dict[event]['kappa']]
     kde = np.array(kde)
     result_dict[event]['credible_level'] = len(kde[kde > kernel(0)[0]])/len(kde)
     
-# result_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda item: item[1]['kappa_std'])}
-result_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda item: item[1]['credible_level'], reverse=True)}
+result_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda item: item[1]['kappa_std'])}
 
 with open(paths.output/"best_events_kappa.txt", "w") as f:
     f.write(r"\begin{tabular}{lrrr}Event & $\kappa$ & $\sigma_i$ & CL($\kappa=0$)\\ \hline ")
