@@ -348,19 +348,21 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
 \subsection{Notable events}
 
 Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on three events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, and GW190521.
-When considered in isolation, the first of these is the event with the most significant support for $\kappa \neq 0$; the second shows sign of potential noise anomalies; and the third is representative of a class of events with strongly bimodal $\kappa$ posteriors.
+When considered in isolation, the first of these is the event with the most significant support for $\kappa \neq 0$; the second shows the sign of potential noise anomalies; and the third is representative of a class of events with strongly bimodal $\kappa$ posteriors.
 
 % Case: GW170818
 \subsubsection{GW170818}
 GW170818 gave the largest tension with $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
-Figure \ref{fig:corner_GW170818} shows the birefringence effect allows a region of $\kappa>0$ for
- larger distance and a smaller inclination angles than would be allowed in the absence of birefringence.
+Figure \ref{fig:corner_GW170818} shows the birefringence effect allows a region of $\kappa>0$ for a larger distance and smaller inclination angles than would be allowed in the absence of birefringence.
 We can make sense of this result because a smaller inclination angle will make the amplitude ratio between the two circular polarizations smaller.
-Then the birefringence effect will increase the amplitude ratio during the propagation.
+On the other hand, the birefringence effect will increase the amplitude ratio during propagation.
 The larger distance is for compensating the combined effect of a nonzero $\kappa$ and a smaller inclination angle.
+This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
+Even though the degeneracy is broken by the frequency dependence to a large extent, it is still possible for getting an extra region with a nonzero $\kappa$.
+This is because there is still a significant likelihood in the region of $\kappa$ close to zero.
 We can see this effect in other events as well, but not as strongly as in GW170818.
-
-\mi{THOMAS: did you have a comment to make about this case being similar to GW150914? Also, were there any other notable differences between the birefringence posterior and the LVK one? e.g., in other parameters like the masses or spins?}
+Other parameters such as the spins and polarization angles are notably different from the \ac{GR} case as well.
+They may have some slight effect on the degeneracy, but they are not correlated with $\kappa$ significantly.
 
 \begin{figure}
     \script{corner_GW170818.py}
@@ -374,7 +376,7 @@ We can see this effect in other events as well, but not as strongly as in GW1708
 \label{sec:GW200129}
 
 GW200129 is the event with the second largest $|\mu_i/\sigma_i|$ in Fig.~\ref{fig:violin_kappa}.
-However, data for this event were affected by a non-Gaussian noise disturbance (glitch) in the Virgo instrument, which was subtracted in the publicly-available data used for parameter estimation \cite{Davis:2022ird}.
+However, data for this event were affected by a non-Gaussian noise disturbance (glitch) in the Virgo instrument, which was subtracted from the publicly-available data used for parameter estimation \cite{Davis:2022ird}.
 Since previous work suggests the degree of glitch subtraction affects the inference for this event \citep{GW200129_glitch}, we consider whether the apparent preference for $\kappa < 0$ could also be tied to the instrumental artifact.
 
 To this end, we perform three additional \ac{PE} runs for GW200129, considering only two detectors at a time: LIGO Hanford and Virgo (HL), LIGO Livingston and Virgo (LV), and LIGO Hanford and LIGO Livingston (HL).
