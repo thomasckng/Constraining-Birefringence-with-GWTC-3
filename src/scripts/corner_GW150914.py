@@ -21,25 +21,26 @@ with h5py.File(paths.data/"IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_n
     result_ligo = pd.DataFrame.from_records(f["posterior_samples"][()])
 result_ligo = result_ligo.sample(n=nsamples)
 result_ligo['kappa'] = np.zeros(len(result_ligo))
-result_ligo['with'] = np.full(len(result_ligo), r"GR (LVK)")
+result_ligo['with'] = np.full(len(result_ligo), "GR")
 
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW150914"]
 result_bilby = result_bilby.sample(n=nsamples)
-result_bilby['with'] = np.full(len(result_bilby), r"birefringence (frequency dependent)")
+result_bilby['with'] = np.full(len(result_bilby), "BR (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
 result_extra = CBCResult.from_json(filename=paths.data/"GW150914_birefringence(frequency_independent).json").posterior
 result_extra = result_extra.sample(n=nsamples)
 result_extra['kappa'] = result_extra['kappa'] * 1000 # different scale was used in the frequency independent data
-result_extra['with'] = np.full(len(result_extra), r"birefringence (frequency independent)")
+result_extra['with'] = np.full(len(result_extra), "BR (frequency independent)")
 result_extra['cos_iota'] = np.cos(result_extra['iota'])
 
 result = pd.concat([result_bilby,result_extra,result_ligo], ignore_index=True)
 
+p = [sns.color_palette()[i] for i in [0, 2, 1]]
 g = sns.pairplot(result,
                  vars=['kappa', 'luminosity_distance', 'cos_iota'],
-                 corner=True, kind='kde', hue='with',
+                 corner=True, kind='kde', hue='with', palette=p,
                  diag_kws=dict(common_norm=False), plot_kws=dict(common_norm=False, levels=[(1.-0.90),(1.-0.3935)]))
 
 g.axes[2,0].set_xlabel(r"$\kappa$")
@@ -48,5 +49,7 @@ g.axes[2,1].set_xlabel(r"$d_L$ (Mpc)")
 g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
 g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
+g.legend.set_title(None)
+plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
 g.savefig(fname=paths.figures/"corner_GW150914.pdf", bbox_inches="tight", dpi=300)

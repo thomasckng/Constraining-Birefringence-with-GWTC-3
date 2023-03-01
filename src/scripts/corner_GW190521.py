@@ -20,12 +20,12 @@ with h5py.File(paths.data/"IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_n
     result_ligo = pd.DataFrame.from_records(f["posterior_samples"][()])
 result_ligo = result_ligo.sample(n=nsamples)
 result_ligo['kappa'] = np.zeros(len(result_ligo))
-result_ligo['with'] = np.full(len(result_ligo), r"GR (LVK)")
+result_ligo['with'] = np.full(len(result_ligo), "GR")
 
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW190521"]
 result_bilby = result_bilby.sample(n=nsamples)
-result_bilby['with'] = np.full(len(result_bilby), r"birefringence (frequency dependent)")
+result_bilby['with'] = np.full(len(result_bilby), "BR")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
 result = pd.concat([result_bilby,result_ligo], ignore_index=True)
@@ -40,6 +40,8 @@ g.axes[1,0].set_ylabel(r"$d_L$ (Mpc)")
 g.axes[2,1].set_xlabel(r"$d_L$ (Mpc)")
 g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
-g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
+g.fig.legends[0].set_bbox_to_anchor((0.55,0.8))
+g.legend.set_title(None)
+plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
 g.savefig(fname=paths.figures/"corner_GW190521.pdf", bbox_inches="tight", dpi=300)
