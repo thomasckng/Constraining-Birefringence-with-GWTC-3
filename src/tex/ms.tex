@@ -263,11 +263,6 @@ Then, we will discuss some special events individually.
     \includegraphics[width=\columnwidth]{figures/violin_kappa.pdf}
     \caption{
         Individual-event $\kappa$ posteriors (distributions), and joint measurement (blue band, 90\% CI; blue line, median).
-%        Each violin represents a different event.
-%        The color of the violins represents the quotient of the median and standard deviation of the posterior.
-%        The blue horizontal solid line represents the median of the restricted posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval of the restricted posterior of $\kappa$.
-%        The pink horizontal solid line represents $\kappa=0$.
-%        GW200129 is shown with light blue edges, as it is excluded from the calculation of collective analysis.
     }
     \label{fig:violin_kappa}
 \end{figure}
@@ -358,9 +353,9 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
     \includegraphics[width=\columnwidth]{figures/posterior_kappa.pdf}
     \caption{
         The generic and restricted posterior of $\kappa$.
-        The blue solid line shows the restricted posterior of $\kappa$, and the blue dashed lines enclose the $90\%$ confidence interval.
-        The orange solid line shows the generic posterior of $\kappa$, and the orange dashed lines enclose the $90\%$ confidence interval.
-        The dashed line marks the absence of birefringence ($\kappa=0$).
+        The blue solid and dashed lines show the restricted posterior of $\kappa$ with and without GW200129, respectively.
+        The orange solid and dashed lines show the generic posterior of $\kappa$ with and without GW200129, respectively.
+        The black dashed line marks the absence of birefringence ($\kappa=0$).
     }
     \label{fig:posterior_kappa}
 \end{figure}
@@ -437,10 +432,11 @@ The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa
     \script{corner_GW190521.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
     \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
-        Colors in the plot are the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} and the \ac{PE} result done by us with the frequency-dependent birefringence.
-        The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
-        This plot shows that frequency-dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
+        GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
+        % The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
+        % Colors in the plot represent the \ac{PE} result with \ac{GR} and the frequency-dependent birefringence, respectively.
+        % The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
+        % This plot shows that frequency-dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
     }
     \label{fig:corner_GW190521}
 \end{figure}
@@ -463,11 +459,12 @@ Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
     \script{corner_GW150914.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
     \caption{
-        The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-        Colors in the plot represent the \ac{PE} result with GR done by LVK without cosmological reweighing \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, the \ac{PE} results done by us with both frequency-independent and dependent birefringence respectively.
-        The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
-        Note that there is no posterior of $\kappa$ for the \ac{PE} result from LVK, as the LVK \ac{PE} is based on GR, which does not suggest GW amplitude birefringence.
-        This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while frequency-dependent birefringence can break it.
+        GW150914 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue) and frequency-independent (orange) birefringence analysis, compared to the GR result (green).
+        % The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
+        % Colors in the plot represent the \ac{PE} result with \ac{GR}, frequency-independent and dependent birefringence, respectively.
+        % The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
+        % Note that there is no posterior of $\kappa$ for the \ac{PE} result with \ac{GR}, as the result is based on GR, which does not suggest GW amplitude birefringence.
+        % This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while frequency-dependent birefringence can break it.
     }
     \label{fig:corner_GW150914}
 \end{figure}
