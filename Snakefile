@@ -33,6 +33,14 @@ rule compute_GW170818_constraint:
     script:
         "src/scripts/GW170818_constraint.py"
 
+rule compute_GW200129_constraint:
+    input:
+        "src/data/samples_posterior_birefringence.feather"
+    output:
+        "src/tex/output/GW200129_constraint.txt",
+    script:
+        "src/scripts/GW200129_constraint.py"
+
 rule compute_bimodal_events_mass:
     input:
         "src/data/samples_posterior_birefringence.feather"

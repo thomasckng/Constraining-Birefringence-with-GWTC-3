@@ -37,6 +37,7 @@ dependencies:
     src/scripts/posterior_kappa.py:
         - src/data/samples_posterior_birefringence.feather
         - src/data/samples_Gaussian.npz
+        - src/data/samples_Gaussian_without_GW200129.npz
 
     src/scripts/reweighed_kappa.py:
         - src/data/reweighted_kappa_samples.feather
