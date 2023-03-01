@@ -23,6 +23,10 @@ dependencies:
         - src/data/GW200129_065458_birefringence_without_L1.json.gz
         - src/data/GW200129_065458_birefringence_without_V1.json.gz
 
+    src/scripts/corner_GW170818_appendix.py:
+        - src/data/IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5
+        - src/data/samples_posterior_birefringence.feather
+
     src/scripts/corner_Gaussian.py:
         - src/data/samples_Gaussian.npz
         - src/data/samples_Gaussian_without_GW200129.npz
