@@ -4,14 +4,14 @@ channels:
 dependencies:
   - pip
   - python
+  - numpy
+  - matplotlib
+  - h5py
+  - pandas
+  - seaborn
+  - scipy
   - pip:
-      - numpy
-      - matplotlib
-      - h5py
       - bilby
-      - pandas
-      - seaborn
       - lalsuite
       - latex
       - pyarrow
-      - scipy
