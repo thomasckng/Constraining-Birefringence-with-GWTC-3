@@ -5,6 +5,7 @@
 \usepackage[nolist,nohyperlinks]{acronym}
 
 \newcommand*{\mi}[1]{\textsf{\color{magenta} [\textbf{MAX:} #1]}}
+\newcommand*{\wf}[1]{\textsf{\color{cyan} [\textbf{WILL:} #1]}}
 
 \begin{document}
 
@@ -174,9 +175,17 @@ To constrain birefringence, we reanalyze events from GWTC-3 \citep{GWTC-2.1, GWT
 We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$; to avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
-We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
-We take the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
-We apply a distance prior which is uniform in comoving volume and source frame time instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$.
+We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby},
+that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline
+waveform. We take the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3,
+GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with
+\textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform. We
+apply a distance prior which is uniform in comoving volume and source frame time
+instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3,
+GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform
+distribution between $-1$ and $1$.  \wf{Actually, the LIGO references
+\emph{also} used the ``cosmological'' prior that is uniform merger rate density
+in the source frame; maybe just drop the ``instead of\ldots''?}
 
 For GW190521, we increase the maximum distance of the distance prior to $1.5\times$ the original value, as the birefringence effect enables the probability of a larger distance.
 For GW190720, we decrease the analysis segment to 8 s from 16 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
@@ -188,9 +197,20 @@ All our \ac{PE} results, including the \ac{GR} validation runs, are published in
 
 \subsubsection{Shared birefringence parameter}
 
-Since birefringence is a property of spacetime and we are targeting a propagation effect not intrinsic to any source, we should expect $\kappa$ to take the same value for all signals, whether it vanishes or not.
-\mi{caveats?}
-Under this assumption, the posterior on $\kappa$ inferred collectively from all events with a uniform prior is simply obtained from the product of the individual likelihoods, $p(d_i \mid \kappa) \propto p(\kappa \mid d_i)/p(\kappa)$, such that
+Since birefringence is a property of spacetime and we are targeting a
+propagation effect not intrinsic to any source, we should expect $\kappa$ to
+take the same value for all signals, whether it vanishes or not. \mi{caveats?}
+\wf{\emph{If} birefringence were a property of spacetime, this would be true;
+but in (some? most? all?) ``parity violating'' theories, the parity violation is
+due to an extra \emph{field} that is parity-odd and couples to gravity.  In this
+case whether the birefringence is the same along the different lines of sight to
+the different events depends on \emph{whatever that field is doing between us
+and the events}.  The \emph{simplest} assumption is that the field is ``the
+same'' or shared from event-to-event, but it's by no means required that it be
+so.  Hence the analysis of the next section.} Under this assumption, the
+posterior on $\kappa$ inferred collectively from all events with a uniform prior
+is simply obtained from the product of the individual likelihoods, $p(d_i \mid
+\kappa) \propto p(\kappa \mid d_i)/p(\kappa)$, such that
 \begin{equation}
     p(\kappa \mid \{d_i\})\propto p(\kappa) \prod_{i}\frac{p(\kappa \mid d_i)}{p(\kappa)}\,,
     \label{eq:restricted_posterior}
@@ -209,7 +229,7 @@ If we are interested in constraining the first two moments of the distribution, 
 
 If \ac{GR} is correct and there is no birefringence, we should find the observed $\kappa$ distribution to be consistent with a delta function at the origin ($\kappa_i = 0$ for all $i$, or $\mu=\sigma=0$); on the other hand, if spacetime is birefringent, we expect to find a delta function at some nonzero value ($\kappa_i = \kappa \neq 0$, or $\mu = \kappa$ and $\sigma=0$).
 But this analysis also has the power to reveal unexpected physics or systematics in our measurements: if $\sigma$ is confidently found to be nonzero, this would imply that our set of measurements is statistically unlikely to originate from a unique $\kappa$ value.
-This could signal further physics than is implied by Eq.~\eqref{eq:waveform_modification} \mi{which physics? @Will, any ideas?} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
+This could signal further physics than is implied by Eq.~\eqref{eq:waveform_modification} \mi{which physics? @Will, any ideas?} \wf{see comment above} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
 
 Starting from the posterior on $\kappa$ from each event, the posterior on the hyperparameters $\mu$ and $\sigma$ can be calculated by
 \begin{equation}
