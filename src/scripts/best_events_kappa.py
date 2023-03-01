@@ -25,9 +25,9 @@ for event in events:
 result_dict = {k: v for k, v in sorted(result_dict.items(), key=lambda item: item[1]['kappa_std'])}
 
 with open(paths.output/"best_events_kappa.txt", "w") as f:
-    f.write(r"\begin{tabular}{lrrr}Event & $\kappa$ & $\sigma_i$ & CL($\kappa=0$)\\ \hline ")
+    f.write(r"\begin{tabular}{lrrr}Event & $\kappa$ & $\sigma_i$ & CL\\ \hline ")
     for i, event in enumerate(result_dict):
-        f.write(rf"{result_dict[event]['event']} & ${result_dict[event]['kappa_median']:.3f}^{{+{result_dict[event]['kappe_95']:.3f}}}_{{-{result_dict[event]['kappe_5']:.3f}}}$ & ${result_dict[event]['kappa_std']:.3f}$ & ${result_dict[event]['credible_level']:.2f}$")
+        f.write(rf"{result_dict[event]['event']} & ${result_dict[event]['kappa_median']:.3f}^{{+{result_dict[event]['kappe_95']:.3f}}}_{{-{result_dict[event]['kappe_5']:.3f}}}$ & ${result_dict[event]['kappa_std']:.3f}$ & ${result_dict[event]['credible_level']:.3f}$")
         if i != 9:
             f.write(r"\\")
         else:

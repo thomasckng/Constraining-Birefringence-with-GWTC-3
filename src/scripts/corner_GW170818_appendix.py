@@ -23,7 +23,7 @@ result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW170818"]
 result_bilby = result_bilby.sample(n=nsamples)
-result_bilby['with'] = np.full(len(result_bilby), r"birefringence (frequency dependent)")
+result_bilby['with'] = np.full(len(result_bilby), r"BR")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
 result = pd.concat([result_bilby,result_GR], ignore_index=True)
@@ -56,6 +56,6 @@ g.axes[10,9].set_xlabel("$\\phi_{JL}$")
 g.axes[10,0].set_ylabel("$\\phi_{\\rm{ref}}$")
 g.axes[10,10].set_xlabel("$\\phi_{\\rm{ref}}$")
 
-g.fig.legends[0].set_bbox_to_anchor((0.87,0.5))
+g.fig.legends[0].set_bbox_to_anchor((0.89,0.5))
 
 g.savefig(fname=paths.figures/"corner_GW170818_appendix.pdf", bbox_inches="tight", dpi=300)
