@@ -1,8 +1,8 @@
-import h5py
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
+from bilby.gw.result import CBCResult
 import paths
 
 sns.set_theme(palette='colorblind', font_scale=1.5)
@@ -15,12 +15,10 @@ plt.rcParams.update({
 
 nsamples = 5000
 
-with h5py.File(paths.data/"IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5", 'r') as f:
-    f = f['C01:IMRPhenomXPHM']
-    result_ligo = pd.DataFrame.from_records(f["posterior_samples"][()])
-result_ligo = result_ligo.sample(n=nsamples)
-result_ligo['kappa'] = np.zeros(len(result_ligo))
-result_ligo['with'] = np.full(len(result_ligo), r"GR (LVK)")
+result_GR = CBCResult.from_json(filename=paths.data/"GW170818_GR.json.gz").posterior
+result_GR = result_GR.sample(n=nsamples)
+result_GR['with'] = np.full(len(result_GR), "GR")
+result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW170818"]
@@ -28,7 +26,7 @@ result_bilby = result_bilby.sample(n=nsamples)
 result_bilby['with'] = np.full(len(result_bilby), r"birefringence (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
-result = pd.concat([result_bilby,result_ligo], ignore_index=True)
+result = pd.concat([result_bilby,result_GR], ignore_index=True)
 
 g = sns.pairplot(result,
             vars=['kappa','luminosity_distance','cos_iota','psi','a_1','a_2','tilt_1','tilt_2','phi_12','phi_jl','phase'],
@@ -37,8 +35,8 @@ g = sns.pairplot(result,
             plot_kws=dict(common_norm=False, levels=[(1.-0.90),(1.-0.3935)]))
 
 g.axes[10,0].set_xlabel("$\kappa$")
-g.axes[1,0].set_ylabel("$d_L$")
-g.axes[10,1].set_xlabel("$d_L$")
+g.axes[1,0].set_ylabel("$d_L$ (Mpc)")
+g.axes[10,1].set_xlabel("$d_L$ (Mpc)")
 g.axes[2,0].set_ylabel("$\\cos\\iota$")
 g.axes[10,2].set_xlabel("$\\cos\\iota$")
 g.axes[3,0].set_ylabel("$\\psi$")

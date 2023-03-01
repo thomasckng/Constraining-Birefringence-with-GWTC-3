@@ -1,4 +1,3 @@
-import h5py
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -16,12 +15,10 @@ plt.rcParams.update({
 
 nsamples = 5000
 
-with h5py.File(paths.data/"IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5", 'r') as f:
-    f = f['C01:IMRPhenomXPHM']
-    result_ligo = pd.DataFrame.from_records(f["posterior_samples"][()])
-result_ligo = result_ligo.sample(n=nsamples)
-result_ligo['kappa'] = np.zeros(len(result_ligo))
-result_ligo['with'] = np.full(len(result_ligo), "GR")
+result_GR = CBCResult.from_json(filename=paths.data/"GW150914_GR.json.gz").posterior
+result_GR = result_GR.sample(n=nsamples)
+result_GR['with'] = np.full(len(result_GR), "GR")
+result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW150914"]
@@ -35,7 +32,7 @@ result_extra['kappa'] = result_extra['kappa'] * 1000 # different scale was used 
 result_extra['with'] = np.full(len(result_extra), "BR (frequency independent)")
 result_extra['cos_iota'] = np.cos(result_extra['iota'])
 
-result = pd.concat([result_bilby,result_extra,result_ligo], ignore_index=True)
+result = pd.concat([result_bilby,result_extra,result_GR], ignore_index=True)
 
 p = [sns.color_palette()[i] for i in [0, 2, 1]]
 g = sns.pairplot(result,

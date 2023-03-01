@@ -5,16 +5,16 @@ stamp:
 
 dependencies:
     src/scripts/corner_GW150914.py:
-        - src/data/IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5
+        - src/data/GW150914_GR.json.gz
         - src/data/GW150914_birefringence(frequency_independent).json
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_GW170818.py:
-        - src/data/IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5
+        - src/data/GW170818_GR.json.gz
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_GW190521.py:
-        - src/data/IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_nocosmo.h5
+        - src/data/GW190521_GR.json.gz
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_GW200129.py:
@@ -24,7 +24,7 @@ dependencies:
         - src/data/GW200129_065458_birefringence_without_V1.json.gz
 
     src/scripts/corner_GW170818_appendix.py:
-        - src/data/IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5
+        - src/data/GW170818_GR.json.gz
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_Gaussian.py:
@@ -53,17 +53,13 @@ dependencies:
         - src/tex/output/generic_kappa_median.txt
 
 datasets:
-    10.5281/zenodo.6513631:
-        destination: src/data/
-        contents:
-            IGWN-GWTC2p1-v2-GW150914_095045_PEDataRelease_mixed_nocosmo.h5:
-            IGWN-GWTC2p1-v2-GW170818_022509_PEDataRelease_mixed_nocosmo.h5:
-            IGWN-GWTC2p1-v2-GW190521_030229_PEDataRelease_mixed_nocosmo.h5:
-
     10.5072/zenodo.1167557:
         destination: src/data/
         contents:
             GW150914_birefringence(frequency_independent).json:
+            GW150914_GR.json.gz:
+            GW170818_GR.json.gz:
+            GW190521_GR.json.gz:
             GW200129_065458_birefringence_without_H1.json.gz:
             GW200129_065458_birefringence_without_L1.json.gz:
             GW200129_065458_birefringence_without_V1.json.gz:
