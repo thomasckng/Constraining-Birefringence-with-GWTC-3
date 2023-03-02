@@ -180,12 +180,8 @@ that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline
 waveform. We take the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3,
 GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with
 \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform. We
-apply a distance prior which is uniform in comoving volume and source frame time
-instead of a power law distribution used in \citet{GWTC-2.1, GWTC-3,
-GWTC-2.1_dataset, GWTC-3_dataset}, and set the prior on $\kappa$ to a uniform
-distribution between $-1$ and $1$.  \wf{Actually, the LIGO references
-\emph{also} used the ``cosmological'' prior that is uniform merger rate density
-in the source frame; maybe just drop the ``instead of\ldots''?}
+apply a distance prior which is uniform in comoving volume and source frame time, and set the prior on $\kappa$ to a uniform
+distribution between $-1$ and $1$. 
 
 For GW190521, we increase the maximum distance of the distance prior to $1.5\times$ the original value, as the birefringence effect enables the probability of a larger distance.
 For GW190720, we decrease the analysis segment to 8 s from 16 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
@@ -197,18 +193,11 @@ All our \ac{PE} results, including the \ac{GR} validation runs, are published in
 
 \subsubsection{Shared birefringence parameter}
 
-Since birefringence is a property of spacetime and we are targeting a
-propagation effect not intrinsic to any source, we should expect $\kappa$ to
-take the same value for all signals, whether it vanishes or not. \mi{caveats?}
-\wf{\emph{If} birefringence were a property of spacetime, this would be true;
-but in (some? most? all?) ``parity violating'' theories, the parity violation is
-due to an extra \emph{field} that is parity-odd and couples to gravity.  In this
-case whether the birefringence is the same along the different lines of sight to
-the different events depends on \emph{whatever that field is doing between us
-and the events}.  The \emph{simplest} assumption is that the field is ``the
-same'' or shared from event-to-event, but it's by no means required that it be
-so.  Hence the analysis of the next section.} Under this assumption, the
-posterior on $\kappa$ inferred collectively from all events with a uniform prior
+In the most simplified scenarios, birefringence is a property of spacetime that is not intrinsic to any source or region in space. 
+If so, we should expect $\kappa$ to
+take the same value for all signals, whether it vanishes or not.
+Under this assumption, the
+posterior on $\kappa$ inferred collectively from all events 
 is simply obtained from the product of the individual likelihoods, $p(d_i \mid
 \kappa) \propto p(\kappa \mid d_i)/p(\kappa)$, such that
 \begin{equation}
@@ -222,14 +211,22 @@ We use Eq.~\eqref{eq:restricted_posterior} to obtain the primary constraint pres
 \label{sec:method:hier}
 
 % Bayesian Hierarchical Modeling
-In order to further characterize our set of measurements, and identify potential outliers, we carry out an additional collective analysis that allows $\kappa$ to take different values for each event \cite{Zimmerman:2019wzo,Isi:2022cii}.
+Under many frameworks, birefringence is brokered by an extra parity-odd
+field that couples to gravity. In this case, whether the birefringence
+is the same along the different lines of sight to the different events depends
+on cosmic history and the local evolution of the field. The \emph{simplest}
+assumption is that the field manifests equally for all events, as assumed in the previous subsection, but this is by
+no means required.
+This motivates a collective analysis that does not assume $\kappa$ is shared across events \cite{Zimmerman:2019wzo,Isi:2022cii}.
+Such an analysis has the additional advantage of helping us further characterize our set of measurements, and identify potential outliers.
+
 To do this, we apply hierarchical Bayesian inference \cite{Loredo:2004nn} to model the distribution of $\kappa$'s consistent with the observed data:
 we posit that there is a specific value of the parameter, $\kappa_i$, associated with each event, drawn from some unknown distribution of underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
 If we are interested in constraining the first two moments of the distribution, it is convenient to parametrize the $\kappa_i$'s as drawn from a Gaussian with unknown mean $\mu$ and variance $\sigma^2$, i.e., $\kappa_i \sim \mathcal{N}(\mu, \sigma^2)$ \cite{Isi:2019asy}, and measure those hyperparameters from the collection of observed data.
 
 If \ac{GR} is correct and there is no birefringence, we should find the observed $\kappa$ distribution to be consistent with a delta function at the origin ($\kappa_i = 0$ for all $i$, or $\mu=\sigma=0$); on the other hand, if spacetime is birefringent, we expect to find a delta function at some nonzero value ($\kappa_i = \kappa \neq 0$, or $\mu = \kappa$ and $\sigma=0$).
 But this analysis also has the power to reveal unexpected physics or systematics in our measurements: if $\sigma$ is confidently found to be nonzero, this would imply that our set of measurements is statistically unlikely to originate from a unique $\kappa$ value.
-This could signal further physics than is implied by Eq.~\eqref{eq:waveform_modification} \mi{which physics? @Will, any ideas?} \wf{see comment above} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
+This could signal richer physics than is implied by Eq.~\eqref{eq:waveform_modification} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
 
 Starting from the posterior on $\kappa$ from each event, the posterior on the hyperparameters $\mu$ and $\sigma$ can be calculated by
 \begin{equation}
@@ -346,7 +343,7 @@ Future observations will determine whether there is truly evidence for a nonvani
 % Constraint on $\kappa$
 Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ via Eq.~\eqref{eq:generic_posterior}.
 We show the result of doing this in Fig.~\ref{fig:posterior_kappa}, where we also compare to the posterior on $\kappa$ obtained by assuming a shared value across events (same result shown as a blue band in Fig.~\ref{fig:violin_kappa}).
-The hierarchical measurement leads to an expectation that $\kappa_i = $\variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies $\kappa = $\variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  \wf{It is very interesting to me that the analysis with $\mu$ and $\sigma$ provides a \emph{tighter} constraint on $\kappa$ than the one with the shared-$\kappa$ value.  @Max: maybe we should polish off that note with Katerina and Cole about the benefts / costs of doing the $\mu$-$\sigma$ analysis?  Do either of you understand how this comes about?  (I can make up some b.s.\ about the bimodal posteriors yielding a better model fit for the $\mu$-$\sigma$ analysis than the fixed-$\kappa$ analysis, but I'm not sure it will hold water.)}
+The hierarchical measurement leads to an expectation that $\kappa_i = $\variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies $\kappa = $\variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  
 
 \begin{figure}
     \script{posterior_kappa.py}
