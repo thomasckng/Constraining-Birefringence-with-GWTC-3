@@ -17,6 +17,9 @@ dependencies:
         - src/data/GW190521_GR.json.gz
         - src/data/samples_posterior_birefringence.feather
 
+    src/scripts/corner_GW191105.py:
+        - src/data/GW191105_143521_birefringence.json.gz
+
     src/scripts/corner_GW200129.py:
         - src/data/samples_posterior_birefringence.feather
         - src/data/GW200129_065458_birefringence_without_H1.json.gz
@@ -60,6 +63,7 @@ datasets:
             GW150914_GR.json.gz:
             GW170818_GR.json.gz:
             GW190521_GR.json.gz:
+            GW191105_143521_birefringence.json.gz:
             GW200129_065458_birefringence_without_H1.json.gz:
             GW200129_065458_birefringence_without_L1.json.gz:
             GW200129_065458_birefringence_without_V1.json.gz:
