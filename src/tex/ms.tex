@@ -294,6 +294,14 @@ However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that 
     \label{tab:best_events_kappa}
 \end{table}
 
+\begin{table}
+    \caption{Events with bimodality in the $\kappa$ posterior tend to have high total masses. CL is the credible level of $\kappa = 0$.}
+    \begin{ruledtabular}
+        \variable{output/bimodal_events_mass.txt}
+    \end{ruledtabular}
+    \label{tab:bimodal_events_mass}
+\end{table}
+
 Finally, a set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
 To a varying degree, that is the case for those events listed in Table~\ref{tab:bimodal_events_mass}, which tend to have quite high total masses (Table~\ref{tab:bimodal_events_mass} show total mass as measured in the standard  \ac{GR} analysis).
 \mi{THOMAS: is this correct? do these numbers come from the GR runs? they should}
@@ -303,14 +311,6 @@ By this measure, the bimodal events are some of the least consistent with $\kapp
 As we mentioned in Sec.~\ref{sec:inclination}, we understand the bimodality in $\kappa$ to be primarily a consequence of the narrow set of frequencies that are visible for these heavy events, which makes the effect of birefringence (partially) degenerate with a change in inclination.
 Other parameter degeneracies also come into play, especially for the lighter events GW191105\_143521 (henceforth GW191105) and GW170104.
 We discuss this in detail in a dedicated section below (Sec.~\ref{sec:notable}).
-
-\begin{table}
-    \caption{Events that show bimodality in the $\kappa$ posterior tend to have high total masses. CL is the credible level of $\kappa = 0$.}
-    \begin{ruledtabular}
-        \variable{output/bimodal_events_mass.txt}
-    \end{ruledtabular}
-    \label{tab:bimodal_events_mass}
-\end{table}
 
 \begin{figure}
     \script{corner_Gaussian.py}
