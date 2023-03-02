@@ -123,7 +123,7 @@ Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_mo
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
 \mi{specify what the parameter for the expansion is, add citations, and check with a theorist}
 
-\subsection{Relation to inclination}
+\subsection{Inclination and other degeneracies}
 \label{sec:inclination}
 
 % Effect on inclination PE results
@@ -143,7 +143,7 @@ This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied
     \exp\left({2\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}}\right)\, .
     \label{eq:modified_amplitude_ratio}
 \end{equation}
-For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination can mask the effect of birefringence, which will affect the time domain waveform nontrivially (Fig.~\ref{fig:birefringence}).
+For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination alone can mask the effect of birefringence, which will affect the time domain waveform nontrivially (Fig.~\ref{fig:birefringence}).
 
 \begin{figure}
     \script{birefringence.py}
@@ -165,6 +165,12 @@ That fact can be used to constrain frequency-independent birefringence by search
 By implementing Eq.~\eqref{eq:waveform_modification}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
 Nevertheless, there exist systems for which the degeneracy cannot be perfectly broken because not enough frequencies are available in the data.
 As we will see in Sec.~\ref{sec:Results}, this is the case for heavy \acp{BBH}, which are only in the sensitive band of the detectors for a few cycles.
+
+Besides source inclination, the effect of birefringence can be (partially) degenerate with other parameters---most notably, precession, as we find in Sec.~\ref{sec:Results}.
+Indeed, under the right conditions, the frequency-dependent amplification/dampening of polarizations caused by $\kappa$ can be effectively absorbed by changes in intrinsic parameters, like the spins;
+in that case, the degeneracy with inclination may appear even for lighter \acp{BBH} (although usually to a lesser degree than heavy binaries).
+We chart some of these degeneracies as part of the results we present in Sec.~\ref{sec:Results}.
+% In particular, we find that, under certain conditions, the frequency-dependent birefringence of Eq.~\eqref{eq:waveform_modification} can mimic the time-dependent amplitude modulation expected from a precessing system.
 
 \section{Method}
 \label{sec:Method}
@@ -264,22 +270,23 @@ Then, we will discuss some special events individually.
     \label{fig:violin_kappa}
 \end{figure}
 
-\subsection{Result on GWTC-3}
+\subsection{GWTC-3 result}
 
 % Violin plot
 Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis
-as represented by the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate). Posteriors are colored by the distance of the respective posterior mean from the origin in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.%
+as represented by the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate). Posteriors are colored by the distance to the origin of the respective mean in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.%
 \footnote{We use the $i$ notation for individual events here to disambiguate from the population mean $\mu$ and standard deviation $\sigma$ of Eq.~\eqref{eq:posterior_of_mu_sigma}.}
 The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line);
 this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
 
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
-When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}.
+When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}, in order of increasing standard deviation $\sigma_i$.
+That table also shows the credible level (CL) at which the posterior supports $\kappa = 0$, whereby $\mathrm{CL} = 0$ ($\mathrm{CL} = 1$) means the posterior supports that value with high (low) probability.
 
-The two events that show the largest tension with $\kappa = 0$ is GW170818, for which $|\mu_i / \sigma_i| =$ \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which $|\mu_i / \sigma_i| =$ \variable{output/GW200129_constraint.txt}.
-However, as we discuss further below, we have reason to think that the GW200129 preference for $\kappa < 0$ might be driven by noise anomalies in the Virgo detector; for that reason we consider the effect of excluding it from the joint result below.
+Judging by $\mu_i/\sigma_i$, the two events that show the largest tension with $\kappa = 0$ are GW170818, for which $\mu_i / \sigma_i =$ \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which $\mu_i / \sigma_i =$ \variable{output/GW200129_constraint.txt}.
+However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that the preference for $\kappa < 0$ in GW200129 might be driven by noise anomalies in the Virgo detector; for that reason, in the next section we consider the effect of excluding this event from the joint result (we find its impact to be minimal).
 
-\begin{table}[h]
+\begin{table}
     \caption{Events that best constrain $\kappa$, sorted by posterior standard deviation $\sigma_i$. CL is the credible level of $\kappa = 0$.}
     \begin{ruledtabular}
         \variable{output/best_events_kappa.txt}
@@ -288,25 +295,22 @@ However, as we discuss further below, we have reason to think that the GW200129 
 \end{table}
 
 Finally, a set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
-That is the case for the events listed in Table~\ref{tab:bimodal_events_mass}.
-We understand this effect to be a consequence of the narrow sets of frequencies that are visible for these heavy events, as we mentioned in Sec.~\ref{sec:inclination} and further demonstrate below.
+To a varying degree, that is the case for those events listed in Table~\ref{tab:bimodal_events_mass}, which tend to have quite high total masses (Table~\ref{tab:bimodal_events_mass} show total mass as measured in the standard  \ac{GR} analysis).
+\mi{THOMAS: is this correct? do these numbers come from the GR runs? they should}
+For these bimodal posteriors, $\mu_i/\sigma_i$ is not a good proxy for agreement with \ac{GR}; instead, we can rely on $\mathrm{CL}(\kappa = 0)$.
+By this measure, the bimodal events are some of the least consistent with $\kappa = 0$, GW190521 in particular. (However, note that configurations with $\kappa = 0$ for this event are still within the higher dimensional 90\%-credible region, when other parameters are considered and not just the one-dimensional marginal; we discuss this in Sec.~\ref{sec:GW190521}.)
 
-\begin{table}[h]
+As we mentioned in Sec.~\ref{sec:inclination}, we understand the bimodality in $\kappa$ to be primarily a consequence of the narrow set of frequencies that are visible for these heavy events, which makes the effect of birefringence (partially) degenerate with a change in inclination.
+Other parameter degeneracies also come into play, especially for the lighter events GW191105\_143521 and GW170104.
+We discuss this in detail in a dedicated section below (Sec.~\ref{sec:notable}).
+
+\begin{table}
     \caption{Events that show bimodality in the $\kappa$ posterior tend to have high total masses. CL is the credible level of $\kappa = 0$.}
     \begin{ruledtabular}
         \variable{output/bimodal_events_mass.txt}
     \end{ruledtabular}
     \label{tab:bimodal_events_mass}
 \end{table}
-
-\subsection{Hierarchical modeling}
-\label{sec:results:hier}
-
-Figure \ref{fig:violin_kappa} shows certain variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
-This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
-
-To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
-By characterizing the population mean and standard deviation over events, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
 
 \begin{figure}
     \script{corner_Gaussian.py}
@@ -318,6 +322,15 @@ By characterizing the population mean and standard deviation over events, this a
     }
     \label{fig:corner_Gaussian}
 \end{figure}
+
+\subsection{Hierarchical modeling}
+\label{sec:results:hier}
+
+Figure \ref{fig:violin_kappa} shows certain degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
+This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
+
+To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
+By characterizing the population mean and standard deviation over events, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
 
 We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, which shows the posterior on the population mean $\mu$ and standard deviation $\sigma$ inferred from the collection of observations in Fig.~\ref{fig:violin_kappa}.
 The figure shows two distributions, which result from analyses with (blue) and without (orange) the potentially-contaminated event GW200129; the difference between the two is mainly restricted to a slight shift in $\mu$, indicating that GW200129 has a small effect on our overall population inference.
@@ -359,12 +372,15 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
 
 % Case studies
 \subsection{Notable events}
+\label{sec:notable}
 
 Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on three events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, and GW190521.
 When considered in isolation, the first of these is the event with the most significant support for nonzero $\kappa$; the second shows the sign of potential noise anomalies; and the third is representative of a class of events with strongly bimodal $\kappa$ posteriors.
 
 % Case: GW170818
 \subsubsection{GW170818}
+\label{sec:GW170818}
+
 GW170818 produced the posterior in most tension with $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows that this happens because birefringence opens up a region of parameter space with $\kappa>0$ for larger distances and smaller inclination angles than would be allowed in the GR case.
 We can make sense of this because an edge-on, non-precessing source will produce linearly-polarized waves, so a smaller inclination will lead the two circular polarizations to have similar amplitudes.
@@ -416,6 +432,8 @@ Since more work would be needed to understand the effect of the glitch, this mot
 
 % Case: GW190521 (massive BBH)
 \subsubsection{GW190521}
+\label{sec:GW190521}
+
 Even with the frequency-dependent birefringence model, some events still have a bimodal $\kappa$ distribution.
 Consider GW190521, the most massive binary black hole merger in the events we included.
 The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-dependent birefringence model, as shown in Fig.~\ref{fig:corner_GW190521}.
@@ -439,7 +457,7 @@ The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa
 \end{figure}
 
 % Case: GW150914 (example of broken degeneracy)
-\subsubsection{Result on GW150914}
+\subsubsection{GW150914}
 In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from \ac{PE}.
 Consider GW150914, the first GW detected by LIGO, as an example.
 In Fig.~\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
