@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import scipy
 import paths
 
-sns.set_theme(palette='colorblind', font_scale=1.2)
+sns.set_theme(palette='colorblind', font_scale=1.5)
 
 plt.rcParams.update({
     "text.usetex": True,
