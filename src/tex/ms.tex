@@ -301,7 +301,7 @@ For these bimodal posteriors, $\mu_i/\sigma_i$ is not a good proxy for agreement
 By this measure, the bimodal events are some of the least consistent with $\kappa = 0$, GW190521 in particular. (However, note that configurations with $\kappa = 0$ for this event are still within the higher dimensional 90\%-credible region, when other parameters are considered and not just the one-dimensional marginal; we discuss this in Sec.~\ref{sec:GW190521}.)
 
 As we mentioned in Sec.~\ref{sec:inclination}, we understand the bimodality in $\kappa$ to be primarily a consequence of the narrow set of frequencies that are visible for these heavy events, which makes the effect of birefringence (partially) degenerate with a change in inclination.
-Other parameter degeneracies also come into play, especially for the lighter events GW191105\_143521 and GW170104.
+Other parameter degeneracies also come into play, especially for the lighter events GW191105\_143521 (henceforth GW191105) and GW170104.
 We discuss this in detail in a dedicated section below (Sec.~\ref{sec:notable}).
 
 \begin{table}
@@ -374,8 +374,9 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
 \subsection{Notable events}
 \label{sec:notable}
 
-Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on three events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, and GW190521.
-When considered in isolation, the first of these is the event with the most significant support for nonzero $\kappa$; the second shows the sign of potential noise anomalies; and the third is representative of a class of events with strongly bimodal $\kappa$ posteriors.
+Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, GW190521 and GW191105\_143521.
+
+When considered in isolation, the first of these is the event with the most significant support for nonzero $\kappa$; the second shows the sign of potential noise anomalies; the third is representative of a class of heavy events with strongly bimodal $\kappa$ posteriors; and the fourth of a small class of lighter events with slightly bimodal posteriors.
 
 % Case: GW170818
 \subsubsection{GW170818}
@@ -383,7 +384,7 @@ When considered in isolation, the first of these is the event with the most sign
 
 GW170818 produced the posterior in most tension with $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows that this happens because birefringence opens up a region of parameter space with $\kappa>0$ for larger distances and smaller inclination angles than would be allowed in the GR case.
-We can make sense of this because an edge-on, non-precessing source will produce linearly-polarized waves, so a smaller inclination will lead the two circular polarizations to have similar amplitudes.
+We can make sense of this because an edge-on, nonprecessing source will produce linearly-polarized waves, so a smaller inclination will lead the two circular polarizations to have similar amplitudes.
 On the other hand, having $\kappa > 0$ will enhance the left-handed modes during propagation.
 The two effects can be balanced to yield the correct polarization ratio at the detector, as long as the distance is also enhanced to yield the right amount of birefringence and overall signal power.
 This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
@@ -543,13 +544,22 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 
 \section{GW170818}
 
-\begin{figure}[h]
+\begin{figure*}[h]
     \script{corner_GW170818_appendix.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW170818_appendix.pdf}
+    \includegraphics[width=\textwidth]{figures/corner_GW170818_appendix.pdf}
     \caption{
         Corner plot of GW170818.
     }
     \label{fig:corner_GW170818_appendix}
+\end{figure*}
+
+\begin{figure}
+    \script{hist_GW170818.py}
+    \includegraphics[width=\columnwidth]{figures/hist_GW170818.pdf}
+    \caption{
+        Corner plot of GW170818.
+    }
+    \label{fig:hist_GW170818}
 \end{figure}
 
 \section{Relation between $\kappa$ and $M_{PV}$}
