@@ -160,7 +160,7 @@ For an isolated Fourier mode of definite frequency $f$, the effect of birefringe
 
 \citet{Okounkova_2022} took the effect of birefringence to be independent of the frequency, which is a zeroth-order approximation of the birefringence model in Chern-Simons gravity.
 This assumption results in a full degeneracy between $\kappa$ and $\iota$:
-to reconstruct the amplitude ratio from the interferometer data, an $\iota$ representing a more face-off inspiral can pair with a positive $\kappa$, or an $\iota$ representing a more face-on inspiral with a negative $\kappa$.
+to reconstruct the amplitude ratio from the interferometer data, a value of $\iota$ representing a more face-off inspiral can pair with a positive value of $\kappa$, or a value of $\iota$ representing a more face-on inspiral with a negative value of $\kappa$.
 That fact can be used to constrain frequency-independent birefringence by searching for features in the distribution of inferred inclinations \cite{Okounkova_2022}.
 
 By implementing Eq.~\eqref{eq:waveform_modification}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
@@ -168,7 +168,7 @@ Nevertheless, there exist systems for which the degeneracy cannot be perfectly b
 As we will see in Sec.~\ref{sec:Results}, this is the case for heavy \acp{BBH}, which are only in the sensitive band of the detectors for a few cycles.
 
 Besides source inclination, the effect of birefringence can be (partially) degenerate with other parameters---most notably, precession, as we find in Sec.~\ref{sec:Results}.
-Indeed, under the right conditions, the frequency-dependent amplification/dampening of polarizations caused by $\kappa$ can be effectively absorbed by changes in intrinsic parameters, like the spins;
+Indeed, under the right conditions, the frequency-dependent amplification or dampening of polarizations caused by $\kappa$ can be effectively absorbed by changes in intrinsic parameters, like the spins;
 in that case, the degeneracy with inclination may appear even for lighter \acp{BBH} (although usually to a lesser degree than heavy binaries).
 We chart some of these degeneracies as part of the results we present in Sec.~\ref{sec:Results}.
 % In particular, we find that, under certain conditions, the frequency-dependent birefringence of Eq.~\eqref{eq:waveform_modification} can mimic the time-dependent amplitude modulation expected from a precessing system.
@@ -314,7 +314,7 @@ We discuss this in detail in a dedicated section below (Sec.~\ref{sec:notable}).
 \label{sec:results:hier}
 
 Figure \ref{fig:violin_kappa} shows a certain degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
-This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
+This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$ due to noise alone.
 
 To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
 By characterizing the population mean and standard deviation over events, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
@@ -364,27 +364,37 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
 \subsection{Notable events}
 \label{sec:notable}
 
-Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, GW190521 and GW191105\_143521.
-
-When considered in isolation, the first of these is the event with the most significant support for nonzero $\kappa$; the second shows the sign of potential noise anomalies; the third is representative of a class of heavy events with strongly bimodal $\kappa$ posteriors; and the fourth of a small class of lighter events with slightly bimodal posteriors.
+Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, GW190521 and GW191105.
+%
+When considered in isolation, the first of these is the unimodel event with the most significant support for nonzero $\kappa$; the second shows signs of potential noise anomalies; the third is representative of a class of heavy events with strongly bimodal $\kappa$ posteriors; and the fourth of a smaller class of lighter events with slightly bimodal posteriors.
+Through these examples, we elucidate the interaction between $\kappa$ and the source luminosity distance, inclination and spin precession.
 
 % Case: GW170818
 \subsubsection{GW170818}
 \label{sec:GW170818}
 
-GW170818 produced the posterior in most tension with $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
+GW170818 produced the posterior most displaced from $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows that this happens because birefringence opens up a region of parameter space with $\kappa>0$ for larger distances and smaller inclination angles than would be allowed in the GR case.
-We can make sense of this because an edge-on, nonprecessing source will produce linearly-polarized waves, so a smaller inclination will lead the two circular polarizations to have similar amplitudes.
-On the other hand, having $\kappa > 0$ will enhance the left-handed modes during propagation.
-The two effects can be balanced to yield the correct polarization ratio at the detector, as long as the distance is also enhanced to yield the right amount of birefringence and overall signal power.
+We can make sense of this because an edge-on, nonprecessing source will produce linearly-polarized waves, meaning that a smaller inclination will lead the two circular polarizations to have similar amplitudes.
+On the other hand, having $\kappa > 0$ will enhance the left-handed modes during propagation, per Eq.~\eqref{eq:waveform_modification}.
+The two effects can be balanced to yield the correct polarization ratio observed at the detector (clearly predominantly left-handed, per the preference for $\cos\iota \approx -1$), as long as the distance is also enhanced to yield the right amount of birefringence and overall signal power.
 This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
 % Even though the degeneracy is broken by the frequency dependence to a large extent, it is still possible for getting an extra region with a nonzero $\kappa$.
 % This is because there is still a significant likelihood in the region of $\kappa$ close to zero.
 % We can see this effect in other events as well, but not as strongly as in GW170818.
 
-It is not clear what specific feature of the GW170818 data leads to this posterior structure.
-However, the reason may be related to the fact that this event provides an uncommonly definite measurement of the polarization angle and spin orientations \cite{Varma:2021csh}.
-Indeed, the inferred polarization angle and spins in the birefringent case are notably different from the \ac{GR} case (Fig.~\ref{fig:corner_GW170818_appendix}).
+It is difficult to unequivocally identify a specific feature of the GW170818 data that leads to this posterior structure.
+However, it appears to be related to this event's support for precession, in conjuction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh}.
+The relevance of precession is evident from the posterior on $\chi_p$ (Fig.~\ref{fig:hist_GW170818}): allowing for $\kappa \neq 0$, leads us to infer a reduced support for precession.
+We can understand this in reference to Fig.~\ref{fig:birefringence}: if only a short portion of the signal is observed, then the time-dependent signal enhancement or dampening due to birefringence can mimic the amplitude modulation in a precession cycle.
+Therefore, under these circumstances, similar morphologies can be obtained by setting $\chi_p > 0$ or $\kappa > 0$, as long as the distance and inclination can also be adjusted accordingly.
+
+The fact that the birefringent analysis favors a high $\kappa$ for rather than a high $\chi_p$ is a consequence of prior volume: many more configurations are available with long distances and high $\kappa$ than with short distances and small $|\kappa|$.
+The preference for $\kappa > 0$ over $\kappa < 0$ (and, therefore, the lack of bimodality in the $\cos\iota$ and $\kappa$ posteriors), is likely related to both the definite measurement of left-handed polarizations and of specific allowed spin angles.
+These control the allowed phasing of the precession cycle, and therefore the specific morphology that $\kappa$ may attempt to match.
+\mi{WIP text}
+The inferred polarization angle in the birefringent case is notably different from the \ac{GR} case (Fig.~\ref{fig:corner_GW170818_appendix}).
+
 If our inference on $\kappa$ is indeed tied to those parameters, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
 In any case, as we argued in Sec.~\ref{sec:results:hier}, there is no evidence at the moment that this event is inconsistent with the either collection of measurements or with $\kappa = 0$ (Fig.~\ref{fig:reweighted_kappa}).
 
@@ -393,6 +403,15 @@ In any case, as we argued in Sec.~\ref{sec:results:hier}, there is no evidence a
     \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
     \caption{GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).}
     \label{fig:corner_GW170818}
+\end{figure}
+
+\begin{figure}
+    \script{hist_GW170818.py}
+    \includegraphics[width=\columnwidth]{figures/hist_GW170818.pdf}
+    \caption{
+        GW170818 posterior on the precessing spin $\chi_p$, as obtained by allowing birefringence (blue) and not (orange). \mi{TODO: make this an inset to Fig.~\ref{fig:corner_GW170818}.}
+    }
+    \label{fig:hist_GW170818}
 \end{figure}
 
 % Case: GW200129 (glitch in Virgo data)
@@ -542,15 +561,6 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
     }
     \label{fig:corner_GW170818_appendix}
 \end{figure*}
-
-\begin{figure}
-    \script{hist_GW170818.py}
-    \includegraphics[width=\columnwidth]{figures/hist_GW170818.pdf}
-    \caption{
-        Corner plot of GW170818.
-    }
-    \label{fig:hist_GW170818}
-\end{figure}
 
 \section{Relation between $\kappa$ and $M_{PV}$}
 \label{sec:M_PV_derivation}

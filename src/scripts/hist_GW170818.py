@@ -4,8 +4,10 @@ import numpy as np
 import seaborn as sns
 from bilby.gw.result import CBCResult
 import paths
+from kde_contour import Bounded_1d_kde
 
 sns.set_theme(palette='colorblind', font_scale=1.5)
+rng = np.random.default_rng(12345)
 
 plt.rcParams.update({
     "text.usetex": True,
@@ -13,31 +15,29 @@ plt.rcParams.update({
     "font.serif": ["Computer Modern Roman"],
 })
 
-nsamples = 5000
+nsamples = 10000
+fs = (6.807804068078041, 4.207454302822033)
 
 result_GR = CBCResult.from_json(filename=paths.data/"GW170818_GR.json.gz").posterior
-result_GR = result_GR.sample(n=nsamples)
-result_GR['with'] = np.full(len(result_GR), "GR")
-result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
+result_GR = result_GR.sample(n=nsamples, random_state=rng)
 
-result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
-result_bilby = result_bilby[result_bilby.event == "GW170818"]
-result_bilby = result_bilby.sample(n=nsamples)
-result_bilby['with'] = np.full(len(result_bilby), r"BR")
-result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
+result_BR = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
+result_BR = result_BR[result_BR.event == "GW170818"]
+result_BR = result_BR.sample(n=nsamples, random_state=rng)
 
-result = pd.concat([result_bilby,result_GR], ignore_index=True)
+result = {"BR": result_BR['chi_p'], "GR": result_GR['chi_p']}
+xgrid = np.linspace(0, 1, 200)
+fig, ax = plt.subplots(1, figsize=fs)
+for k, samples in result.items():
+    kde = Bounded_1d_kde(samples, xlow=0, xhigh=1)
+    y = kde(xgrid)
+    l, = ax.plot(xgrid, y, label=k, lw=2)
+    ax.fill_between(xgrid, y, color=l.get_color(), alpha=0.1)
+ax.legend(title="GW170818")
+ax.set_xlabel(r"$\chi_p$")
+ax.set_ylabel(r"$p(\chi_p \mid d_i)$")
+ax.set_xlim(0, 1)
+yl = ax.get_ylim()
+ax.set_ylim(0, yl[1])
 
-result[r'$\kappa$'] = result['kappa']
-result[r'$\chi_{\rm eff}$'] = result['chi_eff']
-result[r'$\chi_p$'] = result['chi_p']
-g = sns.pairplot(result,
-            vars=[r'$\kappa$', r'$\chi_{\rm eff}$', r'$\chi_p$'],
-            corner=True, kind='kde', hue='with',
-            diag_kws=dict(common_norm=False),
-            plot_kws=dict(common_norm=False, levels=[(1.-0.90),(1.-0.3935)]))
-
-g.fig.legends[0].set_bbox_to_anchor((0.55,0.8))
-g.legend.set_title(None)
-
-g.savefig(fname=paths.figures/"hist_GW170818.pdf", bbox_inches="tight", dpi=300)
+fig.savefig(fname=paths.figures/"hist_GW170818.pdf", bbox_inches="tight", dpi=300)
