@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 from bilby.gw.result import CBCResult
+from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
 import paths
 
 sns.set_theme(palette='colorblind', font_scale=1.5)
@@ -38,39 +39,68 @@ result_without_V1['with'] = np.full(len(result_without_V1), "HL")
 result_without_V1['cos_iota'] = np.cos([float(result_without_V1['iota'][i]) for i in result_without_V1.index])
 
 result_all = pd.concat([result,result_without_H1,result_without_L1,result_without_V1], ignore_index=True)
-#result_all = pd.concat([result,result_without_H1,result_without_L1], ignore_index=True)
 
-def kdeplot(x, y=None, hue=None, mask=None, **kws):
-    if y is not None:
-        y = y[mask]
-    sns.kdeplot(x=x[mask], y=y, hue=hue[mask], **kws)
+def kdeplot2d(x, y, mask=None, **kws):
+    kws.pop('label', None)
+    kdeplot_2d_clevels(xs=x[mask], ys=y[mask], auto_bound=True, **kws)
 
-p = list(sns.color_palette())[:3] + ['0.35'] # [sns.color_palette()[4]]
+def kdeplot1d(x, mask=None, **kws):
+    x = x[mask]
+    if np.all(x.isna()):
+        return
+    df = pd.DataFrame({'x': x, 'y': Bounded_1d_kde(x, xlow=min(x), xhigh=max(x))(x)})
+    df = df.sort_values(['x'])
+    if kws.pop('fill', False):
+        plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2, **kws)
+    plt.plot(df['x'], df['y'], **kws)
+
+p = list(sns.color_palette())[:3] + ['0.35']
+vars = ['kappa', 'luminosity_distance', 'cos_iota']
 g = sns.PairGrid(data=result_all,
-                 vars=['kappa', 'luminosity_distance', 'cos_iota'],
+                 vars=vars,
                  corner=True, hue='with', diag_sharey=False,
                  layout_pad=0., palette=p
                 )
 
 m = result_all['with'] == "HLV"
-g.map_lower(kdeplot, mask=m, common_norm=False, levels=[1.-0.90, 0.9999], fill=True, alpha=0.2)
-g.map_lower(kdeplot, mask=m, common_norm=False, levels=[1.-0.90, 0.9999])
-g.map_diag(kdeplot, mask=m, common_norm=False, fill=True)
+g.map_lower(kdeplot2d, mask=m, levels=[0.90, 0.3935], fill=True, alpha=0.2)
+g.map_lower(kdeplot2d, mask=m, levels=[0.90, 0.3935])
+g.map_diag(kdeplot1d, mask=m, fill=True)
 
 m = (result_all['with'] == "HV") | (result_all['with'] == "LV")
-g.map_lower(kdeplot, mask=m, linewidths=2, common_norm=False, levels=[(1.-0.90)])
-g.map_diag(kdeplot, mask=m, linewidth=2, common_norm=False, fill=False)
+g.map_lower(kdeplot2d, mask=m, linewidths=2, levels=[0.90, 0.3935])
+g.map_diag(kdeplot1d, mask=m, linewidth=2, fill=False)
 
 m = result_all['with'] == "HL"
-g.map_lower(kdeplot, mask=m, linewidths=2, linestyles='--', common_norm=False, levels=[(1.-0.90)], zorder=100)
-g.map_diag(kdeplot, mask=m, linewidth=2, linestyle='--', common_norm=False, fill=False, zorder=100)
+g.map_lower(kdeplot2d, mask=m, linewidths=2, linestyles='--', levels=[0.90, 0.3935], zorder=100)
+g.map_diag(kdeplot1d, mask=m, linewidth=2, linestyle='--', fill=False, zorder=100)
+
+# g.axes[0,0].set_xlim(-1., 1.)
+# g.axes[0,0].set_ylim(0)
+# g.axes[1,1].set_xlim(0, 2000)
+# g.axes[1,1].set_ylim(0)
+# g.axes[2,2].set_xlim(-1., 1.)
+# g.axes[2,2].set_ylim(0)
+
+# g.axes[1,0].set_xlim(-1., 1.)
+# g.axes[1,0].set_ylim(0, 2000)
+# g.axes[2,0].set_xlim(-1., 1.)
+# g.axes[2,0].set_ylim(-1., 1.)
+# g.axes[2,1].set_xlim(0, 2000)
+# g.axes[2,1].set_ylim(-1., 1.)
+
+# for i in range(len(vars)):
+#     g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
+#     g.axes[i,i].set_ylim(0)
+#     for j in range(i):
+#         g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
+#         g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
 
 g.axes[2,0].set_xlabel(r"$\kappa$")
 g.axes[1,0].set_ylabel(r"$d_L$ (Mpc)")
 g.axes[2,1].set_xlabel(r"$d_L$ (Mpc)")
 g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
-#g.fig.legends[0].set_bbox_to_anchor((0.65,0.8))
 
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
 

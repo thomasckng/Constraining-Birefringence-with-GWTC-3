@@ -1,5 +1,6 @@
 # The following script was copied from
 # https://github.com/maxisi/ringdown/blob/c5388c010049dea59b1b54d02989ea9c19f4b12d/ringdown/kde_contour.py
+# and modified to work with scripts in this repository.
 
 __all__ = ['Bounded_2d_kde', 'Bounded_1d_kde', 'kdeplot_2d_clevels']
 
@@ -176,7 +177,10 @@ def kdeplot_2d_clevels(xs, ys, levels=11, **kwargs):
     ax = kwargs.pop('ax', gca())
     kwargs['colors'] = kwargs.get('colors', [kwargs.pop('color', None),])
 
-    ax.contour(XS, YS, ZS, levels=l, **kwargs)
+    if kwargs.pop('fill', False):
+        ax.contourf(XS, YS, ZS, levels=l, **kwargs)
+    else:
+        ax.contour(XS, YS, ZS, levels=l, **kwargs)
 
 
 class Bounded_1d_kde(ss.gaussian_kde):
