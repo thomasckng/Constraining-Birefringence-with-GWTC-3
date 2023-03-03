@@ -375,27 +375,28 @@ Through these examples, we elucidate the interaction between $\kappa$ and the so
 
 GW170818 produced the posterior most displaced from $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows that this happens because birefringence opens up a region of parameter space with $\kappa>0$ for larger distances and smaller inclination angles than would be allowed in the GR case.
-We can make sense of this because an edge-on, nonprecessing source will produce linearly-polarized waves, meaning that a smaller inclination will lead the two circular polarizations to have similar amplitudes.
-On the other hand, having $\kappa > 0$ will enhance the left-handed modes during propagation, per Eq.~\eqref{eq:waveform_modification}.
-The two effects can be balanced to yield the correct polarization ratio observed at the detector (clearly predominantly left-handed, per the preference for $\cos\iota \approx -1$), as long as the distance is also enhanced to yield the right amount of birefringence and overall signal power.
+We can make sense of this by noting that an edge-on, nonprecessing source produces linearly-polarized waves, meaning that a smaller inclination leads the two circular polarizations to have similar amplitudes.
+On the other hand, having $\kappa > 0$ enhances the left-handed modes during propagation, per Eq.~\eqref{eq:waveform_modification}.
+The two effects can be balanced to yield the correct polarization ratio observed at the detector (predominantly left-handed, per the preference for $\cos\iota \approx -1$), as long as the distance is also enhanced to yield the right amount of birefringence and overall signal power.
 This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
 % Even though the degeneracy is broken by the frequency dependence to a large extent, it is still possible for getting an extra region with a nonzero $\kappa$.
 % This is because there is still a significant likelihood in the region of $\kappa$ close to zero.
 % We can see this effect in other events as well, but not as strongly as in GW170818.
 
 It is difficult to unequivocally identify a specific feature of the GW170818 data that leads to this posterior structure.
-However, it appears to be related to this event's support for precession, in conjuction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh}.
+However, it appears to be related to this event's support for precession, in conjunction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh}.
 The relevance of precession is evident from the posterior on $\chi_p$ (Fig.~\ref{fig:hist_GW170818}): allowing for $\kappa \neq 0$, leads us to infer a reduced support for precession.
 We can understand this in reference to Fig.~\ref{fig:birefringence}: if only a short portion of the signal is observed, then the time-dependent signal enhancement or dampening due to birefringence can mimic the amplitude modulation in a precession cycle.
 Therefore, under these circumstances, similar morphologies can be obtained by setting $\chi_p > 0$ or $\kappa > 0$, as long as the distance and inclination can also be adjusted accordingly.
 
 The fact that the birefringent analysis favors a high $\kappa$ for rather than a high $\chi_p$ is a consequence of prior volume: many more configurations are available with long distances and high $\kappa$ than with short distances and small $|\kappa|$.
-The preference for $\kappa > 0$ over $\kappa < 0$ (and, therefore, the lack of bimodality in the $\cos\iota$ and $\kappa$ posteriors), is likely related to both the definite measurement of left-handed polarizations and of specific allowed spin angles.
-These control the allowed phasing of the precession cycle, and therefore the specific morphology that $\kappa$ may attempt to match.
-\mi{WIP text}
-The inferred polarization angle in the birefringent case is notably different from the \ac{GR} case (Fig.~\ref{fig:corner_GW170818_appendix}).
+The preference for $\kappa > 0$ over $\kappa < 0$ (and, therefore, the lack of bimodality in the $\cos\iota$ and $\kappa$ posteriors), is likely related to both the definite measurement of left-handed polarizations and of the phasing of the precession cycle.
+The latter manifests as a precise constraint on the spin orientation and phase angles in the \ac{GR} analysis \cite{Varma:2021csh}.
+The observed amplitude modulation (say, increasing vs decreasing towards the merger) likely determines the allowed sign of $\kappa$ for this event.
+Indeed, the inferred polarization angle in the birefringent case is notably different from the \ac{GR}.
+We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:corner_GW170818_appendix} in Appendix XX.
 
-If our inference on $\kappa$ is indeed tied to those parameters, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
+If our inference on $\kappa$ is tied to precession and the spin orientations, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
 In any case, as we argued in Sec.~\ref{sec:results:hier}, there is no evidence at the moment that this event is inconsistent with the either collection of measurements or with $\kappa = 0$ (Fig.~\ref{fig:reweighted_kappa}).
 
 \begin{figure}
@@ -409,7 +410,7 @@ In any case, as we argued in Sec.~\ref{sec:results:hier}, there is no evidence a
     \script{hist_GW170818.py}
     \includegraphics[width=\columnwidth]{figures/hist_GW170818.pdf}
     \caption{
-        GW170818 posterior on the precessing spin $\chi_p$, as obtained by allowing birefringence (blue) and not (orange). \mi{TODO: make this an inset to Fig.~\ref{fig:corner_GW170818}.}
+        GW170818 posterior on the precessing spin $\chi_p$, as obtained by allowing birefringence (blue) and not (orange). \mi{TODO (for Max): maybe make this an inset to Fig.~\ref{fig:corner_GW170818}.}
     }
     \label{fig:hist_GW170818}
 \end{figure}
