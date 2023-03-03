@@ -151,7 +151,7 @@ def kdeplot_2d_clevels(xs, ys, levels=11, **kwargs):
         f = 1 - np.array(levels)
     except TypeError:
         f = linspace(0, 1, levels+2)[1:-1]
-    if kwargs.get('auto_bound', False):
+    if kwargs.pop('auto_bound', False):
         kwargs['xlow'] = min(xs)
         kwargs['xhigh'] = max(xs)
         kwargs['ylow'] = min(ys)

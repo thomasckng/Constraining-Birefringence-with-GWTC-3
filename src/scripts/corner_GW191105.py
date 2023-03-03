@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import seaborn as sns
-from bilby.gw.result import CBCResult
 import paths
 
 sns.set_theme(palette='colorblind', font_scale=1.5)
@@ -12,7 +12,8 @@ plt.rcParams.update({
     "font.serif": ["Computer Modern Roman"],
 })
 
-result = CBCResult.from_json(filename=paths.data/"GW191105_143521_birefringence.json.gz").posterior
+result = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
+result = result[result.event == "GW191105_143521"]
 result['cos_iota'] = np.cos([float(value) for value in result['iota']])
 
 g = sns.pairplot(result,

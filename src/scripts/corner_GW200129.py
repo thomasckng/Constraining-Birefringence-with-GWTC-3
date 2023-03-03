@@ -49,10 +49,11 @@ p = list(sns.color_palette())[:3] + ['0.35'] # [sns.color_palette()[4]]
 g = sns.PairGrid(data=result_all,
                  vars=['kappa', 'luminosity_distance', 'cos_iota'],
                  corner=True, hue='with', diag_sharey=False,
-                 layout_pad=0., palette=p,
+                 layout_pad=0., palette=p
                 )
+
 m = result_all['with'] == "HLV"
-g.map_lower(kdeplot, mask=m, common_norm=False, levels=[1.-0.90, 0.9999], fill=True, alpha=0.5)
+g.map_lower(kdeplot, mask=m, common_norm=False, levels=[1.-0.90, 0.9999], fill=True, alpha=0.2)
 g.map_lower(kdeplot, mask=m, common_norm=False, levels=[1.-0.90, 0.9999])
 g.map_diag(kdeplot, mask=m, common_norm=False, fill=True)
 
@@ -60,7 +61,7 @@ m = (result_all['with'] == "HV") | (result_all['with'] == "LV")
 g.map_lower(kdeplot, mask=m, linewidths=2, common_norm=False, levels=[(1.-0.90)])
 g.map_diag(kdeplot, mask=m, linewidth=2, common_norm=False, fill=False)
 
-m = result_all['with']=="HL"
+m = result_all['with'] == "HL"
 g.map_lower(kdeplot, mask=m, linewidths=2, linestyles='--', common_norm=False, levels=[(1.-0.90)], zorder=100)
 g.map_diag(kdeplot, mask=m, linewidth=2, linestyle='--', common_norm=False, fill=False, zorder=100)
 

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
-import kde_contour as kde_contour
+from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
 import paths
 
 sns.set_theme(palette='colorblind', font_scale=1.2)
@@ -25,7 +25,7 @@ df['mu'] = samples_Gaussian.reshape(-1,2)[:,0]
 df['sigma'] = samples_Gaussian.reshape(-1,2)[:,1]
 df = df.sample(nsamp)
 
-kde_1d_sigma = kde_contour.Bounded_1d_kde(df['sigma'], xlow=0)
+kde_1d_sigma = Bounded_1d_kde(df['sigma'], xlow=0)
 df['sigma_kde'] = kde_1d_sigma(df['sigma'])
 df = df.sort_values(['sigma'])
 
@@ -39,7 +39,7 @@ df_without_GW200129['mu'] = samples_Gaussian_without_GW200129.reshape(-1,2)[:,0]
 df_without_GW200129['sigma'] = samples_Gaussian_without_GW200129.reshape(-1,2)[:,1]
 df_without_GW200129 = df_without_GW200129.sample(nsamp)
 
-kde_1d_sigma_without_GW200129 = kde_contour.Bounded_1d_kde(df_without_GW200129['sigma'], xlow=0)
+kde_1d_sigma_without_GW200129 = Bounded_1d_kde(df_without_GW200129['sigma'], xlow=0)
 df_without_GW200129['sigma_kde'] = kde_1d_sigma_without_GW200129(df_without_GW200129['sigma'])
 df_without_GW200129 = df_without_GW200129.sort_values(['sigma'])
 
@@ -76,14 +76,14 @@ axs[1,1].set_xlabel("$\\sigma$")
 axs[1,1].set_xlim(0)
 axs[1,1].set_ylim(0)
 axs[1,1].set_yticks([])
-axs[1,1].get_lines()[1].set_linewidth(1)
+# axs[1,1].get_lines()[1].set_linewidth(1)
 
 # axs[1,0].axvline(mu_median, color=sns.color_palette()[0])
 # axs[1,0].axhline(sigma_median, color=sns.color_palette()[0])
-kde_contour.kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=c0, levels=[0.90,0.3935])
+kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=c0, levels=[0.90,0.3935])
 #axs[1,0].axvline(mu_median_without_GW200129, color=sns.color_palette()[3])
 #axs[1,0].axhline(sigma_median_without_GW200129, color=sns.color_palette()[3])
-kde_contour.kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], color=c1, levels=[0.90,0.3935])
+kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], color=c1, levels=[0.90,0.3935])
 
 axs[1,0].set_xlabel("$\\mu$")
 axs[1,0].set_ylabel("$\\sigma$")
