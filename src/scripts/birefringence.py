@@ -5,7 +5,7 @@ import lal
 import seaborn as sns
 import paths
 
-sns.set_theme(palette='colorblind', font_scale=1.5)
+sns.set_theme(palette='colorblind', font_scale=2)
 
 plt.rcParams.update({
     "text.usetex": True,
