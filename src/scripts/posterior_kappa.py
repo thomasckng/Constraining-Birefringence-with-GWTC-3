@@ -44,6 +44,8 @@ ll = ll - np.max(ll)
 likelihood = np.exp(ll)
 likelihood = likelihood / np.trapz(likelihood, x=kappa)
 
+fs = (6.807804068078041, 4.207454302822033)
+fig, ax = plt.subplots(1, figsize=fs)
 plt.axvline(0, color='k', lw=2, ls='--')
 sns.kdeplot(np.array(samples_reweighted).reshape(-1), label="generic", color=sns.color_palette()[3])
 # plt.axvline(np.percentile(a=np.array(samples_reweighted).reshape(-1),q=5), color=sns.color_palette()[3], linestyle=':')

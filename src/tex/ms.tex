@@ -421,32 +421,6 @@ In any case, as we argued in Sec.~\ref{sec:results:hier}, there is no evidence a
     \label{fig:hist_GW170818}
 \end{figure}
 
-% Case: GW200129 (glitch in Virgo data)
-\subsubsection{GW200129}
-\label{sec:GW200129}
-
-GW200129 is the event with the second largest $|\mu_i/\sigma_i|$ in Fig.~\ref{fig:violin_kappa}.
-However, data for this event were affected by a non-Gaussian noise disturbance (glitch) in the Virgo instrument, which was subtracted from the publicly-available data used for parameter estimation \cite{Davis:2022ird}.
-Since previous work suggests the degree of glitch subtraction affects the inference for this event \citep{GW200129_glitch}, we consider whether the apparent preference for $\kappa < 0$ could also be tied to the instrumental artifact.
-
-To this end, we perform three additional \ac{PE} runs for GW200129, considering only two detectors at a time: LIGO Hanford and Virgo (HL), LIGO Livingston and Virgo (LV), and LIGO Hanford and LIGO Livingston (HL).
-If the preference for $\kappa < 0$ is tied to the glitch in Virgo, we expect it to disappear in the HL run, which excludes Virgo data.
-
-This is indeed the case, as we show in Fig.~\ref{fig:corner_GW200129}: all runs including Virgo lean towards $\kappa < 0$ (solid curves in color), whereas the LIGO-only run is fully consistent with $\kappa = 0$ (dashed black).
-While this is not conclusive proof that the glitch itself is driving the result, it does indicate that the Virgo data play a key role in the inference of $\kappa$.
-Since more work would be needed to understand the effect of the glitch, this motivates us to consider the effect of excluding this event from the collective analyses above.
-
-\begin{figure}
-    \script{corner_GW200129.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
-    \caption{
-        GW200129 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos{\iota}$, including different sets of detectors in the analysis per the legend.
-        The main run with all three detectors (HLV, filled blue), shows a preference for $\kappa < 0$, as in Fig.~\ref{fig:violin_kappa}; this preference is more pronounced for two-detector runs that include Virgo (HV and LV, orange and green); however, it disappears if we remove Virgo (HL, dashed black).
-        The 2D contours correspond to the $90\%$ credible level.
-    }
-    \label{fig:corner_GW200129}
-\end{figure}
-
 % Case: GW190521 (massive BBH)
 \subsubsection{GW190521}
 \label{sec:GW190521}
@@ -499,6 +473,32 @@ Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
         % This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while frequency-dependent birefringence can break it.
     }
     \label{fig:corner_GW150914}
+\end{figure}
+
+% Case: GW200129 (glitch in Virgo data)
+\subsubsection{GW200129}
+\label{sec:GW200129}
+
+GW200129 is the event with the second largest $|\mu_i/\sigma_i|$ in Fig.~\ref{fig:violin_kappa}.
+However, data for this event were affected by a non-Gaussian noise disturbance (glitch) in the Virgo instrument, which was subtracted from the publicly-available data used for parameter estimation \cite{Davis:2022ird}.
+Since previous work suggests the degree of glitch subtraction affects the inference for this event \citep{GW200129_glitch}, we consider whether the apparent preference for $\kappa < 0$ could also be tied to the instrumental artifact.
+
+To this end, we perform three additional \ac{PE} runs for GW200129, considering only two detectors at a time: LIGO Hanford and Virgo (HL), LIGO Livingston and Virgo (LV), and LIGO Hanford and LIGO Livingston (HL).
+If the preference for $\kappa < 0$ is tied to the glitch in Virgo, we expect it to disappear in the HL run, which excludes Virgo data.
+
+This is indeed the case, as we show in Fig.~\ref{fig:corner_GW200129}: all runs including Virgo lean towards $\kappa < 0$ (solid curves in color), whereas the LIGO-only run is fully consistent with $\kappa = 0$ (dashed black).
+While this is not conclusive proof that the glitch itself is driving the result, it does indicate that the Virgo data play a key role in the inference of $\kappa$.
+Since more work would be needed to understand the effect of the glitch, this motivates us to consider the effect of excluding this event from the collective analyses above.
+
+\begin{figure}
+    \script{corner_GW200129.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
+    \caption{
+        GW200129 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos{\iota}$, including different sets of detectors in the analysis per the legend.
+        The main run with all three detectors (HLV, filled blue), shows a preference for $\kappa < 0$, as in Fig.~\ref{fig:violin_kappa}; this preference is more pronounced for two-detector runs that include Virgo (HV and LV, orange and green); however, it disappears if we remove Virgo (HL, dashed black).
+        The 2D contours correspond to the $90\%$ credible level.
+    }
+    \label{fig:corner_GW200129}
 \end{figure}
 
 \section{Discussion}
