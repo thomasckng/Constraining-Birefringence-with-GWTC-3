@@ -15,7 +15,6 @@ plt.rcParams.update({
 })
 
 nsamples = 5000
-rng = np.random.default_rng(1234)
 
 result_GR = CBCResult.from_json(filename=paths.data/"GW150914_GR.json.gz").posterior
 result_GR = result_GR.sample(n=nsamples)
@@ -52,12 +51,11 @@ def kdeplot1d(x, **kws):
     plt.plot(df['x'], df['y'])
 
 vars = ['kappa', 'luminosity_distance', 'cos_iota']
-p = list(sns.color_palette())[:len(vars)-1]
 g = sns.PairGrid(data=result,
                  vars=vars,
                  corner=True, hue='with', 
                  diag_sharey=False,
-                 layout_pad=0., palette=p
+                 layout_pad=0.
                 )
 
 g.map_lower(kdeplot2d, levels=[0.90,0.3935])
@@ -65,7 +63,8 @@ g.map_diag(kdeplot1d)
 
 for i in range(len(vars)):
     g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
-    g.axes[i,i].set_ylim(0)
+    yl = g.axes[i,i].get_ylim()
+    g.axes[i,i].set_ylim(0, yl[1])
     for j in range(i):
         g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
         g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
@@ -76,7 +75,7 @@ g.axes[2,1].set_xlabel(r"$d_L$ (Mpc)")
 g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
 
-for k, c in zip(result['with'].unique(), p):
+for k, c in zip(result['with'].unique(), sns.color_palette()):
     g.axes[0,0].plot([], c=c, lw=2, label=k)
 g.axes[0,0].legend(loc='center left', bbox_to_anchor=((1.1, 0.5)), frameon=False)
 
