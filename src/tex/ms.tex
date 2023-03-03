@@ -49,6 +49,7 @@
 \acro{PE}{parameter estimation}
 \acro{FAR}{false-alarm rate}
 \acro{GWOSC}{the Gravitational Wave Open Science Center}
+\acro{SNR}{signal-to-noise ratio}
 \end{acronym}
 
 \section{Introduction}
@@ -181,13 +182,9 @@ To constrain birefringence, we reanalyze events from GWTC-3 \citep{GWTC-2.1, GWT
 We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$; to avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
-We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby},
-that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline
-waveform. We take the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3,
-GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with
-\textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform. We
-apply a distance prior which is uniform in comoving volume and source frame time, and set the prior on $\kappa$ to a uniform
-distribution between $-1$ and $1$. 
+We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
+We take the \ac{PE} configuration as in \citet{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
+We apply a distance prior which is uniform in comoving volume and source frame time, and set the prior on $\kappa$ to a uniform distribution between $-1$ and $1$. 
 
 For GW190521, we increase the maximum distance of the distance prior to $1.5\times$ the original value, as the birefringence effect enables the probability of a larger distance.
 For GW190720, we decrease the analysis segment to 8 s from 16 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
@@ -506,9 +503,9 @@ However, performing \ac{PE} on binary neutron star mergers requires much more co
 Therefore, we may need to wait for future \ac{PE} methods and tools to further our work.
 
 % More observations with higher SNR
-Another future work is to apply the same method to more GW events and events with a higher signal-to-noise ratio (SNR).
-LVK will release more events with higher SNR in the future.
-Using data with higher SNR allows us to obtain more precise \ac{PE} results and constrain the birefringence effect more precisely.
+Another future work is to apply the same method to more \ac{GW} events and events with a higher \ac{SNR}.
+\ac{LVK} will release more events with higher \ac{SNR} in the future.
+Using data with higher \ac{SNR} allows us to obtain more precise \ac{PE} results and constrain the birefringence effect more precisely.
 And using data from more events will allow us to calculate a more constrained population posterior of $\kappa$.
 
 \begin{acknowledgments}
