@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import scipy
+from bilby.gw.result import CBCResult
 import paths
 
 def sign(x):
@@ -16,7 +17,9 @@ with open(paths.output/"bimodal_events_mass.txt", "w") as f:
     for event in ["GW170104", "GW190413_134308", "GW190521", "GW190805_211137", "GW191105_143521"]:
         name = event.replace("_", r"\_")
 
-        mass = result_DataFrame.loc[result_DataFrame["event"] == event, "mass_1"] + result_DataFrame.loc[result_DataFrame["event"] == event, "mass_2"]
+        file_name = str(event)+"_GR.json.gz"
+        result_DataFrame_GR = CBCResult.from_json(filename=paths.data/file_name).posterior
+        mass = result_DataFrame_GR["mass_1"] + result_DataFrame_GR["mass_2"]
         mass_median = mass.median()
         mass_95 = mass.quantile(0.95) - mass_median
         mass_5 = mass_median - mass.quantile(0.05)

@@ -59,10 +59,14 @@ datasets:
     10.5072/zenodo.1167557:
         destination: src/data/
         contents:
-            GW150914_birefringence(frequency_independent).json:
             GW150914_GR.json.gz:
+            GW150914_birefringence(frequency_independent).json:
             GW170818_GR.json.gz:
+            GW170104_GR.json.gz:
+            GW190413_134308_GR.json.gz:
             GW190521_GR.json.gz:
+            GW190805_211137_GR.json.gz:
+            GW191105_143521_GR.json.gz:
             GW191105_143521_birefringence.json.gz:
             GW200129_065458_birefringence_without_H1.json.gz:
             GW200129_065458_birefringence_without_L1.json.gz:
