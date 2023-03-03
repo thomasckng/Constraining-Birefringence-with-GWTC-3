@@ -5,7 +5,7 @@ import seaborn as sns
 from bilby.gw.result import CBCResult
 import paths
 
-sns.set_theme(palette='colorblind', font_scale=1.5)
+sns.set_theme(palette='colorblind', font_scale=2.0)
 
 plt.rcParams.update({
     "text.usetex": True,
@@ -56,6 +56,7 @@ g.axes[10,9].set_xlabel("$\\phi_{JL}$")
 g.axes[10,0].set_ylabel("$\\phi_{\\rm{ref}}$")
 g.axes[10,10].set_xlabel("$\\phi_{\\rm{ref}}$")
 
-g.fig.legends[0].set_bbox_to_anchor((0.89,0.5))
+g.fig.legends[0].set_bbox_to_anchor((0.92,0.5))
+g.legend.set_title(None)
 
 g.savefig(fname=paths.figures/"corner_GW170818_appendix.pdf", bbox_inches="tight", dpi=300)

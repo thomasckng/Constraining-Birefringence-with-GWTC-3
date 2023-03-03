@@ -200,12 +200,8 @@ All our \ac{PE} results, including the \ac{GR} validation runs, are published in
 \subsubsection{Shared birefringence parameter}
 
 In the most simplified scenarios, birefringence is a property of spacetime that is not intrinsic to any source or region in space. 
-If so, we should expect $\kappa$ to
-take the same value for all signals, whether it vanishes or not.
-Under this assumption, the
-posterior on $\kappa$ inferred collectively from all events 
-is simply obtained from the product of the individual likelihoods, $p(d_i \mid
-\kappa) \propto p(\kappa \mid d_i)/p(\kappa)$, such that
+If so, we should expect $\kappa$ to take the same value for all signals, whether it vanishes or not.
+Under this assumption, the posterior on $\kappa$ inferred collectively from all events is simply obtained from the product of the individual likelihoods, $p(d_i \mid\kappa) \propto p(\kappa \mid d_i)/p(\kappa)$, such that
 \begin{equation}
     p(\kappa \mid \{d_i\})\propto p(\kappa) \prod_{i}\frac{p(\kappa \mid d_i)}{p(\kappa)}\,,
     \label{eq:restricted_posterior}
@@ -217,12 +213,9 @@ We use Eq.~\eqref{eq:restricted_posterior} to obtain the primary constraint pres
 \label{sec:method:hier}
 
 % Bayesian Hierarchical Modeling
-Under many frameworks, birefringence is brokered by an extra parity-odd
-field that couples to gravity. In this case, whether the birefringence
-is the same along the different lines of sight to the different events depends
-on cosmic history and the local evolution of the field. The \emph{simplest}
-assumption is that the field manifests equally for all events, as assumed in the previous subsection, but this is by
-no means required.
+Under many frameworks, birefringence is brokered by an extra parity-odd field that couples to gravity.
+In this case, whether the birefringence is the same along the different lines of sight to the different events depends on cosmic history and the local evolution of the field.
+The \emph{simplest} assumption is that the field manifests equally for all events, as assumed in the previous subsection, but this is by no means required.
 This motivates a collective analysis that does not assume $\kappa$ is shared across events \cite{Zimmerman:2019wzo,Isi:2022cii}.
 Such an analysis has the additional advantage of helping us further characterize our set of measurements, and identify potential outliers.
 
@@ -273,11 +266,9 @@ Then, we will discuss some special events individually.
 \subsection{GWTC-3 result}
 
 % Violin plot
-Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis
-as represented by the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate). Posteriors are colored by the distance to the origin of the respective mean in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.%
-\footnote{We use the $i$ notation for individual events here to disambiguate from the population mean $\mu$ and standard deviation $\sigma$ of Eq.~\eqref{eq:posterior_of_mu_sigma}.}
-The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line);
-this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
+Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis as represented by the posterior distribution on $\kappa$ (abscissa) obtained for each event (ordinate).
+Posteriors are colored by the distance to the origin of the respective mean in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.\footnote{We use the $i$ notation for individual events here to disambiguate from the population mean $\mu$ and standard deviation $\sigma$ of Eq.~\eqref{eq:posterior_of_mu_sigma}.}
+The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line); this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
 
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}, in order of increasing standard deviation $\sigma_i$.
@@ -325,7 +316,7 @@ We discuss this in detail in a dedicated section below (Sec.~\ref{sec:notable}).
 \subsection{Hierarchical modeling}
 \label{sec:results:hier}
 
-Figure \ref{fig:violin_kappa} shows certain degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
+Figure \ref{fig:violin_kappa} shows a certain degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
 This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$.
 
 To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
@@ -348,7 +339,10 @@ Future observations will determine whether there is truly evidence for a nonvani
 \begin{figure}
     \script{reweighed_kappa.py}
     \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
-    \caption{Individual-event $\kappa_i$ distributions of Fig.~\ref{fig:violin_kappa} reweighted in light of the population-level inference of Fig.~\ref{fig:corner_Gaussian}, marginalizing over $\mu$ and $\sigma$. Curves are colored by the magnitude of the supported deviation, as represented by the respective posterior $|\mu_i / \sigma_i$; we label the events most in tension with $\kappa_i = 0$ by that same measure.}
+    \caption{
+        Individual-event $\kappa_i$ distributions of Fig.~\ref{fig:violin_kappa} reweighted in light of the population-level inference of Fig.~\ref{fig:corner_Gaussian}, marginalizing over $\mu$ and $\sigma$.
+        Curves are colored by the magnitude of the supported deviation, as represented by the respective posterior $|\mu_i / \sigma_i|$; we label the events most in tension with $\kappa_i = 0$ by that same measure.
+    }
     \label{fig:reweighted_kappa}
 \end{figure}
 

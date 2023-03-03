@@ -37,6 +37,7 @@ g = sns.pairplot(result,
             diag_kws=dict(common_norm=False),
             plot_kws=dict(common_norm=False, levels=[(1.-0.90),(1.-0.3935)]))
 
-g.fig.legends[0].set_bbox_to_anchor((0.89,0.5))
+g.fig.legends[0].set_bbox_to_anchor((0.55,0.8))
+g.legend.set_title(None)
 
 g.savefig(fname=paths.figures/"hist_GW170818.pdf", bbox_inches="tight", dpi=300)
