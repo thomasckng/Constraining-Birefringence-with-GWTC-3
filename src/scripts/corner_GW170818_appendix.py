@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 from bilby.gw.result import CBCResult
+from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
 import paths
 
 sns.set_theme(palette='colorblind', font_scale=2.0)
@@ -17,6 +18,7 @@ nsamples = 5000
 
 result_GR = CBCResult.from_json(filename=paths.data/"GW170818_GR.json.gz").posterior
 result_GR = result_GR.sample(n=nsamples)
+result_GR['kappa'] = np.full(len(result_GR), None)
 result_GR['with'] = np.full(len(result_GR), "GR")
 result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 
@@ -28,11 +30,37 @@ result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
 result = pd.concat([result_bilby,result_GR], ignore_index=True)
 
-g = sns.pairplot(result,
-            vars=['kappa','luminosity_distance','cos_iota','psi','a_1','a_2','tilt_1','tilt_2','phi_12','phi_jl','phase'],
-            corner=True, kind='kde', hue='with',
-            diag_kws=dict(common_norm=False),
-            plot_kws=dict(common_norm=False, levels=[(1.-0.90),(1.-0.3935)]))
+def kdeplot2d(x, y, **kws):
+    kws.pop('label', None)
+    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, **kws)
+
+def kdeplot1d(x, **kws):
+    if np.all(x.isna()):
+        return
+    for key in ['label', 'hue_order', 'color']:
+        kws.pop(key, None)
+    df = pd.DataFrame({'x': x, 'y': Bounded_1d_kde(x, xlow=min(x), xhigh=max(x), **kws)(x)})
+    df = df.sort_values(['x'])
+    plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2)
+    plt.plot(df['x'], df['y'])
+
+vars = ['kappa','luminosity_distance','cos_iota','psi','a_1','a_2','tilt_1','tilt_2','phi_12','phi_jl','phase']
+g = sns.PairGrid(data=result,
+                 vars=vars,
+                 corner=True, hue='with', 
+                 diag_sharey=False,
+                 layout_pad=0.
+                )
+
+g.map_lower(kdeplot2d, levels=[0.90,0.3935])
+g.map_diag(kdeplot1d)
+
+for i in range(len(vars)):
+    g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
+    # g.axes[i,i].set_ylim(0.0)
+    for j in range(i):
+        g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
+        g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
 
 g.axes[10,0].set_xlabel("$\kappa$")
 g.axes[1,0].set_ylabel("$d_L$ (Mpc)")
@@ -55,8 +83,11 @@ g.axes[9,0].set_ylabel("$\\phi_{JL}$")
 g.axes[10,9].set_xlabel("$\\phi_{JL}$")
 g.axes[10,0].set_ylabel("$\\phi_{\\rm{ref}}$")
 g.axes[10,10].set_xlabel("$\\phi_{\\rm{ref}}$")
+        
+for k, c in zip(result['with'].unique(), sns.color_palette()):
+    g.axes[0,0].plot([], c=c, lw=2, label=k)
+g.axes[0,0].legend(loc='center left', bbox_to_anchor=((0.92,0.5)), frameon=False)
 
-g.fig.legends[0].set_bbox_to_anchor((0.92,0.5))
-g.legend.set_title(None)
+plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
 g.savefig(fname=paths.figures/"corner_GW170818_appendix.pdf", bbox_inches="tight", dpi=300)

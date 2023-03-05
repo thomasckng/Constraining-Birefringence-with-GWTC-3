@@ -179,7 +179,7 @@ def kdeplot_2d_clevels(xs, ys, levels=11, **kwargs):
 
     if kwargs.pop('fill', False):
         if len(l) == 1:
-            l = [l[0], max(ZS.flatten())]
+            l = [l[0], max(ZS.flatten())] # if only one level, fill to max
         ax.contourf(XS, YS, ZS, levels=l, **kwargs)
     else:
         ax.contour(XS, YS, ZS, levels=l, **kwargs)

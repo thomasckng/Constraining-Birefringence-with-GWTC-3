@@ -89,12 +89,12 @@ g.map_diag(kdeplot1d, mask=m, linewidth=2, linestyle='--', fill=False, zorder=10
 # g.axes[2,1].set_xlim(0, 2000)
 # g.axes[2,1].set_ylim(-1., 1.)
 
-# for i in range(len(vars)):
-#     g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
-#     g.axes[i,i].set_ylim(0)
-#     for j in range(i):
-#         g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
-#         g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
+for i in range(len(vars)):
+    g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
+    # g.axes[i,i].set_ylim(0)
+    for j in range(i):
+        g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
+        g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
 
 g.axes[2,0].set_xlabel(r"$\kappa$")
 g.axes[1,0].set_ylabel(r"$d_L$ (Mpc)")

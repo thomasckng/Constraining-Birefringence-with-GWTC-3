@@ -53,7 +53,7 @@ g = sns.PairGrid(data=result,
                 )
 
 g.map_lower(kdeplot2d, levels=[0.90,0.3935])
-g.map_diag(kdeplot1d)
+g.map_diag(kdeplot1d) 
 
 # g.axes[0,0].set_xlim(-1., 1.)
 # g.axes[0,0].set_ylim(0)
@@ -69,12 +69,17 @@ g.map_diag(kdeplot1d)
 # g.axes[2,1].set_xlim(0, 15000)
 # g.axes[2,1].set_ylim(-1., 1.)
 
+for i in range(len(vars)):
+    g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
+    # g.axes[i,i].set_ylim(0.0)
+    for j in range(i):
+        g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
+        g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
+
 # for i in range(len(vars)):
-#     g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
-#     g.axes[i,i].set_ylim(0)
+#     print(g.axes[len(vars)-1,i].get_xlabel(), g.axes[i,i].get_xlim(), g.axes[i,i].get_ylim())
 #     for j in range(i):
-#         g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
-#         g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
+#         print(g.axes[len(vars)-1,j].get_xlabel(), g.axes[i,0].get_ylabel(), g.axes[i,j].get_xlim(), g.axes[i,j].get_ylim())
 
 g.axes[2,0].set_xlabel(r"$\kappa$")
 g.axes[1,0].set_ylabel(r"$d_L$ (Mpc)")
