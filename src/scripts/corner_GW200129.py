@@ -63,7 +63,7 @@ g = sns.PairGrid(data=result_all,
                 )
 
 m = result_all['with'] == "HLV"
-g.map_lower(kdeplot2d, mask=m, levels=[0.90, 0.0005], fill=True, alpha=0.2, colors=[p[0]])
+g.map_lower(kdeplot2d, mask=m, levels=[0.90], fill=True, alpha=0.2, colors=[p[0]])
 g.map_lower(kdeplot2d, mask=m, levels=[0.90])
 g.map_diag(kdeplot1d, mask=m, fill=True)
 
