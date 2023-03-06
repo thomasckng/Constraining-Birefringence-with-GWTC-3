@@ -25,10 +25,15 @@ result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_bilby = result_bilby[result_bilby.event == "GW190521"]
 result_bilby = result_bilby.sample(n=nsamples)
-result_bilby['with'] = np.full(len(result_bilby), "BR")
+result_bilby['with'] = np.full(len(result_bilby), "BR (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
-result = pd.concat([result_bilby,result_GR], ignore_index=True)
+result_extra = CBCResult.from_json(filename=paths.data/"GW190521_birefringence_freq_independent.json.gz").posterior
+result_extra = result_extra.sample(n=nsamples)
+result_extra['with'] = np.full(len(result_extra), "BR (frequency independent)")
+result_extra['cos_iota'] = np.cos([float(value) for value in result_extra['iota']])
+
+result = pd.concat([result_bilby, result_extra, result_GR], ignore_index=True)
 
 def kdeplot2d(x, y, **kws):
     kws.pop('label', None)
