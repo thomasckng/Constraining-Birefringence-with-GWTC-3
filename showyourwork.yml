@@ -6,7 +6,7 @@ stamp:
 dependencies:
     src/scripts/corner_GW150914.py:
         - src/data/GW150914_GR.json.gz
-        - src/data/GW150914_birefringence(frequency_independent).json
+        - src/data/GW150914_birefringence_freq_independent.json.gz
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_GW170818.py:
@@ -58,11 +58,11 @@ dependencies:
         - src/tex/output/generic_kappa_median.txt
 
 datasets:
-    10.5072/zenodo.1170046:
+    10.5072/zenodo.1170288:
         destination: src/data/
         contents:
             GW150914_GR.json.gz:
-            GW150914_birefringence(frequency_independent).json:
+            GW150914_birefringence_freq_independent.json.gz:
             GW170818_GR.json.gz:
             GW170104_GR.json.gz:
             GW190413_134308_GR.json.gz:

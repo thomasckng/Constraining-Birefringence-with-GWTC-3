@@ -28,11 +28,10 @@ result_bilby = result_bilby.sample(n=nsamples)
 result_bilby['with'] = np.full(len(result_bilby), "BR (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
-result_extra = CBCResult.from_json(filename=paths.data/"GW150914_birefringence(frequency_independent).json").posterior
+result_extra = CBCResult.from_json(filename=paths.data/"GW150914_birefringence_freq_independent.json.gz").posterior
 result_extra = result_extra.sample(n=nsamples)
-result_extra['kappa'] = result_extra['kappa'] * 1000 # different scale was used in the frequency independent data
 result_extra['with'] = np.full(len(result_extra), "BR (frequency independent)")
-result_extra['cos_iota'] = np.cos(result_extra['iota'])
+result_extra['cos_iota'] = np.cos([float(value) for value in result_extra['iota']])
 
 result = pd.concat([result_bilby,result_extra,result_GR], ignore_index=True)
 
