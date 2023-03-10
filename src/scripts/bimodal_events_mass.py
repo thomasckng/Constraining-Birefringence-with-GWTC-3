@@ -4,12 +4,6 @@ import scipy
 from bilby.gw.result import CBCResult
 import paths
 
-def sign(x):
-    if x > 0:
-        return "+"
-    elif x <= 0:
-        return ""
-
 result_DataFrame = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 
 with open(paths.output/"bimodal_events_mass.txt", "w") as f:
