@@ -46,52 +46,50 @@ df_without_GW200129 = df_without_GW200129.sort_values(['sigma'])
 fig, axs = plt.subplots(2,2,sharex='col')
 fig.set_size_inches(5,5)
 
+lw = 1
+
 lkws = dict(ls='--', c='k')
 axs[0,0].axvline(0, **lkws)
 axs[1,0].axvline(0, **lkws)
 axs[1,0].axhline(0, **lkws)
 axs[1,1].axvline(0, **lkws)
 
-c0 = sns.color_palette()[0]
-c1 = sns.color_palette()[3]
-
-#axs[0,0].axvline(mu_median, color=c0)
-sns.kdeplot(df['mu'], fill=True, ax=axs[0,0], color=c0)
-#axs[0,0].axvline(mu_median_without_GW200129, color=c1)
-sns.kdeplot(df_without_GW200129['mu'], fill=True, ax=axs[0,0], color=c1)
+#axs[0,0].axvline(mu_median, color=sns.color_palette()[0])
+sns.kdeplot(df['mu'], fill=True, ax=axs[0,0], color=sns.color_palette()[0], lw=lw)
+#axs[0,0].axvline(mu_median_without_GW200129, color=sns.color_palette()[1])
+sns.kdeplot(df_without_GW200129['mu'], fill=True, ax=axs[0,0], color=sns.color_palette()[1], lw=lw)
 
 axs[0,0].set_ylabel("")
 axs[0,0].set_xlim(-.07,.07)
 axs[0,0].set_ylim(0)
 axs[0,0].set_yticks([])
 
-#axs[1,1].axvline(sigma_median, color=c0)
-axs[1,1].fill_between(df['sigma'], df['sigma_kde'], np.zeros(len(df['sigma'])), alpha=0.2, color=c0)
-axs[1,1].plot(df['sigma'], df['sigma_kde'], c=c0)
-#axs[1,1].axvline(sigma_median_without_GW200129, color=sns.color_palette()[3])
-axs[1,1].fill_between(df_without_GW200129['sigma'], df_without_GW200129['sigma_kde'], np.zeros(len(df_without_GW200129['sigma'])), alpha=0.2, color=c1)
-axs[1,1].plot(df_without_GW200129['sigma'], df_without_GW200129['sigma_kde'], color=c1)
+#axs[1,1].axvline(sigma_median, color=sns.color_palette()[0])
+axs[1,1].fill_between(df['sigma'], df['sigma_kde'], np.zeros(len(df['sigma'])), alpha=0.2, color=sns.color_palette()[0])
+axs[1,1].plot(df['sigma'], df['sigma_kde'], c=sns.color_palette()[0], lw=lw)
+#axs[1,1].axvline(sigma_median_without_GW200129, color=sns.color_palette()[1])
+axs[1,1].fill_between(df_without_GW200129['sigma'], df_without_GW200129['sigma_kde'], np.zeros(len(df_without_GW200129['sigma'])), alpha=0.2, color=sns.color_palette()[1])
+axs[1,1].plot(df_without_GW200129['sigma'], df_without_GW200129['sigma_kde'], color=sns.color_palette()[1], lw=lw)
 
 axs[1,1].set_xlabel("$\\sigma$")
 axs[1,1].set_xlim(0)
 axs[1,1].set_ylim(0)
 axs[1,1].set_yticks([])
-# axs[1,1].get_lines()[1].set_linewidth(1)
 
 # axs[1,0].axvline(mu_median, color=sns.color_palette()[0])
 # axs[1,0].axhline(sigma_median, color=sns.color_palette()[0])
-kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=c0, levels=[0.90,0.3935])
+kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=sns.color_palette()[0], levels=[0.90,0.3935], linewidths=lw)
 #axs[1,0].axvline(mu_median_without_GW200129, color=sns.color_palette()[3])
 #axs[1,0].axhline(sigma_median_without_GW200129, color=sns.color_palette()[3])
-kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], color=c1, levels=[0.90,0.3935])
+kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], color=sns.color_palette()[1], levels=[0.90,0.3935], linewidths=lw)
 
 axs[1,0].set_xlabel("$\\mu$")
 axs[1,0].set_ylabel("$\\sigma$")
 axs[1,0].set_xlim(-.07,.07)
 axs[1,0].set_ylim(0)
 
-for k, c in zip(["with GW200129", "without GW200129"], [c0, c1]):
-    axs[0,0].plot([], c=c, lw=2, label=k)
+for k, c in zip(["with GW200129", "without GW200129"], sns.color_palette()[:2]):
+    axs[0,0].plot([], c=c, label=k, lw=lw)
 axs[0,0].legend(loc='center right', bbox_to_anchor=((2.3, 0.5)), frameon=False)
 
 fig.delaxes(axs[0,1])

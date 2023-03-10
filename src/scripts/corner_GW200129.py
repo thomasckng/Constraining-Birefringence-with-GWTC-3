@@ -40,6 +40,8 @@ result_without_V1['cos_iota'] = np.cos([float(result_without_V1['iota'][i]) for 
 
 result_all = pd.concat([result,result_without_H1,result_without_L1,result_without_V1], ignore_index=True)
 
+lw = 1
+
 def kdeplot2d(x, y, mask=None, **kws):
     kws.pop('label', None)
     kdeplot_2d_clevels(xs=x[mask], ys=y[mask], auto_bound=True, **kws)
@@ -52,7 +54,7 @@ def kdeplot1d(x, mask=None, **kws):
     df = df.sort_values(['x'])
     if kws.pop('fill', False):
         plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2, **kws)
-    plt.plot(df['x'], df['y'], **kws)
+    plt.plot(df['x'], df['y'], lw=lw, **kws)
 
 p = list(sns.color_palette())[:3] + ['0.35']
 vars = ['kappa', 'luminosity_distance', 'cos_iota']
@@ -64,16 +66,16 @@ g = sns.PairGrid(data=result_all,
 
 m = result_all['with'] == "HLV"
 g.map_lower(kdeplot2d, mask=m, levels=[0.90], fill=True, alpha=0.2, colors=[p[0]])
-g.map_lower(kdeplot2d, mask=m, levels=[0.90])
+g.map_lower(kdeplot2d, mask=m, levels=[0.90], linewidths=lw)
 g.map_diag(kdeplot1d, mask=m, fill=True)
 
 m = (result_all['with'] == "HV") | (result_all['with'] == "LV")
-g.map_lower(kdeplot2d, mask=m, linewidths=2, levels=[0.90])
-g.map_diag(kdeplot1d, mask=m, linewidth=2, fill=False)
+g.map_lower(kdeplot2d, mask=m, levels=[0.90], linewidths=lw)
+g.map_diag(kdeplot1d, mask=m, fill=False)
 
 m = result_all['with'] == "HL"
-g.map_lower(kdeplot2d, mask=m, linewidths=2, linestyles='--', levels=[0.90], zorder=100)
-g.map_diag(kdeplot1d, mask=m, linewidth=2, linestyle='--', fill=False, zorder=100)
+g.map_lower(kdeplot2d, mask=m, linestyles='--', levels=[0.90], zorder=100, linewidths=lw)
+g.map_diag(kdeplot1d, mask=m, linestyle='--', fill=False, zorder=100)
 
 for i in range(len(vars)):
     g.axes[i,i].set_xlim(result_all[vars[i]].min(), result_all[vars[i]].max())
@@ -91,7 +93,7 @@ g.axes[2,2].set_xlabel(r"$\cos\iota$")
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
 for k, c in zip(["HLV", "HV", "LV", "HL"], p):
-    g.axes[0,0].plot([], c=c, lw=2, ls='--' if k=="HL" else '-', label=k)
+    g.axes[0,0].plot([], c=c, lw=lw, ls='--' if k=="HL" else '-', label=k)
 g.axes[0,0].legend(loc='center left', bbox_to_anchor=(1.1, 0.5), frameon=False)
 
 ax = g.fig.add_axes([g.axes[2,2].get_position().x0, g.axes[0,0].get_position().y0, g.axes[0,0].get_position().width, g.axes[0,0].get_position().height])
@@ -109,11 +111,11 @@ bounded_kde_without_H1 = Bounded_1d_kde(chi_p_without_H1, xlow=0, xhigh=1)(chi_p
 bounded_kde_without_L1 = Bounded_1d_kde(chi_p_without_L1, xlow=0, xhigh=1)(chi_p_without_L1)
 bounded_kde_without_V1 = Bounded_1d_kde(chi_p_without_V1, xlow=0, xhigh=1)(chi_p_without_V1)
 
-ax.plot(chi_p, bounded_kde, c=p[0], lw=2)
+ax.plot(chi_p, bounded_kde, c=p[0], lw=lw)
 ax.fill_between(chi_p, bounded_kde, np.zeros(len(chi_p)), alpha=0.2, color=p[0])
-ax.plot(chi_p_without_H1, bounded_kde_without_H1, c=p[1], lw=2)
-ax.plot(chi_p_without_L1, bounded_kde_without_L1, c=p[2], lw=2)
-ax.plot(chi_p_without_V1, bounded_kde_without_V1, c=p[3], lw=2, ls='--')
+ax.plot(chi_p_without_H1, bounded_kde_without_H1, c=p[1], lw=lw)
+ax.plot(chi_p_without_L1, bounded_kde_without_L1, c=p[2], lw=lw)
+ax.plot(chi_p_without_V1, bounded_kde_without_V1, c=p[3], lw=lw, ls='--')
 
 ax.set_xlabel(r"$\chi_p$")
 ax.set_ylabel("")

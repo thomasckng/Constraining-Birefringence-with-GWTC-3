@@ -22,17 +22,19 @@ result_GR['kappa'] = np.full(len(result_GR), None)
 result_GR['with'] = np.full(len(result_GR), "GR")
 result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 
-result_bilby = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
-result_bilby = result_bilby[result_bilby.event == "GW170818"]
-result_bilby = result_bilby.sample(n=nsamples)
-result_bilby['with'] = np.full(len(result_bilby), r"BR")
-result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
+result_BR = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
+result_BR = result_BR[result_BR.event == "GW170818"]
+result_BR = result_BR.sample(n=nsamples)
+result_BR['with'] = np.full(len(result_BR), r"BR")
+result_BR['cos_iota'] = np.cos(result_BR['iota'])
 
-result = pd.concat([result_bilby,result_GR], ignore_index=True)
+result = pd.concat([result_BR,result_GR], ignore_index=True)
+
+lw = 1
 
 def kdeplot2d(x, y, **kws):
     kws.pop('label', None)
-    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, **kws)
+    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, linewidths=lw, **kws)
 
 def kdeplot1d(x, **kws):
     if np.all(x.isna()):
@@ -42,7 +44,7 @@ def kdeplot1d(x, **kws):
     df = pd.DataFrame({'x': x, 'y': Bounded_1d_kde(x, xlow=min(x), xhigh=max(x), **kws)(x)})
     df = df.sort_values(['x'])
     plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2)
-    plt.plot(df['x'], df['y'])
+    plt.plot(df['x'], df['y'], lw=lw)
 
 vars = ['kappa','luminosity_distance','cos_iota','psi','a_1','a_2','tilt_1','tilt_2','phi_12','phi_jl','phase']
 g = sns.PairGrid(data=result,
@@ -57,7 +59,7 @@ g.map_diag(kdeplot1d)
 
 for i in range(len(vars)):
     g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
-    # g.axes[i,i].set_ylim(0.0)
+    g.axes[i,i].set_ylim(0.0)
     for j in range(i):
         g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
         g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
@@ -83,9 +85,9 @@ g.axes[9,0].set_ylabel("$\\phi_{JL}$")
 g.axes[10,9].set_xlabel("$\\phi_{JL}$")
 g.axes[10,0].set_ylabel("$\\phi_{\\rm{ref}}$")
 g.axes[10,10].set_xlabel("$\\phi_{\\rm{ref}}$")
-        
+
 for k, c in zip(result['with'].unique(), sns.color_palette()):
-    g.axes[0,0].plot([], c=c, lw=2, label=k)
+    g.axes[0,0].plot([], c=c, lw=lw, label=k)
 g.axes[0,0].legend(loc='center left', bbox_to_anchor=((0.92,0.5)), frameon=False)
 
 plt.subplots_adjust(wspace=0.05, hspace=0.05)

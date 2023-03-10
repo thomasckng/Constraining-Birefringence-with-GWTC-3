@@ -30,9 +30,11 @@ result_BR['cos_iota'] = np.cos(result_BR['iota'])
 
 result = pd.concat([result_BR,result_GR], ignore_index=True)
 
+lw = 1
+
 def kdeplot2d(x, y, **kws):
     kws.pop('label', None)
-    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, **kws)
+    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, linewidths=lw, **kws)
 
 def kdeplot1d(x, **kws):
     if np.all(x.isna()):
@@ -42,7 +44,7 @@ def kdeplot1d(x, **kws):
     df = pd.DataFrame({'x': x, 'y': Bounded_1d_kde(x, xlow=min(x), xhigh=max(x), **kws)(x)})
     df = df.sort_values(['x'])
     plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2)
-    plt.plot(df['x'], df['y'])
+    plt.plot(df['x'], df['y'], lw=lw)
 
 vars = ['kappa', 'luminosity_distance', 'cos_iota']
 g = sns.PairGrid(data=result,
@@ -83,9 +85,9 @@ chi_p_GR = result_GR['chi_p']
 bounded_kde_BR = Bounded_1d_kde(chi_p_BR, xlow=0, xhigh=1)(chi_p_BR)
 bounded_kde_GR = Bounded_1d_kde(chi_p_GR, xlow=0, xhigh=1)(chi_p_GR)
 
-ax.plot(chi_p_BR, bounded_kde_BR, color=sns.color_palette()[0])
+ax.plot(chi_p_BR, bounded_kde_BR, color=sns.color_palette()[0], lw=lw)
 ax.fill_between(chi_p_BR, bounded_kde_BR, np.zeros(len(chi_p_BR)), alpha=0.2, color=sns.color_palette()[0])
-ax.plot(chi_p_GR, bounded_kde_GR, color=sns.color_palette()[1])
+ax.plot(chi_p_GR, bounded_kde_GR, color=sns.color_palette()[1], lw=lw)
 ax.fill_between(chi_p_GR, bounded_kde_GR, np.zeros(len(chi_p_GR)), alpha=0.2, color=sns.color_palette()[1])
 
 ax.set_xlabel(r"$\chi_p$")
