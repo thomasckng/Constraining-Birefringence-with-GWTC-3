@@ -90,9 +90,11 @@ axs[1,0].set_ylabel("$\\sigma$")
 axs[1,0].set_xlim(-.07,.07)
 axs[1,0].set_ylim(0)
 
-# fig.legend(title='GW200129', bbox_to_anchor=(0.93,0.88), frameon=False)
+for k, c in zip(["with GW200129", "without GW200129"], [c0, c1]):
+    axs[0,0].plot([], c=c, lw=2, label=k)
+axs[0,0].legend(loc='center right', bbox_to_anchor=((2.3, 0.5)), frameon=False)
 
 fig.delaxes(axs[0,1])
-fig.tight_layout(pad=0.3)
+plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
 fig.savefig(fname=paths.figures/"corner_Gaussian.pdf", bbox_inches="tight", dpi=300)
