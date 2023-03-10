@@ -420,18 +420,11 @@ We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:cor
 \label{sec:GW190521}
 
 GW190521 is the most extreme representative of a class of events with bimodal $\kappa$ posteriors (Table \ref{tab:bimodal_events_mass}).
-This appears to arise out of a confluence of factors related to this event's high mass and support for precession: this being the most massive event in our set, the signal is only in-band for a very short time before merger, meaning that spin effects can more easily be approximated by frequency-dependent birefringent.
-In particular, a precession cycle can more easily by approximated by a monotonic amplitude modulation.
+This appears to arise out of a confluence of factors related to this event's high mass and support for precession: GW190521 being the most massive event in our set, its signal is only in-band for a very short time before merger, meaning that frequency-dependent birefringence can more easily resemble spin effects.
+In particular, a precession cycle can be approximated by a monotonic amplitude modulation for a short time.
 This effect gives rise to a similar degeneracy between $\kappa$ and $\chi_p$ as outlined for GW170818, wherein the prior volume favored configurations with $|\kappa| >0$.
 However, in the case of GW190521, the polarization measurement at the detectors is not accurate enough to fully disambiguate between right- and left-handed states (as implied by the bimodal $\cos\iota$ posterior obtained assuming \ac{GR} in Fig.~\ref{fig:corner_GW190521}).
-As a result, the $\kappa$ posterior is bimodal for GW190521.
-
-
-The degeneracy between $\kappa$ and $\iota$ cannot be broken by the frequency-dependent birefringence model, as shown in Fig.~\ref{fig:corner_GW190521}.
-The effect of birefringence at different frequencies within the range is similar, so the degeneracy cannot be broken.
-Therefore, the narrow frequency range can be a possible reason why the $\kappa$ distribution of GW190521 is bimodal.
-Note that $\kappa=0$ is still within the $90\%$ confidence interval, with a non-negligible probability.
-The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa$ and $\iota$ cannot be broken in this case.  \wf{You should still explain \emph{why} the model seems to prefer $\left| \kappa \right| > 0$.  I \emph{think} the reason here is the distance prior---there is a lot more ``phase space'' at large distances that can be accessed by allowing $\kappa$ to be non-zero and choosing a corresponding inclination so that the amplification effects of birefringence are compensated for by the larger distance compared to the pure-GR run.  Does this make sense to you?  If so, can you write it up in this paragraph?}
+As a result, the GW190521 posterior does not favor $\kappa > 0$ exclusively, but supports both $\kappa > 0$ and $\kappa < 0$, leading to a bimodal posterior.
 
 \begin{figure}[h]
     \script{corner_GW190521.py}
