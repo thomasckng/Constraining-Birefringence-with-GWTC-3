@@ -436,29 +436,33 @@ As a result, the GW190521 posterior does not favor $\kappa > 0$ exclusively, but
     \label{fig:corner_GW190521}
 \end{figure}
 
-% Case: GW150914 (example of broken degeneracy)
-\subsubsection{GW150914}
-In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from \ac{PE}.
-Consider GW150914, the first GW detected by LIGO, as an example.
-In Fig.~\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
-With the frequency-independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
-This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
-% explain the kappa gap
+% % Case: GW150914 (example of broken degeneracy)
+% \subsubsection{GW150914}
+% In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from \ac{PE}.
+% Consider GW150914, the first GW detected by LIGO, as an example.
+% In Fig.~\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
+% With the frequency-independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
+% This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
+% % explain the kappa gap
+% 
+% On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
+% This is because the frequency dependence broke the degeneracy, as the effect of birefringence will differ from the effect of changing $\iota$.
+% In this case, the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent.
+% Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
+% 
+% \begin{figure}
+%     \script{corner_GW150914.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
+%     \caption{
+%         GW150914 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue), compared to the GR result (green).
+%         The marginalized posterior on $\chi_p$ is shown in the top right panel.
+%     }
+%     \label{fig:corner_GW150914}
+% \end{figure}
+\subsubsection{GW191105}
+\label{sec:GW191105}
 
-On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
-This is because the frequency dependence broke the degeneracy, as the effect of birefringence will differ from the effect of changing $\iota$.
-In this case, the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent.
-Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
-
-\begin{figure}
-    \script{corner_GW150914.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
-    \caption{
-        GW150914 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue), compared to the GR result (green).
-        The marginalized posterior on $\chi_p$ is shown in the top right panel.
-    }
-    \label{fig:corner_GW150914}
-\end{figure}
+The situation is similar for GW191105.
 
 % Case: GW200129 (glitch in Virgo data)
 \subsubsection{GW200129}
