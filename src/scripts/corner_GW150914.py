@@ -28,12 +28,7 @@ result_bilby = result_bilby.sample(n=nsamples)
 result_bilby['with'] = np.full(len(result_bilby), "BR (frequency dependent)")
 result_bilby['cos_iota'] = np.cos(result_bilby['iota'])
 
-result_extra = CBCResult.from_json(filename=paths.data/"GW150914_birefringence_freq_independent.json.gz").posterior
-result_extra = result_extra.sample(n=nsamples)
-result_extra['with'] = np.full(len(result_extra), "BR (frequency independent)")
-result_extra['cos_iota'] = np.cos([float(value) for value in result_extra['iota']])
-
-result = pd.concat([result_bilby,result_extra,result_GR], ignore_index=True)
+result = pd.concat([result_bilby,result_GR], ignore_index=True)
 
 def kdeplot2d(x, y, **kws):
     kws.pop('label', None)
@@ -60,23 +55,8 @@ g = sns.PairGrid(data=result,
 g.map_lower(kdeplot2d, levels=[0.90,0.3935])
 g.map_diag(kdeplot1d)
 
-# g.axes[0,0].set_xlim(-1., 1.)
-# g.axes[0,0].set_ylim(0)
-# g.axes[1,1].set_xlim(0, 1500)
-# g.axes[1,1].set_ylim(0)
-# g.axes[2,2].set_xlim(-1., 1.)
-# g.axes[2,2].set_ylim(0)
-
-# g.axes[1,0].set_xlim(-1., 1.)
-# g.axes[1,0].set_ylim(0, 1500)
-# g.axes[2,0].set_xlim(-1., 1.)
-# g.axes[2,0].set_ylim(-1., 1.)
-# g.axes[2,1].set_xlim(0, 1500)
-# g.axes[2,1].set_ylim(-1., 1.)
-
 for i in range(len(vars)):
     g.axes[i,i].set_xlim(result[vars[i]].min(), result[vars[i]].max())
-    # g.axes[i,i].set_ylim(0)
     for j in range(i):
         g.axes[i,j].set_xlim(result[vars[j]].min(), result[vars[j]].max())
         g.axes[i,j].set_ylim(result[vars[i]].min(), result[vars[i]].max())
