@@ -75,23 +75,9 @@ m = result_all['with'] == "HL"
 g.map_lower(kdeplot2d, mask=m, linewidths=2, linestyles='--', levels=[0.90], zorder=100)
 g.map_diag(kdeplot1d, mask=m, linewidth=2, linestyle='--', fill=False, zorder=100)
 
-# g.axes[0,0].set_xlim(-1., 1.)
-# g.axes[0,0].set_ylim(0)
-# g.axes[1,1].set_xlim(0, 2000)
-# g.axes[1,1].set_ylim(0)
-# g.axes[2,2].set_xlim(-1., 1.)
-# g.axes[2,2].set_ylim(0)
-
-# g.axes[1,0].set_xlim(-1., 1.)
-# g.axes[1,0].set_ylim(0, 2000)
-# g.axes[2,0].set_xlim(-1., 1.)
-# g.axes[2,0].set_ylim(-1., 1.)
-# g.axes[2,1].set_xlim(0, 2000)
-# g.axes[2,1].set_ylim(-1., 1.)
-
 for i in range(len(vars)):
     g.axes[i,i].set_xlim(result_all[vars[i]].min(), result_all[vars[i]].max())
-    # g.axes[i,i].set_ylim(0)
+    g.axes[i,i].set_ylim(0)
     for j in range(i):
         g.axes[i,j].set_xlim(result_all[vars[j]].min(), result_all[vars[j]].max())
         g.axes[i,j].set_ylim(result_all[vars[i]].min(), result_all[vars[i]].max())
@@ -107,5 +93,33 @@ plt.subplots_adjust(wspace=0.05, hspace=0.05)
 for k, c in zip(["HLV", "HV", "LV", "HL"], p):
     g.axes[0,0].plot([], c=c, lw=2, ls='--' if k=="HL" else '-', label=k)
 g.axes[0,0].legend(loc='center left', bbox_to_anchor=(1.1, 0.5), frameon=False)
+
+ax = g.fig.add_axes([g.axes[2,2].get_position().x0, g.axes[0,0].get_position().y0, g.axes[0,0].get_position().width, g.axes[0,0].get_position().height])
+
+result = result.sort_values(['chi_p'])
+result_without_H1 = result_without_H1.sort_values(['chi_p'])
+result_without_L1 = result_without_L1.sort_values(['chi_p'])
+result_without_V1 = result_without_V1.sort_values(['chi_p'])
+chi_p = result['chi_p']
+chi_p_without_H1 = result_without_H1['chi_p']
+chi_p_without_L1 = result_without_L1['chi_p']
+chi_p_without_V1 = result_without_V1['chi_p']
+bounded_kde = Bounded_1d_kde(chi_p, xlow=0, xhigh=1)(chi_p)
+bounded_kde_without_H1 = Bounded_1d_kde(chi_p_without_H1, xlow=0, xhigh=1)(chi_p_without_H1)
+bounded_kde_without_L1 = Bounded_1d_kde(chi_p_without_L1, xlow=0, xhigh=1)(chi_p_without_L1)
+bounded_kde_without_V1 = Bounded_1d_kde(chi_p_without_V1, xlow=0, xhigh=1)(chi_p_without_V1)
+
+ax.plot(chi_p, bounded_kde, c=p[0], lw=2)
+ax.fill_between(chi_p, bounded_kde, np.zeros(len(chi_p)), alpha=0.2, color=p[0])
+ax.plot(chi_p_without_H1, bounded_kde_without_H1, c=p[1], lw=2)
+ax.plot(chi_p_without_L1, bounded_kde_without_L1, c=p[2], lw=2)
+ax.plot(chi_p_without_V1, bounded_kde_without_V1, c=p[3], lw=2, ls='--')
+
+ax.set_xlabel(r"$\chi_p$")
+ax.set_ylabel("")
+ax.set_xlim(0, 1)
+ax.set_ylim(0)
+ax.set_xticks([0.25, 0.5, 0.75])
+ax.get_yaxis().set_visible(False)
 
 g.savefig(fname=paths.figures/"corner_GW200129.pdf", bbox_inches="tight", dpi=300)

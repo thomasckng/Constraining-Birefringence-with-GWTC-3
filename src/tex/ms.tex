@@ -408,17 +408,11 @@ We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:cor
 \begin{figure}
     \script{corner_GW170818.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
-    \caption{GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).}
-    \label{fig:corner_GW170818}
-\end{figure}
-
-\begin{figure}
-    \script{hist_GW170818.py}
-    \includegraphics[width=\columnwidth]{figures/hist_GW170818.pdf}
     \caption{
-        GW170818 posterior on the precessing spin $\chi_p$, as obtained by allowing birefringence (blue) and not (orange). \mi{TODO (for Max): maybe make this an inset to Fig.~\ref{fig:corner_GW170818}.}
+        GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
+        The marginalized posterior on $\chi_p$ is shown in the top right panel.
     }
-    \label{fig:hist_GW170818}
+    \label{fig:corner_GW170818}
 \end{figure}
 
 % Case: GW190521 (massive BBH)
@@ -443,11 +437,8 @@ The bimodal $\kappa$ distribution only means that the degeneracy between $\kappa
     \script{corner_GW190521.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
     \caption{
-        GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue) and frequency-independent (orange) birefringence analysis, compared to the GR result (green).
-        % The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW190521.
-        % Colors in the plot represent the \ac{PE} result with \ac{GR} and the frequency-dependent birefringence, respectively.
-        % The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
-        % This plot shows that frequency-dependent birefringence cannot break the degeneracy between $\kappa$ and $\iota$.
+        GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue), compared to the GR result (green).
+        The marginalized posterior on $\chi_p$ is shown in the top right panel.
     }
     \label{fig:corner_GW190521}
 \end{figure}
@@ -470,12 +461,8 @@ Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
     \script{corner_GW150914.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
     \caption{
-        GW150914 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue) and frequency-independent (orange) birefringence analysis, compared to the GR result (green).
-        % The posterior of $\kappa$, luminosity distance $d_L$ and $\cos{\iota}$ for GW150914.
-        % Colors in the plot represent the \ac{PE} result with \ac{GR}, frequency-independent and dependent birefringence, respectively.
-        % The 2D contours correspond to the $39.35\%$ ($1\sigma$) and $90\%$ credible levels.
-        % Note that there is no posterior of $\kappa$ for the \ac{PE} result with \ac{GR}, as the result is based on GR, which does not suggest GW amplitude birefringence.
-        % This plot shows that frequency-independent birefringence creates a degeneracy between $\kappa$ and $\iota$, while frequency-dependent birefringence can break it.
+        GW150914 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue), compared to the GR result (green).
+        The marginalized posterior on $\chi_p$ is shown in the top right panel.
     }
     \label{fig:corner_GW150914}
 \end{figure}
@@ -500,6 +487,7 @@ Since more work would be needed to understand the effect of the glitch, this mot
     \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
     \caption{
         GW200129 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos{\iota}$, including different sets of detectors in the analysis per the legend.
+        The marginalized posterior on $\chi_p$ is shown in the top right panel.
         The main run with all three detectors (HLV, filled blue), shows a preference for $\kappa < 0$, as in Fig.~\ref{fig:violin_kappa}; this preference is more pronounced for two-detector runs that include Virgo (HV and LV, orange and green); however, it disappears if we remove Virgo (HL, dashed black).
         The 2D contours correspond to the $90\%$ credible level.
     }
