@@ -78,23 +78,23 @@ plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
 ax = g.fig.add_axes([g.axes[2,2].get_position().x0, g.axes[0,0].get_position().y0, g.axes[0,0].get_position().width, g.axes[0,0].get_position().height])
 
-result_BR = result_BR.sort_values(['chi_p'])
-result_GR = result_GR.sort_values(['chi_p'])
-chi_p_BR = result_BR['chi_p']
-chi_p_GR = result_GR['chi_p']
-bounded_kde_BR = Bounded_1d_kde(chi_p_BR, xlow=0, xhigh=1)(chi_p_BR)
-bounded_kde_GR = Bounded_1d_kde(chi_p_GR, xlow=0, xhigh=1)(chi_p_GR)
+result_BR = result_BR.sort_values(['chi_eff'])
+result_GR = result_GR.sort_values(['chi_eff'])
+chi_eff_BR = result_BR['chi_eff']
+chi_eff_GR = result_GR['chi_eff']
+bounded_kde_BR = Bounded_1d_kde(chi_eff_BR, xlow=-1, xhigh=1)(chi_eff_BR)
+bounded_kde_GR = Bounded_1d_kde(chi_eff_GR, xlow=-1, xhigh=1)(chi_eff_GR)
 
-ax.plot(chi_p_BR, bounded_kde_BR, color=sns.color_palette()[0], lw=lw)
-ax.fill_between(chi_p_BR, bounded_kde_BR, np.zeros(len(chi_p_BR)), alpha=0.2, color=sns.color_palette()[0])
-ax.plot(chi_p_GR, bounded_kde_GR, color=sns.color_palette()[1], lw=lw)
-ax.fill_between(chi_p_GR, bounded_kde_GR, np.zeros(len(chi_p_GR)), alpha=0.2, color=sns.color_palette()[1])
+ax.plot(chi_eff_BR, bounded_kde_BR, color=sns.color_palette()[0])
+ax.fill_between(chi_eff_BR, bounded_kde_BR, np.zeros(len(chi_eff_BR)), alpha=0.2, color=sns.color_palette()[0])
+ax.plot(chi_eff_GR, bounded_kde_GR, color=sns.color_palette()[1])
+ax.fill_between(chi_eff_GR, bounded_kde_GR, np.zeros(len(chi_eff_GR)), alpha=0.2, color=sns.color_palette()[1])
 
-ax.set_xlabel(r"$\chi_p$")
+ax.set_xlabel(r"$\chi_{\rm eff}$")
 ax.set_ylabel("")
-ax.set_xlim(0, 1)
+ax.set_xlim(-1, 1)
 ax.set_ylim(0)
-ax.set_xticks([0.25, 0.5, 0.75])
+#ax.set_xticks([0.25, 0.5, 0.75])
 ax.get_yaxis().set_visible(False)
 
 g.savefig(fname=paths.figures/"corner_GW190521.pdf", bbox_inches="tight", dpi=300)

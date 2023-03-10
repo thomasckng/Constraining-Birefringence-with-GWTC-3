@@ -394,7 +394,7 @@ This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
 
 It is difficult to unequivocally identify a specific feature of the GW170818 data that leads to this posterior structure.
 However, it appears to be related to this event's support for precession, in conjunction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh}.
-The relevance of precession is evident from the posterior on $\chi_p$ (Fig.~\ref{fig:corner_GW170818}): allowing for $\kappa \neq 0$ leads to reduced support for precession.
+The relevance of precession is evident from the posterior on $\chi_p$ (Fig.~\ref{fig:corner_GW170818}, top right): allowing for $\kappa \neq 0$ leads to reduced support for precession.
 We can understand this in reference to Fig.~\ref{fig:birefringence}: if only a short portion of the signal is observed, then the frequency-dependent signal enhancement or dampening due to birefringence can mimic the time-dependent amplitude modulation in a precession cycle.
 Therefore, under these circumstances, similar morphologies can be obtained by setting $\chi_p > 0$ or $\kappa > 0$, as long as the distance and inclination can also be adjusted accordingly.
 
@@ -462,7 +462,17 @@ As a result, the GW190521 posterior does not favor $\kappa > 0$ exclusively, but
 \subsubsection{GW191105}
 \label{sec:GW191105}
 
-The situation is similar for GW191105.
+The situation is similar for GW191105 (Fig.~\ref{fig:corner_GW191105}).
+
+\begin{figure}[h]
+    \script{corner_GW191105.py}
+    \includegraphics[width=\columnwidth]{figures/hist_GW191105.pdf}
+    \caption{
+        Corner plot of GW191105.
+    }
+    \label{fig:corner_GW191105}
+\end{figure}
+
 
 % Case: GW200129 (glitch in Virgo data)
 \subsubsection{GW200129}
@@ -542,16 +552,16 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 
 \appendix
 
-\section{placeholder for GW191105}
+% \section{placeholder for GW191105}
 
-\begin{figure}[h]
-    \script{corner_GW191105.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW191105.pdf}
-    \caption{
-        Corner plot of GW191105.
-    }
-    \label{fig:corner_GW191105}
-\end{figure}
+% \begin{figure}[h]
+%     \script{corner_GW191105.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW191105.pdf}
+%     \caption{
+%         Corner plot of GW191105.
+%     }
+%     \label{fig:corner_GW191105}
+% \end{figure}
 
 \section{Full corner plot of GW170818}
 \label{sec:corner_GW170818_appendix}
