@@ -71,8 +71,8 @@ g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
 
 for k, c in zip(result['with'].unique(), sns.color_palette()):
-    g.axes[0,0].plot([], c=c, lw=lw, label=k)
-g.axes[0,0].legend(loc='center left', bbox_to_anchor=((1.1, 0.5)), frameon=False)
+    g.axes[1,1].plot([], c=c, lw=2, label=k)
+g.axes[1,1].legend(loc='center left', bbox_to_anchor=((1.1, 0.4)), frameon=False)
 
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
@@ -85,9 +85,9 @@ chi_eff_GR = result_GR['chi_eff']
 bounded_kde_BR = Bounded_1d_kde(chi_eff_BR, xlow=-1, xhigh=1)(chi_eff_BR)
 bounded_kde_GR = Bounded_1d_kde(chi_eff_GR, xlow=-1, xhigh=1)(chi_eff_GR)
 
-ax.plot(chi_eff_BR, bounded_kde_BR, color=sns.color_palette()[0])
+ax.plot(chi_eff_BR, bounded_kde_BR, color=sns.color_palette()[0], lw=lw)
 ax.fill_between(chi_eff_BR, bounded_kde_BR, np.zeros(len(chi_eff_BR)), alpha=0.2, color=sns.color_palette()[0])
-ax.plot(chi_eff_GR, bounded_kde_GR, color=sns.color_palette()[1])
+ax.plot(chi_eff_GR, bounded_kde_GR, color=sns.color_palette()[1], lw=lw)
 ax.fill_between(chi_eff_GR, bounded_kde_GR, np.zeros(len(chi_eff_GR)), alpha=0.2, color=sns.color_palette()[1])
 
 ax.set_xlabel(r"$\chi_{\rm eff}$")

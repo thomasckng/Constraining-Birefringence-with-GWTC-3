@@ -71,8 +71,8 @@ g.axes[2,0].set_ylabel(r"$\cos\iota$")
 g.axes[2,2].set_xlabel(r"$\cos\iota$")
 
 for k, c in zip(result['with'].unique(), sns.color_palette()):
-    g.axes[0,0].plot([], c=c, lw=2, label=k)
-g.axes[0,0].legend(loc='center left', bbox_to_anchor=((1.1, 0.5)), frameon=False)
+    g.axes[1,1].plot([], c=c, lw=2, label=k)
+g.axes[1,1].legend(loc='center left', bbox_to_anchor=((1.1, 0.4)), frameon=False)
 
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
@@ -94,7 +94,7 @@ ax.set_xlabel(r"$\chi_p$")
 ax.set_ylabel("")
 ax.set_xlim(0, 1)
 ax.set_ylim(0)
-ax.set_xticks([0.25, 0.5, 0.75])
+ax.set_xticks([0.2, 0.5, 0.8])
 ax.get_yaxis().set_visible(False)
 
 g.savefig(fname=paths.figures/"corner_GW170818.pdf", bbox_inches="tight", dpi=300)

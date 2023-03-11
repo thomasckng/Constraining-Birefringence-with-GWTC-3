@@ -89,10 +89,10 @@ axs[1,0].set_xlim(-.07,.07)
 axs[1,0].set_ylim(0)
 
 for k, c in zip(["with GW200129", "without GW200129"], sns.color_palette()[:2]):
-    axs[0,0].plot([], c=c, label=k, lw=lw)
-axs[0,0].legend(loc='center right', bbox_to_anchor=((2.3, 0.5)), frameon=False)
+    axs[0,0].plot([], c=c, label=k, lw=2)
+axs[0,0].legend(loc='center left', bbox_to_anchor=((1, 0.5)), frameon=False)
 
-fig.delaxes(axs[0,1])
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
+fig.delaxes(axs[0,1])
 
 fig.savefig(fname=paths.figures/"corner_Gaussian.pdf", bbox_inches="tight", dpi=300)

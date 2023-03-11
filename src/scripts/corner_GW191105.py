@@ -30,9 +30,11 @@ result_BR['cos_iota'] = np.cos(result_BR['iota'])
 
 result = pd.concat([result_BR, result_GR], ignore_index=True)
 
+lw = 1
+
 def kdeplot2d(x, y, **kws):
     kws.pop('label', None)
-    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, **kws)
+    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, linewidths=lw, **kws)
 
 def kdeplot1d(x, **kws):
     if np.all(x.isna()):
@@ -42,7 +44,7 @@ def kdeplot1d(x, **kws):
     df = pd.DataFrame({'x': x, 'y': Bounded_1d_kde(x, xlow=min(x), xhigh=max(x), **kws)(x)})
     df = df.sort_values(['x'])
     plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2)
-    plt.plot(df['x'], df['y'])
+    plt.plot(df['x'], df['y'], lw=lw)
 
 vars = ['kappa', 'luminosity_distance', 'cos_iota']
 g = sns.PairGrid(data=result,
@@ -70,7 +72,7 @@ g.axes[2,2].set_xlabel(r"$\cos\iota$")
 
 for k, c in zip(result['with'].unique(), sns.color_palette()):
     g.axes[1,1].plot([], c=c, lw=2, label=k)
-g.axes[1,1].legend(loc='center left', bbox_to_anchor=((1.1, 0.5)), frameon=False)
+g.axes[1,1].legend(loc='center left', bbox_to_anchor=((1.1, 0.4)), frameon=False)
 
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
 

@@ -87,8 +87,8 @@ g.axes[10,0].set_ylabel("$\\phi_{\\rm{ref}}$")
 g.axes[10,10].set_xlabel("$\\phi_{\\rm{ref}}$")
 
 for k, c in zip(result['with'].unique(), sns.color_palette()):
-    g.axes[0,0].plot([], c=c, lw=lw, label=k)
-g.axes[0,0].legend(loc='center left', bbox_to_anchor=((0.92,0.5)), frameon=False)
+    g.axes[5,5].plot([], c=c, lw=2, label=k)
+g.axes[5,5].legend(loc='center left', bbox_to_anchor=((1.1,0.5)), frameon=False)
 
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
