@@ -94,7 +94,7 @@ ax.set_xlabel(r"$\chi_{\rm eff}$")
 ax.set_ylabel("")
 ax.set_xlim(-1, 1)
 ax.set_ylim(0)
-#ax.set_xticks([0.25, 0.5, 0.75])
+ax.set_xticks([-0.5, 0, 0.5])
 ax.get_yaxis().set_visible(False)
 
 g.savefig(fname=paths.figures/"corner_GW190521.pdf", bbox_inches="tight", dpi=300)

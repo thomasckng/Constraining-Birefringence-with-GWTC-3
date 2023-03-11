@@ -374,7 +374,6 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
 \label{sec:notable}
 
 Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, GW190521 and GW191105.
-%
 When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$; the second shows signs of potential noise anomalies; the third is representative of a class of heavy events with strongly bimodal $\kappa$ posteriors; and the fourth of a smaller class of lighter events with slightly bimodal posteriors.
 Through these examples, we elucidate the interaction between $\kappa$ and the source luminosity distance, inclination and spin precession.
 
@@ -426,11 +425,11 @@ This effect gives rise to a similar degeneracy between $\kappa$ and $\chi_p$ as 
 However, in the case of GW190521, the polarization measurement at the detectors is not accurate enough to fully disambiguate between right- and left-handed states (as implied by the bimodal $\cos\iota$ posterior obtained assuming \ac{GR} in Fig.~\ref{fig:corner_GW190521}).
 As a result, the GW190521 posterior does not favor $\kappa > 0$ exclusively, but supports both $\kappa > 0$ and $\kappa < 0$, leading to a bimodal posterior.
 
-\begin{figure}[h]
+\begin{figure}
     \script{corner_GW190521.py}
     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
     \caption{
-        GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue), compared to the GR result (green).
+        GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
         The marginalized posterior on $\chi_p$ is shown in the top right panel.
     }
     \label{fig:corner_GW190521}
@@ -459,16 +458,19 @@ As a result, the GW190521 posterior does not favor $\kappa > 0$ exclusively, but
 %     }
 %     \label{fig:corner_GW150914}
 % \end{figure}
+
+% Case: GW191105
 \subsubsection{GW191105}
 \label{sec:GW191105}
 
 The situation is similar for GW191105 (Fig.~\ref{fig:corner_GW191105}).
 
-\begin{figure}[h]
+\begin{figure}
     \script{corner_GW191105.py}
-    \includegraphics[width=\columnwidth]{figures/hist_GW191105.pdf}
+    \includegraphics[width=\columnwidth]{figures/corner_GW191105.pdf}
     \caption{
-        Corner plot of GW191105.
+        GW191105 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
+        The posterior on $\chi_{eff}$ and $\kappa$ from our birefringence analysis is shown in the top right panel.
     }
     \label{fig:corner_GW191105}
 \end{figure}
@@ -551,17 +553,6 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 \end{acknowledgments}
 
 \appendix
-
-% \section{placeholder for GW191105}
-
-% \begin{figure}[h]
-%     \script{corner_GW191105.py}
-%     \includegraphics[width=\columnwidth]{figures/corner_GW191105.pdf}
-%     \caption{
-%         Corner plot of GW191105.
-%     }
-%     \label{fig:corner_GW191105}
-% \end{figure}
 
 \section{Full corner plot of GW170818}
 \label{sec:corner_GW170818_appendix}

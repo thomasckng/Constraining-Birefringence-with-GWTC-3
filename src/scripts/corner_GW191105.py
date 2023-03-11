@@ -14,7 +14,7 @@ plt.rcParams.update({
     "font.serif": ["Computer Modern Roman"],
 })
 
-nsamples = 4000
+nsamples = 5000
 
 result_GR = CBCResult.from_json(filename=paths.data/"GW191105_143521_GR.json.gz").posterior
 result_GR = result_GR.sample(n=nsamples)
@@ -86,4 +86,4 @@ ax.set_xlabel(r"$\kappa$")
 ax.set_ylim(-0.25, 0.25)
 ax.set_xlim(-0.3, 0.3)
 
-g.savefig(fname=paths.figures/"hist_GW191105.pdf", bbox_inches="tight", dpi=300)
+g.savefig(fname=paths.figures/"corner_GW191105.pdf", bbox_inches="tight", dpi=300)

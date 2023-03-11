@@ -17,6 +17,7 @@ dependencies:
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_GW191105.py:
+        - src/data/GW191105_143521_GR.json.gz
         - src/data/samples_posterior_birefringence.feather
 
     src/scripts/corner_GW200129.py:
