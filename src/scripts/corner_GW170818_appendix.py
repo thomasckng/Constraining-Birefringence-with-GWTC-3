@@ -54,7 +54,7 @@ g = sns.PairGrid(data=result,
                  layout_pad=0.
                 )
 
-g.map_lower(kdeplot2d, levels=[0.90,0.3935])
+g.map_lower(kdeplot2d, levels=[0.90,0.3935], fill=True)
 g.map_diag(kdeplot1d)
 
 for i in range(len(vars)):
@@ -71,10 +71,10 @@ g.axes[2,0].set_ylabel("$\\cos\\iota$")
 g.axes[10,2].set_xlabel("$\\cos\\iota$")
 g.axes[3,0].set_ylabel("$\\psi$")
 g.axes[10,3].set_xlabel("$\\psi$")
-g.axes[4,0].set_ylabel("$a_1$")
-g.axes[10,4].set_xlabel("$a_1$")
-g.axes[5,0].set_ylabel("$a_2$")
-g.axes[10,5].set_xlabel("$a_2$")
+g.axes[4,0].set_ylabel("$\chi_1$")
+g.axes[10,4].set_xlabel("$\chi_1$")
+g.axes[5,0].set_ylabel("$\chi_2$")
+g.axes[10,5].set_xlabel("$\chi_2$")
 g.axes[6,0].set_ylabel("$\\theta_1$")
 g.axes[10,6].set_xlabel("$\\theta_1$")
 g.axes[7,0].set_ylabel("$\\theta_2$")
