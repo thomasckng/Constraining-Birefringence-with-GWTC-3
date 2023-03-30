@@ -71,8 +71,9 @@ Previous studies have constrained amplitude birefringence by performing differen
 % What's new?
 In this study, we use a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE} on \ac{LVK} binaries.
 This model is a better approximation of the birefringence effect expected from theory than the frequency-independent model used in \citet{Okounkova_2022}.
-Compared to other studies, we perform \ac{PE} on more events, including events new to the third \ac{GW} transient catalog \citep{GWTC-3}, GWTC-3.
+Compared to other studies, we perform \ac{PE} on more events, including events new to GWTC-3 \citep{GWTC-3}, and use a phenomenology-oriented parametrization.
 We consider 71 binary black hole merger events with a \ac{FAR} $\leq1\mathrm{yr^{-1}}$, as listed in Table I of \citet{GWTC-3_population}.
+We discuss single-event results in detail, and identify degeneracies between birefringence and spin effects, in addition to the already known correlations with source orientation and distance.
 We use the results from individual events to place a collective population constraint on the strength of \ac{GW} amplitude birefringence from GWTC-3.
 
 % Section guide
@@ -89,7 +90,7 @@ In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provid
 
 % GW polarization
 In \ac{GR}, \acp{GW} are comprised of two independent polarization modes, usually represented in the linear basis of plus ($+$) and cross ($\times$) states.
-In the Fourier domain, these can be combined into left-handed (L) and right-handed (R) circular states \cite{Isi:2022mbx},
+In the Fourier domain, these can be combined into left-handed (L) and right-handed (R) circular states (see, e.g., \cite{Isi:2022mbx}),
 \begin{equation}
     h_{L/R} = \frac{1}{\sqrt{2}}\left(h_+ \pm i h_\times\right)\,,
 \end{equation}
@@ -98,11 +99,11 @@ These circular modes represent eigenstates of the helicity operator (helicity $\
 Einstein's theory, which is parity even, predicts no difference in the dynamics of these two states.
 
 % Waveform modification
-Yet, parity odd extensions of \ac{GR} may make distinctions between the two circular polarizations, which appear in both the generation and propagation of \acp{GW}.
-The latter can manifest in changes to the relative amplitude and phase of the polarizations that accrue as the wave propagates, giving us hope to detect initially small effects that compound over long propagation distances.
+Yet, parity odd extensions of \ac{GR} may make distinctions between the two circular polarizations, potentially appearing in both the generation and propagation of \acp{GW}.
+The latter can manifest in changes to the relative amplitude and phase of the polarizations that accrue as the wave propagates, giving us hope of detecting initially small effects that compound over long propagation distances.
 
 In particular, \emph{amplitude} birefringence would enhance one polarization mode over the other.
-To first order in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source can be written as
+To first order, in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source can be written as
 \begin{equation}
     h_{L/R}^{\mathrm{br}}(f) =
     h_{L/R}^{\mathrm{GR}}(f) \times
@@ -111,15 +112,15 @@ To first order in theories like Chern-Simons gravity, the Fourier-domain wavefor
 \end{equation}
 where the emitted waveform $h_{L/R}^{\mathrm{GR}}$ is modified by an exponential birefringent factor to yield the observed waveform $h_{L/R}^{\mathrm{br}}$.
 The overall magnitude of this effect for a given distance and frequency $f$ is set by a dimensionless opacity parameter, $\kappa$, which encodes the intrinsic strength of the birefringence.
-The emitted waveform for a given source (i.e., the waveform observed in the near zone, very close to the source) will generally differ from the analogous waveform predicted by \ac{GR}; however, since we expect most viable modifications to \ac{GR} to be intrinsically small, it is standard to approximate the emitted waveform by the prediction from \ac{GR} (hence the notation ``$h^{\rm GR}$'' above).
+The emitted waveform for a given source (i.e., the waveform observed in the near zone, very close to the source) will generally differ from the analogous waveform predicted by \ac{GR} \cite{Alexander:2009tp,Okounkova:2019zjf}; however, since we expect most viable modifications to \ac{GR} to be intrinsically small (e.g., \cite{Okounkova:2022grv}), it is standard to approximate the emitted waveform by the prediction from \ac{GR} (hence the notation ``$h^{\rm GR}$'' above).
 
 Although the intrinsic modification is small, the effect targeted by Eq.~\eqref{eq:waveform_modification} accumulates as the \ac{GW} propagates.
-During propagation, the effect of birefringence will be built up with the number of cycles which depends on the distance traveled and the frequency of the \acp{GW}.
+During propagation, the effect of birefringence will be built up with the number of cycles, which is itself a function of the distance traveled and the frequency of the \acp{GW}.
 According to Eq.~\eqref{eq:waveform_modification}, a positive $\kappa$ means the left-handed polarization is enhanced over the right-handed polarization, while a negative $\kappa$ means the opposite;
 when $\kappa=0$, the observed waveform is the same as \ac{GR} predicts, meaning there is no birefringence.
 
 Equation \eqref{eq:waveform_modification} can be derived as the first order effect in an expansion away from \ac{GR} under multiple frameworks.
-In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity.
+In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity \cite{Alexander:2009tp}.
 Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
 \begin{equation}
 \left|\kappa\right| \left(d_C/1\,\mathrm{Gpc}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, .
@@ -127,12 +128,24 @@ Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_mo
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
 \mi{specify what the parameter for the expansion is, add citations, and check with a theorist}
 
+\begin{figure}
+    \script{birefringence.py}
+    \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
+    \caption{
+        \emph{Illustration of amplitude birefringence.} The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is linearly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
+        However, if spacetime were birefringent following Eq.~\protect\eqref{eq:waveform_modification}, the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
+        In the time domain, this manifests as a time-dependent amplification of the waveform, with a stronger effect at later times when the chirp reaches a higher instantaneous frequency (bottom).
+        For this example, the black holes do not spin and have equal masses $m_1 = m_2 = 10\, M_\odot$, and we have chosen a luminosity distance $d_L = 400\, {\rm Mpc}$ and $\kappa = 0.6$.
+        }
+    \label{fig:birefringence}
+\end{figure}
+
 \subsection{Inclination and other degeneracies}
 \label{sec:inclination}
 
 % Effect on inclination PE results
-Under certain conditions, the effect of birefringence can be degenerate with a change in the orientation of the source with respect to the line of sight.
-Concretely, for a nonprecessing compact binary inspiral in \ac{GR}, the observed amplitude ratio of the left-handed and right-handed polarizations is only a function of the inclination $\iota$, the angle between the orbital angular momentum of the source and the line of sight.
+Under certain conditions, the effect of birefringence can be degenerate with a change in the orientation of the source with respect to the line of sight \cite{Alexander:2009tp}.
+Concretely, for a nonprecessing compact binary inspiral in \ac{GR}, the observed amplitude ratio of the left-handed and right-handed polarizations is only a function of the inclination $\iota$, the angle between the orbital angular momentum of the source and the line of sight \cite{Blanchet:2013haa}.
 For  the dominant $\ell = |m| = 2$ angular mode of the radiation, the relation between the amplitude ratio and the inclination is
 \begin{equation}
     \frac{h_{L}^\mathrm{GR}}{h^\mathrm{GR}_{R}}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2\,
@@ -149,18 +162,6 @@ This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied
 \end{equation}
 For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination alone can mask the effect of birefringence, which will affect the time domain waveform nontrivially (Fig.~\ref{fig:birefringence}).
 
-\begin{figure}
-    \script{birefringence.py}
-    \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
-    \caption{
-        \emph{Illustration of amplitude birefringence.} The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is linearly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
-        However, if spacetime were birefringent following Eq.~\protect\eqref{eq:waveform_modification}, the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
-        In the time domain, this manifests as a time-dependent amplification of the waveform, with a stronger effect at later times when the chirp reaches a higher instantaneous frequency (bottom).
-        For this example, the black holes do not spin and have equal masses $m_1 = m_2 = 10\, M_\odot$, and we have chosen a luminosity distance $d_L = 400\, {\rm Mpc}$ and $\kappa = 0.6$.
-        }
-    \label{fig:birefringence}
-\end{figure}
-
 \citet{Okounkova_2022} took the effect of birefringence to be independent of the frequency, which is a zeroth-order approximation of the birefringence model in Chern-Simons gravity.
 This assumption results in a full degeneracy between $\kappa$ and $\iota$:
 to reconstruct the amplitude ratio from the interferometer data, a value of $\iota$ representing a more face-off inspiral can pair with a positive value of $\kappa$, or a value of $\iota$ representing a more face-on inspiral with a negative value of $\kappa$.
@@ -172,12 +173,20 @@ This may be the case for quasimonochromatic sources, like nonaxisymmetric pulsar
 
 As we will find in Sec.~\ref{sec:Results}, the effect of birefringence can be (partially) degenerate with other parameters besides source inclination.
 Indeed, the frequency-dependent amplification or dampening of polarizations caused by $\kappa$ can sometimes be absorbed by changes in intrinsic parameters, like the spins, with concurrent adjustments to the source inclination and distance.
+As a measure of the \ac{BH} spin magnitudes along the orbital angular momentum, we will use the effective spin parameter \cite{Damour:2001tu,Ajith:2009bn,Santamaria:2010yb}
+% \begin{equation}
+% \chi_{\rm eff} \equiv \frac{1}{M} \left(m_1 \left|\vec{\chi}_{1\parallel}\right| + m_2\left|\vec{\chi}_{2\parallel}\right|\right)
+% \end{equation}
+\begin{equation}
+\chi_{\rm eff} \equiv \frac{1}{1+q} \left(\left|\vec{\chi}_{1\parallel}\right| + q\left|\vec{\chi}_{2\parallel}\right|\right)
+\end{equation}
+where $|\vec{\chi}_{i\parallel}|$ are the norms of the projections of the dimensionless spin vectors along the orbital angular momentum, and the  mass ratio is $q \equiv m_2/m_1 \leq 1$.
 We will study the interplay between birefringence and precession by focusing on the posterior of the precessing spin parameter $\chi_p$, defined as \cite{Schmidt:2014iyl}
 \begin{equation}
-\chi_p \equiv \max\left\{ ||\vec{\chi}_{1\perp}||,\, k ||\vec{\chi}_{2\perp}||\right\} ,
+\chi_p \equiv \max\left\{ |\vec{\chi}_{1\perp}|,\, k |\vec{\chi}_{2\perp}|\right\} ,
 \end{equation}
-where $\vec{\chi}_{i\perp}$ are the projections of the dimensionless spin vectors onto the orbital plane at a reference time, and $k \equiv q\left(4 q +3\right) / \left(4 + 3q\right)$ for a mass ratio $q \equiv m_2/m_1 \leq 1$.
-We chart this and other degeneracies as part of the results presented in Sec.~\ref{sec:Results}.
+where $|\vec{\chi}_{i\perp}|$ are the norms of the projections of the dimensionless spin vectors onto the orbital plane at a reference time, and $k \equiv q\left(4 q +3\right) / \left(4 + 3q\right)$.
+We chart this and other approximate degeneracies as part of the results presented in Sec.~\ref{sec:Results}.
 
 % In particular, we find that, under certain conditions, the frequency-dependent birefringence of Eq.~\eqref{eq:waveform_modification} can mimic the time-dependent amplitude modulation expected from a precessing system.
 
@@ -190,12 +199,13 @@ To constrain birefringence, we reanalyze events from GWTC-3 \citep{GWTC-2.1, GWT
 We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$; to avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
-We carry out \ac{PE} using a custom version of \textsc{Bilby} \citep{Bilby}, that applies Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
+We estimate source parameters using a custom version of the \textsc{Bilby} software \citep{Bilby}, modified from the baseline version to apply Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
 We take the \ac{PE} configuration in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
 We apply a distance prior corresponding to a uniform distribution over comoving volume and source-frame time, and set the prior on $\kappa$ to be uniform between $-1$ and $1$. 
 
-For GW190521, we increase the maximum distance of the distance prior to $1.5\times$ the original value in \cite{GWTC-2.1_dataset}, as the birefringence effect results in posterior support at larger distances.
+For GW190521, we increase the maximum distance allowed by the prior to $1.5\times$ the original value in \cite{GWTC-2.1_dataset}, as the birefringence effect results in posterior support at larger distances.
 For GW190720, we decrease the analysis segment from 16 s to 8 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
+Otherwise, the configuration is as in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset}.
 
 In order to validate our \ac{PE} implementation, we reproduce the \ac{LVK} \ac{PE} results obtained assuming \ac{GR} by enforcing $\kappa = 0$; this also has the advantage of producing \ac{GR} runs that are directly comparable to our birefringent runs.
 All our \ac{PE} results, including the \ac{GR} validation runs, are published in \citet{dataset}.
@@ -205,7 +215,7 @@ All our \ac{PE} results, including the \ac{GR} validation runs, are published in
 \subsubsection{Shared birefringence parameter}
 
 In the most simplified scenarios, birefringence is a property of spacetime that is not intrinsic to any source or region in space. 
-If so, we should expect $\kappa$ to take the same value for all signals, whether it vanishes or not.
+Consequently, we should expect $\kappa$ to take the same value for all signals, whether it vanishes or not.
 Under this assumption, the posterior on $\kappa$ inferred collectively from all events is simply obtained from the product of the individual likelihoods, $p(d_i \mid\kappa) \propto p(\kappa \mid d_i)/p(\kappa)$, such that
 \begin{equation}
     p(\kappa \mid \{d_i\})\propto p(\kappa) \prod_{i}\frac{p(\kappa \mid d_i)}{p(\kappa)}\,,
@@ -225,14 +235,14 @@ These considerations motivate a collective analysis that does not assume $\kappa
 Such an analysis has the additional advantage of helping us further characterize our set of measurements, and identify potential outliers.
 
 To do this, we apply hierarchical Bayesian inference \cite{Loredo:2004nn} to model the distribution of $\kappa$'s consistent with the observed data:
-we posit that there is a specific value of the parameter, $\kappa_i$, associated with each event, drawn from some unknown distribution of underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
+we posit that, rather than a unique global value of $\kappa$, there is a specific value of the parameter, $\kappa_i$, associated with each event, and that this is drawn from some unknown distribution of true underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
 If we are interested in constraining the first two moments of the distribution, it is convenient to parametrize the $\kappa_i$'s as drawn from a Gaussian with unknown mean $\mu$ and variance $\sigma^2$, i.e., $\kappa_i \sim \mathcal{N}(\mu, \sigma^2)$ \cite{Isi:2019asy}, and measure those hyperparameters from the collection of observed data.
 
-If \ac{GR} is correct and there is no birefringence, we should find the observed $\kappa$ distribution to be consistent with a delta function at the origin ($\kappa_i = 0$ for all $i$, or $\mu=\sigma=0$); on the other hand, if spacetime is birefringent, we expect to find a delta function at some nonzero value ($\kappa_i = \kappa \neq 0$, or $\mu = \kappa$ and $\sigma=0$).
+If \ac{GR} is correct and there is no birefringence, we should find the observed $\kappa$ distribution to be consistent with a delta function at the origin ($\kappa_i = 0$ for all $i$, or $\mu=\sigma=0$); on the other hand, if spacetime is globally birefringent, we expect to find a delta function at some nonzero value ($\kappa_i = \kappa \neq 0$, or $\mu = \kappa$ and $\sigma=0$).
 But this analysis also has the power to reveal unexpected physics or systematics in our measurements: if $\sigma$ is confidently found to be nonzero, this would imply that our set of measurements is statistically unlikely to originate from a unique $\kappa$ value.
 This could signal richer physics than is implied by Eq.~\eqref{eq:waveform_modification} or, more prosaically, that there are outliers in our measurements due to mismodeling, e.g., in the waveform approximant or the noise of the detector.
 
-Starting from the posterior on $\kappa$ from each event, the posterior on the hyperparameters $\mu$ and $\sigma$ can be calculated by
+Starting from the posterior on $\kappa$ from each $i$\textsuperscript{th} event, $p(\kappa_i\mid d_i)$, the posterior on the hyperparameters $\mu$ and $\sigma$ can be calculated by
 \begin{equation}
     p(\mu,\sigma \mid \{d\})\propto p(\mu,\sigma)\prod_{i}\int\frac{p(\kappa_i\mid d_i)}{p(\kappa_i)}p(\kappa_i\mid\mu,\sigma)\,\infd\kappa_i,
     \label{eq:posterior_of_mu_sigma}
@@ -240,26 +250,27 @@ Starting from the posterior on $\kappa$ from each event, the posterior on the hy
 where $p(\kappa)$ is the prior initially applied to $\kappa$ during \ac{PE}, which in our case is a uniform distribution, $\mathcal{U}[-1,1]$.
 Further choosing the hyperpriors on $\mu$ and $\sigma$ to be uniform, Eq.~\eqref{eq:posterior_of_mu_sigma} simplifies to
 \begin{equation}
-    p(\mu,\sigma\mid\{d\})\propto\prod_{i}\int p(\kappa_i\mid d_i)p(\kappa_i\mid\mu,\sigma)\,\infd\kappa_i\,
+    p(\mu,\sigma\mid\{d\})\propto\prod_{i}\int p(\kappa_i\mid d_i)\, p(\kappa_i\mid\mu,\sigma)\,\infd\kappa_i\,
 \end{equation}
 where $p(\kappa_i\mid\mu,\sigma) \propto \exp(-|\kappa_i - \mu|^2/2\sigma^2)$ is the usual Gaussian likelihood.
 
 Beyond measuring the population mean and variance, we also calculate the expected population distribution of $\kappa$ marginalized over $\mu$ and $\sigma$.
-This is given by
+This is defined by
 \begin{equation}
-            p(\kappa\mid \{d\})=\int \mathcal{N}(\mu,\sigma)p(\mu,\sigma\mid \{d\})\,\infd\mu\,\infd\sigma\, , 
+p(\kappa_i \mid \{d\})=\int p(\kappa_i \mid \mu,\sigma)p(\mu,\sigma\mid \{d\})\,\infd\mu\,\infd\sigma\, , 
     \label{eq:generic_posterior}
 \end{equation}
-and represents our overall expectation for $\kappa$, given the observed set of individual measurements and, crucially, assuming the underlying distribution is Gaussian.%
-\footnote{The measurement of the population mean and variance is valid irrespective of whether the underlying $\kappa_i$ distribution is truly Gaussian; the specific shape of the population-marginalized distribution of Eq.~\eqref{eq:generic_posterior} is not.}
+and represents our overall expectation for the true values of $\kappa$, given the observed set of individual measurements and, crucially, assuming the underlying distribution is Gaussian.
+Although the measurement of the population mean and variance applies irrespective of whether the underlying $\kappa_i$ distribution is truly Gaussian, the specific shape of the population-marginalized distribution of Eq.~\eqref{eq:generic_posterior} is not; therefore, Eq.~\eqref{eq:generic_posterior} should not be interpreted as giving a generic inference on the $\kappa$ distribution---more expressive models than a Gaussian would be better suited to that purpose. 
 To sample the posterior distribution of $\mu$ and $\sigma$, we use the sampling package \textsc{flowMC} \citep{flowMC}.
 
 \section{Results}
 \label{sec:Results}
 
 In this section, we present the results of our study.
-We first show the \ac{PE} results of all events and present the results of Bayesian hierarchical modeling.
-Then, we discuss some special events individually, and outline the degeneracies that arise between birefringence and orbital precession.
+We first show the $\kappa$ measurements from of all events in our set, as well as the resulting global measurement of $\kappa$ that represents our primary constraint on birefringence (Sec.~\ref{sec:results:gwtc}).
+We then assess the collection of measurements in more detail through a hierarchical analysis (Sec.~\ref{sec:results:hier}).
+Finally, we discuss some special events individually, and outline the degeneracies that arise between birefringence and orbital precession (Sec.~\ref{sec:results:notable}).
 
 \begin{figure}
     \script{violin_kappa.py}
@@ -271,18 +282,20 @@ Then, we discuss some special events individually, and outline the degeneracies 
 \end{figure}
 
 \subsection{GWTC-3 result}
+\label{sec:results:gwtc}
 
 % Violin plot
 Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis as represented by the posterior distribution on $\kappa$ (abscissa) obtained individually for each event (ordinate).
-Posteriors are colored by the distance to the origin of the respective mean in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.\footnote{We use the $i$ notation for individual events here to disambiguate from the population mean $\mu$ and standard deviation $\sigma$ of Eq.~\eqref{eq:posterior_of_mu_sigma}.}
+Posteriors are colored by the respective posterior mean distance to the origin in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.\footnote{We use the $i$ notation for individual events here to disambiguate from the population mean $\mu$ and standard deviation $\sigma$ of Eq.~\eqref{eq:posterior_of_mu_sigma}.}
 The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line); this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
+\mi{THOMAS: can you quote the CL of 0 obtained from the joint measurement?}
 
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}, in order of increasing standard deviation $\sigma_i$.
 That table also shows the credible level (CL) at which the posterior supports $\kappa = 0$, whereby $\mathrm{CL} = 0$ ($\mathrm{CL} = 1$) means the posterior supports that value with high (low) probability.
 
 Judging by $\mu_i/\sigma_i$, the two events that show the largest tension with $\kappa = 0$ are GW170818, for which $\mu_i / \sigma_i =$ \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which $\mu_i / \sigma_i =$ \variable{output/GW200129_constraint.txt}.
-However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that the preference for $\kappa < 0$ in GW200129 might be driven by noise anomalies in the Virgo detector; for that reason, in the next section we consider the effect of excluding this event from the joint result (we find its impact to be minimal).
+However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that the preference for $\kappa < 0$ in GW200129 might be driven by noise anomalies in the Virgo detector; with that in mind, in the next section we consider the effect of excluding this event from the joint result (we find its impact to be minimal).
 
 \begin{table}
     \caption{Events that best constrain $\kappa$, sorted by posterior standard deviation $\sigma_i$. CL is the credible level of $\kappa = 0$.}
@@ -293,7 +306,7 @@ However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that 
 \end{table}
 
 \begin{table}
-    \caption{Events with bimodality in the $\kappa$ posterior tend to have high total masses. CL is the credible level of $\kappa = 0$.}
+    \caption{Events with bimodality in the $\kappa$ posterior, the \ac{GR} measurement of their detector-frame total mass ($M$), their $\chi_p$ measured without (GR) and with (BR) brefringence, and the credible level of $\kappa = 0$ (CL).}
     \begin{ruledtabular}
         \variable{output/bimodal_events_mass.txt}
     \end{ruledtabular}
@@ -301,12 +314,14 @@ However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that 
 \end{table}
 
 Finally, a set of events stands out in Fig.~\ref{fig:violin_kappa} due to evident bimodality in the $\kappa$ posterior.
-To a varying degree, that is the case for those events listed in Table~\ref{tab:bimodal_events_mass}, which tend to have quite high total masses (Table~\ref{tab:bimodal_events_mass} show total mass as measured in the standard  \ac{GR} analysis).
+To a varying degree, that is the case for those events listed in Table~\ref{tab:bimodal_events_mass}, which tend to have quite high total masses in the detector frame (Table~\ref{tab:bimodal_events_mass} shows total mass as measured in the standard \ac{GR} analysis).
 For these bimodal posteriors, $\mu_i/\sigma_i$ is not a good proxy for agreement with \ac{GR}; instead, we can rely on $\mathrm{CL}(\kappa = 0)$.
-By this measure, the bimodal events are some of the least consistent with $\kappa = 0$, GW190521 in particular. (However, note that configurations with $\kappa = 0$ for this event are still within the higher dimensional 90\%-credible region, when other parameters are considered and not just the one-dimensional marginal; we discuss this in Sec.~\ref{sec:GW190521}.)
+By this measure, the bimodal events are some of the least consistent with $\kappa = 0$, GW190521 in particular.
+% (Nevertheless, configurations with $\kappa = 0$ for this event are still within the higher dimensional 90\%-credible region, when other parameters are considered and not just the one-dimensional marginal; we discuss this in Sec.~\ref{sec:GW190521}.)
 
-As we anticipated in Sec.~\ref{sec:inclination}, we understand the bimodality in $\kappa$ to be linked to precessing morphologies. Other parameter degeneracies also come into play, especially for the lighter events GW191105\_143521 (henceforth GW191105) and GW170104.
-We discuss this in detail in a dedicated section below (Sec.~\ref{sec:notable}).
+As we anticipated in Sec.~\ref{sec:inclination}, we understand the bimodality in $\kappa$ to be linked to spin effects, and often to precessing morphologies in particular.
+Other parameter degeneracies also come into play, especially for the lighter events GW191105\_143521 (henceforth GW191105) and GW170104.
+We discuss this further in a dedicated section below (Sec.~\ref{sec:results:notable}).
 
 \begin{figure}
     \script{corner_Gaussian.py}
@@ -322,7 +337,7 @@ We discuss this in detail in a dedicated section below (Sec.~\ref{sec:notable}).
 \subsection{Hierarchical modeling}
 \label{sec:results:hier}
 
-Figure \ref{fig:violin_kappa} shows a certain degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818.
+Figure \ref{fig:violin_kappa} shows a certain degree of variance in the distribution of $\kappa$ posteriors for different events, including some apparent outliers like GW170818 or GW190521.
 This is not unexpected: assuming independent Gaussian noise instantiations for each event, we might expect up to ${\sim}3$ out of the 71 posteriors (i.e., ${\sim}5\%$) to deviate away from the true $\kappa$ value by over ${\sim}2\sigma$ due to noise alone.
 
 To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
@@ -332,14 +347,14 @@ We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, whic
 The figure shows two distributions, which result from analyses with (blue) and without (orange) the potentially-contaminated event GW200129; the difference between the two is mainly restricted to a slight shift in $\mu$, indicating that GW200129 has a small effect on our overall population inference.
 
 Both versions of the posterior support the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals of the result including all events, we constrain $\mu =$ \variable{output/mu_median.txt} for 90\%-credible symmetric intervals around the median, and $\sigma <$ \variable{output/sigma_median.txt} for the 90\%-credible one-sided upper limit.
-However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peaks away from the origin, indicating some preference for a nonzero variance.
+However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peaks visibly away from the origin, indicating some preference for a nonzero variance.
 This could be a sign of the presence of outliers in our sample.
 
-As a check for outliers, we reconsider the set of measurements in Fig.~\ref{fig:violin_kappa} in light of the hierarchical result for $\mu$ and $\sigma$ in Fig.~\ref{fig:corner_Gaussian}, including GW200129 (blue curve).
+As a visual check for outliers, we reconsider the set of measurements in Fig.~\ref{fig:violin_kappa} in light of the hierarchical result for $\mu$ and $\sigma$ in Fig.~\ref{fig:corner_Gaussian}, including GW200129 (blue curve).
 This amounts to reweighting the $\kappa$ posterior for each event under a population prior marginalized over $\mu$ and $\sigma$, conditional on the measurements from all other events \cite{Callister:T2100301}.
 Figure \ref{fig:corner_Gaussian} does not show evidence for any of the events being in obvious tension with the population, even though the GW170818 curve stands out from the rest due to its higher support for $\kappa > 0$.
 This feature appears to offset a few other events which tend to favor $\kappa < 0$.
-The interaction between these distributions leads to a hyperposterior that is fully consistent with $\mu = 0$ while indicating some support for $\sigma > 0$ (Fig.~\ref{fig:corner_Gaussian}).
+The interaction between these distributions leads to a hyperposterior that is fully consistent with $\mu = 0$ while offering some support for $\sigma > 0$ (Fig.~\ref{fig:corner_Gaussian}).
 Future observations will determine whether there is truly evidence for a nonvanishing variance in this population.
 
 \begin{figure}
@@ -353,7 +368,7 @@ Future observations will determine whether there is truly evidence for a nonvani
 \end{figure}
 
 % Constraint on $\kappa$
-Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ via Eq.~\eqref{eq:generic_posterior}.
+Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ under the assumption of a Gaussian distribution via Eq.~\eqref{eq:generic_posterior}.
 We show the result of doing this in Fig.~\ref{fig:posterior_kappa}, where we also compare to the posterior on $\kappa$ obtained by assuming a shared value across events (same result shown as a blue band in Fig.~\ref{fig:violin_kappa}).
 The hierarchical measurement leads to an expectation that $\kappa_i = $\variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies $\kappa = $\variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  
 
@@ -371,7 +386,7 @@ The hierarchical measurement leads to an expectation that $\kappa_i = $\variable
 
 % Case studies
 \subsection{Notable events}
-\label{sec:notable}
+\label{sec:results:notable}
 
 Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, GW190521 and GW191105.
 When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$; the second shows signs of potential noise anomalies; the third is representative of a class of heavy events with strongly bimodal $\kappa$ posteriors; and the fourth of a smaller class of lighter events with slightly bimodal posteriors.
@@ -380,6 +395,17 @@ Through these examples, we elucidate the interaction between $\kappa$ and the so
 % Case: GW170818
 \subsubsection{GW170818}
 \label{sec:GW170818}
+
+\begin{figure}
+    \script{corner_GW170818.py}
+    \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
+    \caption{
+        GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
+        The top right panel shows the marginalized posterior on $\chi_p$: allowing for birefringence reduces the preference for precession.
+        (See Fig.~\ref{fig:corner_GW170818_appendix} for a full corner plot.)
+    }
+    \label{fig:corner_GW170818}
+\end{figure}
 
 GW170818 produced the posterior most displaced from $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows that this happens because birefringence opens up a region of parameter space with $\kappa>0$ for larger distances and smaller inclination angles than would be allowed in the GR case.
@@ -394,25 +420,15 @@ This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
 It is difficult to unequivocally identify a specific feature of the GW170818 data that leads to this posterior structure.
 However, it appears to be related to this event's support for precession, in conjunction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh}.
 The relevance of precession is evident from the posterior on $\chi_p$ (Fig.~\ref{fig:corner_GW170818}, top right): allowing for $\kappa \neq 0$ leads to reduced support for precession.
-We can understand this in reference to Fig.~\ref{fig:birefringence}: if only a short portion of the signal is observed, then the frequency-dependent signal enhancement or dampening due to birefringence can mimic the time-dependent amplitude modulation in a precession cycle.
+We can understand this in reference to Fig.~\ref{fig:birefringence}: if only a short portion of the signal is observed, then the frequency-dependent signal enhancement or dampening due to birefringence can mimic the time-dependent amplitude modulation produced by a precession cycle.
 Therefore, under these circumstances, similar morphologies can be obtained by setting $\chi_p > 0$ or $\kappa > 0$, as long as the distance and inclination can also be adjusted accordingly.
 
-The fact that the birefringent analysis favors a high $\kappa$ rather than a high $\chi_p$ is a consequence of prior volume: many more configurations are available with long distances and high $\kappa$ than with short distances and small $|\kappa|$.
+The fact that the birefringent analysis favors a high $\kappa$ rather than a high $\chi_p$ is likely a consequence of prior volume: many more configurations are available with long distances and high $\kappa$ than with short distances and small $|\kappa|$.
 The preference for $\kappa > 0$ over $\kappa < 0$ (and, therefore, the lack of bimodality in the $\cos\iota$ and $\kappa$ posteriors), is likely related to both the definite measurement of left-handed polarizations and the specific phasing of the precession cycle.
 The latter manifests as a precise constraint on the spin orientation and phase angles in the \ac{GR} analysis \cite{Varma:2021csh}.
 The observed amplitude modulation (say, increasing vs decreasing towards the merger) likely determines the allowed sign of $\kappa$ for this event.
 Indeed, the inferred polarization angle in the birefringent case is notably different from the \ac{GR} one.
 We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:corner_GW170818_appendix} in Appendix~\ref{sec:corner_GW170818_appendix}.
-
-\begin{figure}
-    \script{corner_GW170818.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
-    \caption{
-        GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
-        The marginalized posterior on $\chi_p$ is shown in the top right panel.
-    }
-    \label{fig:corner_GW170818}
-\end{figure}
 
 % Case: GW190521 (massive BBH)
 \subsubsection{GW190521}
@@ -554,8 +570,12 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 
 \appendix
 
-\section{Full corner plot of GW170818}
+\section{Extended corner plot for GW170818}
 \label{sec:corner_GW170818_appendix}
+
+Here we present the measurement on all parameters we consider relevant for GW170818, of which Fig.~\ref{fig:corner_GW170818} in the main text represents a subset.
+There are several differences between the birefringent analysis (BR; blue) and the baseline \ac{GR} result (orange).
+The fact that the former has a reduced support for precession relative to the latter, as shown in Fig.~\ref{fig:corner_GW170818}, can here be seen in the fact that the BR analysis favors weaker spin magnitudes, $\chi_{1/2}$.
 
 \begin{figure*}[h]
     \script{corner_GW170818_appendix.py}
