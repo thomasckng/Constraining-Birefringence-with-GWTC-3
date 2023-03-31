@@ -34,7 +34,7 @@ lw = 1
 
 def kdeplot2d(x, y, **kws):
     kws.pop('label', None)
-    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, linewidths=lw, **kws)
+    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, **kws)
 
 def kdeplot1d(x, **kws):
     if np.all(x.isna()):
@@ -54,7 +54,7 @@ g = sns.PairGrid(data=result,
                  layout_pad=0.
                 )
 
-g.map_lower(kdeplot2d, levels=[0.90,0.3935], fill=True)
+g.map_lower(kdeplot2d, levels=[0.90,0.3935], fill=True, alpha=0.2, linewidths=lw)
 g.map_diag(kdeplot1d)
 
 for i in range(len(vars)):

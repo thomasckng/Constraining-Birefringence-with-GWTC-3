@@ -178,9 +178,10 @@ def kdeplot_2d_clevels(xs, ys, levels=11, **kwargs):
     kwargs['colors'] = kwargs.get('colors', [kwargs.pop('color', None),])
 
     if kwargs.pop('fill', False):
-        if len(l) == 1:
-            l = [l[0], max(ZS.flatten())] # if only one level, fill to max
-        ax.contourf(XS, YS, ZS, levels=l, **kwargs)
+        alpha = kwargs.pop('alpha', 1)
+        ax.contour(XS, YS, ZS, levels=l, linewidths = kwargs.pop('linewidths', 1), **kwargs) # draw the contour lines
+        for i in range(len(l)):
+            ax.contourf(XS, YS, ZS, levels=[l[i], max(ZS.flatten())], alpha=alpha ,**kwargs) # fill the contours
     else:
         ax.contour(XS, YS, ZS, levels=l, **kwargs)
 
