@@ -35,8 +35,13 @@ likelihood = likelihood / np.trapz(likelihood, x=kappa)
 restricted_kappa_median = np.interp(0.5,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa)
 generic_kappa_median = np.median(np.array(samples_reweighted).reshape(-1))
 
+credible_level = len(likelihood[likelihood > np.interp(0, kappa, likelihood)])/len(likelihood)
+
 with open(paths.output/"restricted_kappa_median.txt", "w") as f:
     f.write(f"${restricted_kappa_median:.3f}^{{+{(np.interp(0.95,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa)-restricted_kappa_median):.3f}}}_ {{{(np.interp(0.05,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa)-restricted_kappa_median):.3f}}}$")
 
 with open(paths.output/"generic_kappa_median.txt", "w") as f:
     f.write(f"${generic_kappa_median:.3f}^{{+{(np.percentile(a=np.array(samples_reweighted).reshape(-1),q=95)-generic_kappa_median):.3f}}}_{{{(np.percentile(a=np.array(samples_reweighted).reshape(-1),q=5)-generic_kappa_median):.3f}}}$")
+
+with open(paths.output/"CL_kappa_0.txt", "w") as f:
+    f.write(f"${credible_level:.3f}$")

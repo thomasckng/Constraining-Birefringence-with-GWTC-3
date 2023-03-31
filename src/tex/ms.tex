@@ -287,8 +287,7 @@ Finally, we discuss some special events individually, and outline the degeneraci
 % Violin plot
 Figure \ref{fig:violin_kappa} shows the main result of our GWTC-3 analysis as represented by the posterior distribution on $\kappa$ (abscissa) obtained individually for each event (ordinate).
 Posteriors are colored by the respective posterior mean distance to the origin in units of standard deviation, i.e., $|\mu_i/\sigma_i|$ for each event $i$.\footnote{We use the $i$ notation for individual events here to disambiguate from the population mean $\mu$ and standard deviation $\sigma$ of Eq.~\eqref{eq:posterior_of_mu_sigma}.}
-The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line); this joint measurement is fully consistent with $\kappa = 0$ (dashed line), meaning we find no evidence for birefringence.
-\mi{THOMAS: can you quote the CL of 0 obtained from the joint measurement?}
+The collective measurement obtained by assuming a shared $\kappa$ across events, Eq.~\eqref{eq:restricted_posterior}, is represented by its 90\%-credible symmetric interval (blue band) around the median (blue line); this joint measurement is fully consistent with $\kappa = 0$ (dashed line) with the credible level of \variable{output/CL_kappa_0.txt}, meaning we find no evidence for birefringence.
 
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}, in order of increasing standard deviation $\sigma_i$.
@@ -370,7 +369,7 @@ Future observations will determine whether there is truly evidence for a nonvani
 % Constraint on $\kappa$
 Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ under the assumption of a Gaussian distribution via Eq.~\eqref{eq:generic_posterior}.
 We show the result of doing this in Fig.~\ref{fig:posterior_kappa}, where we also compare to the posterior on $\kappa$ obtained by assuming a shared value across events (same result shown as a blue band in Fig.~\ref{fig:violin_kappa}).
-The hierarchical measurement leads to an expectation that $\kappa_i = $\variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies $\kappa = $\variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  
+The hierarchical measurement leads to an expectation that $\kappa_i =$ \variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies $\kappa =$ \variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  
 
 \begin{figure}
     \script{posterior_kappa.py}

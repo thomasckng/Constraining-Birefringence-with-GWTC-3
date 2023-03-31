@@ -13,7 +13,8 @@ rule compute_kappa_constraint:
         "src/data/samples_posterior_birefringence.feather"
     output:
         "src/tex/output/restricted_kappa_median.txt",
-        "src/tex/output/generic_kappa_median.txt"
+        "src/tex/output/generic_kappa_median.txt",
+        "src/tex/output/CL_kappa_0.txt"
     script:
         "src/scripts/kappa_constraint.py"
 

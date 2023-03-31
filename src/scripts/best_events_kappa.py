@@ -31,8 +31,7 @@ with open(paths.output/"best_events_kappa.txt", "w") as f:
         result_dict[event]['kappe_5'] = result_dict[event]['kappa_median'] - np.quantile(result_dict[event]['kappa'], 0.05)
 
         kernel = scipy.stats.gaussian_kde(result_dict[event]['kappa'])
-        kde = [kernel(kappa) for kappa in result_dict[event]['kappa']]
-        kde = np.array(kde)
+        kde = np.array([kernel(kappa) for kappa in result_dict[event]['kappa']])
         result_dict[event]['credible_level'] = len(kde[kde > kernel(0)[0]])/len(kde)
 
         f.write(rf"{result_dict[event]['event']} & ${sign(result_dict[event]['kappa_median'])}{result_dict[event]['kappa_median']:.3f}^{{+{result_dict[event]['kappe_95']:.3f}}}_{{-{result_dict[event]['kappe_5']:.3f}}}$ & ${result_dict[event]['kappa_std']:.3f}$ & ${result_dict[event]['credible_level']:.3f}$")
