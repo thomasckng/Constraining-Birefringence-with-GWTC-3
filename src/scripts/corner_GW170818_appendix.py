@@ -47,14 +47,17 @@ def kdeplot1d(x, **kws):
     plt.plot(df['x'], df['y'], lw=lw)
 
 vars = ['kappa','luminosity_distance','cos_iota','psi','a_1','a_2','tilt_1','tilt_2','phi_12','phi_jl','phase']
+c0 = sns.color_palette('tab20c')
 g = sns.PairGrid(data=result,
                  vars=vars,
                  corner=True, hue='with', 
                  diag_sharey=False,
-                 layout_pad=0.
+                 layout_pad=0.,
+                 #hue_kws={'cmap': ['Blues', 'Oranges']},
+                 hue_kws={'colors': [[c0[3], c0[0]], [c0[7], c0[5]]]}
                 )
 
-g.map_lower(kdeplot2d, levels=[0.90,0.3935], fill=True, alpha=0.2, linewidths=lw)
+g.map_lower(kdeplot2d, levels=[0.90,0.3935], alpha=0.7, fill=True)
 g.map_diag(kdeplot1d)
 
 for i in range(len(vars)):
