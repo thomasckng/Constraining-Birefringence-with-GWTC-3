@@ -424,7 +424,7 @@ Therefore, under these circumstances, similar morphologies can be obtained by se
 
 The fact that the birefringent analysis favors a high $\kappa$ rather than a high $\chi_p$ is likely a consequence of prior volume: many more configurations are available with long distances and high $\kappa$ than with short distances and small $|\kappa|$.
 The preference for $\kappa > 0$ over $\kappa < 0$ (and, therefore, the lack of bimodality in the $\cos\iota$ and $\kappa$ posteriors), is likely related to both the definite measurement of left-handed polarizations and the specific phasing of the precession cycle.
-The latter manifests as a precise constraint on the spin orientation and phase angles in the \ac{GR} analysis \cite{Varma:2021csh}.
+The latter manifests as a precise constraint on the spin orientation and phase angles in the \ac{GR} analysis \cite{Varma:2021csh} (see also Appendix \ref{sec:corner_GW170818_appendix}).
 The observed amplitude modulation (say, increasing vs decreasing towards the merger) likely determines the allowed sign of $\kappa$ for this event.
 Indeed, the inferred polarization angle in the birefringent case is notably different from the \ac{GR} one.
 We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:corner_GW170818_appendix} in Appendix~\ref{sec:corner_GW170818_appendix}.
@@ -573,6 +573,18 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 \label{sec:corner_GW170818_appendix}
 
 Here we present the measurement on all parameters we consider relevant for GW170818, of which Fig.~\ref{fig:corner_GW170818} in the main text represents a subset.
+The regular \ac{GR} analysis (GR; orange) and the birefringent analysis (BR; blue) both show notable features.
+
+The GR analysis stands out for its relatively confident identification of the spin angles, $\theta_{1/2}$ and $\phi_{JL}$, as well as the phase and polarization angles, $\phi_{\rm ref}$ and $\psi$.
+Of the former, the two $\theta_{1/2}$ parameters encode the tilts of the component \acp{BH} with respect to the orbital angular momentum, $\vec{L}$, while $\phi_{JL}$ is the angle between the projections of $\vec{L}$ and the total angular momentum, $\vec{J}$, along the orbital plane;
+of the latter, $\phi_{\rm ref}$ is an overall reference phase, and $\psi$ encodes the orientation of the binary within the plane of the sky \cite{Isi:2022mbx}.
+All these parameters are anchored to a reference point in the evolution of the inspiral, which in this case corresponds to the time at which the dominant mode of the observed \ac{GW} signal reaches 20 Hz at the detector (spin angles may be better identified by using a more physical reference point \cite{Varma:2021csh}).
+It is unusual for these angles to be well constrained, which suggests that this event displays a particular phase and polarization signature.
+
+The joint posterior on the spin magnitudes, $\chi_1$ and $\chi_2$, indicates that at least one of the component \acp{BH} must have been highly spinning according to this \ac{GR} waveform, as evidenced by the lack of support for $\chi_1=\chi_2 = 0$ (this is not apparent from the marginals because the \acp{BH} were equal in mass \cite{Biscoveanu:2020are}).
+Furthermore, the fact that the tilts are favored to be close to $\theta_{1/2} \approx \pi/2$ implies that the spins must lie along the orbital plane.
+This is a restatement of the support for high $\chi_p$ in Fig.~\ref{fig:corner_GW170818}.
+
 There are several differences between the birefringent analysis (BR; blue) and the baseline \ac{GR} result (orange).
 The fact that the former has a reduced support for precession relative to the latter, as shown in Fig.~\ref{fig:corner_GW170818}, can here be seen in the fact that the BR analysis favors weaker spin magnitudes, $\chi_{1/2}$.
 
@@ -580,7 +592,7 @@ The fact that the former has a reduced support for precession relative to the la
     \script{corner_GW170818_appendix.py}
     \includegraphics[width=\textwidth]{figures/corner_GW170818_appendix.pdf}
     \caption{
-        Corner plot of GW170818.
+        Extended corner plot for GW170818: a supplement to Fig.~\ref{fig:corner_GW170818} discussed in Appendix~\ref{sec:corner_GW170818_appendix}.
     }
     \label{fig:corner_GW170818_appendix}
 \end{figure*}
