@@ -572,21 +572,24 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 \section{Extended corner plot for GW170818}
 \label{sec:corner_GW170818_appendix}
 
-Here we present the measurement on all parameters we consider relevant for GW170818, of which Fig.~\ref{fig:corner_GW170818} in the main text represents a subset.
-Figure \ref{fig:corner_GW170818_appendix} shows the the regular \ac{GR} analysis (GR; orange) and the birefringent analysis (BR; blue), both of which show notable features.
+Here we provide further details on the GW170818 measurement. 
+Figure \ref{fig:corner_GW170818_appendix} displays the posterior on all parameters we consider relevant for this event, of which Fig.~\ref{fig:corner_GW170818} in the main text represents a subset.
+As in that figure, Fig.~\ref{fig:corner_GW170818_appendix} shows the regular \textsc{IMRPhenomXPHM} \ac{GR} analysis (GR; orange) and the birefringent analysis (BR; blue), both of which show notable features.
 
-The GR analysis stands out for its relatively confident identification of the spin angles, $\theta_{1/2}$ and $\phi_{JL}$, as well as the phase and polarization angles, $\phi_{\rm ref}$ and $\psi$.
-Of the former, the two $\theta_{1/2}$ angles encode the tilts of the component \acp{BH} with respect to the orbital angular momentum, $\vec{L}$, while $\phi_{JL}$ is the angle between the projections of $\vec{L}$ and the total angular momentum, $\vec{J}$, along the orbital plane;
+The GR analysis stands out for its relatively confident identification of the spin angles, $\theta_{1/2}$, $\Delta \phi$ and $\phi_{JL}$, as well as the phase and polarization angles, $\phi_{\rm ref}$ and $\psi$.
+Of the former, the two $\theta_{1/2}$ angles encode the tilts of the component \acp{BH} with respect to the orbital angular momentum, $\vec{L}$, $\Delta \phi$ is the angle between the spin projections onto the orbital plane, while $\phi_{JL}$ is a similar angle separating the projections of $\vec{L}$ and the total angular momentum, $\vec{J}$;
 of the latter, $\phi_{\rm ref}$ is an overall reference phase, and $\psi$ encodes the orientation of the binary within the plane of the sky \cite{Isi:2022mbx}.
-All these parameters are anchored to a reference point in the evolution of the inspiral, which in this case corresponds to the time at which the dominant mode of the observed \ac{GW} signal reaches 20 Hz at the detector (spin angles may be better identified by using a more physical reference point \cite{Varma:2021csh}).
-It is unusual for these angles to be well constrained, which suggests that data for this event display a particular phase and polarization signature.
+All these parameters are anchored to a reference point in the inspiral, which in this case corresponds to the time at which the dominant multipole of the observed \ac{GW} signal reaches 20 Hz at the detector (spin angles may be better identified by using a more physical reference point \cite{Varma:2021csh}).
+It is unusual for all these angles to be well constrained, which suggests that data for this event display a particular phase and polarization signature.
 
-The joint posterior on the spin magnitudes, $\chi_1$ and $\chi_2$, indicates that at least one of the component \acp{BH} must have been highly spinning according to this \ac{GR} waveform, as evidenced by the lack of support for $\chi_1=\chi_2 = 0$ (this is not apparent from the marginals because the \acp{BH} were equal in mass \cite{Biscoveanu:2020are}).
-Furthermore, the fact that the tilts are favored to be close to $\theta_{1/2} \approx \pi/2$ implies that the spins must lie along the orbital plane.
-This is a restatement of the support for high $\chi_p$ in Fig.~\ref{fig:corner_GW170818}.
+The joint posterior on the spin magnitudes, $\chi_1$ and $\chi_2$, disfavors the origin $\chi_1 = \chi_2 = 0$ with high credibility, indicating that at least one of the component \acp{BH} must have been highly spinning (this is not apparent from the marginals because the \acp{BH} were equal in mass \cite{Biscoveanu:2020are}).
+Furthermore, the fact that the tilts are favored to be close to $\theta_{1/2} \approx \pi/2$ implies that the spins must lie along the orbital plane;
+this is a restatement of the support for high $\chi_p$ in Fig.~\ref{fig:corner_GW170818}.
 
-There are several differences between the birefringent analysis (BR; blue) and the baseline \ac{GR} result (orange).
-The fact that the former has a reduced support for precession relative to the latter, as shown in Fig.~\ref{fig:corner_GW170818}, can here be seen in the fact that the BR analysis favors weaker spin magnitudes, $\chi_{1/2}$.
+On the other hand, the birefringent analysis does not strongly favor high spins; this is evidenced by the joint posterior on $\chi_1$ and $\chi_2$, which now favors $\chi_1 = \chi_2 = 0$ and assigns relatively low probability densities to higher values.
+Although the spin tilts are similarly constrained to $\theta_{1/2} \approx \pi/2$, the low spin magnitudes would imply weak if any precession, which is reflected in the support for lower values of $\chi_p$ in Fig.~\ref{fig:corner_GW170818} of the main text.
+As discussed in Sec.~\ref{sec:GW170818}, this can be explained by the introduction of $\kappa$, which can result in morphologies that are approximately degenerate with precession over a small number of waveform cycles (cf.~Fig.~\ref{fig:birefringence}).
+See the main text for further discussion.
 
 \begin{figure*}[h]
     \script{corner_GW170818_appendix.py}
