@@ -76,12 +76,17 @@ axs[1,1].set_xlim(0)
 axs[1,1].set_ylim(0)
 axs[1,1].set_yticks([])
 
+c0 = sns.color_palette('tab20c')
+colors = [[c0[2], c0[0]], [c0[7], c0[5]]]
+
 # axs[1,0].axvline(mu_median, color=sns.color_palette()[0])
 # axs[1,0].axhline(sigma_median, color=sns.color_palette()[0])
-kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=sns.color_palette()[0], levels=[0.90,0.3935], linewidths=lw)
+kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], colors=colors[0], levels=[0.90,0.3935], fill=True, alpha=0.7)
+kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=c0[0], levels=[0.90,0.3935], fill=False, linewidhts=[0.5,], alpha=0.5)
+
 #axs[1,0].axvline(mu_median_without_GW200129, color=sns.color_palette()[3])
 #axs[1,0].axhline(sigma_median_without_GW200129, color=sns.color_palette()[3])
-kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], color=sns.color_palette()[1], levels=[0.90,0.3935], linewidths=lw)
+kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], colors=colors[1], levels=[0.90,0.3935], fill=True, alpha=0.7)
 
 axs[1,0].set_xlabel("$\\mu$")
 axs[1,0].set_ylabel("$\\sigma$")

@@ -6,6 +6,8 @@ from bilby.gw.result import CBCResult
 from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
 import paths
 
+rng = np.random.default_rng(12345)
+
 sns.set_theme(palette='colorblind', font_scale=2.0)
 
 plt.rcParams.update({
@@ -17,16 +19,20 @@ plt.rcParams.update({
 nsamples = 5000
 
 result_GR = CBCResult.from_json(filename=paths.data/"GW170818_GR.json.gz").posterior
-result_GR = result_GR.sample(n=nsamples)
+result_GR = result_GR.sample(n=nsamples, random_state=rng)
 result_GR['kappa'] = np.full(len(result_GR), None)
 result_GR['with'] = np.full(len(result_GR), "GR")
 result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
+result_GR['cos_tilt_1'] = np.cos([float(value) for value in result_GR['tilt_1']])
+result_GR['cos_tilt_2'] = np.cos([float(value) for value in result_GR['tilt_2']])
 
 result_BR = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_BR = result_BR[result_BR.event == "GW170818"]
-result_BR = result_BR.sample(n=nsamples)
+result_BR = result_BR.sample(n=nsamples, random_state=rng)
 result_BR['with'] = np.full(len(result_BR), r"BR")
 result_BR['cos_iota'] = np.cos(result_BR['iota'])
+result_BR['cos_tilt_1'] = np.cos([float(value) for value in result_BR['tilt_1']])
+result_BR['cos_tilt_2'] = np.cos([float(value) for value in result_BR['tilt_2']])
 
 result = pd.concat([result_BR,result_GR], ignore_index=True)
 
@@ -46,7 +52,7 @@ def kdeplot1d(x, **kws):
     plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2)
     plt.plot(df['x'], df['y'], lw=lw)
 
-vars = ['kappa','luminosity_distance','cos_iota','psi','a_1','a_2','tilt_1','tilt_2','phi_12','phi_jl','phase']
+vars = ['kappa','luminosity_distance','cos_iota','psi','a_1','a_2','cos_tilt_1','cos_tilt_2','phi_12','phi_jl','phase']
 c0 = sns.color_palette('tab20c')
 g = sns.PairGrid(data=result,
                  vars=vars,
@@ -77,10 +83,10 @@ g.axes[4,0].set_ylabel("$\chi_1$")
 g.axes[10,4].set_xlabel("$\chi_1$")
 g.axes[5,0].set_ylabel("$\chi_2$")
 g.axes[10,5].set_xlabel("$\chi_2$")
-g.axes[6,0].set_ylabel("$\\theta_1$")
-g.axes[10,6].set_xlabel("$\\theta_1$")
-g.axes[7,0].set_ylabel("$\\theta_2$")
-g.axes[10,7].set_xlabel("$\\theta_2$")
+g.axes[6,0].set_ylabel("$\\cos\\theta_1$")
+g.axes[10,6].set_xlabel("$\\cos\\theta_1$")
+g.axes[7,0].set_ylabel("$\\cos\\theta_2$")
+g.axes[10,7].set_xlabel("$\\cos\\theta_2$")
 g.axes[8,0].set_ylabel("$\\Delta\\phi$")
 g.axes[10,8].set_xlabel("$\\Delta\\phi$")
 g.axes[9,0].set_ylabel("$\\phi_{JL}$")

@@ -387,9 +387,9 @@ The hierarchical measurement leads to an expectation that $\kappa_i =$ \variable
 \subsection{Notable events}
 \label{sec:results:notable}
 
-Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW200129, GW190521 and GW191105.
-When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$; the second shows signs of potential noise anomalies; the third is representative of a class of heavy events with strongly bimodal $\kappa$ posteriors; and the fourth of a smaller class of lighter events with slightly bimodal posteriors.
-Through these examples, we elucidate the interaction between $\kappa$ and the source luminosity distance, inclination and spin precession.
+Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW190521 and GW200129.
+When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$; the third is representative of a class of events with bimodal $\kappa$ posteriors; and the third shows signs of potential noise anomalies.
+Through these examples, we elucidate the interaction between $\kappa$ and the source luminosity distance, inclination and spin parameters.
 
 % Case: GW170818
 \subsubsection{GW170818}
@@ -484,21 +484,21 @@ The poor determination of the polarization state of the detected signal is evide
 %     \label{fig:corner_GW150914}
 % \end{figure}
 
-% Case: GW191105
-\subsubsection{GW191105}
-\label{sec:GW191105}
-
-The situation is similar for GW191105 (Fig.~\ref{fig:corner_GW191105}).
-
-\begin{figure}
-    \script{corner_GW191105.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW191105.pdf}
-    \caption{
-        GW191105 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
-        The posterior on $\chi_{eff}$ and $\kappa$ from our birefringence analysis is shown in the top right panel.
-    }
-    \label{fig:corner_GW191105}
-\end{figure}
+% % Case: GW191105
+% \subsubsection{GW191105}
+% \label{sec:GW191105}
+% 
+% The situation is similar for GW191105 (Fig.~\ref{fig:corner_GW191105}).
+% 
+% \begin{figure}
+%     \script{corner_GW191105.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW191105.pdf}
+%     \caption{
+%         GW191105 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
+%         The posterior on $\chi_{eff}$ and $\kappa$ from our birefringence analysis is shown in the top right panel.
+%     }
+%     \label{fig:corner_GW191105}
+% \end{figure}
 
 
 % Case: GW200129 (glitch in Virgo data)
@@ -579,7 +579,9 @@ KAGRA is supported by Ministry of Education, Culture, Sports, Science and Techno
 
 \appendix
 
-\section{Extended corner plot for GW170818}
+\section{Extended results for notable events}
+
+\subsection{GW170818}
 \label{sec:corner_GW170818_appendix}
 
 Here we provide further details on the GW170818 measurement. 
@@ -605,46 +607,65 @@ See the main text for further discussion.
     \script{corner_GW170818_appendix.py}
     \includegraphics[width=\textwidth]{figures/corner_GW170818_appendix.pdf}
     \caption{
-        Extended corner plot for GW170818: a supplement to Fig.~\ref{fig:corner_GW170818} discussed in Appendix~\ref{sec:corner_GW170818_appendix}.
+        Extended corner plot for GW170818: a supplement to Fig.~\ref{fig:corner_GW170818} discussed in Appendix~\ref{sec:corner_GW170818_appendix}. The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
+        The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
     }
     \label{fig:corner_GW170818_appendix}
 \end{figure*}
 
-\section{Extended corner plot for GW190521}
+\subsection{GW190521}
 \label{sec:corner_GW190521_appendix}
+
+As in the previous section, here we display additional parameters from the GW190521 measurement in Fig.~\ref{fig:corner_GW190521_appendix}, expanding upon Fig.~\ref{fig:corner_GW190521} in the main text.
+The reference \ac{GR} analysis, obtained with the \textsc{IMRPhenomXPHM} waveform, favors near extremal spins, in particular for the heavier component, and rules out nonspinning objects (i.e., $\chi_1 = \chi_2 = 0$) with $\geq 90\%$ credibility.
+This can be seen most clearly in the joint posterior for $\chi_1$ and $\chi_2$, rather than in the respective 1D marginals because the \acp{BH} in this system were inferred to have equal masses \cite{Biscoveanu:2020are}.
+
+Similar to GW170818, the \ac{GR} analysis for GW190521 also provides an informative measurement of the polarization angle $\psi$ and reference phase $\phi_{\rm ref}$.
+However, the fact that $\psi$ is constrained does not alone imply that the degeneracy between right- and left-handed states is broken (for a nonprecessing source, $\psi$ is related to the difference in phase between the circular polarization modes \cite{Isi:2022mbx}).
+Additionally, the posterior for tilt angle of the primary \ac{BH}, $\theta_1$, shows support for an antialigned spin ($\cos\theta_1 \approx -1$).
+For this events, spin and phase angles are referred to 10 Hz at the detector.
+
+Unlike the \ac{GR} analysis, the birefringent analysis does not favor extremal spins and is, in fact, consistent with nonspinning objects within 90\% credibility (lighter blue region encloses $\chi_1 = \chi_2 = 0$ in the respective panel of Fig.~\ref{fig:corner_GW190521_appendix}).
+In Fig.~\ref{fig:corner_GW190521}, this same fact manifested as a $\chi_{\rm eff}$ posterior with higher support for the origin.
+As we discussed in Sec.~\ref{sec:GW190521}, this suggests that some of the spin effects in these data are being absorbed by a nonzero $\kappa$.
+Other than the spins, the birefringent analysis differs most notably from the \ac{GR} one in the inference of the luminosity distance, which is favored to be much greater.
+See Sec.~\ref{sec:GW190521} in the main text for related exposition.
+
 
 \begin{figure*}[h]
     \script{corner_GW190521_appendix.py}
     \includegraphics[width=\textwidth]{figures/corner_GW190521_appendix.pdf}
     \caption{
-        Extended corner plot for GW190521: a supplement to Fig.~\ref{fig:corner_GW190521} discussed in Appendix~\ref{sec:corner_GW190521_appendix}.
+        Extended corner plot for GW190521: a supplement to Fig.~\ref{fig:corner_GW190521} discussed in Appendix~\ref{sec:corner_GW190521_appendix}. The shaded regions contain 90\% and 39.35\% ($1\sigma$) of
+ the probability mass.
+        The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
     }
     \label{fig:corner_GW190521_appendix}
 \end{figure*}
 
-\section{Extended corner plot for GW191105}
-\label{sec:corner_GW191105_appendix}
+% \subsection{Extended corner plot for GW191105}
+% \label{sec:corner_GW191105_appendix}
+% 
+% \begin{figure*}[h]
+%     \script{corner_GW191105_appendix.py}
+%     \includegraphics[width=\textwidth]{figures/corner_GW191105_appendix.pdf}
+%     \caption{
+%         Extended corner plot for GW191105: a supplement to Fig.~\ref{fig:corner_GW191105} discussed in Appendix~\ref{sec:corner_GW191105_appendix}.
+%     }
+%     \label{fig:corner_GW191105_appendix}
+% \end{figure*}
 
-\begin{figure*}[h]
-    \script{corner_GW191105_appendix.py}
-    \includegraphics[width=\textwidth]{figures/corner_GW191105_appendix.pdf}
-    \caption{
-        Extended corner plot for GW191105: a supplement to Fig.~\ref{fig:corner_GW191105} discussed in Appendix~\ref{sec:corner_GW191105_appendix}.
-    }
-    \label{fig:corner_GW191105_appendix}
-\end{figure*}
-
-\section{Extended corner plot for GW200129}
-\label{sec:corner_GW200129_appendix}
-
-\begin{figure*}[h]
-    \script{corner_GW200129_appendix.py}
-    \includegraphics[width=\textwidth]{figures/corner_GW200129_appendix.pdf}
-    \caption{
-        Extended corner plot for GW200129: a supplement to Fig.~\ref{fig:corner_GW200129} discussed in Appendix~\ref{sec:corner_GW200129_appendix}.
-    }
-    \label{fig:corner_GW200129_appendix}
-\end{figure*}
+% \section{Extended corner plot for GW200129}
+% \label{sec:corner_GW200129_appendix}
+% 
+% \begin{figure*}[h]
+%     \script{corner_GW200129_appendix.py}
+%     \includegraphics[width=\textwidth]{figures/corner_GW200129_appendix.pdf}
+%     \caption{
+%         Extended corner plot for GW200129: a supplement to Fig.~\ref{fig:corner_GW200129} discussed in Appendix~\ref{sec:corner_GW200129_appendix}.
+%     }
+%     \label{fig:corner_GW200129_appendix}
+% \end{figure*}
 
 \section{Relation between $\kappa$ and $M_{PV}$}
 \label{sec:M_PV_derivation}
