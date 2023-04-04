@@ -178,14 +178,14 @@ As a measure of the \ac{BH} spin magnitudes along the orbital angular momentum, 
 % \chi_{\rm eff} \equiv \frac{1}{M} \left(m_1 \left|\vec{\chi}_{1\parallel}\right| + m_2\left|\vec{\chi}_{2\parallel}\right|\right)
 % \end{equation}
 \begin{equation}
-\chi_{\rm eff} \equiv \frac{1}{1+q} \left(\left|\vec{\chi}_{1\parallel}\right| + q\left|\vec{\chi}_{2\parallel}\right|\right)
+\chi_{\rm eff} \equiv \frac{1}{1+q} \left(\chi_{1\parallel} + q\chi_{2\parallel}\right)
 \end{equation}
-where $|\vec{\chi}_{i\parallel}|$ are the norms of the projections of the dimensionless spin vectors along the orbital angular momentum, and the  mass ratio is $q \equiv m_2/m_1 \leq 1$.
+where $\chi_{i\parallel}$ are the norms of the projections of the dimensionless spin vectors along the orbital angular momentum, and the  mass ratio is $q \equiv m_2/m_1 \leq 1$.
 We will study the interplay between birefringence and precession by focusing on the posterior of the precessing spin parameter $\chi_p$, defined as \cite{Schmidt:2014iyl}
 \begin{equation}
-\chi_p \equiv \max\left\{ |\vec{\chi}_{1\perp}|,\, k |\vec{\chi}_{2\perp}|\right\} ,
+\chi_p \equiv \max\left\{ \chi_{1\perp},\, k \chi_{2\perp}\right\} ,
 \end{equation}
-where $|\vec{\chi}_{i\perp}|$ are the norms of the projections of the dimensionless spin vectors onto the orbital plane at a reference time, and $k \equiv q\left(4 q +3\right) / \left(4 + 3q\right)$.
+where $\chi_{i\perp}$ are the norms of the projections of the dimensionless spin vectors onto the orbital plane at a reference time, and $k \equiv q\left(4 q +3\right) / \left(4 + 3q\right)$.
 We chart this and other approximate degeneracies as part of the results presented in Sec.~\ref{sec:Results}.
 
 % In particular, we find that, under certain conditions, the frequency-dependent birefringence of Eq.~\eqref{eq:waveform_modification} can mimic the time-dependent amplitude modulation expected from a precessing system.
@@ -410,23 +410,23 @@ GW170818 produced the posterior most displaced from $\kappa=0$, when judged by $
 Figure \ref{fig:corner_GW170818} shows that this happens because birefringence opens up a region of parameter space with $\kappa>0$ for larger distances and smaller inclination angles than would be allowed in the GR case.
 We can make sense of this by noting that an edge-on, nonprecessing source produces linearly-polarized waves, meaning that a smaller inclination leads the two circular polarizations to have similar amplitudes.
 On the other hand, having $\kappa > 0$ enhances the left-handed modes during propagation, per Eq.~\eqref{eq:waveform_modification}.
-The two effects can be balanced to yield the correct polarization ratio observed at the detector (predominantly left-handed, per the preference for $\cos\iota \approx -1$ in the \ac{GR} analysis), as long as the distance is also enhanced to yield the right amount of birefringence and overall signal power.
+The two effects can be balanced to match the polarization ratio observed at the detector (predominantly left-handed, per the preference for $\cos\iota \approx -1$ in the \ac{GR} analysis), as long as the distance is also enhanced to yield the right amount of birefringence and overall signal power.
 This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
 % Even though the degeneracy is broken by the frequency dependence to a large extent, it is still possible for getting an extra region with a nonzero $\kappa$.
 % This is because there is still a significant likelihood in the region of $\kappa$ close to zero.
 % We can see this effect in other events as well, but not as strongly as in GW170818.
 
 It is difficult to unequivocally identify a specific feature of the GW170818 data that leads to this posterior structure.
-However, it appears to be related to this event's support for precession, in conjunction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh}.
+However, it appears to be related to this event's support for precession, in conjunction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh} (see Appendix \ref{sec:corner_GW170818_appendix}).
 The relevance of precession is evident from the posterior on $\chi_p$ (Fig.~\ref{fig:corner_GW170818}, top right): allowing for $\kappa \neq 0$ leads to reduced support for precession.
 We can understand this in reference to Fig.~\ref{fig:birefringence}: if only a short portion of the signal is observed, then the frequency-dependent signal enhancement or dampening due to birefringence can mimic the time-dependent amplitude modulation produced by a precession cycle.
 Therefore, under these circumstances, similar morphologies can be obtained by setting $\chi_p > 0$ or $\kappa > 0$, as long as the distance and inclination can also be adjusted accordingly.
 
-The fact that the birefringent analysis favors a high $\kappa$ rather than a high $\chi_p$ is likely a consequence of prior volume: many more configurations are available with long distances and high $\kappa$ than with short distances and small $|\kappa|$.
+The fact that the birefringent analysis favors a high $\kappa$ rather than a high $\chi_p$ can be explained a consequence of prior volume: many more configurations are available with long distances and high $\kappa$ than with short distances and small $|\kappa|$.
 The preference for $\kappa > 0$ over $\kappa < 0$ (and, therefore, the lack of bimodality in the $\cos\iota$ and $\kappa$ posteriors), is likely related to both the definite measurement of left-handed polarizations and the specific phasing of the precession cycle.
 The latter manifests as a precise constraint on the spin orientation and phase angles in the \ac{GR} analysis \cite{Varma:2021csh} (see also Appendix \ref{sec:corner_GW170818_appendix}).
 The observed amplitude modulation (say, increasing vs decreasing towards the merger) likely determines the allowed sign of $\kappa$ for this event.
-Indeed, the inferred polarization angle in the birefringent case is notably different from the \ac{GR} one.
+Indeed, the inference on the polarization angle in the birefringent case is notably narrower than in \ac{GR}.
 We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:corner_GW170818_appendix} in Appendix~\ref{sec:corner_GW170818_appendix}.
 
 % Case: GW190521 (massive BBH)
