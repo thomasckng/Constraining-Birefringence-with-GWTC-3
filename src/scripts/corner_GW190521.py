@@ -6,6 +6,8 @@ from bilby.gw.result import CBCResult
 from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
 import paths
 
+rng = np.random.default_rng(12345)
+
 sns.set_theme(palette='colorblind', font_scale=1.5)
 
 plt.rcParams.update({
@@ -17,14 +19,14 @@ plt.rcParams.update({
 nsamples = 5000
 
 result_GR = CBCResult.from_json(filename=paths.data/"GW190521_GR.json.gz").posterior
-result_GR = result_GR.sample(n=nsamples)
+result_GR = result_GR.sample(n=nsamples, random_state=rng)
 result_GR['kappa'] = np.full(len(result_GR), None)
 result_GR['with'] = np.full(len(result_GR), "GR")
 result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 
 result_BR = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_BR = result_BR[result_BR.event == "GW190521"]
-result_BR = result_BR.sample(n=nsamples)
+result_BR = result_BR.sample(n=nsamples, random_state=rng)
 result_BR['with'] = np.full(len(result_BR), "BR")
 result_BR['cos_iota'] = np.cos(result_BR['iota'])
 
@@ -90,9 +92,23 @@ ax.fill_between(chi_eff_BR, bounded_kde_BR, np.zeros(len(chi_eff_BR)), alpha=0.2
 ax.plot(chi_eff_GR, bounded_kde_GR, color=sns.color_palette()[1], lw=lw)
 ax.fill_between(chi_eff_GR, bounded_kde_GR, np.zeros(len(chi_eff_GR)), alpha=0.2, color=sns.color_palette()[1])
 
+# result_BR = result_BR.sort_values(['a_1'])
+# result_GR = result_GR.sort_values(['a_1'])
+# chi_p_BR = result_BR['a_1']
+# chi_p_GR = result_GR['a_1']
+# bounded_kde_BR = Bounded_1d_kde(chi_p_BR, xlow=0, xhigh=1)(chi_p_BR)
+# bounded_kde_GR = Bounded_1d_kde(chi_p_GR, xlow=0, xhigh=1)(chi_p_GR)
+# 
+# ax.plot(chi_p_BR, bounded_kde_BR, color=sns.color_palette()[0], lw=lw)
+# ax.fill_between(chi_p_BR, bounded_kde_BR, np.zeros(len(chi_p_BR)), alpha=0.2, color=sns.color_palette()[0])
+# ax.plot(chi_p_GR, bounded_kde_GR, color=sns.color_palette()[1], lw=lw)
+# ax.fill_between(chi_p_GR, bounded_kde_GR, np.zeros(len(chi_p_GR)), alpha=0.2, color=sns.color_palette()[1])
+
 ax.set_xlabel(r"$\chi_{\rm eff}$")
+# ax.set_xlabel(r"$\chi_p$")
 ax.set_ylabel("")
 ax.set_xlim(-1, 1)
+# ax.set_xlim(0, 1)
 ax.set_ylim(0)
 ax.set_xticks([-0.5, 0, 0.5])
 ax.get_yaxis().set_visible(False)

@@ -434,11 +434,21 @@ We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:cor
 \label{sec:GW190521}
 
 GW190521 is the most extreme representative of a class of events with bimodal $\kappa$ posteriors (Table \ref{tab:bimodal_events_mass}).
-This appears to arise out of a confluence of factors related to this event's high mass and support for precession: GW190521 being the most massive event in our set, its signal is only in-band for a very short time before merger, meaning that frequency-dependent birefringence can more easily resemble spin effects.
-In particular, a precession cycle can be approximated by a monotonic amplitude modulation for a short time.
-This effect gives rise to a similar degeneracy between $\kappa$ and $\chi_p$ as outlined for GW170818, wherein the prior volume favored configurations with $|\kappa| >0$.
-However, in the case of GW190521, the polarization measurement at the detectors is not accurate enough to fully disambiguate between right- and left-handed states (as implied by the bimodal $\cos\iota$ posterior obtained assuming \ac{GR} in Fig.~\ref{fig:corner_GW190521}).
-As a result, the GW190521 posterior does not favor $\kappa > 0$ exclusively, but supports both $\kappa > 0$ and $\kappa < 0$, leading to a bimodal posterior.
+Figure \ref{fig:corner_GW190521} shows that the two peaks of the $\kappa$ distribution arise from respective modes in the inclination (lower left corner): one solution corresponds to an intrinsically face-on source ($\cos\iota \approx 1$) with negative $\kappa$, and the other to a face-off source ($\cos\iota \approx -1$) with positive $\kappa$.
+In the former, an initially right-handed signal is birefringently enhanced by $\kappa < 0$ as it propagates towards the detector; in the latter, an initially left-handed signal is enhanced by $\kappa > 0$.
+The two outcomes (a right-handed or left-handed signal at the detector) match the two possibilities allowed also in the reference \ac{GR} run, which itself yields a bimodal $\cos\iota$ posterior.
+In both cases, the overall amplification of the signal introduced by a nonzero $\kappa$ is balanced by a large luminosity distance ($d_L \gtrsim 5 \, {\rm Gpc}$), so as to match the observed signal-to-noise ratio.
+
+Introducing birefringence affects our inference of the spins in the GW190521 system.
+We illustrate this in Fig.~\ref{fig:corner_GW190521} through the posterior on the effective spin $\chi_{\rm eff}$, which is favored to take values closer to zero in the birefringent analysis;
+this can also be seen clearly in the joint posterior for the individual spin magnitudes, provided in Appendix \ref{sec:corner_GW190521_appendix}.
+This suggests that at least part of the data features that lead the \ac{GR} analysis to infer near extremal spins can be alternatively explained as a consequence of birefringence.
+The fact that this is possible is not fully surprising given that the signal from this heavy system is only observed for a very small number of cycles \cite{LIGOScientific:2020iuh,LIGOScientific:2020ufj}.
+
+All in all, the situation for GW190521 is not unlike that of GW170818 discussed above (Sec.~\ref{sec:GW170818}): features in the data that would normally be interpreted as traces of high component spins are instead (at least partially) attributed to birefringent propagation, driven by a prior preference for high distances.
+The degeneracies in the case of GW190521 are likely exacerbated by the heavier mass of the system, which reduces the observed number of cycles.
+Crucially, GW190521 also lacks a definite measurement of the polarization state at the detector: without certainty about the ratio of right- versus left-handed components in the observed signal, it is not possible to disambiguate between $\kappa > 0$ versus $\kappa < 0$; hence the $\kappa$ distribution remains bimodal for GW190521, unlike for GW170918.
+The poor determination of the polarization state of the detected signal is evidenced by the bimodal $\cos\iota$ posterior inferred assuming \ac{GR} in Fig.~\ref{fig:corner_GW190521}, and is a consequence of several factors including sky location.
 
 \begin{figure}
     \script{corner_GW190521.py}
