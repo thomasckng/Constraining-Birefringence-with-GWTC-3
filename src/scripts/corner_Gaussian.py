@@ -5,9 +5,11 @@ import seaborn as sns
 from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
 import paths
 
+rng = np.random.default_rng(12345)
+
 sns.set_theme(palette='colorblind', font_scale=1.2)
 
-nsamp = 5000
+nsamp = 6000
 
 plt.rcParams.update({
     "text.usetex": True,
@@ -23,7 +25,7 @@ sigma_median = np.median(samples_Gaussian[:,1])
 df = pd.DataFrame()
 df['mu'] = samples_Gaussian.reshape(-1,2)[:,0]
 df['sigma'] = samples_Gaussian.reshape(-1,2)[:,1]
-df = df.sample(nsamp)
+df = df.sample(nsamp, random_state=rng)
 
 kde_1d_sigma = Bounded_1d_kde(df['sigma'], xlow=0)
 df['sigma_kde'] = kde_1d_sigma(df['sigma'])
@@ -37,7 +39,7 @@ sigma_median_without_GW200129 = np.median(samples_Gaussian_without_GW200129[:,1]
 df_without_GW200129 = pd.DataFrame()
 df_without_GW200129['mu'] = samples_Gaussian_without_GW200129.reshape(-1,2)[:,0]
 df_without_GW200129['sigma'] = samples_Gaussian_without_GW200129.reshape(-1,2)[:,1]
-df_without_GW200129 = df_without_GW200129.sample(nsamp)
+df_without_GW200129 = df_without_GW200129.sample(nsamp, random_state=rng)
 
 kde_1d_sigma_without_GW200129 = Bounded_1d_kde(df_without_GW200129['sigma'], xlow=0)
 df_without_GW200129['sigma_kde'] = kde_1d_sigma_without_GW200129(df_without_GW200129['sigma'])
