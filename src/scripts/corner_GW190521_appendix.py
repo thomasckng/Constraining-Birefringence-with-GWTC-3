@@ -16,14 +16,14 @@ plt.rcParams.update({
 
 nsamples = 5000
 
-result_GR = CBCResult.from_json(filename=paths.data/"GW170818_GR.json.gz").posterior
+result_GR = CBCResult.from_json(filename=paths.data/"GW190521_GR.json.gz").posterior
 result_GR = result_GR.sample(n=nsamples)
 result_GR['kappa'] = np.full(len(result_GR), None)
 result_GR['with'] = np.full(len(result_GR), "GR")
 result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 
 result_BR = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
-result_BR = result_BR[result_BR.event == "GW170818"]
+result_BR = result_BR[result_BR.event == "GW190521"]
 result_BR = result_BR.sample(n=nsamples)
 result_BR['with'] = np.full(len(result_BR), r"BR")
 result_BR['cos_iota'] = np.cos(result_BR['iota'])
@@ -94,4 +94,4 @@ g.axes[5,5].legend(loc='center left', bbox_to_anchor=((1.1,0.5)), frameon=False)
 
 plt.subplots_adjust(wspace=0.05, hspace=0.05)
 
-g.savefig(fname=paths.figures/"corner_GW170818_appendix.pdf", bbox_inches="tight", dpi=300)
+g.savefig(fname=paths.figures/"corner_GW190521_appendix.pdf", bbox_inches="tight", dpi=300)
