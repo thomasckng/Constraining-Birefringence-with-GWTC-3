@@ -4,6 +4,7 @@
 \usepackage{amsfonts,amssymb,amsmath}
 \usepackage[nolist,nohyperlinks]{acronym}
 \usepackage{bookmark}
+%\usepackage[all]{hypcap}
 
 \newcommand{\infd}{\mathrm{d}}
 
@@ -388,8 +389,8 @@ The hierarchical measurement leads to an expectation that $\kappa_i =$ \variable
 \label{sec:results:notable}
 
 Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW190521 and GW200129.
-When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$; the third is representative of a class of events with bimodal $\kappa$ posteriors; and the third shows signs of potential noise anomalies.
-Through these examples, we elucidate the interaction between $\kappa$ and the source luminosity distance, inclination and spin parameters.
+When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$, the third is the most extreme representative of a class of events with bimodal $\kappa$ posteriors, and the third shows signs of potential noise anomalies.
+Through these examples, we elucidate some of the interactions between $\kappa$ and the source luminosity distance, inclination and spin parameters.
 
 % Case: GW170818
 \subsubsection{GW170818}
@@ -417,7 +418,7 @@ This is similar to the degeneracy mentioned in Sec.~\ref{sec:inclination}.
 % We can see this effect in other events as well, but not as strongly as in GW170818.
 
 It is difficult to unequivocally identify a specific feature of the GW170818 data that leads to this posterior structure.
-However, it appears to be related to this event's support for precession, in conjunction with its uncommonly definite measurement of the polarization and spin angles \cite{Varma:2021csh} (see Appendix \ref{sec:corner_GW170818_appendix}).
+However, it appears to be related to this event's support for precession, in conjunction with its uncommonly definite measurement of the polarization, phase and spin angles \cite{Varma:2021csh} (see Appendix \ref{sec:corner_GW170818_appendix}).
 The relevance of precession is evident from the posterior on $\chi_p$ (Fig.~\ref{fig:corner_GW170818}, top right): allowing for $\kappa \neq 0$ leads to reduced support for precession.
 We can understand this in reference to Fig.~\ref{fig:birefringence}: if only a short portion of the signal is observed, then the frequency-dependent signal enhancement or dampening due to birefringence can mimic the time-dependent amplitude modulation produced by a precession cycle.
 Therefore, under these circumstances, similar morphologies can be obtained by setting $\chi_p > 0$ or $\kappa > 0$, as long as the distance and inclination can also be adjusted accordingly.
@@ -426,7 +427,7 @@ The fact that the birefringent analysis favors a high $\kappa$ rather than a hig
 The preference for $\kappa > 0$ over $\kappa < 0$ (and, therefore, the lack of bimodality in the $\cos\iota$ and $\kappa$ posteriors), is likely related to both the definite measurement of left-handed polarizations and the specific phasing of the precession cycle.
 The latter manifests as a precise constraint on the spin orientation and phase angles in the \ac{GR} analysis \cite{Varma:2021csh} (see also Appendix \ref{sec:corner_GW170818_appendix}).
 The observed amplitude modulation (say, increasing vs decreasing towards the merger) likely determines the allowed sign of $\kappa$ for this event.
-Indeed, the inference on the polarization angle in the birefringent case is notably narrower than in \ac{GR}.
+%Indeed, the inference on the polarization angle in the birefringent case is narrower than in \ac{GR}, suggesting a degree of fine tuning.
 We provide the full corner plot for all relevant parameters in Fig.~\ref{fig:corner_GW170818_appendix} in Appendix~\ref{sec:corner_GW170818_appendix}.
 
 % Case: GW190521 (massive BBH)
@@ -441,14 +442,14 @@ In both cases, the overall amplification of the signal introduced by a nonzero $
 
 Introducing birefringence affects our inference of the spins in the GW190521 system.
 We illustrate this in Fig.~\ref{fig:corner_GW190521} through the posterior on the effective spin $\chi_{\rm eff}$, which is favored to take values closer to zero in the birefringent analysis;
-this can also be seen clearly in the joint posterior for the individual spin magnitudes, provided in Appendix \ref{sec:corner_GW190521_appendix}.
+this can also be seen, perhaps more clearly, in the joint posterior for the individual spin magnitudes, provided in Appendix \ref{sec:corner_GW190521_appendix}.
 This suggests that at least part of the data features that lead the \ac{GR} analysis to infer near extremal spins can be alternatively explained as a consequence of birefringence.
-The fact that this is possible is not fully surprising given that the signal from this heavy system is only observed for a very small number of cycles \cite{LIGOScientific:2020iuh,LIGOScientific:2020ufj}.
+The fact that this is possible is not fully surprising given that the signal from this heavy system is only observed for a very small number of cycles \cite{LIGOScientific:2020iuh,LIGOScientific:2020ufj} (cf.~Fig.~\ref{fig:birefringence}).
 
-All in all, the situation for GW190521 is not unlike that of GW170818 discussed above (Sec.~\ref{sec:GW170818}): features in the data that would normally be interpreted as traces of high component spins are instead (at least partially) attributed to birefringent propagation, driven by a prior preference for high distances.
+All in all, the situation for GW190521 is not unlike that for GW170818 discussed above (Sec.~\ref{sec:GW170818}): structures in the data that would normally be interpreted as traces of high component spins are instead (at least partially) attributed to birefringent propagation, driven by a prior preference for high distances.
 The degeneracies in the case of GW190521 are likely exacerbated by the heavier mass of the system, which reduces the observed number of cycles.
-Crucially, GW190521 also lacks a definite measurement of the polarization state at the detector: without certainty about the ratio of right- versus left-handed components in the observed signal, it is not possible to disambiguate between $\kappa > 0$ versus $\kappa < 0$; hence the $\kappa$ distribution remains bimodal for GW190521, unlike for GW170918.
-The poor determination of the polarization state of the detected signal is evidenced by the bimodal $\cos\iota$ posterior inferred assuming \ac{GR} in Fig.~\ref{fig:corner_GW190521}, and is a consequence of several factors including sky location.
+Crucially, GW190521 also lacks a definite measurement of the polarization state at the detector: without certainty about the ratio of right- versus left-handed components in the observed signal, it is not possible to disambiguate between $\kappa > 0$ versus $\kappa < 0$; hence the $\kappa$ distribution remains bimodal for GW190521, unlike for GW170818.
+The poor determination of the polarization state of the detected signal is evidenced by the bimodal $\cos\iota$ posterior inferred assuming \ac{GR} in Fig.~\ref{fig:corner_GW190521}, and is attributable to several factors including sky location.
 
 \begin{figure}
     \script{corner_GW190521.py}
@@ -514,7 +515,8 @@ If the preference for $\kappa < 0$ is tied to the glitch in Virgo, we expect it 
 
 This is indeed the case, as we show in Fig.~\ref{fig:corner_GW200129}: all runs including Virgo lean towards $\kappa < 0$ (solid curves in color), whereas the LIGO-only run is fully consistent with $\kappa = 0$ (dashed black).
 While this is not conclusive proof that the glitch itself is driving the result, it does indicate that the Virgo data play a key role in the inference of $\kappa$.
-Since more work would be needed to understand the effect of the glitch, this motivates us to consider the effect of excluding this event from the collective analyses above.
+Since more work would be needed to understand the effect of the glitch, this motivated us to consider the effect of excluding this event from the collective analyses above (Sec.~\ref{sec:results:hier}).
+In any case, the outcome of that test showed the role of GW200129 to not be significant (e.g., Fig.~\ref{fig:corner_Gaussian}).
 
 \begin{figure}
     \script{corner_GW200129.py}
@@ -533,6 +535,7 @@ Since more work would be needed to understand the effect of the glitch, this mot
 
 % Comparison with previous studies
 \subsection{Comparison with previous studies}
+
 \citet{Okounkova_2022} gave a constraint on GW amplitude birefringence by performing statistical analysis on GWTC-2.
 We convert the constraint they gave to the same units as ours to make a comparison.
 They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma$.
@@ -545,8 +548,30 @@ They formulated the birefringence effect as corrections to the GW waveform on a 
 We convert their constraint to the same units as ours with the derivation in Appendix~\ref{sec:M_PV_derivation}.  \wf{Can you give the answer here (as well as in Appendix B)?}
 % Discussion on the difference between our work and theirs
 
-% Future work
-\subsection{Future work}
+\subsection{Parameter degeneracies}
+
+In examining our results, we identified a number of interactions between birefringence and the inference of source properties like the component spin parameters, in addition to partial degeneracies with inclination and distance already discussed in the literature.
+We found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations; we expect something similar to occur with mass ratio.
+
+As a consequence, a system that is inferred to be highly spinning in \ac{GR} may instead be inferred to be low-spinning but highly birefringent.
+These degeneracies can interact with the distribution of prior volume to yield a preference for nonzero $\kappa$ in some events.
+The resulting posterior can be bimodal or unimodal depending on the specific phase and polarization states observed at the detector.
+
+Conversely, we expect that a preference for birefringence can also appear for signals that do not show significant spin effects as long as the spin or other source parameters can be tuned to counteract the frequency-dependent dephasing induced by a nonzero $\kappa$.
+In those situations, $\kappa$ may become at least partially degenerate with inclination, also leading to a bimodal posterior.
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have reanalyzed all \acp{BBH} in GWTC-3 with $\mathrm{FAR} < 1/\mathrm{yr}$ to constrain amplitude birefringence in the propagation of \acp{GW}.
+To this end, we implemented a model in which right or left handed polarizations are amplified or suppressed over distance as a function of frequency, with an overall strength parametrized by a birefringent ``opacity'' parameter, $\kappa$, following Eq.~\eqref{eq:waveform_modification}.
+This parameterization is consistent with parity-odd theories like Chern-Simons gravity, and can be used to constrain them where applicable.
+
+We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events.
+As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources.
+The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
+Future catalogs, with more events, will shed light on this feature.
 
 \mi{WIP}
 If our inference on $\kappa$ is tied to precession and the spin orientations, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
@@ -559,12 +584,6 @@ Thus, the difference in the effect of birefringence at different frequencies wit
 The \ac{PE} on binary neutron star mergers can allow us to further constrain the birefringence effect and the beyond-GR theories that predict it.
 However, performing \ac{PE} on binary neutron star mergers requires much more computational resources.
 Therefore, we may need to wait for future \ac{PE} methods and tools to further our work.
-
-% More observations with higher SNR
-Another future work is to apply the same method to more \ac{GW} events and events with a higher \ac{SNR}.
-\ac{LVK} will release more events with higher \ac{SNR} in the future.
-Using data with higher \ac{SNR} allows us to obtain more precise \ac{PE} results and constrain the birefringence effect more precisely.
-And using data from more events will allow us to calculate a more constrained population posterior of $\kappa$.
 
 \begin{acknowledgments}
 M.~I., K.~W.~K.~W.~, and W.~M.~F.~ are funded by the Center for Computational Astrophysics at the Flatiron Institute.
