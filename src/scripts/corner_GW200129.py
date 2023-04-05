@@ -42,9 +42,9 @@ result_all = pd.concat([result,result_without_H1,result_without_L1,result_withou
 
 lw = 1
 
-def kdeplot2d(x, y, mask=None, **kws):
+def kdeplot2d(x, y, mask=None, rng=12345, **kws):
     kws.pop('label', None)
-    kdeplot_2d_clevels(xs=x[mask], ys=y[mask], auto_bound=True, **kws)
+    kdeplot_2d_clevels(xs=x[mask], ys=y[mask], auto_bound=True, rng=rng, **kws)
 
 def kdeplot1d(x, mask=None, **kws):
     x = x[mask]

@@ -6,6 +6,8 @@ from bilby.gw.result import CBCResult
 from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
 import paths
 
+rng = np.random.default_rng(12345)
+
 sns.set_theme(palette='colorblind', font_scale=2.0)
 
 plt.rcParams.update({
@@ -17,14 +19,14 @@ plt.rcParams.update({
 nsamples = 5000
 
 result_GR = CBCResult.from_json(filename=paths.data/"GW200129_065458_GR.json.gz").posterior
-result_GR = result_GR.sample(n=nsamples)
+result_GR = result_GR.sample(n=nsamples, random_state=rng)
 result_GR['kappa'] = np.full(len(result_GR), None)
 result_GR['with'] = np.full(len(result_GR), "GR")
 result_GR['cos_iota'] = np.cos([float(value) for value in result_GR['iota']])
 
 result_BR = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 result_BR = result_BR[result_BR.event == "GW200129_065458"]
-result_BR = result_BR.sample(n=nsamples)
+result_BR = result_BR.sample(n=nsamples, random_state=rng)
 result_BR['with'] = np.full(len(result_BR), r"BR")
 result_BR['cos_iota'] = np.cos(result_BR['iota'])
 
@@ -32,9 +34,9 @@ result = pd.concat([result_BR,result_GR], ignore_index=True)
 
 lw = 1
 
-def kdeplot2d(x, y, **kws):
+def kdeplot2d(x, y, rng=12345, **kws):
     kws.pop('label', None)
-    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, **kws)
+    kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, rng=rng, **kws)
 
 def kdeplot1d(x, **kws):
     if np.all(x.isna()):
