@@ -545,8 +545,8 @@ The main reason is that we have more events from GWTC-3 than GWTC-2.
 
 \citet{Wang_2021} performed \ac{PE} on GWTC-1 events with a frequency-dependent birefringence model.
 They formulated the birefringence effect as corrections to the GW waveform on a linear basis.
-We convert their constraint to the same units as ours with the derivation in Appendix~\ref{sec:M_PV_derivation}.  \wf{Can you give the answer here (as well as in Appendix B)?}
-% Discussion on the difference between our work and theirs
+We convert their constraint to the same units as ours with the derivation in Appendix~\ref{sec:M_PV_derivation}.
+They obtained a constraint equivalent to $|\kappa| \lesssim 0.30$.
 
 \subsection{Parameter degeneracies}
 
@@ -720,10 +720,13 @@ We can then find the relation between $M_{PV}$ and $\kappa$ by
 \begin{equation}
     \left|\mp\frac{\pi zf}{M_{PV}}\right|=\left|\pm\kappa\frac{d_C}{1\,\mathrm{Gpc}}\frac{f}{100\,\mathrm{Hz}}\right|\,.
 \end{equation}
-Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of light, we can rewrite the equation as
+Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of light, and adding back the factor of Planck constant $h$, we can rewrite the equation as
 \begin{equation}
-    \kappa=\frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{PV}^{-1}\,.
+    \kappa=\frac{h\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{PV}^{-1}\,.
 \end{equation}
+They gave the constraint on $M_{PV}$ as $M_{PV}>10^{-22}\,\mathrm{GeV}$.
+This constraint only considered the amplitude birefringence modification.
+Equivalently, the constraint on $\kappa$ is $\kappa \lesssim 0.30$.
 
 \bibliography{bib}
 
