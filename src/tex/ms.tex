@@ -550,8 +550,18 @@ They obtained a constraint equivalent to $|\kappa| \lesssim 0.30$.
 
 \subsection{Parameter degeneracies}
 
-In examining our results, we identified a number of interactions between birefringence and the inference of source properties like the component spin parameters, in addition to partial degeneracies with inclination and distance already discussed in the literature.
-We found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations; we expect something similar to occur with mass ratio.
+\begin{figure}
+    \script{mass_ratio.py}
+    \includegraphics[width=\columnwidth]{figures/mass_ratio.pdf}
+    \caption{
+    Impact of birefringence on mass ratio inference. Posterior on $q \equiv m_2/m_1$ for GW170104 (top) and GW191105 (bottom), as obtained from both the birefringent analysis (orange) and the regular \ac{GR} analysis (blue).
+    }
+    \label{fig:mass_ratio}
+\end{figure}
+
+
+In examining our results in Sec.~\ref{sec:results:notable}, we identified a number of interactions between birefringence and the inference of source properties like the component spin parameters---in addition to partial degeneracies with inclination and distance already discussed in the literature.
+We found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations.
 
 As a consequence, a system that is inferred to be highly spinning in \ac{GR} may instead be inferred to be low-spinning but highly birefringent.
 These degeneracies can interact with the distribution of prior volume to yield a preference for nonzero $\kappa$ in some events.
@@ -559,7 +569,11 @@ The resulting posterior can be bimodal or unimodal depending on the specific pha
 
 Conversely, we expect that a preference for birefringence can also appear for signals that do not show significant spin effects as long as the spin or other source parameters can be tuned to counteract the frequency-dependent dephasing induced by a nonzero $\kappa$.
 In those situations, $\kappa$ may become at least partially degenerate with inclination, also leading to a bimodal posterior.
+Either way, a preference for nonzero $\kappa$ will only manifest if the data offer enough flexibility to unlock a region of parameter space favored by prior volume, e.g., in letting the distance grow.
 
+Since mass ratio and spins can have similar effects, we expect some interactions could take place between $q$ and $\kappa$.
+This seems to indeed be the case for some events, like GW170104 or GW191105, as we demonstrate in Fig.~\ref{fig:mass_ratio}.
+This degeneracy is likely more limited since mass ratio alone cannot produce significant amplitude modulations.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -568,14 +582,16 @@ We have reanalyzed all \acp{BBH} in GWTC-3 with $\mathrm{FAR} < 1/\mathrm{yr}$ t
 To this end, we implemented a model in which right or left handed polarizations are amplified or suppressed over distance as a function of frequency, with an overall strength parametrized by a birefringent ``opacity'' parameter, $\kappa$, following Eq.~\eqref{eq:waveform_modification}.
 This parameterization is consistent with parity-odd theories like Chern-Simons gravity, and can be used to constrain them where applicable.
 
-We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events.
-As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources.
+We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
+As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources (Sec.~\ref{sec:results:hier}).
 The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
 Future catalogs, with more events, will shed light on this feature.
 
+From the set of results from individual events, we highlighted two, GW170818 and GW190521, whose posterior manifests interactions between birefringence and our inference of source parameters (Sec.~\ref{sec:results:notable}).
+In particular, we identified the relevance of spins their (partial) degeneracy with $\kappa$, in addition to expected correlations with source inclination and distance.
+
 \mi{WIP}
 If our inference on $\kappa$ is tied to precession and the spin orientations, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
-In any case, as we argued in Sec.~\ref{sec:results:hier}, there is no evidence at the moment that this event is inconsistent with the either collection of measurements or with $\kappa = 0$ (Fig.~\ref{fig:reweighted_kappa}).
 
 % BNS
 Future work is to perform \ac{PE} on binary neutron star mergers, such as GW170817.

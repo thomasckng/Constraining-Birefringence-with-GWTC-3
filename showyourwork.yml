@@ -47,6 +47,12 @@ dependencies:
     src/scripts/reweighed_kappa.py:
         - src/data/reweighted_kappa_samples.feather
 
+    src/scripts/mass_ratio.py:
+        - src/scripts/kde_contour.py
+        - src/data/GW170104_GR.json.gz
+        - src/data/GW191105_143521_GR.json.gz
+        - src/data/samples_posterior_birefringence.feather
+
     src/tex/ms.tex:
         - src/tex/output/mu_median.txt
         - src/tex/output/sigma_median.txt
