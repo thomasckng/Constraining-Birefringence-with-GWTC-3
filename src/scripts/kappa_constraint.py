@@ -40,33 +40,28 @@ restricted_cdf = np.array([np.trapz(likelihood[0:i],kappa[0:i]) for i in range(l
 restricted_kappa_median = np.interp(0.5,restricted_cdf,kappa)
 restricted_kappa_95 = np.interp(0.95,restricted_cdf,kappa)
 restricted_kappa_5 = np.interp(0.05,restricted_cdf,kappa)
+with open(paths.output/"restricted_kappa_median.txt", "w") as f:
+    f.write(f"${restricted_kappa_median:.3f}^{{+{(restricted_kappa_95-restricted_kappa_median):.3f}}}_ {{{(restricted_kappa_5-restricted_kappa_median):.3f}}}$")
 
 generic_kappa_median = np.median(samples_reweighted)
 generic_kappa_95 = np.percentile(a=samples_reweighted,q=95)
 generic_kappa_5 = np.percentile(a=samples_reweighted,q=5)
+with open(paths.output/"generic_kappa_median.txt", "w") as f:
+    f.write(f"${generic_kappa_median:.3f}^{{+{(generic_kappa_95-generic_kappa_median):.3f}}}_{{{(generic_kappa_5-generic_kappa_median):.3f}}}$")
 
 credible_level = len(likelihood[likelihood > np.interp(0, kappa, likelihood)])/len(likelihood)
+with open(paths.output/"CL_kappa_0.txt", "w") as f:
+    f.write(f"${credible_level:.3f}$")
 
 restricted_kappa_mean = np.trapz(kappa*likelihood,kappa)
 restricted_kappa_var = np.trapz(np.square(kappa-restricted_kappa_mean)*likelihood,kappa)
 restricted_kappa_std = np.sqrt(restricted_kappa_var)
+with open(paths.output/"restricted_kappa_std.txt", "w") as f:
+    f.write(f"${restricted_kappa_std:.2f}$")
 
 absolute_kappa = kappa[len(kappa)//2:]
 likelihood_absolute_kappa = likelihood[len(kappa)//2:]+likelihood[0:len(kappa)//2][::-1] # for len(kappa) even
 restricted_cdf_absolute_kappa = np.array([np.trapz(likelihood_absolute_kappa[0:i],absolute_kappa[0:i]) for i in range(len(absolute_kappa))])
 restricted_absolute_kappa_90 = np.interp(0.9,restricted_cdf_absolute_kappa,absolute_kappa)
-
-with open(paths.output/"restricted_kappa_median.txt", "w") as f:
-    f.write(f"${restricted_kappa_median:.3f}^{{+{(restricted_kappa_95-restricted_kappa_median):.3f}}}_ {{{(restricted_kappa_5-restricted_kappa_median):.3f}}}$")
-
-with open(paths.output/"generic_kappa_median.txt", "w") as f:
-    f.write(f"${generic_kappa_median:.3f}^{{+{(generic_kappa_95-generic_kappa_median):.3f}}}_{{{(generic_kappa_5-generic_kappa_median):.3f}}}$")
-
-with open(paths.output/"CL_kappa_0.txt", "w") as f:
-    f.write(f"${credible_level:.3f}$")
-
-with open(paths.output/"restricted_kappa_std.txt", "w") as f:
-    f.write(f"${restricted_kappa_std:.2f}$")
-
 with open(paths.output/"restricted_absolute_kappa_90.txt", "w") as f:
     f.write(f"${restricted_absolute_kappa_90:.2f}$")
