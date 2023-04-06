@@ -346,7 +346,7 @@ By characterizing the population mean and standard deviation over events, this a
 We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, which shows the posterior on the population mean $\mu$ and standard deviation $\sigma$ inferred from the collection of observations in Fig.~\ref{fig:violin_kappa}.
 The figure shows two distributions, which result from analyses with (blue) and without (orange) the potentially-contaminated event GW200129; the difference between the two is mainly restricted to a slight shift in $\mu$, indicating that GW200129 has a small effect on our overall population inference.
 
-Both versions of the posterior support the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals of the result including all events, we constrain $\mu =$ \variable{output/mu_median.txt} for 90\%-credible symmetric intervals around the median, and $\sigma <$ \variable{output/sigma_median.txt} for the 90\%-credible one-sided upper limit.
+Both versions of the posterior support the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals of the result including all events, we constrain $\mu =$ \variable{output/mu_median.txt}for 90\%-credible symmetric intervals around the median, and $\sigma <$ \variable{output/sigma_median.txt}for the 90\%-credible one-sided upper limit.
 However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peaks visibly away from the origin, indicating some preference for a nonzero variance.
 This could be a sign of the presence of outliers in our sample.
 
@@ -538,15 +538,17 @@ In any case, the outcome of that test showed the role of GW200129 to not be sign
 
 \citet{Okounkova_2022} gave a constraint on GW amplitude birefringence by performing statistical analysis on GWTC-2.
 We convert the constraint they gave to the same units as ours to make a comparison.
-They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at $1 \sigma$.
-We obtained a tighter constraint on $\kappa$ with $|\kappa| \lesssim 0.04$ at $1 \sigma$.
-Our result is an order of magnitude improvement in constraining $\kappa$.
-The main reason is that we have more events from GWTC-3 than GWTC-2.
+They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at 1 standard deviation.
+We obtained a tighter constraint on $|\kappa|$ with $|\kappa| <$ \variable{output/restricted_kappa_std.txt}at 1 standard deviation.
 
 \citet{Wang_2021} performed \ac{PE} on GWTC-1 events with a frequency-dependent birefringence model.
 They formulated the birefringence effect as corrections to the GW waveform on a linear basis.
 We convert their constraint to the same units as ours with the derivation in Appendix~\ref{sec:M_PV_derivation}.
-They obtained a constraint equivalent to $|\kappa| \lesssim 0.30$.
+They obtained a constraint equivalent to $|\kappa| \lesssim 0.30$, given by the 90\% upper limit.
+We obtained a tighter 90\% upper limit of $|\kappa| <$ \variable{output/restricted_absolute_kappa_90.txt}.
+
+Our result is an order of magnitude improvement in constraining $\kappa$.
+The main reason is that we included more events from GWTC-3 compared to \citet{Okounkova_2022} and \citet{Wang_2021}.
 
 \subsection{Parameter degeneracies}
 
@@ -582,7 +584,7 @@ We have reanalyzed all \acp{BBH} in GWTC-3 with $\mathrm{FAR} < 1/\mathrm{yr}$ t
 To this end, we implemented a model in which right or left handed polarizations are amplified or suppressed over distance as a function of frequency, with an overall strength parametrized by a birefringent ``opacity'' parameter, $\kappa$, following Eq.~\eqref{eq:waveform_modification}.
 This parameterization is consistent with parity-odd theories like Chern-Simons gravity, and can be used to constrain them where applicable.
 
-We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
+We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained $\kappa =$ \variable{output/restricted_kappa_median.txt}with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
 As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources (Sec.~\ref{sec:results:hier}).
 The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
 Future catalogs, with more events, will shed light on this feature.
@@ -642,7 +644,8 @@ See the main text for further discussion.
     \script{corner_GW170818_appendix.py}
     \includegraphics[width=\textwidth]{figures/corner_GW170818_appendix.pdf}
     \caption{
-        Extended corner plot for GW170818: a supplement to Fig.~\ref{fig:corner_GW170818} discussed in Appendix~\ref{sec:corner_GW170818_appendix}. The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
+        Extended corner plot for GW170818: a supplement to Fig.~\ref{fig:corner_GW170818} discussed in Appendix~\ref{sec:corner_GW170818_appendix}.
+        The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
         The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
     }
     \label{fig:corner_GW170818_appendix}
@@ -671,8 +674,8 @@ See Sec.~\ref{sec:GW190521} in the main text for related exposition.
     \script{corner_GW190521_appendix.py}
     \includegraphics[width=\textwidth]{figures/corner_GW190521_appendix.pdf}
     \caption{
-        Extended corner plot for GW190521: a supplement to Fig.~\ref{fig:corner_GW190521} discussed in Appendix~\ref{sec:corner_GW190521_appendix}. The shaded regions contain 90\% and 39.35\% ($1\sigma$) of
- the probability mass.
+        Extended corner plot for GW190521: a supplement to Fig.~\ref{fig:corner_GW190521} discussed in Appendix~\ref{sec:corner_GW190521_appendix}.
+        The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
         The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
     }
     \label{fig:corner_GW190521_appendix}
