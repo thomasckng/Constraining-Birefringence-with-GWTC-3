@@ -56,3 +56,9 @@ rule compute_bimodal_events_mass:
         "src/tex/output/bimodal_events_mass.txt"
     script:
         "src/scripts/bimodal_events_mass.py"
+
+rule compute_kappa_constraint_Wang:
+    output:
+        "src/tex/output/kappa_Wang.txt"
+    script:
+        "src/scripts/kappa_constraint_Wang.py"

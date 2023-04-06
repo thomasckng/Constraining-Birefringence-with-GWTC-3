@@ -41,7 +41,7 @@ restricted_kappa_median = np.interp(0.5,restricted_cdf,kappa)
 restricted_kappa_95 = np.interp(0.95,restricted_cdf,kappa)
 restricted_kappa_5 = np.interp(0.05,restricted_cdf,kappa)
 with open(paths.output/"restricted_kappa_median.txt", "w") as f:
-    f.write(f"${restricted_kappa_median:.3f}^{{+{(restricted_kappa_95-restricted_kappa_median):.3f}}}_ {{{(restricted_kappa_5-restricted_kappa_median):.3f}}}$")
+    f.write(f"${restricted_kappa_median:.3f}^{{+{(restricted_kappa_95-restricted_kappa_median):.3f}}}_{{{(restricted_kappa_5-restricted_kappa_median):.3f}}}$")
 
 generic_kappa_median = np.median(samples_reweighted)
 generic_kappa_95 = np.percentile(a=samples_reweighted,q=95)
