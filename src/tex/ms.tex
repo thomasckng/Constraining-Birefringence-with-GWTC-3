@@ -536,10 +536,15 @@ In any case, the outcome of that test showed the role of GW200129 to not be sign
 % Comparison with previous studies
 \subsection{Comparison with previous studies}
 
-\citet{Okounkova_2022} gave a constraint on GW amplitude birefringence by performing statistical analysis on GWTC-2.
-We convert the constraint they gave to the same units as ours to make a comparison.
-They were able to constrain $\kappa$ to be $|\kappa| \lesssim 0.74$ at 1 standard deviation.
-We obtained a tighter constraint on $|\kappa|$ with $|\kappa| <$ \variable{output/restricted_kappa_std.txt}at 1 standard deviation.
+\citet{Okounkova_2022} gave a constraint on frequency-independent \ac{GW} amplitude birefringence by performing statistical analysis on GWTC-2.
+We take $f=100\, \mathrm{Hz}$ as the reference frequency to make the comparison.
+They were able to constrain $\tilde{\kappa}$ at $d_C=d_C(z=0.3)$ to be $|\tilde{\kappa}| \lesssim 0.74$ at 1 $\sigma$, where
+\begin{equation}
+    \tilde{\kappa}d_C = \left[{\kappa}\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}\right]_{f=100\, \mathrm{Hz}}\,.
+\end{equation}
+Note that $\tilde{\kappa}$ is in units of $1/\mathrm{Gpc}$, while $\kappa$ is dimensionless.
+Equivalently, their constraint is $|\kappa| \lesssim 0.74$ at 1 $\sigma$.
+We obtained a tighter constraint on $|\kappa|$ with $|\kappa| <$ \variable{output/restricted_absolute_kappa_68.txt}at $68.27\%$ upper limit.
 
 \citet{Wang_2021} performed \ac{PE} on GWTC-1 events with a frequency-dependent birefringence model.
 They formulated the birefringence effect as corrections to the GW waveform on a linear basis.
@@ -750,7 +755,7 @@ Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of li
 \end{equation}
 They gave the constraint on $M_{PV}$ as $M_{PV}>10^{-22}\,\mathrm{GeV}$.
 This constraint only considered the amplitude birefringence modification.
-Equivalently, the constraint on $\kappa$ is $|\kappa| \lesssim 0.30$.
+Equivalently, the constraint on $\kappa$ is $|\kappa| <$ \variable{output/kappa_Wang.txt}.
 
 \bibliography{bib}
 

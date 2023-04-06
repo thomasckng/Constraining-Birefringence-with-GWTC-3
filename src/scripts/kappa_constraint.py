@@ -53,15 +53,12 @@ credible_level = len(likelihood[likelihood > np.interp(0, kappa, likelihood)])/l
 with open(paths.output/"CL_kappa_0.txt", "w") as f:
     f.write(f"${credible_level:.3f}$")
 
-restricted_kappa_mean = np.trapz(kappa*likelihood,kappa)
-restricted_kappa_var = np.trapz(np.square(kappa-restricted_kappa_mean)*likelihood,kappa)
-restricted_kappa_std = np.sqrt(restricted_kappa_var)
-with open(paths.output/"restricted_kappa_std.txt", "w") as f:
-    f.write(f"${restricted_kappa_std:.2f}$")
-
 absolute_kappa = kappa[len(kappa)//2:]
 likelihood_absolute_kappa = likelihood[len(kappa)//2:]+likelihood[0:len(kappa)//2][::-1] # for len(kappa) even
 restricted_cdf_absolute_kappa = np.array([np.trapz(likelihood_absolute_kappa[0:i],absolute_kappa[0:i]) for i in range(len(absolute_kappa))])
+restricted_absolute_kappa_68 = np.interp(0.6827,restricted_cdf_absolute_kappa,absolute_kappa)
+with open(paths.output/"restricted_absolute_kappa_68.txt", "w") as f:
+    f.write(f"${restricted_absolute_kappa_68:.2f}$")
 restricted_absolute_kappa_90 = np.interp(0.9,restricted_cdf_absolute_kappa,absolute_kappa)
 with open(paths.output/"restricted_absolute_kappa_90.txt", "w") as f:
     f.write(f"${restricted_absolute_kappa_90:.2f}$")

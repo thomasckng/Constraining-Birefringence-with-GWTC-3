@@ -15,7 +15,7 @@ rule compute_kappa_constraint:
         "src/tex/output/restricted_kappa_median.txt",
         "src/tex/output/generic_kappa_median.txt",
         "src/tex/output/CL_kappa_0.txt",
-        "src/tex/output/restricted_kappa_std.txt",
+        "src/tex/output/restricted_absolute_kappa_68.txt",
         "src/tex/output/restricted_absolute_kappa_90.txt"
     script:
         "src/scripts/kappa_constraint.py"
