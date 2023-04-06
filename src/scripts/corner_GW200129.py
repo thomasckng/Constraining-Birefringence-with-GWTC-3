@@ -54,6 +54,7 @@ def kdeplot1d(x, mask=None, **kws):
     df = df.sort_values(['x'])
     if kws.pop('fill', False):
         plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2, **kws)
+    lw = kws.pop('lw', 1)
     plt.plot(df['x'], df['y'], lw=lw, **kws)
 
 p = list(sns.color_palette())[:3] + ['0.35']
@@ -73,8 +74,8 @@ g.map_lower(kdeplot2d, mask=m, levels=[0.90], linewidths=lw)
 g.map_diag(kdeplot1d, mask=m, fill=False)
 
 m = result_all['with'] == "HL"
-g.map_lower(kdeplot2d, mask=m, linestyles='--', levels=[0.90], zorder=100, linewidths=lw)
-g.map_diag(kdeplot1d, mask=m, linestyle='--', fill=False, zorder=100)
+g.map_lower(kdeplot2d, mask=m, linestyles='--', levels=[0.90], zorder=100, linewidths=2*lw)
+g.map_diag(kdeplot1d, mask=m, linestyle='--', fill=False, zorder=100, lw=2*lw)
 
 for i in range(len(vars)):
     g.axes[i,i].set_xlim(result_all[vars[i]].min(), result_all[vars[i]].max())
@@ -114,7 +115,7 @@ ax.plot(chi_p, bounded_kde, c=p[0], lw=lw)
 ax.fill_between(chi_p, bounded_kde, np.zeros(len(chi_p)), alpha=0.2, color=p[0])
 ax.plot(chi_p_without_H1, bounded_kde_without_H1, c=p[1], lw=lw)
 ax.plot(chi_p_without_L1, bounded_kde_without_L1, c=p[2], lw=lw)
-ax.plot(chi_p_without_V1, bounded_kde_without_V1, c=p[3], lw=lw, ls='--')
+ax.plot(chi_p_without_V1, bounded_kde_without_V1, c=p[3], lw=lw*2, ls='--')
 
 ax.set_xlabel(r"$\chi_p$")
 ax.set_ylabel("")
