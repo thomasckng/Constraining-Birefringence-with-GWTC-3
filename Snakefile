@@ -7,18 +7,25 @@ rule compute_Gaussian_result:
     script:
         "src/scripts/Gaussian_result.py"
 
-rule compute_kappa_constraint:
+rule compute_kappa_constraint_generic:
     input:
         "src/data/samples_Gaussian.npz",
         "src/data/samples_posterior_birefringence.feather"
     output:
+        "src/tex/output/generic_kappa_median.txt"
+    script:
+        "src/scripts/kappa_constraint_generic.py"
+
+rule compute_kappa_constraint_restricted:
+    input:
+        "src/data/samples_posterior_birefringence.feather"
+    output:
         "src/tex/output/restricted_kappa_median.txt",
-        "src/tex/output/generic_kappa_median.txt",
         "src/tex/output/CL_kappa_0.txt",
         "src/tex/output/restricted_absolute_kappa_68.txt",
         "src/tex/output/restricted_absolute_kappa_90.txt"
     script:
-        "src/scripts/kappa_constraint.py"
+        "src/scripts/kappa_constraint_restricted.py"
 
 rule compute_best_events_kappa:
     input:
