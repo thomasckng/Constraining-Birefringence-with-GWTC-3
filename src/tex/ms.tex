@@ -556,25 +556,30 @@ The main reason is that we included more events from GWTC-3 compared to \citet{O
     \script{mass_ratio.py}
     \includegraphics[width=\columnwidth]{figures/mass_ratio.pdf}
     \caption{
-    Impact of birefringence on mass ratio inference. Posterior on $q \equiv m_2/m_1$ for GW170104 (top) and GW191105 (bottom), as obtained from both the birefringent analysis (orange) and the regular \ac{GR} analysis (blue).
+    Impact of birefringence on mass ratio and precession inference. Posterior on mass ratio $q \equiv m_2/m_1$ (left) and precessing spin $\chi_p$ (right) for GW170104 (top) and GW191105 (bottom), as obtained from both the birefringent analysis (orange) and the regular \ac{GR} analysis (blue).
     }
     \label{fig:mass_ratio}
 \end{figure}
 
 
-In examining our results in Sec.~\ref{sec:results:notable}, we identified a number of interactions between birefringence and the inference of source properties like the component spin parameters---in addition to partial degeneracies with inclination and distance already discussed in the literature.
-We found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations.
+In examining our results in Sec.~\ref{sec:results:notable}, we identified interactions between birefringence and the inference of source properties like the component spin parameters---in addition to expected partial degeneracies with inclination and distance (Sec.~\ref{sec:inclination}).
+In particular, we found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations.
 
-As a consequence, a system that is inferred to be highly spinning in \ac{GR} may instead be inferred to be low-spinning but highly birefringent.
-These degeneracies can interact with the distribution of prior volume to yield a preference for nonzero $\kappa$ in some events.
-The resulting posterior can be bimodal or unimodal depending on the specific phase and polarization states observed at the detector.
+As a consequence, a system that would be inferred to be highly spinning in \ac{GR} may instead be inferred to be low-spinning but highly birefringent if nonzero values of $\kappa$ are allowed.
+These morphological degeneracies can interact with the distribution of prior probability mass to yield a preference for nonzero $\kappa$ in some events: in absence of a strong constraint from the data, it can be more favorable to place a source at far distances with a large $|\kappa|$, than at close distances with a fine tuned spin configuration.
+The resulting posterior can be unimodal or bimodal depending on the specific phase and polarization states observed at the detector.
+The events GW170818 (Sec.~\ref{sec:GW170818}) and GW190521 (Sec.~\ref{sec:GW190521}) appear to fall in these two categories respectively.
 
-Conversely, we expect that a preference for birefringence can also appear for signals that do not show significant spin effects as long as the spin or other source parameters can be tuned to counteract the frequency-dependent dephasing induced by a nonzero $\kappa$.
+Conversely, we expect that support for birefringence can also appear for signals that do not necessarily show significant spin effects in the \ac{GR} analysis, as long as the spins or other source parameters can be tuned to \emph{counteract} the frequency-dependent dephasing that would be otherwise induced by a nonzero $\kappa$.
 In those situations, $\kappa$ may become at least partially degenerate with inclination, also leading to a bimodal posterior.
-Either way, a preference for nonzero $\kappa$ will only manifest if the data offer enough flexibility to unlock a region of parameter space favored by prior volume, e.g., in letting the distance grow.
+This is because the intrinsic source parameters may, to an extent, ``absorb'' the frequency dependence of the birefringent effect, approximately reinstating the degeneracy expected for a single Fourier mode (Sec.~\ref{sec:inclination}).
+%Either way, a preference for nonzero $\kappa$ will only manifest if the data offer enough flexibility to unlock a region of parameter space favored by prior volume, e.g., in letting the distance grow.
 
-Since mass ratio and spins can have similar effects, we expect some interactions could take place between $q$ and $\kappa$.
+Besides spins, other parameters can interact with $\kappa$ either directly or through their own couplings with the spins.
+Since the mass ratio and spins can affect the phasing of a \ac{GW} inspiral at similar order \cite{Blanchet:2013haa}, we might expect some degree of interaction between $q$ and $\kappa$.
 This seems to indeed be the case for some events, like GW170104 or GW191105, as we demonstrate in Fig.~\ref{fig:mass_ratio}.
+In the former, introducing birefringence increases the preference for asymmetric masses ($q < 1$), while it decreases the inferred level of precession; in the latter, birefringence increases the preference for symmetric masses ($q = 1$) and does not affect the inference on precession.
+In neither case is $\chi_{\rm eff}$ significantly impacted by birefringence.
 This degeneracy is likely more limited since mass ratio alone cannot produce significant amplitude modulations.
 
 \section{Conclusion}
