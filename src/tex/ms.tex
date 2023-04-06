@@ -536,15 +536,24 @@ In any case, the outcome of that test showed the role of GW200129 to not be sign
 % Comparison with previous studies
 \subsection{Comparison with previous studies}
 
-\citet{Okounkova_2022} gave a constraint on frequency-independent \ac{GW} amplitude birefringence by performing statistical analysis on GWTC-2.
-We take $f=100\, \mathrm{Hz}$ as the reference frequency to make the comparison.
-They were able to constrain $\tilde{\kappa}$ at $d_C=d_C(z=0.3)$ to be $|\tilde{\kappa}| \lesssim 0.74$ at 1 $\sigma$, where
+Our primary constraint on birefringence is given by the GWTC-3 combined constraint on the birefringent opacity, $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
+This can be compared to previous measurements in the literature.
+
+\citet{Okounkova_2022} produced a constraint on frequency-independent \ac{GW} amplitude birefringence from the distribution of measured inclinations of \acp{BBH} in GWTC-2.
+As opposed to our Eq.~\eqref{eq:waveform_modification}, this reference parameterized the effect of birefringence as
+\begin{equation}
+    h_{L/R}^{\mathrm{br}}(f) =
+    h_{L/R}^{\mathrm{GR}}(f) \times
+    \exp\left(\pm \tilde{\kappa}\, d_C\right)\,,
+\end{equation}
+where $\tilde{\kappa}$ is a frequency-independent opacity (simply denoted ``$\kappa$'' in Ref.~\cite{Okounkova_2022}).
+Assuming a fiducial redshift of $z=0.3$ for all events in GWTC-2, \citet{Okounkova_2022} obtained a constraint of $|\tilde{\kappa}| \lesssim 0.74\, {\rm Gpc}^{-1}$ at 68\% credibility.
+Taking a reference frequency of $f=100\, \mathrm{Hz}$, which is representative of LIGO-Virgo events, we may compare that constraint to ours by noting that
 \begin{equation}
     \tilde{\kappa}d_C = \left[{\kappa}\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}\right]_{f=100\, \mathrm{Hz}}\,.
 \end{equation}
-Note that $\tilde{\kappa}$ is in units of $1/\mathrm{Gpc}$, while $\kappa$ is dimensionless.
-Equivalently, their constraint is $|\kappa| \lesssim 0.74$ at 1 $\sigma$.
-We obtained a tighter $68.27\%$ upper limit of $|\kappa| <$ \variable{output/restricted_absolute_kappa_68.txt}.
+per Eq.~\eqref{eq:waveform_modification}, and hence $\tilde{\kappa} = \kappa / {\rm Gpc}$ at $f=100\, {\rm Hz}$.
+In terms of this fiducial quantity, our constraint becomes $|\tilde{\kappa}| <$ \variable{output/restricted_absolute_kappa_68.txt} ${\rm Gpc}^{-1}$ at 68\% credibility.
 
 \citet{Wang_2021} performed \ac{PE} on GWTC-1 events with a frequency-dependent birefringence model.
 They formulated the birefringence effect as corrections to the GW waveform on a linear basis.
