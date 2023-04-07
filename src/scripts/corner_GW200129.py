@@ -57,7 +57,11 @@ def kdeplot1d(x, mask=None, **kws):
     lw = kws.pop('lw', 1)
     plt.plot(df['x'], df['y'], lw=lw, **kws)
     plt.xlim(df['x'].min(), df['x'].max())
-    plt.ylim(0)
+    current_ymax = plt.ylim()[1]
+    if current_ymax > df['y'].max()*1.1:
+        plt.ylim(0,current_ymax)
+    else:
+        plt.ylim(0,df['y'].max()*1.1)
 
 p = list(sns.color_palette())[:3] + ['0.35']
 vars = ['kappa', 'luminosity_distance', 'cos_iota']

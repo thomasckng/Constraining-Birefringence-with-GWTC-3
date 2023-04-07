@@ -48,7 +48,11 @@ def kdeplot1d(x, **kws):
     plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2)
     plt.plot(df['x'], df['y'], lw=lw)
     plt.xlim(df['x'].min(), df['x'].max())
-    plt.ylim(0)
+    current_ymax = plt.ylim()[1]
+    if current_ymax > df['y'].max()*1.1:
+        plt.ylim(0,current_ymax)
+    else:
+        plt.ylim(0,df['y'].max()*1.1)
 
 vars = ['kappa', 'luminosity_distance', 'cos_iota']
 g = sns.PairGrid(data=result,

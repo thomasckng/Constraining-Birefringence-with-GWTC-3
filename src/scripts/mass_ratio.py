@@ -30,10 +30,11 @@ def kdeplot1d(x, **kws):
         return
     xl = kws.pop('xlow', 0)
     xh = kws.pop('xhigh', 1)
+    lw = kws.pop('linewidth', 1)
     df = pd.DataFrame({'x': x, 'y': Bounded_1d_kde(x, xlow=xl, xhigh=xh)(x)})
     df = df.sort_values(['x'])
     plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2)
-    plt.plot(df['x'], df['y'], **kws)
+    plt.plot(df['x'], df['y'], lw=lw, **kws)
 
 for e, ax_row in zip(events, axs):
 
