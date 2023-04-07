@@ -43,7 +43,7 @@ with open(paths.output/"restricted_absolute_kappa_68.txt", "w") as f:
 
 improvement_Okounkova = 0.74/restricted_absolute_kappa_68
 with open(paths.output/"improvement_Okounkova.txt", "w") as f:
-    f.write(rf"${{\sim}}{int(improvement_Okounkova)}\times$")
+    f.write(rf"${{\sim}}{int(np.round(improvement_Okounkova))}\times$")
 
 restricted_absolute_kappa_90 = np.interp(0.9,restricted_cdf_absolute_kappa,absolute_kappa)
 with open(paths.output/"restricted_absolute_kappa_90.txt", "w") as f:
