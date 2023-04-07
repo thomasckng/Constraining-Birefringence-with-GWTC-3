@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import scipy
 import paths
 
+rng = np.random.default_rng(12345)
+
 sns.set_theme(palette='colorblind', font_scale=1.5)
 
 plt.rcParams.update({
@@ -31,10 +33,10 @@ df_Gaussian_samples_all['sigma'] = samples_all[:,1]
 
 samples_reweighted = []
 for _ in range(1000):
-    Gaussian = np.full(shape=(len(result_DataFrame), 2), fill_value=df_Gaussian_samples_all.sample(1))
+    Gaussian = np.full(shape=(len(result_DataFrame), 2), fill_value=df_Gaussian_samples_all.sample(1, random_state=rng))
     weight = normal_distribution(result_DataFrame['kappa'], Gaussian[:,0], Gaussian[:,1])
     weight /= weight.sum()
-    samples_reweighted.append(np.random.choice(a=np.array(result_DataFrame['kappa']), size=1, p=weight))
+    samples_reweighted.append(rng.choice(a=np.array(result_DataFrame['kappa']), size=1, p=weight))
 
 events = result_DataFrame['event'].unique()
 kernels = [scipy.stats.gaussian_kde(result_dict[event]['kappa']) for event in events]
@@ -51,6 +53,9 @@ sns.kdeplot(np.array(samples_reweighted).reshape(-1), label="generic", color=sns
 # plt.axvline(np.percentile(a=np.array(samples_reweighted).reshape(-1),q=5), color=sns.color_palette()[3], linestyle=':')
 # plt.axvline(np.percentile(a=np.array(samples_reweighted).reshape(-1),q=95), color=sns.color_palette()[3], linestyle=':')
 plt.plot(kappa,likelihood, label="restricted", color=sns.color_palette()[0])
+yl = plt.gca().get_ylim()
+plt.fill_between(kappa, likelihood, color=sns.color_palette()[0], alpha=0.2)
+plt.ylim(yl)
 # plt.axvline(np.interp(0.05,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa), color=sns.color_palette()[0], linestyle=':')
 # plt.axvline(np.interp(0.95,[np.trapz(likelihood[0:i],kappa[0:i]) for i in range(1000)],kappa), color=sns.color_palette()[0], linestyle=':')
 
