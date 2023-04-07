@@ -56,22 +56,18 @@ with open(paths.output/"kappa_Wang.txt", "w") as f:
     f.write(f"$|\kappa| \lesssim {kappa_Wang:.2f}$")
 
 # Constraint comparison
-tilde_kappa_Wang = kappa_Wang
-
-tilde_kappa_Okounkova = 0.74 # Gpc^-1
-kappa_Okounkova = tilde_kappa_Okounkova
+kappa_Okounkova = 0.74
 M_PV_Okounkova = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_Okounkova)/1e9
 
 kappa_this_work = restricted_absolute_kappa_90
-tilde_kappa_this_work = kappa_this_work
 M_PV_this_work = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_this_work)/1e9
 
 with open(paths.output/"M_PV_constraint.txt", "w") as f:
-    f.write(rf"$M_{{\rm PV}} \gtrsim {M_PV_this_work/1e-21:.2f} \times 10^{{-21}}\, {{\rm GeV}}$")
+    f.write(rf"$M_{{\rm PV}} \gtrsim {M_PV_this_work/1e-21:.1f} \times 10^{{-21}}\, {{\rm GeV}}$")
 
 with open(paths.output/"comparison_summary.txt", "w") as f:
-    f.write(r"\begin{tabular}{lccc} & $M_{\rm PV}$ ($10^{-21}\, {\rm GeV}$) & $\tilde{\kappa}$ (${\rm Gpc}^{-1}$) & $\kappa$ \\ \hline ")
-    f.write(rf"\citet{{Wang_2021}} & ${M_PV_Wang/1e-21:.2f}$ & ${tilde_kappa_Wang:.2f}$ & ${kappa_Wang:.2f}$ \\ ")
-    f.write(rf"\citet{{Okounkova_2022}} & ${M_PV_Okounkova/1e-21:.2f}$ & ${tilde_kappa_Okounkova:.2f}$ & ${kappa_Okounkova:.2f}$ \\ ")
-    f.write(rf"This work & ${M_PV_this_work/1e-21:.2f}$ & ${tilde_kappa_this_work:.2f}$ & ${kappa_this_work:.2f}$ ")
+    f.write(r"\begin{tabular}{lccc} & $M_{\rm PV}$ ($10^{-21}\, {\rm GeV}$) & $|\kappa|$ & CL (\%) \\ \hline ")
+    f.write(rf"\citet{{Wang_2021}} & $> {M_PV_Wang/1e-21:.2f}$ & $< {kappa_Wang:.2f}$ & 90 \\ ")
+    f.write(rf"\citet{{Okounkova_2022}} & $> {M_PV_Okounkova/1e-21:.2f}$ & $< {kappa_Okounkova:.2f}$ & 68 \\ ")
+    f.write(rf"Ng \emph{{et al.}} (this work) & $> {M_PV_this_work/1e-21:.2f}$ & $< {kappa_this_work:.2f}$ & 90")
     f.write(r" \end{tabular}")
