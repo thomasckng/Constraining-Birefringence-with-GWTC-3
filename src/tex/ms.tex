@@ -552,11 +552,12 @@ where $\tilde{\kappa}$ is a frequency-independent opacity (simply denoted ``$\ka
 Assuming a fiducial redshift of $z=0.3$ for all events in GWTC-2, \citet{Okounkova_2022} obtained a constraint of $|\tilde{\kappa}| \lesssim 0.74\, {\rm Gpc}^{-1}$ at 68\% credibility.
 Taking a reference frequency of $f=100\, \mathrm{Hz}$, which is representative of LIGO-Virgo events, and adopting the same fiducial distance $d_C(z=0.3)$, we may compare that constraint to ours by noting that
 \begin{equation}
-    \left[ \tilde{\kappa} = \frac{\kappa}{1\, \mathrm{Gpc}} \right]_{\raisebox{1ex}{$\begin{subarray}{l} z=0.3 \\ f=100\,{\rm Hz} \end{subarray}$}}
+    \left[ \kappa = \tilde{\kappa}\left({1\, \mathrm{Gpc}}\right) \right]_{\raisebox{1ex}{$\begin{subarray}{l} z=0.3 \\ f=100\,{\rm Hz} \end{subarray}$}}
 \end{equation}
 per Eq.~\eqref{eq:waveform_modification}.
-In terms of this fiducial quantity, our constraint from Sec.~\ref{sec:results:gwtc} can be expressed as $|\tilde{\kappa}| <$ \variable{output/restricted_absolute_kappa_68.txt} ${\rm Gpc}^{-1}$ at 68\% credibility.
-This is a factor of ${\sim}25\times$ \mi{Thomas, can you make this number be dynamically generated? it should be the ratio of Masha's constraint to ours, rounded to the closest integer} more stringent than Ref.~\cite{Okounkova_2022}, besides arising from a less simplified model.
+In terms of this fiducial quantity, the constraint given by \citet{Okounkova_2022} can be expressed by $|{\kappa}| \lesssim 0.74$  at 68\% credibility.
+On the other hand, our constraint from Sec.~\ref{sec:results:gwtc} is $|\kappa| <$ \variable{output/restricted_absolute_kappa_68.txt} at 68\% credibility.
+This is a factor of \variable{output/improvement_Okounkova.txt} more stringent than Ref.~\cite{Okounkova_2022}, besides arising from a less simplified model.
 
 \subsubsection{Wang et al.}
 
@@ -580,6 +581,24 @@ Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \appr
 \end{equation}
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into $|\kappa| <$ \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of $|\kappa| <$ \variable{output/restricted_absolute_kappa_90.txt}.
+
+\subsubsection{Comparison summary}
+
+We summarize the constraint on birefringence in Table~\ref{tab:comparison_summary}.
+The constraint we obtain is the most stringent, followed by \citet{Okounkova_2022} and \citet{Wang_2021}.
+
+\begin{table}
+    \caption{
+        Comparison of our constraints to \citet{Okounkova_2022} and \citet{Wang_2021}.
+        Note that the constraint from \citet{Okounkova_2022} is given at 68\% credibility, while the other two are given at 90\% credibility.
+        The constraint on $M_{PV}$ is a lower limit, while the constraint on $\tilde{\kappa}$ and $\kappa$ is an upper limit.
+    }
+    \begin{ruledtabular}
+        \variable{output/comparison_summary.txt}
+    \end{ruledtabular}
+    \label{tab:comparison_summary}
+\end{table}
+
 
 \subsection{Parameter degeneracies}
 
@@ -606,7 +625,7 @@ This is because the intrinsic source parameters may, to an extent, ``absorb'' th
 %Either way, a preference for nonzero $\kappa$ will only manifest if the data offer enough flexibility to unlock a region of parameter space favored by prior volume, e.g., in letting the distance grow.
 
 Besides spins, other parameters can interact with $\kappa$ either directly or through their own couplings with the spins.
-Since the mass ratio and can affect the phasing of a \ac{GW} inspiral at similar order as the spins \cite{Blanchet:2013haa}, we might expect some degree of interaction between $q$ and $\kappa$.
+Since the mass ratio can affect the phasing of a \ac{GW} inspiral at similar order as the spins \cite{Blanchet:2013haa}, we might expect some degree of interaction between $q$ and $\kappa$.
 This seems to indeed be the case for some events, like GW170104 or GW191105, as we demonstrate in Fig.~\ref{fig:mass_ratio}.
 In the former, introducing birefringence increases the preference for asymmetric masses ($q < 1$) while decreasing the inferred level of precession; in the latter, birefringence increases the preference for symmetric masses ($q = 1$) but does not affect the inference on precession.
 The $\kappa$ posteriors are bimodal for both events, but do not rule out $\kappa = 0$ (Fig.~\ref{fig:violin_kappa}).
@@ -626,7 +645,7 @@ The result of that analysis was consistent with a vanishing $\kappa$ for all eve
 Future catalogs, with more events, will shed light on this feature.
 
 From the set of results from individual events, we highlighted two, GW170818 and GW190521, whose posterior manifests interactions between birefringence and our inference of source parameters (Sec.~\ref{sec:results:notable}).
-In particular, we identified the relevance of spins their (partial) degeneracy with $\kappa$, in addition to expected correlations with source inclination and distance.
+In particular, we identified the relevance of spins and their (partial) degeneracy with $\kappa$, in addition to expected correlations with source inclination and distance.
 
 \mi{WIP}
 If our inference on $\kappa$ is tied to precession and the spin orientations, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.

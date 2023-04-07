@@ -23,7 +23,10 @@ rule compute_kappa_constraint_restricted:
         "src/tex/output/restricted_kappa_median.txt",
         "src/tex/output/CL_kappa_0.txt",
         "src/tex/output/restricted_absolute_kappa_68.txt",
-        "src/tex/output/restricted_absolute_kappa_90.txt"
+        "src/tex/output/improvement_Okounkova.txt",
+        "src/tex/output/restricted_absolute_kappa_90.txt",
+        "src/tex/output/kappa_Wang.txt",
+        "src/tex/output/comparison_summary.txt"
     script:
         "src/scripts/kappa_constraint_restricted.py"
 
@@ -63,9 +66,3 @@ rule compute_bimodal_events_mass:
         "src/tex/output/bimodal_events_mass.txt"
     script:
         "src/scripts/bimodal_events_mass.py"
-
-rule compute_kappa_constraint_Wang:
-    output:
-        "src/tex/output/kappa_Wang.txt"
-    script:
-        "src/scripts/kappa_constraint_Wang.py"

@@ -3,6 +3,11 @@ import pandas as pd
 import scipy
 import paths
 
+# constants
+h = 4.135667696e-15 # eV s
+c = 299792.458 # km/s
+H_0 = 68.3 # km/s/Mpc
+
 result_dict = {}
 result_DataFrame = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
 events = result_DataFrame['event'].unique()
@@ -35,6 +40,36 @@ restricted_cdf_absolute_kappa = np.array([np.trapz(likelihood_absolute_kappa[0:i
 restricted_absolute_kappa_68 = np.interp(0.68,restricted_cdf_absolute_kappa,absolute_kappa)
 with open(paths.output/"restricted_absolute_kappa_68.txt", "w") as f:
     f.write(f"${restricted_absolute_kappa_68:.2f}$")
+
+improvement_Okounkova = 0.74/restricted_absolute_kappa_68
+with open(paths.output/"improvement_Okounkova.txt", "w") as f:
+    f.write(rf"${{\sim}}{int(improvement_Okounkova)}\times$")
+
 restricted_absolute_kappa_90 = np.interp(0.9,restricted_cdf_absolute_kappa,absolute_kappa)
 with open(paths.output/"restricted_absolute_kappa_90.txt", "w") as f:
     f.write(f"${restricted_absolute_kappa_90:.2f}$")
+
+# Wang's constraint in kappa
+M_PV_Wang = 1e-22 # GeV
+kappa_Wang = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(M_PV_Wang*1e9)
+with open(paths.output/"kappa_Wang.txt", "w") as f:
+    f.write(f"${kappa_Wang:.2f}$")
+
+# Constraint comparison
+tilde_kappa_Okounkova = 0.74 # Gpc^-1
+kappa_this_work = restricted_absolute_kappa_90
+
+tilde_kappa_Wang = kappa_Wang
+
+kappa_Okounkova = tilde_kappa_Okounkova
+M_PV_Okounkova = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_Okounkova)/1e9
+
+tilde_kappa_this_work = kappa_this_work
+M_PV_this_work = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_this_work)/1e9
+
+with open(paths.output/"comparison_summary.txt", "w") as f:
+    f.write(r"\begin{tabular}{lccc} & $M_{PV}$ ($10^{-21}\, {\rm GeV}$) & $\tilde{\kappa}$ (${\rm Gpc}^{-1}$) & $\kappa$ \\ \hline ")
+    f.write(rf"\citet{{Wang_2021}} & ${M_PV_Wang/1e-21:.2f}$ & ${tilde_kappa_Wang:.2f}$ & ${kappa_Wang:.2f}$ \\ ")
+    f.write(rf"\citet{{Okounkova_2022}} & ${M_PV_Okounkova/1e-21:.2f}$ & ${tilde_kappa_Okounkova:.2f}$ & ${kappa_Okounkova:.2f}$ \\ ")
+    f.write(rf"This work & ${M_PV_this_work/1e-21:.2f}$ & ${tilde_kappa_this_work:.2f}$ & ${kappa_this_work:.2f}$ ")
+    f.write(r" \end{tabular}")
