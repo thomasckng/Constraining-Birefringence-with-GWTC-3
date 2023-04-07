@@ -32,7 +32,7 @@ df_Gaussian_samples_all['mu'] = samples_all[:,0]
 df_Gaussian_samples_all['sigma'] = samples_all[:,1]
 
 samples_reweighted = []
-for _ in range(1000):
+for _ in range(5000):
     Gaussian = np.full(shape=(len(result_DataFrame), 2), fill_value=df_Gaussian_samples_all.sample(1, random_state=rng))
     weight = normal_distribution(result_DataFrame['kappa'], Gaussian[:,0], Gaussian[:,1])
     weight /= weight.sum()
@@ -74,11 +74,11 @@ df_Gaussian_samples_all['mu'] = samples_all[:,0]
 df_Gaussian_samples_all['sigma'] = samples_all[:,1]
 
 samples_reweighted = []
-for _ in range(1000):
-    Gaussian = np.full(shape=(len(result_DataFrame), 2), fill_value=df_Gaussian_samples_all.sample(1))
+for _ in range(5000):
+    Gaussian = np.full(shape=(len(result_DataFrame), 2), fill_value=df_Gaussian_samples_all.sample(1, random_state=rng))
     weight = normal_distribution(result_DataFrame['kappa'], Gaussian[:,0], Gaussian[:,1])
     weight /= weight.sum()
-    samples_reweighted.append(np.random.choice(a=np.array(result_DataFrame['kappa']), size=1, p=weight))
+    samples_reweighted.append(rng.choice(a=np.array(result_DataFrame['kappa']), size=1, p=weight))
 
 events = result_DataFrame['event'].unique()
 kernels = [scipy.stats.gaussian_kde(result_dict[event]['kappa']) for event in events]
