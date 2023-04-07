@@ -575,11 +575,11 @@ h^{\rm BR}_{L/R}(f) &= h^{\rm GR}_{L/R}(f) \left(1 \mp \delta h \mp i \delta \Ps
 assuming a small $\delta $ and $\delta \Psi \ll 1$.
 To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z / M_{\rm PV}$, where $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction in units of frequency.%
 \footnote{Concretely, \citet{Wang_2021} write $\delta h = - A_\nu \pi f$ with $A_\nu = M_{\rm PV}^{-1} \left[\alpha_\nu (z=0) - \alpha_\nu(z) \left(1+z\right)\right]$, for $\alpha_\nu$ some function of redshift encoding the evolution of a birefringence-mediating field; to produce their constraint, however, they further set $\alpha_\nu(z) = 1$, yielding $A_\nu = -z / M_{\rm PV}$ and hence $\delta h = \pi f z / M_{\rm PV}$.}
-Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ with the Hubble constant $H_0$, this means
+Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ via the Hubble constant, $H_0$, this means
 \begin{equation}
-    |\kappa| = \frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{\rm PV}^{-1}\,.
+    |\kappa| \simeq \frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{\rm PV}^{-1}\,.
 \end{equation}
-\citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into $|\kappa| <$ \variable{output/kappa_Wang.txt}.
+\citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into $|\kappa| \lesssim$ \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of $|\kappa| <$ \variable{output/restricted_absolute_kappa_90.txt}.
 
 \subsubsection{Comparison summary}
@@ -601,6 +601,7 @@ The constraint we obtain is the most stringent, followed by \citet{Okounkova_202
 
 
 \subsection{Parameter degeneracies}
+\label{sec:degeneracies}
 
 In examining our results in Sec.~\ref{sec:results:notable}, we identified interactions between birefringence and the inference of source properties like the component spin parameters---in addition to expected partial degeneracies with inclination and distance (Sec.~\ref{sec:inclination}).
 In particular, we found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations.
@@ -632,6 +633,8 @@ The $\kappa$ posteriors are bimodal for both events, but do not rule out $\kappa
 In neither case is $\chi_{\rm eff}$ significantly impacted by birefringence.
 The coupling between $q$ and $\kappa$ is likely limited by the fact that changes in the mass ratio alone cannot produce significant amplitude modulations.
 
+Since our inference on $\kappa$ can be tied to precession and the spin orientations, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
+
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -642,21 +645,16 @@ This parameterization is consistent with parity-odd theories like Chern-Simons g
 We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained $\kappa =$ \variable{output/restricted_kappa_median.txt}with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
 As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources (Sec.~\ref{sec:results:hier}).
 The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
-Future catalogs, with more events, will shed light on this feature.
+Future catalogs with more events will shed light on this feature.
 
 From the set of results from individual events, we highlighted two, GW170818 and GW190521, whose posterior manifests interactions between birefringence and our inference of source parameters (Sec.~\ref{sec:results:notable}).
 In particular, we identified the relevance of spins and their (partial) degeneracy with $\kappa$, in addition to expected correlations with source inclination and distance.
+The mass ratio can also play a role, by coupling with the spins or $\kappa$ directly (Sec.~\ref{sec:degeneracies}).
 
-\mi{WIP}
-If our inference on $\kappa$ is tied to precession and the spin orientations, we might be susceptible to systematics in the modeling of spin angles in \textsc{IMRPhenomXPHM} and might thus benefit from further analysis with other waveforms like \textsc{NRSur7dq4} \cite{Varma:2018mmi}.
-
-% BNS
-Future work is to perform \ac{PE} on binary neutron star mergers, such as GW170817.
-The frequency range of the signal is much wider compared to the binary black hole mergers.
-Thus, the difference in the effect of birefringence at different frequencies within the range can be more significant.
-The \ac{PE} on binary neutron star mergers can allow us to further constrain the birefringence effect and the beyond-GR theories that predict it.
-However, performing \ac{PE} on binary neutron star mergers requires much more computational resources.
-Therefore, we may need to wait for future \ac{PE} methods and tools to further our work.
+This study was restricted to \acp{BBH} because of the expectation that they should dominate the birefringence constraint thanks to their larger redshifts.
+However, lower mass systems involving neutron stars may also be informative thanks to the wide band of frequencies spanned by their signals, in spite of their closer distances.
+Analysis of future catalogs will benefit from the inclusion of those events, as well as a much larger number of \ac{BBH} sources at increasingly greater distances.
+Future measurements will also be enriched by the addition of KAGRA \cite{KAGRA} and LIGO India to the \ac{GW} detector network, which will allow us to better disambiguate between polarization states and hence between models of birefringent propagation.
 
 \begin{acknowledgments}
 M.~I., K.~W.~K.~W.~, and W.~M.~F.~ are funded by the Center for Computational Astrophysics at the Flatiron Institute.
