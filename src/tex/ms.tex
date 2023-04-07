@@ -538,6 +538,20 @@ In any case, the outcome of that test showed the role of GW200129 to not be sign
 
 Our primary constraint on birefringence is given by the combined constraint on the birefringent opacity from GWTC-3, \variable{output/restricted_kappa_median.txt}with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
 We can compare this to previous measurements of amplitude birefringence in the literature.
+We summarize these constraints in Table~\ref{tab:comparison_summary}.
+
+\begin{table}
+    \caption{
+        Comparison of our constraints to \citet{Okounkova_2022} and \citet{Wang_2021}.
+        The constraint from \citet{Okounkova_2022} is given at 68\% credibility, while the other two are given at 90\% credibility.
+        The constraint on $M_{PV}$ is a lower limit, while the constraint on $\tilde{\kappa}$ and $\kappa$ is an upper limit.
+    }
+    \begin{ruledtabular}
+        \variable{output/comparison_summary.txt}
+    \end{ruledtabular}
+    \label{tab:comparison_summary}
+\end{table}
+
 
 \subsubsection{Okounkova et al.}
 \citet{Okounkova_2022} produced a constraint on frequency-independent \ac{GW} amplitude birefringence from the distribution of measured inclinations of \acp{BBH} in GWTC-2.
@@ -552,7 +566,7 @@ where $\tilde{\kappa}$ is a frequency-independent opacity (simply denoted ``$\ka
 Assuming a fiducial redshift of $z=0.3$ for all events in GWTC-2, \citet{Okounkova_2022} obtained a constraint of $|\tilde{\kappa}| \lesssim 0.74\, {\rm Gpc}^{-1}$ at 68\% credibility.
 Taking a reference frequency of $f=100\, \mathrm{Hz}$, which is representative of LIGO-Virgo events, and adopting the same fiducial distance $d_C(z=0.3)$, we may compare that constraint to ours by noting that
 \begin{equation}
-    \left[ \kappa = \tilde{\kappa}\left({1\, \mathrm{Gpc}}\right) \right]_{\raisebox{1ex}{$\begin{subarray}{l} z=0.3 \\ f=100\,{\rm Hz} \end{subarray}$}}
+    \left[ \tilde{\kappa} = \frac{\kappa}{1\, \mathrm{Gpc}} \right]_{\raisebox{1ex}{$\begin{subarray}{l} z=0.3 \\ f=100\,{\rm Hz} \end{subarray}$}}
 \end{equation}
 per Eq.~\eqref{eq:waveform_modification}.
 In terms of this fiducial quantity, the constraint given by \citet{Okounkova_2022} can be expressed by $|{\kappa}| \lesssim 0.74$  at 68\% credibility.
@@ -581,24 +595,6 @@ Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \appr
 \end{equation}
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}.
-
-\subsubsection{Comparison summary}
-
-We summarize the constraint on birefringence in Table~\ref{tab:comparison_summary}.
-The constraint we obtain is the most stringent, followed by \citet{Okounkova_2022} and \citet{Wang_2021}.
-
-\begin{table}
-    \caption{
-        Comparison of our constraints to \citet{Okounkova_2022} and \citet{Wang_2021}.
-        Note that the constraint from \citet{Okounkova_2022} is given at 68\% credibility, while the other two are given at 90\% credibility.
-        The constraint on $M_{PV}$ is a lower limit, while the constraint on $\tilde{\kappa}$ and $\kappa$ is an upper limit.
-    }
-    \begin{ruledtabular}
-        \variable{output/comparison_summary.txt}
-    \end{ruledtabular}
-    \label{tab:comparison_summary}
-\end{table}
-
 
 \subsection{Parameter degeneracies}
 \label{sec:degeneracies}
@@ -643,6 +639,7 @@ To this end, we implemented a model in which right or left handed polarizations 
 This parameterization is consistent with parity-odd theories like Chern-Simons gravity, and can be used to constrain them where applicable.
 
 We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained \variable{output/restricted_kappa_median.txt}with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
+This measurement is signficantly more stringent than past constraints (Table \ref{tab:comparison_summary}).
 As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources (Sec.~\ref{sec:results:hier}).
 The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
 Future catalogs with more events will shed light on this feature.
@@ -656,15 +653,17 @@ However, lower mass systems involving neutron stars may also be informative than
 Analysis of future catalogs will benefit from the inclusion of those events, as well as a much larger number of \ac{BBH} sources at increasingly greater distances.
 Future measurements will also be enriched by the addition of KAGRA \cite{KAGRA} and LIGO India to the \ac{GW} detector network, which will allow us to better disambiguate between polarization states and hence between models of birefringent propagation.
 
+All our data are available in \citet{dataset}.
+
 \begin{acknowledgments}
 M.~I., K.~W.~K.~W.~, and W.~M.~F.~ are funded by the Center for Computational Astrophysics at the Flatiron Institute.
 The Flatiron Institute provided the computational resources used in this work.
-
 This research has made use of data or software obtained from the Gravitational Wave Open Science Center (gwosc.org), a service of LIGO Laboratory, the LIGO Scientific Collaboration, the Virgo Collaboration, and KAGRA.
 LIGO Laboratory and Advanced LIGO are funded by the United States National Science Foundation (NSF) as well as the Science and Technology Facilities Council (STFC) of the United Kingdom, the Max-Planck-Society (MPS), and the State of Niedersachsen/Germany for support of the construction of Advanced LIGO and construction and operation of the GEO600 detector.
 Additional support for Advanced LIGO was provided by the Australian Research Council.
 Virgo is funded, through the European Gravitational Observatory (EGO), by the French Centre National de Recherche Scientifique (CNRS), the Italian Istituto Nazionale di Fisica Nucleare (INFN) and the Dutch Nikhef, with contributions by institutions from Belgium, Germany, Greece, Hungary, Ireland, Japan, Monaco, Poland, Portugal, Spain.
 KAGRA is supported by Ministry of Education, Culture, Sports, Science and Technology (MEXT), Japan Society for the Promotion of Science (JSPS) in Japan; National Research Foundation (NRF) and Ministry of Science and ICT (MSIT) in Korea; Academia Sinica (AS) and National Science and Technology Council (NSTC) in Taiwan.
+This paper was compiled using \textsc{showyourwork} \cite{Luger2021} to facilitate reproducibility.
 \end{acknowledgments}
 
 \appendix
