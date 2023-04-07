@@ -15,8 +15,9 @@ df_Gaussian_samples_all['sigma'] = samples_all[:,1]
 
 # generic constraint
 samples_reweighted = []
+rng = np.random.default_rng(12345)
 for _ in range(5000):
-    Gaussian = np.full(shape=(len(result_DataFrame), 2), fill_value=df_Gaussian_samples_all.sample(1))
+    Gaussian = np.full(shape=(len(result_DataFrame), 2), fill_value=df_Gaussian_samples_all.sample(1), random_state=rng)
     weight = normal_distribution(result_DataFrame['kappa'], Gaussian[:,0], Gaussian[:,1])
     weight /= weight.sum()
     samples_reweighted.append(np.random.choice(a=np.array(result_DataFrame['kappa']), size=1, p=weight))

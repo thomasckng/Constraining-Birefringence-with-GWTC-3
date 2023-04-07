@@ -56,6 +56,8 @@ def kdeplot1d(x, mask=None, **kws):
         plt.fill_between(df['x'], df['y'], np.zeros(len(x)), alpha=0.2, **kws)
     lw = kws.pop('lw', 1)
     plt.plot(df['x'], df['y'], lw=lw, **kws)
+    plt.xlim(df['x'].min(), df['x'].max())
+    plt.ylim(0)
 
 p = list(sns.color_palette())[:3] + ['0.35']
 vars = ['kappa', 'luminosity_distance', 'cos_iota']
@@ -78,8 +80,6 @@ g.map_lower(kdeplot2d, mask=m, linestyles='--', levels=[0.90], zorder=100, linew
 g.map_diag(kdeplot1d, mask=m, linestyle='--', fill=False, zorder=100, lw=2*lw)
 
 for i in range(len(vars)):
-    g.axes[i,i].set_xlim(result_all[vars[i]].min(), result_all[vars[i]].max())
-    g.axes[i,i].set_ylim(0)
     for j in range(i):
         g.axes[i,j].set_xlim(result_all[vars[j]].min(), result_all[vars[j]].max())
         g.axes[i,j].set_ylim(result_all[vars[i]].min(), result_all[vars[i]].max())

@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 from bilby.gw.result import CBCResult
-from kde_contour import Bounded_1d_kde, kdeplot_2d_clevels
+from kde_contour import Bounded_1d_kde
 import paths
 
 rng = np.random.default_rng(12345)
