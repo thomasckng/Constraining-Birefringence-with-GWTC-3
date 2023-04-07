@@ -38,7 +38,7 @@
     The propagation of gravitational waves can reveal fundamental features of the structure of spacetime.
     For instance, differences in the propagation of gravitational-wave polarizations would be a smoking gun for parity violations in the gravitational sector, as expected from birefringent theories like Chern-Simons gravity.
     Here we look for evidence of amplitude birefringence in the latest LIGO-Virgo catalog (GWTC-3) through the use of birefringent templates inspired by dynamical Chern-Simons gravity.
-    From 71 binary-black-hole signals, we obtain the most precise constraints on gravitational-wave amplitude birefringence yet, measuring a birefringent opacity of $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility, equivalent to an energy scale of $M_{\rm PV} \lesssim XX\, {\rm GeV}$ \mi{Thomas please provide the equivalent $M_{\rm PV}$ constraint from $|\kappa|$)}.
+    From 71 binary-black-hole signals, we obtain the most precise constraints on gravitational-wave amplitude birefringence yet, measuring a birefringent opacity of \variable{output/restricted_kappa_median.txt}with 90\% credibility, equivalent to an energy scale of \variable{output/M_PV_constraint.txt}.
 \end{abstract}
 
 \maketitle
@@ -294,7 +294,7 @@ Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 ar
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}, in order of increasing standard deviation $\sigma_i$.
 That table also shows the credible level (CL) at which the posterior supports $\kappa = 0$, whereby $\mathrm{CL} = 0$ ($\mathrm{CL} = 1$) means the posterior supports that value with high (low) probability.
 
-Judging by $\mu_i/\sigma_i$, the two events that show the largest tension with $\kappa = 0$ are GW170818, for which $\mu_i / \sigma_i =$ \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which $\mu_i / \sigma_i =$ \variable{output/GW200129_constraint.txt}.
+Judging by $\mu_i/\sigma_i$, the two events that show the largest tension with $\kappa = 0$ are GW170818, for which \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which \variable{output/GW200129_constraint.txt}.
 However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that the preference for $\kappa < 0$ in GW200129 might be driven by noise anomalies in the Virgo detector; with that in mind, in the next section we consider the effect of excluding this event from the joint result (we find its impact to be minimal).
 
 \begin{table}
@@ -346,7 +346,7 @@ By characterizing the population mean and standard deviation over events, this a
 We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, which shows the posterior on the population mean $\mu$ and standard deviation $\sigma$ inferred from the collection of observations in Fig.~\ref{fig:violin_kappa}.
 The figure shows two distributions, which result from analyses with (blue) and without (orange) the potentially-contaminated event GW200129; the difference between the two is mainly restricted to a slight shift in $\mu$, indicating that GW200129 has a small effect on our overall population inference.
 
-Both versions of the posterior support the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals of the result including all events, we constrain $\mu =$ \variable{output/mu_median.txt}for 90\%-credible symmetric intervals around the median, and $\sigma <$ \variable{output/sigma_median.txt}for the 90\%-credible one-sided upper limit.
+Both versions of the posterior support the lack of birefringence ($\mu = \sigma = 0$) within 90\% credibility; from the marginals of the result including all events, we constrain \variable{output/mu_median.txt}for 90\%-credible symmetric intervals around the median, and \variable{output/sigma_median.txt}for the 90\%-credible one-sided upper limit.
 However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peaks visibly away from the origin, indicating some preference for a nonzero variance.
 This could be a sign of the presence of outliers in our sample.
 
@@ -370,7 +370,7 @@ Future observations will determine whether there is truly evidence for a nonvani
 % Constraint on $\kappa$
 Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ under the assumption of a Gaussian distribution via Eq.~\eqref{eq:generic_posterior}.
 We show the result of doing this in Fig.~\ref{fig:posterior_kappa}, where we also compare to the posterior on $\kappa$ obtained by assuming a shared value across events (same result shown as a blue band in Fig.~\ref{fig:violin_kappa}).
-The hierarchical measurement leads to an expectation that $\kappa_i =$ \variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies $\kappa =$ \variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  
+The hierarchical measurement leads to an expectation that \variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies \variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  
 
 \begin{figure}
     \script{posterior_kappa.py}
@@ -536,7 +536,7 @@ In any case, the outcome of that test showed the role of GW200129 to not be sign
 % Comparison with previous studies
 \subsection{Comparison with previous studies}
 
-Our primary constraint on birefringence is given by the combined constraint on the birefringent opacity from GWTC-3, $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
+Our primary constraint on birefringence is given by the combined constraint on the birefringent opacity from GWTC-3, \variable{output/restricted_kappa_median.txt}with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
 We can compare this to previous measurements of amplitude birefringence in the literature.
 
 \subsubsection{Okounkova et al.}
@@ -556,8 +556,8 @@ Taking a reference frequency of $f=100\, \mathrm{Hz}$, which is representative o
 \end{equation}
 per Eq.~\eqref{eq:waveform_modification}.
 In terms of this fiducial quantity, the constraint given by \citet{Okounkova_2022} can be expressed by $|{\kappa}| \lesssim 0.74$  at 68\% credibility.
-On the other hand, our constraint from Sec.~\ref{sec:results:gwtc} is $|\kappa| <$ \variable{output/restricted_absolute_kappa_68.txt} at 68\% credibility.
-This is a factor of \variable{output/improvement_Okounkova.txt} more stringent than Ref.~\cite{Okounkova_2022}, besides arising from a less simplified model.
+On the other hand, our constraint from Sec.~\ref{sec:results:gwtc} is \variable{output/restricted_absolute_kappa_68.txt}at 68\% credibility.
+This is a factor of \variable{output/improvement_Okounkova.txt}more stringent than Ref.~\cite{Okounkova_2022}, besides arising from a less simplified model.
 
 \subsubsection{Wang et al.}
 
@@ -579,8 +579,8 @@ Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \appr
 \begin{equation}
     |\kappa| \simeq \frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{\rm PV}^{-1}\,.
 \end{equation}
-\citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into $|\kappa| \lesssim$ \variable{output/kappa_Wang.txt}.
-We obtained a tighter 90\% upper limit of $|\kappa| <$ \variable{output/restricted_absolute_kappa_90.txt}.
+\citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
+We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}.
 
 \subsubsection{Comparison summary}
 
@@ -642,7 +642,7 @@ We have reanalyzed all \acp{BBH} in GWTC-3 with $\mathrm{FAR} < 1/\mathrm{yr}$ t
 To this end, we implemented a model in which right or left handed polarizations are amplified or suppressed over distance as a function of frequency, with an overall strength parametrized by a birefringent ``opacity'' parameter, $\kappa$, following Eq.~\eqref{eq:waveform_modification}.
 This parameterization is consistent with parity-odd theories like Chern-Simons gravity, and can be used to constrain them where applicable.
 
-We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained $\kappa =$ \variable{output/restricted_kappa_median.txt}with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
+We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained \variable{output/restricted_kappa_median.txt}with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
 As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources (Sec.~\ref{sec:results:hier}).
 The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
 Future catalogs with more events will shed light on this feature.
