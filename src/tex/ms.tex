@@ -38,7 +38,7 @@
     The propagation of gravitational waves can reveal fundamental features of the structure of spacetime.
     For instance, differences in the propagation of gravitational-wave polarizations would be a smoking gun for parity violations in the gravitational sector, as expected from birefringent theories like Chern-Simons gravity.
     Here we look for evidence of amplitude birefringence in the latest LIGO-Virgo catalog (GWTC-3) through the use of birefringent templates inspired by dynamical Chern-Simons gravity.
-    From 71 binary-black-hole signals, we obtain the most precise constraints on amplitude birefringence yet, an order of magnitude more stringent than previous results.
+    From 71 binary-black-hole signals, we obtain the most precise constraints on gravitational-wave amplitude birefringence yet, measuring a birefringent opacity of $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility, equivalent to an energy scale of $M_{\rm PV} \lesssim XX\, {\rm GeV}$ \mi{Thomas please provide the equivalent $M_{\rm PV}$ constraint from $|\kappa|$)}.
 \end{abstract}
 
 \maketitle
@@ -79,9 +79,10 @@ We use the results from individual events to place a collective population const
 
 % Section guide
 In Sec.~\ref{sec:Background}, we briefly review the background of \ac{GW} amplitude birefringence.
-In Sec.~\ref{sec:Method}, we describe the modification we made to the waveform model, mention the configuration we used in the \ac{PE} and show the method we used to obtain the population constraint on \ac{GW} amplitude birefringence.
-In Sec.~\ref{sec:Results}, we present the population constraint on \ac{GW} amplitude birefringence we obtained and show the results of individual \ac{PE}.
-In Sec.~\ref{sec:Discussion}, we discuss the limitation of this study and provide suggestions for future studies.
+In Sec.~\ref{sec:Method}, we describe the modification we apply to the baseline \ac{GR} waveform, summarize our \ac{PE} configuration and outline our statistical methods for combining information from multiple events.
+In Sec.~\ref{sec:Results}, we present our constraint on \ac{GW} amplitude birefringence, discussing individual events and the catalog collectively.
+In Sec.~\ref{sec:Discussion}, we discuss the implications of our result, comparing to previous constraints in the literature and outlining correlation structures that appear in our measurements.
+Finally, we conclude in Sec.~\ref{sec:Discussion} with a summary.
 
 \section{Background}
 \label{sec:Background}
@@ -127,7 +128,6 @@ Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_mo
 \left|\kappa\right| \left(d_C/1\,\mathrm{Gpc}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, .
 \end{equation}
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
-\mi{specify what the parameter for the expansion is, add citations, and check with a theorist}
 
 \begin{figure}
     \script{birefringence.py}
