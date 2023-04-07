@@ -536,35 +536,55 @@ In any case, the outcome of that test showed the role of GW200129 to not be sign
 % Comparison with previous studies
 \subsection{Comparison with previous studies}
 
-Our primary constraint on birefringence is given by the GWTC-3 combined constraint on the birefringent opacity, $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
-This can be compared to previous measurements in the literature.
+Our primary constraint on birefringence is given by the combined constraint on the birefringent opacity from GWTC-3, $\kappa =$ \variable{output/restricted_kappa_median.txt} with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
+We can compare this to previous measurements of amplitude birefringence in the literature.
 
+\subsubsection{Okounkova et al.}
 \citet{Okounkova_2022} produced a constraint on frequency-independent \ac{GW} amplitude birefringence from the distribution of measured inclinations of \acp{BBH} in GWTC-2.
 As opposed to our Eq.~\eqref{eq:waveform_modification}, this reference parameterized the effect of birefringence as
 \begin{equation}
+\label{eq:freqindep}
     h_{L/R}^{\mathrm{br}}(f) =
     h_{L/R}^{\mathrm{GR}}(f) \times
     \exp\left(\pm \tilde{\kappa}\, d_C\right)\,,
 \end{equation}
 where $\tilde{\kappa}$ is a frequency-independent opacity (simply denoted ``$\kappa$'' in Ref.~\cite{Okounkova_2022}).
 Assuming a fiducial redshift of $z=0.3$ for all events in GWTC-2, \citet{Okounkova_2022} obtained a constraint of $|\tilde{\kappa}| \lesssim 0.74\, {\rm Gpc}^{-1}$ at 68\% credibility.
-Taking a reference frequency of $f=100\, \mathrm{Hz}$, which is representative of LIGO-Virgo events, we may compare that constraint to ours by noting that
+Taking a reference frequency of $f=100\, \mathrm{Hz}$, which is representative of LIGO-Virgo events, and adopting the same fiducial distance $d_C(z=0.3)$, we may compare that constraint to ours by noting that
 \begin{equation}
-    \tilde{\kappa}d_C = \left[{\kappa}\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}\right]_{f=100\, \mathrm{Hz}}\,.
+    \left[ \tilde{\kappa} = \frac{\kappa}{1\, \mathrm{Gpc}} \right]_{\raisebox{1ex}{$\begin{subarray}{l} z=0.3 \\ f=100\,{\rm Hz} \end{subarray}$}}
 \end{equation}
-per Eq.~\eqref{eq:waveform_modification}, and hence $\tilde{\kappa} = \kappa / {\rm Gpc}$ at $f=100\, {\rm Hz}$.
-In terms of this fiducial quantity, our constraint becomes $|\tilde{\kappa}| <$ \variable{output/restricted_absolute_kappa_68.txt} ${\rm Gpc}^{-1}$ at 68\% credibility.
+per Eq.~\eqref{eq:waveform_modification}.
+In terms of this fiducial quantity, our constraint from Sec.~\ref{sec:results:gwtc} can be expressed as $|\tilde{\kappa}| <$ \variable{output/restricted_absolute_kappa_68.txt} ${\rm Gpc}^{-1}$ at 68\% credibility.
+This is a factor of ${\sim}25\times$ \mi{Thomas, can you make this number be dynamically generated? it should be the ratio of Masha's constraint to ours, rounded to the closest integer} more stringent than Ref.~\cite{Okounkova_2022}, besides arising from a less simplified model.
 
-\citet{Wang_2021} performed \ac{PE} on GWTC-1 events with a frequency-dependent birefringence model.
-They formulated the birefringence effect as corrections to the GW waveform on a linear basis.
-We convert their constraint to the same units as ours with the derivation in Appendix~\ref{sec:M_PV_derivation}.
-They obtained a constraint equivalent to $|\kappa| <$ \variable{output/kappa_Wang.txt}, given by the 90\% upper limit.
+\subsubsection{Wang et al.}
+
+\citet{Wang_2021} performed \ac{PE} on GWTC-1 events with a frequency-dependent model of birefringence resembling ours.
+In contrast to our Eq.~\eqref{eq:waveform_modification}, this reference parameterized the birefringent waveform in terms of some amplitude and phase modifications to the linear polarizations ($\delta h$ and $\delta \Psi$ respectively), such that
+\begin{equation}
+    h_{+/\times}^{\rm BR}(f) = h_{+/\times}^{\rm GR}(f)\mp h_{\times/+}^{\rm GR}(f)(i\delta h-\delta\Psi)\,,
+\end{equation}
+with the plus (minus) sign for the cross (plus) polarization.
+In terms of circular polarizations, this is equivalent to 
+\begin{align}
+h^{\rm BR}_{L/R}(f) &= h^{\rm GR}_{L/R}(f) \left(1 \mp \delta h \mp i \delta \Psi \right) \nonumber\\
+&\approx h^{\rm GR}_{L/R}(f) \exp(\mp \delta h \mp i \delta \Psi) \, ,
+\end{align}
+assuming a small $\delta $ and $\delta \Psi \ll 1$.
+To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z / M_{\rm PV}$, where $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction in units of frequency.%
+\footnote{Concretely, \citet{Wang_2021} write $\delta h = - A_\nu \pi f$ with $A_\nu = M_{\rm PV}^{-1} \left[\alpha_\nu (z=0) - \alpha_\nu(z) \left(1+z\right)\right]$, for $\alpha_\nu$ some function of redshift encoding the evolution of a birefringence-mediating field; to produce their constraint, however, they further set $\alpha_\nu(z) = 1$, yielding $A_\nu = -z / M_{\rm PV}$ and hence $\delta h = \pi f z / M_{\rm PV}$.}
+Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ with the Hubble constant $H_0$, this means
+\begin{equation}
+    |\kappa| = \frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{\rm PV}^{-1}\,.
+\end{equation}
+\citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into $|\kappa| <$ \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of $|\kappa| <$ \variable{output/restricted_absolute_kappa_90.txt}.
 
-Our result is an order of magnitude improvement in constraining $\kappa$.
-The main reason is that we included more events from GWTC-3 compared to \citet{Okounkova_2022} and \citet{Wang_2021}.
-
 \subsection{Parameter degeneracies}
+
+In examining our results in Sec.~\ref{sec:results:notable}, we identified interactions between birefringence and the inference of source properties like the component spin parameters---in addition to expected partial degeneracies with inclination and distance (Sec.~\ref{sec:inclination}).
+In particular, we found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations.
 
 \begin{figure}
     \script{mass_ratio.py}
@@ -574,10 +594,6 @@ The main reason is that we included more events from GWTC-3 compared to \citet{O
     }
     \label{fig:mass_ratio}
 \end{figure}
-
-
-In examining our results in Sec.~\ref{sec:results:notable}, we identified interactions between birefringence and the inference of source properties like the component spin parameters---in addition to expected partial degeneracies with inclination and distance (Sec.~\ref{sec:inclination}).
-In particular, we found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations.
 
 As a consequence, a system that would be inferred to be highly spinning in \ac{GR} may instead be inferred to be low-spinning but highly birefringent if nonzero values of $\kappa$ are allowed.
 These morphological degeneracies can interact with the distribution of prior probability mass to yield a preference for nonzero $\kappa$ in some events: in absence of a strong constraint from the data, it can be more favorable to place a source at far distances with large $|\kappa|$, than at close distances with a fine tuned spin configuration and low $|\kappa|$.
@@ -700,72 +716,6 @@ See Sec.~\ref{sec:GW190521} in the main text for related exposition.
     }
     \label{fig:corner_GW190521_appendix}
 \end{figure*}
-
-% \subsection{Extended corner plot for GW191105}
-% \label{sec:corner_GW191105_appendix}
-% 
-% \begin{figure*}[h]
-%     \script{corner_GW191105_appendix.py}
-%     \includegraphics[width=\textwidth]{figures/corner_GW191105_appendix.pdf}
-%     \caption{
-%         Extended corner plot for GW191105: a supplement to Fig.~\ref{fig:corner_GW191105} discussed in Appendix~\ref{sec:corner_GW191105_appendix}.
-%     }
-%     \label{fig:corner_GW191105_appendix}
-% \end{figure*}
-
-% \section{Extended corner plot for GW200129}
-% \label{sec:corner_GW200129_appendix}
-% 
-% \begin{figure*}[h]
-%     \script{corner_GW200129_appendix.py}
-%     \includegraphics[width=\textwidth]{figures/corner_GW200129_appendix.pdf}
-%     \caption{
-%         Extended corner plot for GW200129: a supplement to Fig.~\ref{fig:corner_GW200129} discussed in Appendix~\ref{sec:corner_GW200129_appendix}.
-%     }
-%     \label{fig:corner_GW200129_appendix}
-% \end{figure*}
-
-\section{Relation between $\kappa$ and $M_{PV}$}
-\label{sec:M_PV_derivation}
-
-\citet{Wang_2021} formulated the birefringence effect as
-\begin{equation}
-    h_{+/\times}^{PV}(f) = h_{+/\times}^{GR}(f)\mp h_{\times/+}^{GR}(f)(i\delta h-\delta\Psi)\,,
-\end{equation}
-where $h_{+/\times}^{PV}(f)$ is the modified \ac{GW} waveform in the linear basis, $h_{+/\times}^{GR}(f)$ is the \ac{GW} waveform in the linear basis as \ac{GR} predicts, $\delta h$ is the amplitude modification, and $\delta\Psi$ is the phase modification.
-We can rewrite the equation as
-\begin{equation}
-\begin{split}
-    h_{L/R}^{PV}(f)&=h_{L/R}^{GR}(f)(1\mp\delta h\mp i\delta\Psi)\\
-    &\approx h_{L/R}^{GR}(f)\exp\left(\mp\delta h\mp i\delta\Psi\right)
-\end{split}
-\,,
-\end{equation}
-where $h_{L/R}^{PV}(f)$ is the modified \ac{GW} waveform in the circular basis, $h_{L/R}^{GR}(f)$ is the \ac{GW} waveform in the circular basis as \ac{GR} predicts.
-This equation applies to any birefringence model that allows the assumption that the modification to \ac{GR} is small when observed very near the source.
-To make a comparison with our work, we can choose $\delta\Psi=0$, which is a case that \citet{Wang_2021} considered.
-In their work, they parametrized $\delta h=-A_\nu\pi f$, while
-\begin{equation}
-    A_\nu=M_{PV}^{-1}(\alpha_\nu(z=0)-\alpha_\nu(z)(1+z))\,,
-\end{equation}
-where $A_\nu$ is the parity-violating parameter for amplitude birefringence, $M_{PV}$ is the characteristic energy scale, and $\alpha_\nu$ is a arbitrary functions determined by the birefringence model.
-They then chose $\alpha_\nu=1$.
-Therefore, we can rewrite the equation as
-\begin{equation}
-    h_{L/R}^{PV}(f)= h_{L/R}^{GR}(f)\exp\left(\mp\frac{\pi zf}{M_{PV}}\right)\,.
-\end{equation}
-This equation takes the same form as Eq.~\eqref{eq:waveform_modification}.
-We can then find the relation between $M_{PV}$ and $\kappa$ by
-\begin{equation}
-    \left|\mp\frac{\pi zf}{M_{PV}}\right|=\left|\pm\kappa\frac{d_C}{1\,\mathrm{Gpc}}\frac{f}{100\,\mathrm{Hz}}\right|\,.
-\end{equation}
-Using $H_0d_C=cz$, where $H_0$ is the Hubble constant and $c$ is the speed of light, and adding back the factor of Planck constant $h$, we can rewrite the equation as
-\begin{equation}
-    |\kappa|=\frac{h\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{PV}^{-1}\,.
-\end{equation}
-They gave the constraint on $M_{PV}$ as $M_{PV}>10^{-22}\,\mathrm{GeV}$.
-This constraint only considered the amplitude birefringence modification.
-Equivalently, the constraint on $\kappa$ is $|\kappa| <$ \variable{output/kappa_Wang.txt}.
 
 \bibliography{bib}
 
