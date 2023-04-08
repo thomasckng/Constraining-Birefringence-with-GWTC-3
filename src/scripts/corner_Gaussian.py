@@ -85,7 +85,7 @@ colors = [[c0[2], c0[0]], [c0[7], c0[5]]]
 kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], colors=colors[0], levels=[0.90,0.3935], fill=True, alpha=0.7, rng=rng)
 kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=c0[0], levels=[0.90,0.3935], fill=False, linewidths=0.5, alpha=0.5, rng=rng)
 
-kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], colors=colors[1], levels=[0.90,0.3935], fill=True, alpha=0.7, rng=seed)
+kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], colors=colors[1], levels=[0.90,0.3935], fill=True, alpha=0.7, rng=rng)
 
 axs[1,0].set_xlabel("$\\mu$")
 axs[1,0].set_ylabel("$\\sigma$")
