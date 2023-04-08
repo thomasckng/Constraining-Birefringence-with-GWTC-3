@@ -38,7 +38,7 @@ result = pd.concat([result_BR,result_GR], ignore_index=True)
 
 lw = 1
 
-def kdeplot2d(x, y, rgn=12345, **kws):
+def kdeplot2d(x, y, rng=12345, **kws):
     kws.pop('label', None)
     kdeplot_2d_clevels(xs=x, ys=y, auto_bound=True, rng=rng, **kws)
 

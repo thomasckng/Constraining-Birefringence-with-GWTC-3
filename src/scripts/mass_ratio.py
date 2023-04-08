@@ -72,6 +72,7 @@ axs[0,1].legend(loc='lower right', bbox_to_anchor=(1.05, 0.9), fontsize=14,
 
 
 for ax in axs[-1]:
+    ax.set_xticks([0, 0.5, 1])
     ax.set_xticklabels(['0', '0.5', '1'])
 
 for ax in axs[0]:
