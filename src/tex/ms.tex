@@ -129,17 +129,17 @@ Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_mo
 \end{equation}
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
 
-\begin{figure}
-    \script{birefringence.py}
-    \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
-    \caption{
-        \emph{Illustration of amplitude birefringence.} The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is linearly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
-        However, if spacetime were birefringent following Eq.~\protect\eqref{eq:waveform_modification}, the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
-        In the time domain, this manifests as a time-dependent amplification of the waveform, with a stronger effect at later times when the chirp reaches a higher instantaneous frequency (bottom).
-        For this example, the black holes do not spin and have equal masses $m_1 = m_2 = 10\, M_\odot$, and we have chosen a luminosity distance $d_L = 400\, {\rm Mpc}$ and $\kappa = 0.6$.
-        }
-    \label{fig:birefringence}
-\end{figure}
+% \begin{figure}
+%     \script{birefringence.py}
+%     \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
+%     \caption{
+%         \emph{Illustration of amplitude birefringence.} The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is linearly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
+%         However, if spacetime were birefringent following Eq.~\protect\eqref{eq:waveform_modification}, the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
+%         In the time domain, this manifests as a time-dependent amplification of the waveform, with a stronger effect at later times when the chirp reaches a higher instantaneous frequency (bottom).
+%         For this example, the black holes do not spin and have equal masses $m_1 = m_2 = 10\, M_\odot$, and we have chosen a luminosity distance $d_L = 400\, {\rm Mpc}$ and $\kappa = 0.6$.
+%         }
+%     \label{fig:birefringence}
+% \end{figure}
 
 \subsection{Inclination and other degeneracies}
 \label{sec:inclination}
@@ -273,14 +273,14 @@ We first show the $\kappa$ measurements from of all events in our set, as well a
 We then assess the collection of measurements in more detail through a hierarchical analysis (Sec.~\ref{sec:results:hier}).
 Finally, we discuss some special events individually, and outline the degeneracies that arise between birefringence and orbital precession (Sec.~\ref{sec:results:notable}).
 
-\begin{figure}
-    \script{violin_kappa.py}
-    \includegraphics[width=\columnwidth]{figures/violin_kappa.pdf}
-    \caption{
-        Individual-event $\kappa$ posteriors (distributions), and joint measurement (blue band, 90\% CI; blue line, median).
-    }
-    \label{fig:violin_kappa}
-\end{figure}
+% \begin{figure}
+%     \script{violin_kappa.py}
+%     \includegraphics[width=\columnwidth]{figures/violin_kappa.pdf}
+%     \caption{
+%         Individual-event $\kappa$ posteriors (distributions), and joint measurement (blue band, 90\% CI; blue line, median).
+%     }
+%     \label{fig:violin_kappa}
+% \end{figure}
 
 \subsection{GWTC-3 result}
 \label{sec:results:gwtc}
@@ -323,16 +323,16 @@ As we anticipated in Sec.~\ref{sec:inclination}, we understand the bimodality in
 Other parameter degeneracies also come into play, especially for the lighter events GW191105\_143521 (henceforth GW191105) and GW170104.
 We discuss this further in a dedicated section below (Sec.~\ref{sec:results:notable}).
 
-\begin{figure}
-    \script{corner_Gaussian.py}
-    \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
-    \caption{
-        The posterior of the $\kappa$ population hyperparameters $\mu$ and $\sigma$, including (blue) and excluding (orange) GW200129 from the collection of events.
-        The 2D contours correspond to the $39.35\%$ and $90\%$ credible levels.
-        The plot shows that the population constraint on $\kappa$ is consistent with no birefringence ($\mu=\sigma=0$) at the 90\% credible level.
-    }
-    \label{fig:corner_Gaussian}
-\end{figure}
+% \begin{figure}
+%     \script{corner_Gaussian.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_Gaussian.pdf}
+%     \caption{
+%         The posterior of the $\kappa$ population hyperparameters $\mu$ and $\sigma$, including (blue) and excluding (orange) GW200129 from the collection of events.
+%         The 2D contours correspond to the $39.35\%$ and $90\%$ credible levels.
+%         The plot shows that the population constraint on $\kappa$ is consistent with no birefringence ($\mu=\sigma=0$) at the 90\% credible level.
+%     }
+%     \label{fig:corner_Gaussian}
+% \end{figure}
 
 \subsection{Hierarchical modeling}
 \label{sec:results:hier}
@@ -357,32 +357,32 @@ This feature appears to offset a few other events which tend to favor $\kappa < 
 The interaction between these distributions leads to a hyperposterior that is fully consistent with $\mu = 0$ while offering some support for $\sigma > 0$ (Fig.~\ref{fig:corner_Gaussian}).
 Future observations will determine whether there is truly evidence for a nonvanishing variance in this population.
 
-\begin{figure}
-    \script{reweighed_kappa.py}
-    \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
-    \caption{
-        Individual-event $\kappa_i$ distributions of Fig.~\ref{fig:violin_kappa} reweighted in light of the population-level inference of Fig.~\ref{fig:corner_Gaussian}, marginalizing over $\mu$ and $\sigma$.
-        Curves are colored by the magnitude of the supported deviation, as represented by the respective posterior $|\mu_i / \sigma_i|$; we label the events most in tension with $\kappa_i = 0$ by that same measure.
-    }
-    \label{fig:reweighted_kappa}
-\end{figure}
+% \begin{figure}
+%     \script{reweighed_kappa.py}
+%     \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
+%     \caption{
+%         Individual-event $\kappa_i$ distributions of Fig.~\ref{fig:violin_kappa} reweighted in light of the population-level inference of Fig.~\ref{fig:corner_Gaussian}, marginalizing over $\mu$ and $\sigma$.
+%         Curves are colored by the magnitude of the supported deviation, as represented by the respective posterior $|\mu_i / \sigma_i|$; we label the events most in tension with $\kappa_i = 0$ by that same measure.
+%     }
+%     \label{fig:reweighted_kappa}
+% \end{figure}
 
 % Constraint on $\kappa$
 Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ under the assumption of a Gaussian distribution via Eq.~\eqref{eq:generic_posterior}.
 We show the result of doing this in Fig.~\ref{fig:posterior_kappa}, where we also compare to the posterior on $\kappa$ obtained by assuming a shared value across events (same result shown as a blue band in Fig.~\ref{fig:violin_kappa}).
 The hierarchical measurement leads to an expectation that \variable{output/generic_kappa_median.txt}, whereas the shared-$\kappa$ measurement implies \variable{output/restricted_kappa_median.txt}, both symmetric 90\%-credible intervals around the median.  
 
-\begin{figure}
-    \script{posterior_kappa.py}
-    \includegraphics[width=\columnwidth]{figures/posterior_kappa.pdf}
-    \caption{
-        Restricted and generic posteriors on $\kappa$, which respectively do and do not assume that $\kappa$ is shared by all events (color).
-        Solid and dashed traces indicate whether the analysis included GW200129 or not.
-        The black dashed line marks the absence of birefringence ($\kappa=0$).
-        The shaded distribution is the primary result in this work (blue band in Fig.~\ref{fig:violin_kappa}).
-    }
-    \label{fig:posterior_kappa}
-\end{figure}
+% \begin{figure}
+%     \script{posterior_kappa.py}
+%     \includegraphics[width=\columnwidth]{figures/posterior_kappa.pdf}
+%     \caption{
+%         Restricted and generic posteriors on $\kappa$, which respectively do and do not assume that $\kappa$ is shared by all events (color).
+%         Solid and dashed traces indicate whether the analysis included GW200129 or not.
+%         The black dashed line marks the absence of birefringence ($\kappa=0$).
+%         The shaded distribution is the primary result in this work (blue band in Fig.~\ref{fig:violin_kappa}).
+%     }
+%     \label{fig:posterior_kappa}
+% \end{figure}
 
 % Case studies
 \subsection{Notable events}
@@ -396,16 +396,16 @@ Through these examples, we elucidate some of the interactions between $\kappa$ a
 \subsubsection{GW170818}
 \label{sec:GW170818}
 
-\begin{figure}
-    \script{corner_GW170818.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
-    \caption{
-        GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
-        The top right panel shows the marginalized posterior on $\chi_p$: allowing for birefringence reduces the preference for precession.
-        (See Fig.~\ref{fig:corner_GW170818_appendix} for a full corner plot.)
-    }
-    \label{fig:corner_GW170818}
-\end{figure}
+% \begin{figure}
+%     \script{corner_GW170818.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
+%     \caption{
+%         GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
+%         The top right panel shows the marginalized posterior on $\chi_p$: allowing for birefringence reduces the preference for precession.
+%         (See Fig.~\ref{fig:corner_GW170818_appendix} for a full corner plot.)
+%     }
+%     \label{fig:corner_GW170818}
+% \end{figure}
 
 GW170818 produced the posterior most displaced from $\kappa=0$, when judged by $\mu_i/\sigma_i$ in Fig.~\ref{fig:violin_kappa}.
 Figure \ref{fig:corner_GW170818} shows that this happens because birefringence opens up a region of parameter space with $\kappa>0$ for larger distances and smaller inclination angles than would be allowed in the GR case.
@@ -451,54 +451,14 @@ The degeneracies in the case of GW190521 are likely exacerbated by the heavier m
 Crucially, GW190521 also lacks a definite measurement of the polarization state at the detector: without certainty about the ratio of right- versus left-handed components in the observed signal, it is not possible to disambiguate between $\kappa > 0$ versus $\kappa < 0$; hence the $\kappa$ distribution remains bimodal for GW190521, unlike for GW170818.
 The poor determination of the polarization state of the detected signal is evidenced by the bimodal $\cos\iota$ posterior inferred assuming \ac{GR} in Fig.~\ref{fig:corner_GW190521}, and is attributable to several factors including sky location.
 
-\begin{figure}
-    \script{corner_GW190521.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
-    \caption{
-        GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
-        The marginalized posterior on $\chi_p$ is shown in the top right panel.
-    }
-    \label{fig:corner_GW190521}
-\end{figure}
-
-% % Case: GW150914 (example of broken degeneracy)
-% \subsubsection{GW150914}
-% In this study, we included frequency dependence of birefringence, which would affect the posterior of $\kappa$ obtained from \ac{PE}.
-% Consider GW150914, the first GW detected by LIGO, as an example.
-% In Fig.~\ref{fig:corner_GW150914}, we show the posteriors of the parameters of GW150914.
-% With the frequency-independent birefringence model, the posteriors for $\cos\iota$ look different from the posteriors assuming GR.
-% This is because, for a nonprecessing system, there is a degeneracy between $\kappa$ and $\iota$ if the frequency dependence is not included.
-% % explain the kappa gap
-% 
-% On the other hand, with the frequency-dependent birefringence model, the posterior looks similar to the GR posterior.
-% This is because the frequency dependence broke the degeneracy, as the effect of birefringence will differ from the effect of changing $\iota$.
-% In this case, the most probable value of $\kappa$ is close to $0$, which means the birefringence is weak or absent.
-% Therefore, the \ac{PE} result with frequency dependence is consistent with GR.
-% 
 % \begin{figure}
-%     \script{corner_GW150914.py}
-%     \includegraphics[width=\columnwidth]{figures/corner_GW150914.pdf}
+%     \script{corner_GW190521.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
 %     \caption{
-%         GW150914 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our frequency-dependent (blue), compared to the GR result (green).
+%         GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
 %         The marginalized posterior on $\chi_p$ is shown in the top right panel.
 %     }
-%     \label{fig:corner_GW150914}
-% \end{figure}
-
-% % Case: GW191105
-% \subsubsection{GW191105}
-% \label{sec:GW191105}
-% 
-% The situation is similar for GW191105 (Fig.~\ref{fig:corner_GW191105}).
-% 
-% \begin{figure}
-%     \script{corner_GW191105.py}
-%     \includegraphics[width=\columnwidth]{figures/corner_GW191105.pdf}
-%     \caption{
-%         GW191105 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
-%         The posterior on $\chi_{eff}$ and $\kappa$ from our birefringence analysis is shown in the top right panel.
-%     }
-%     \label{fig:corner_GW191105}
+%     \label{fig:corner_GW190521}
 % \end{figure}
 
 
@@ -518,17 +478,17 @@ While this is not conclusive proof that the glitch itself is driving the result,
 Since more work would be needed to understand the effect of the glitch, this motivated us to consider the effect of excluding this event from the collective analyses above (Sec.~\ref{sec:results:hier}).
 In any case, the outcome of that test showed the role of GW200129 to not be significant (e.g., Fig.~\ref{fig:corner_Gaussian}).
 
-\begin{figure}
-    \script{corner_GW200129.py}
-    \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
-    \caption{
-        GW200129 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos{\iota}$, including different sets of detectors in the analysis per the legend.
-        The marginalized posterior on $\chi_p$ is shown in the top right panel.
-        The main run with all three detectors (HLV, filled blue), shows a preference for $\kappa < 0$, as in Fig.~\ref{fig:violin_kappa}; this preference is more pronounced for two-detector runs that include Virgo (HV and LV, orange and green); however, it disappears if we remove Virgo (HL, dashed black).
-        The 2D contours correspond to the $90\%$ credible level.
-    }
-    \label{fig:corner_GW200129}
-\end{figure}
+% \begin{figure}
+%     \script{corner_GW200129.py}
+%     \includegraphics[width=\columnwidth]{figures/corner_GW200129.pdf}
+%     \caption{
+%         GW200129 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos{\iota}$, including different sets of detectors in the analysis per the legend.
+%         The marginalized posterior on $\chi_p$ is shown in the top right panel.
+%         The main run with all three detectors (HLV, filled blue), shows a preference for $\kappa < 0$, as in Fig.~\ref{fig:violin_kappa}; this preference is more pronounced for two-detector runs that include Virgo (HV and LV, orange and green); however, it disappears if we remove Virgo (HL, dashed black).
+%         The 2D contours correspond to the $90\%$ credible level.
+%     }
+%     \label{fig:corner_GW200129}
+% \end{figure}
 
 \section{Discussion}
 \label{sec:Discussion}
@@ -595,14 +555,14 @@ We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_k
 In examining our results in Sec.~\ref{sec:results:notable}, we identified interactions between birefringence and the inference of source properties like the component spin parameters---in addition to expected partial degeneracies with inclination and distance (Sec.~\ref{sec:inclination}).
 In particular, we found that the frequency-dependent modification to the waveform induced by birefringence can effectively mimic spin effects, including precession, especially for heavier systems which are observed over short durations.
 
-\begin{figure}
-    \script{mass_ratio.py}
-    \includegraphics[width=\columnwidth]{figures/mass_ratio.pdf}
-    \caption{
-    Posterior on mass ratio $q \equiv m_2/m_1$ (left) and precessing spin $\chi_p$ (right) for GW170104 (top) and GW191105 (bottom), as obtained from both the birefringent analysis (orange) and the regular \ac{GR} analysis (blue).
-    }
-    \label{fig:mass_ratio}
-\end{figure}
+% \begin{figure}
+%     \script{mass_ratio.py}
+%     \includegraphics[width=\columnwidth]{figures/mass_ratio.pdf}
+%     \caption{
+%     Posterior on mass ratio $q \equiv m_2/m_1$ (left) and precessing spin $\chi_p$ (right) for GW170104 (top) and GW191105 (bottom), as obtained from both the birefringent analysis (orange) and the regular \ac{GR} analysis (blue).
+%     }
+%     \label{fig:mass_ratio}
+% \end{figure}
 
 As a consequence, a system that would be inferred to be highly spinning in \ac{GR} may instead be inferred to be low-spinning but highly birefringent if nonzero values of $\kappa$ are allowed.
 These morphological degeneracies can interact with the distribution of prior probability mass to yield a preference for nonzero $\kappa$ in some events: in absence of a strong constraint from the data, it can be more favorable to place a source at far distances with large $|\kappa|$, than at close distances with a fine tuned spin configuration and low $|\kappa|$.
@@ -686,16 +646,16 @@ Although the spin tilts are similarly constrained to $\theta_{1/2} \approx \pi/2
 As discussed in Sec.~\ref{sec:GW170818}, this can be explained by the introduction of $\kappa$, which can result in morphologies that are approximately degenerate with precession over a small number of waveform cycles (cf.~Fig.~\ref{fig:birefringence}).
 See the main text for further discussion.
 
-\begin{figure*}[h]
-    \script{corner_GW170818_appendix.py}
-    \includegraphics[width=\textwidth]{figures/corner_GW170818_appendix.pdf}
-    \caption{
-        Extended corner plot for GW170818: a supplement to Fig.~\ref{fig:corner_GW170818} discussed in Appendix~\ref{sec:corner_GW170818_appendix}.
-        The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
-        The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
-    }
-    \label{fig:corner_GW170818_appendix}
-\end{figure*}
+% \begin{figure*}[h]
+%     \script{corner_GW170818_appendix.py}
+%     \includegraphics[width=\textwidth]{figures/corner_GW170818_appendix.pdf}
+%     \caption{
+%         Extended corner plot for GW170818: a supplement to Fig.~\ref{fig:corner_GW170818} discussed in Appendix~\ref{sec:corner_GW170818_appendix}.
+%         The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
+%         The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
+%     }
+%     \label{fig:corner_GW170818_appendix}
+% \end{figure*}
 
 \subsection{GW190521}
 \label{sec:corner_GW190521_appendix}
@@ -716,16 +676,16 @@ Other than the spins, the birefringent analysis differs most notably from the \a
 See Sec.~\ref{sec:GW190521} in the main text for related exposition.
 
 
-\begin{figure*}[h]
-    \script{corner_GW190521_appendix.py}
-    \includegraphics[width=\textwidth]{figures/corner_GW190521_appendix.pdf}
-    \caption{
-        Extended corner plot for GW190521: a supplement to Fig.~\ref{fig:corner_GW190521} discussed in Appendix~\ref{sec:corner_GW190521_appendix}.
-        The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
-        The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
-    }
-    \label{fig:corner_GW190521_appendix}
-\end{figure*}
+% \begin{figure*}[h]
+%     \script{corner_GW190521_appendix.py}
+%     \includegraphics[width=\textwidth]{figures/corner_GW190521_appendix.pdf}
+%     \caption{
+%         Extended corner plot for GW190521: a supplement to Fig.~\ref{fig:corner_GW190521} discussed in Appendix~\ref{sec:corner_GW190521_appendix}.
+%         The shaded regions contain 90\% and 39.35\% ($1\sigma$) of the probability mass.
+%         The prior is uniform in all shown quantities except $d_L$, whose prior corresponds to a distribution uniform in comoving volume.
+%     }
+%     \label{fig:corner_GW190521_appendix}
+% \end{figure*}
 
 \bibliography{bib}
 
