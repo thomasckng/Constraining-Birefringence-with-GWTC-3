@@ -169,7 +169,7 @@ to reconstruct the amplitude ratio from the interferometer data, a value of $\io
 That fact can be used to constrain frequency-independent birefringence by searching for features in the distribution of inferred inclinations \cite{Okounkova_2022}.
 
 By implementing Eq.~\eqref{eq:waveform_modification}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
-Nevertheless, there exist systems for which the degeneracy cannot be perfectly broken because not enough frequencies are available in the data.
+Nevertheless, there exist systems for which the degeneracy cannot be broken in practice because not enough frequencies are available in the data.
 This may be the case for quasimonochromatic sources, like nonaxisymmetric pulsars or very light binaries, which are well approximated by a single Fourier mode.
 
 As we will find in Sec.~\ref{sec:Results}, the effect of birefringence can be (partially) degenerate with other parameters besides source inclination.
@@ -235,7 +235,7 @@ The \emph{simplest} assumption is that the field manifests equally for all event
 These considerations motivate a collective analysis that does not assume $\kappa$ is shared across events \cite{Zimmerman:2019wzo,Isi:2022cii}.
 Such an analysis has the additional advantage of helping us further characterize our set of measurements, and identify potential outliers.
 
-To do this, we apply hierarchical Bayesian inference \cite{Loredo:2004nn} to model the distribution of $\kappa$'s consistent with the observed data:
+To do this, we apply hierarchical Bayesian inference \cite{Mandel2010,Hogg2010} to model the distribution of $\kappa$'s consistent with the observed data:
 we posit that, rather than a unique global value of $\kappa$, there is a specific value of the parameter, $\kappa_i$, associated with each event, and that this is drawn from some unknown distribution of true underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
 If we are interested in constraining the first two moments of the distribution, it is convenient to parametrize the $\kappa_i$'s as drawn from a Gaussian with unknown mean $\mu$ and variance $\sigma^2$, i.e., $\kappa_i \sim \mathcal{N}(\mu, \sigma^2)$ \cite{Isi:2019asy}, and measure those hyperparameters from the collection of observed data.
 
