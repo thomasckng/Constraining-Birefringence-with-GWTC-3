@@ -73,7 +73,7 @@ axs[1,1].plot(df['sigma'], df['sigma_kde'], c=sns.color_palette()[0], lw=lw)
 axs[1,1].fill_between(df_without_GW200129['sigma'], df_without_GW200129['sigma_kde'], np.zeros(len(df_without_GW200129['sigma'])), alpha=0.2, color=sns.color_palette()[1])
 axs[1,1].plot(df_without_GW200129['sigma'], df_without_GW200129['sigma_kde'], color=sns.color_palette()[1], lw=lw)
 
-axs[1,1].set_xlabel("$\\sigma$")
+axs[1,1].set_xlabel("$\\sigma$ ($\\mathrm{Gpc}^{-1}$)")
 axs[1,1].set_xlim(0)
 axs[1,1].set_ylim(0)
 axs[1,1].set_yticks([])
@@ -87,8 +87,8 @@ kdeplot_2d_clevels(xs=df['mu'], ys=df['sigma'], ylow=0, ax=axs[1,0], color=c0[0]
 
 kdeplot_2d_clevels(xs=df_without_GW200129['mu'], ys=df_without_GW200129['sigma'], ylow=0, ax=axs[1,0], colors=colors[1], levels=[0.90,0.3935], fill=True, alpha=0.7, rng=rng)
 
-axs[1,0].set_xlabel("$\\mu$")
-axs[1,0].set_ylabel("$\\sigma$")
+axs[1,0].set_xlabel("$\\mu$ ($\\mathrm{Gpc}^{-1}$)")
+axs[1,0].set_ylabel("$\\sigma$ ($\\mathrm{Gpc}^{-1}$)")
 axs[1,0].set_xlim(-.07,.07)
 axs[1,0].set_ylim(0)
 

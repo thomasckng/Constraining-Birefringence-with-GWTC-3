@@ -88,7 +88,7 @@ for i in range(len(vars)):
         g.axes[i,j].set_xlim(result_all[vars[j]].min(), result_all[vars[j]].max())
         g.axes[i,j].set_ylim(result_all[vars[i]].min(), result_all[vars[i]].max())
 
-g.axes[2,0].set_xlabel(r"$\kappa$")
+g.axes[2,0].set_xlabel(r"$\kappa$ ($\mathrm{Gpc}^{-1}$)")
 g.axes[1,0].set_ylabel(r"$d_L$ (Mpc)")
 g.axes[2,1].set_xlabel(r"$d_L$ (Mpc)")
 g.axes[2,0].set_ylabel(r"$\cos\iota$")

@@ -51,7 +51,7 @@ g = sns.violinplot(data=result_DataFrame, y="event", x="kappa",
                    saturation=1,
                    )
 g.legend_ = None
-g.set_xlabel("$\kappa$", fontsize=40)
+g.set_xlabel(r"$\kappa$ ($\mathrm{Gpc}^{-1}$)", fontsize=40)
 g.set_xlim(-0.2,0.2)
 g.set_ylabel("")
 y_low, y_high = g.get_ylim()

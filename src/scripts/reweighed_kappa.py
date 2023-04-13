@@ -25,7 +25,7 @@ color = zscores.apply(lambda z: cmap(norm(z), alpha=norm(z)))
 
 g = sns.kdeplot(df, palette=color.to_dict(), hue_order=zscores.index)
 g.get_legend().remove()
-g.set_xlabel('$\kappa$')
+g.set_xlabel(r'$\kappa$ ($\mathrm{Gpc}^{-1}$)')
 g.set_ylabel('$p(\kappa)$')
 g.set_xlim(-.2,.2)
 
