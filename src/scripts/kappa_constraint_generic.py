@@ -28,4 +28,4 @@ generic_kappa_median = np.median(samples_reweighted)
 generic_kappa_95 = np.percentile(a=samples_reweighted,q=95)
 generic_kappa_5 = np.percentile(a=samples_reweighted,q=5)
 with open(paths.output/"generic_kappa_median.txt", "w") as f:
-    f.write(f"$\kappa_i = {generic_kappa_median:.3f}^{{+{(generic_kappa_95-generic_kappa_median):.3f}}}_{{{(generic_kappa_5-generic_kappa_median):.3f}}}$")
+    f.write(f"$\kappa_i = {generic_kappa_median:.3f}^{{+{(generic_kappa_95-generic_kappa_median):.3f}}}_{{{(generic_kappa_5-generic_kappa_median):.3f}}} \\, \\mathrm{{Gpc}}^{{-1}}$")

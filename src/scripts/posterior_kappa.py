@@ -97,7 +97,7 @@ plt.plot(kappa,likelihood, color=sns.color_palette()[0], linestyle='--')
 
 plt.xlim(-.15, .15)
 plt.ylabel("$p(\kappa|\{d\})$")
-plt.xlabel("$\kappa$")
+plt.xlabel(r"$\kappa$ ($\mathrm{Gpc}^{-1}$)")
 plt.legend()
 
 plt.savefig(fname=paths.figures/"posterior_kappa.pdf", bbox_inches="tight", dpi=300)

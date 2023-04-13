@@ -38,7 +38,7 @@
     The propagation of gravitational waves can reveal fundamental features of the structure of spacetime.
     For instance, differences in the propagation of gravitational-wave polarizations would be a smoking gun for parity violations in the gravitational sector, as expected from birefringent theories like Chern-Simons gravity.
     Here we look for evidence of amplitude birefringence in the latest LIGO-Virgo catalog (GWTC-3) through the use of birefringent templates inspired by dynamical Chern-Simons gravity.
-    From 71 binary-black-hole signals, we obtain the most precise constraints on gravitational-wave amplitude birefringence yet, measuring a birefringent opacity of \variable{output/restricted_kappa_median.txt}with 90\% credibility, equivalent to an energy scale of \variable{output/M_PV_constraint.txt}.
+    From 71 binary-black-hole signals, we obtain the most precise constraints on gravitational-wave amplitude birefringence yet, measuring a birefringent attenuation of \variable{output/restricted_kappa_median.txt} at $100 \, \mathrm{Hz}$ with 90\% credibility, equivalent to a parity-violation energy scale of \variable{output/M_PV_constraint.txt}.
 \end{abstract}
 
 \maketitle
@@ -73,7 +73,7 @@ Previous studies have constrained amplitude birefringence by performing differen
 In this study, we use a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE} on \ac{LVK} binaries.
 This model is a better approximation of the birefringence effect expected from theory than the frequency-independent model used in \citet{Okounkova_2022}.
 Compared to other studies, we perform \ac{PE} on more events, including events new to GWTC-3 \citep{GWTC-3}, and use a phenomenology-oriented parametrization.
-We consider 71 binary black hole merger events with a \ac{FAR} $\leq1\mathrm{yr^{-1}}$, as listed in Table I of \citet{GWTC-3_population}.
+We consider 71 binary black hole merger events with a \ac{FAR} $\leq1/\mathrm{yr}$, as listed in Table I of \citet{GWTC-3_population}.
 We discuss single-event results in detail, and identify degeneracies between birefringence and spin effects, in addition to the already known correlations with source orientation and distance.
 We use the results from individual events to place a collective population constraint on the strength of \ac{GW} amplitude birefringence from GWTC-3.
 
@@ -109,11 +109,11 @@ To first order, in theories like Chern-Simons gravity, the Fourier-domain wavefo
 \begin{equation}
     h_{L/R}^{\mathrm{br}}(f) =
     h_{L/R}^{\mathrm{GR}}(f) \times
-    \exp\left(\pm\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\,\mathrm{Hz}}\right)\,,
+    \exp\left(\pm\kappa d_C \frac{f}{100\,\mathrm{Hz}}\right)\,,
     \label{eq:waveform_modification}
 \end{equation}
 where the emitted waveform $h_{L/R}^{\mathrm{GR}}$ is modified by an exponential birefringent factor to yield the observed waveform $h_{L/R}^{\mathrm{br}}$.
-The overall magnitude of this effect for a given distance and frequency $f$ is set by a dimensionless opacity parameter, $\kappa$, which encodes the intrinsic strength of the birefringence.
+The overall magnitude of this effect for a given frequency $f$ is set by an attenuation coefficient, $\kappa$, which encodes the intrinsic strength of the birefringence.
 The emitted waveform for a given source (i.e., the waveform observed in the near zone, very close to the source) will generally differ from the analogous waveform predicted by \ac{GR} \cite{Alexander:2009tp,Okounkova:2019zjf}; however, since we expect most viable modifications to \ac{GR} to be intrinsically small (e.g., \cite{Okounkova:2022grv}), it is standard to approximate the emitted waveform by the prediction from \ac{GR} (hence the notation ``$h^{\rm GR}$'' above).
 
 Although the intrinsic modification is small, the effect targeted by Eq.~\eqref{eq:waveform_modification} accumulates as the \ac{GW} propagates.
@@ -125,7 +125,7 @@ Equation \eqref{eq:waveform_modification} can be derived as the first order effe
 In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity \cite{Alexander:2009tp}.
 Since it originates from a truncated series expansion, Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
 \begin{equation}
-\left|\kappa\right| \left(d_C/1\,\mathrm{Gpc}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, .
+\left|\kappa\right| d_C \left(f/100\, \mathrm{Hz}\right) < 1\, .
 \end{equation}
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
 
@@ -158,7 +158,7 @@ However, the two effects are degenerate only if the frequency dependence of Eq.~
 This is easy to see from Eq.~\eqref{eq:waveform_modification}, since the implied polarization ratio for the $\ell = |m| = 2$ mode of a nonprecessing source is
 \begin{equation}
     \frac{h_{L}^\mathrm{br}}{h_{R}^\mathrm{br}}=\left(\frac{1-\cos\iota}{1+\cos\iota}\right)^2
-    \exp\left({2\kappa\frac{d_C}{1\, \mathrm{Gpc}}\frac{f}{100\, \mathrm{Hz}}}\right)\, .
+    \exp\left(2\kappa d_C \frac{f}{100\, \mathrm{Hz}}\right)\, .
     \label{eq:modified_amplitude_ratio}
 \end{equation}
 For an isolated Fourier mode of definite frequency $f$, the effect of birefringence will be degenerate with a change in inclination; however, if multiple modes come into play, then no change in inclination alone can mask the effect of birefringence, which will affect the time domain waveform nontrivially (Fig.~\ref{fig:birefringence}).
@@ -169,7 +169,7 @@ to reconstruct the amplitude ratio from the interferometer data, a value of $\io
 That fact can be used to constrain frequency-independent birefringence by searching for features in the distribution of inferred inclinations \cite{Okounkova_2022}.
 
 By implementing Eq.~\eqref{eq:waveform_modification}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
-Nevertheless, there exist systems for which the degeneracy cannot be perfectly broken because not enough frequencies are available in the data.
+Nevertheless, there exist systems for which the degeneracy cannot be broken in practice because not enough frequencies are available in the data.
 This may be the case for quasimonochromatic sources, like nonaxisymmetric pulsars or very light binaries, which are well approximated by a single Fourier mode.
 
 As we will find in Sec.~\ref{sec:Results}, the effect of birefringence can be (partially) degenerate with other parameters besides source inclination.
@@ -235,7 +235,7 @@ The \emph{simplest} assumption is that the field manifests equally for all event
 These considerations motivate a collective analysis that does not assume $\kappa$ is shared across events \cite{Zimmerman:2019wzo,Isi:2022cii}.
 Such an analysis has the additional advantage of helping us further characterize our set of measurements, and identify potential outliers.
 
-To do this, we apply hierarchical Bayesian inference \cite{Loredo:2004nn} to model the distribution of $\kappa$'s consistent with the observed data:
+To do this, we apply hierarchical Bayesian inference \cite{Mandel2010,Hogg2010} to model the distribution of $\kappa$'s consistent with the observed data:
 we posit that, rather than a unique global value of $\kappa$, there is a specific value of the parameter, $\kappa_i$, associated with each event, and that this is drawn from some unknown distribution of true underlying values; from the imperfect measurements of $\kappa_i$ for each event, we may reconstruct the underlying distribution.
 If we are interested in constraining the first two moments of the distribution, it is convenient to parametrize the $\kappa_i$'s as drawn from a Gaussian with unknown mean $\mu$ and variance $\sigma^2$, i.e., $\kappa_i \sim \mathcal{N}(\mu, \sigma^2)$ \cite{Isi:2019asy}, and measure those hyperparameters from the collection of observed data.
 
@@ -352,7 +352,7 @@ This could be a sign of the presence of outliers in our sample.
 
 As a visual check for outliers, we reconsider the set of measurements in Fig.~\ref{fig:violin_kappa} in light of the hierarchical result for $\mu$ and $\sigma$ in Fig.~\ref{fig:corner_Gaussian}, including GW200129 (blue curve).
 This amounts to reweighting the $\kappa$ posterior for each event under a population prior marginalized over $\mu$ and $\sigma$, conditional on the measurements from all other events \cite{Callister:T2100301}.
-Figure \ref{fig:corner_Gaussian} does not show evidence for any of the events being in obvious tension with the population, even though the GW170818 curve stands out from the rest due to its higher support for $\kappa > 0$.
+The result in Figure \ref{fig:reweighted_kappa} does not show evidence for any of the events being in obvious tension with the population, even though the GW170818 curve stands out from the rest due to its higher support for $\kappa > 0$.
 This feature appears to offset a few other events which tend to favor $\kappa < 0$.
 The interaction between these distributions leads to a hyperposterior that is fully consistent with $\mu = 0$ while offering some support for $\sigma > 0$ (Fig.~\ref{fig:corner_Gaussian}).
 Future observations will determine whether there is truly evidence for a nonvanishing variance in this population.
@@ -388,7 +388,7 @@ The hierarchical measurement leads to an expectation that \variable{output/gener
 \subsection{Notable events}
 \label{sec:results:notable}
 
-Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:posterior_kappa}: GW170818, GW190521 and GW200129.
+Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:violin_kappa}: GW170818, GW190521 and GW200129.
 When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$, the third is the most extreme representative of a class of events with bimodal $\kappa$ posteriors, and the third shows signs of potential noise anomalies.
 Through these examples, we elucidate some of the interactions between $\kappa$ and the source luminosity distance, inclination and spin parameters.
 
@@ -536,7 +536,7 @@ In any case, the outcome of that test showed the role of GW200129 to not be sign
 % Comparison with previous studies
 \subsection{Comparison with previous studies}
 
-Our primary constraint on birefringence is given by the combined constraint on the birefringent opacity from GWTC-3, \variable{output/restricted_kappa_median.txt}with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
+Our primary constraint on birefringence is given by the combined constraint on the birefringent attenuation from GWTC-3, \variable{output/restricted_kappa_median.txt}with 90\% credibility, obtained in Sec.~\ref{sec:results:gwtc} (blue band in Fig.~\ref{fig:violin_kappa}).
 We can compare this to previous measurements of amplitude birefringence in the literature.
 We summarize these constraints in Table~\ref{tab:comparison_summary}.
 
@@ -561,15 +561,9 @@ As opposed to our Eq.~\eqref{eq:waveform_modification}, this reference parameter
     h_{L/R}^{\mathrm{GR}}(f) \times
     \exp\left(\pm \tilde{\kappa}\, d_C\right)\,,
 \end{equation}
-where $\tilde{\kappa}$ is a frequency-independent opacity (simply denoted ``$\kappa$'' in Ref.~\cite{Okounkova_2022}).
+where $\tilde{\kappa}$ is a frequency-independent attenuation (simply denoted ``$\kappa$'' in Ref.~\cite{Okounkova_2022}).
 Assuming a fiducial redshift of $z=0.3$ for all events in GWTC-2, \citet{Okounkova_2022} obtained a constraint of $|\tilde{\kappa}| \lesssim 0.74\, {\rm Gpc}^{-1}$ at 68\% credibility.
-Taking a reference frequency of $f=100\, \mathrm{Hz}$, which is representative of LIGO-Virgo events, and adopting the same fiducial distance $d_C(z=0.3)$, we may compare that constraint to ours by noting that
-\begin{equation}
-    \left[ \tilde{\kappa} = \frac{\kappa}{1\, \mathrm{Gpc}} \right]_{\raisebox{1ex}{$\begin{subarray}{l} z=0.3 \\ f=100\,{\rm Hz} \end{subarray}$}}
-\end{equation}
-per Eq.~\eqref{eq:waveform_modification}.
-In terms of this fiducial quantity, the constraint given by \citet{Okounkova_2022} can be expressed by $|{\kappa}| \lesssim 0.74$  at 68\% credibility.
-On the other hand, our constraint from Sec.~\ref{sec:results:gwtc} is \variable{output/restricted_absolute_kappa_68.txt}at 68\% credibility.
+On the other hand, our constraint from Sec.~\ref{sec:results:gwtc} is \variable{output/restricted_absolute_kappa_68.txt} at $100 \, \mathrm{Hz}$ at 68\% credibility.
 This is a factor of \variable{output/improvement_Okounkova.txt}more stringent than Ref.~\cite{Okounkova_2022}, besides arising from a less simplified model.
 
 \subsubsection{Wang et al.}
@@ -586,14 +580,14 @@ h^{\rm BR}_{L/R}(f) &= h^{\rm GR}_{L/R}(f) \left(1 \mp \delta h \mp i \delta \Ps
 &\approx h^{\rm GR}_{L/R}(f) \exp(\mp \delta h \mp i \delta \Psi) \, ,
 \end{align}
 assuming a small $\delta h$ and $\delta \Psi$ in the last line.
-To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z / M_{\rm PV}$, where $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction in units of frequency.%
+To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z / M_{\rm PV}$, where $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction.%
 \footnote{Concretely, \citet{Wang_2021} write $\delta h = - A_\nu \pi f$ with $A_\nu = M_{\rm PV}^{-1} \left[\alpha_\nu (z=0) - \alpha_\nu(z) \left(1+z\right)\right]$, for $\alpha_\nu$ some function of redshift encoding the evolution of a birefringence-mediating field; to produce their constraint, however, they further set $\alpha_\nu(z) = 1$, yielding $A_\nu = -z / M_{\rm PV}$ and hence $\delta h = \pi f z / M_{\rm PV}$.}
 Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ via the Hubble constant, $H_0$, this means
 \begin{equation}
-    |\kappa| \simeq \frac{\pi H_0}{c}\left(1\,\mathrm{Gpc}\right)\left(100\,\mathrm{Hz}\right)M_{\rm PV}^{-1}\,.
+    |\kappa| \simeq \frac{\pi H_0}{c} \frac{h \left( 100 \, \mathrm{Hz} \right)}{M_{\rm PV}} \simeq \frac{3.0 \times 10^{-22} \, \mathrm{GeV}}{M_\mathrm{PV}} \, \mathrm{Gpc}^{-1}
 \end{equation}
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
-We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}.
+We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}, or \variable{output/M_PV_constraint.txt}.
 
 \subsection{Parameter degeneracies}
 \label{sec:degeneracies}
@@ -634,11 +628,11 @@ Since our inference on $\kappa$ can be tied to precession and the spin orientati
 \label{sec:conclusion}
 
 We have reanalyzed all \acp{BBH} in GWTC-3 with $\mathrm{FAR} < 1/\mathrm{yr}$ to constrain amplitude birefringence in the propagation of \acp{GW}.
-To this end, we implemented a model in which right or left handed polarizations are amplified or suppressed over distance as a function of frequency, with an overall strength parametrized by a birefringent ``opacity'' parameter, $\kappa$, following Eq.~\eqref{eq:waveform_modification}.
+To this end, we implemented a model in which right or left handed polarizations are amplified or suppressed over distance as a function of frequency, with an overall strength parametrized by a birefringent ``attenuation'' parameter, $\kappa$, following Eq.~\eqref{eq:waveform_modification}.
 This parameterization is consistent with parity-odd theories like Chern-Simons gravity, and can be used to constrain them where applicable.
 
 We found no evidence of amplitude birefringence in the GWTC-3 data, and constrained \variable{output/restricted_kappa_median.txt}with 90\% credibility when treating $\kappa$ as a global quantity shared by all GWTC-3 events (Sec.~\ref{sec:results:gwtc}).
-This measurement is signficantly more stringent than past constraints (Table \ref{tab:comparison_summary}).
+This measurement is significantly more stringent than past constraints (Table \ref{tab:comparison_summary}).
 As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources (Sec.~\ref{sec:results:hier}).
 The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
 Future catalogs with more events will shed light on this feature.

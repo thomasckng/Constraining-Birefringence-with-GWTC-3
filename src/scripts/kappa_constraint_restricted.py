@@ -28,7 +28,7 @@ restricted_kappa_median = np.interp(0.5,restricted_cdf,kappa)
 restricted_kappa_95 = np.interp(0.95,restricted_cdf,kappa)
 restricted_kappa_5 = np.interp(0.05,restricted_cdf,kappa)
 with open(paths.output/"restricted_kappa_median.txt", "w") as f:
-    f.write(f"$\kappa = {restricted_kappa_median:.3f}^{{+{(restricted_kappa_95-restricted_kappa_median):.3f}}}_{{{(restricted_kappa_5-restricted_kappa_median):.3f}}}$")
+    f.write(f"$\kappa = {restricted_kappa_median:.3f}^{{+{(restricted_kappa_95-restricted_kappa_median):.3f}}}_{{{(restricted_kappa_5-restricted_kappa_median):.3f}}} \\, \\mathrm{{Gpc}}^{{-1}}$")
 
 credible_level = len(likelihood[likelihood > np.interp(0, kappa, likelihood)])/len(likelihood)
 with open(paths.output/"CL_kappa_0.txt", "w") as f:
@@ -39,7 +39,7 @@ likelihood_absolute_kappa = likelihood[len(kappa)//2:]+likelihood[0:len(kappa)//
 restricted_cdf_absolute_kappa = np.array([np.trapz(likelihood_absolute_kappa[0:i],absolute_kappa[0:i]) for i in range(len(absolute_kappa))])
 restricted_absolute_kappa_68 = np.interp(0.68,restricted_cdf_absolute_kappa,absolute_kappa)
 with open(paths.output/"restricted_absolute_kappa_68.txt", "w") as f:
-    f.write(f"$|\kappa| < {restricted_absolute_kappa_68:.2f}$")
+    f.write(f"$|\kappa| < {restricted_absolute_kappa_68:.2f} \\, \\mathrm{{Gpc}}^{{-1}}$")
 
 improvement_Okounkova = 0.74/restricted_absolute_kappa_68
 with open(paths.output/"improvement_Okounkova.txt", "w") as f:
@@ -47,13 +47,13 @@ with open(paths.output/"improvement_Okounkova.txt", "w") as f:
 
 restricted_absolute_kappa_90 = np.interp(0.9,restricted_cdf_absolute_kappa,absolute_kappa)
 with open(paths.output/"restricted_absolute_kappa_90.txt", "w") as f:
-    f.write(f"$|\kappa| < {restricted_absolute_kappa_90:.2f}$")
+    f.write(f"$|\kappa| < {restricted_absolute_kappa_90:.2f} \\, \\mathrm{{Gpc}}^{{-1}}$")
 
 # Wang's constraint in kappa
 M_PV_Wang = 1e-22 # GeV
 kappa_Wang = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(M_PV_Wang*1e9)
 with open(paths.output/"kappa_Wang.txt", "w") as f:
-    f.write(f"$|\kappa| \lesssim {kappa_Wang:.2f}$")
+    f.write(f"$|\kappa| \lesssim {kappa_Wang:.2f} \, \mathrm{{Gpc}}^{{-1}}$")
 
 # Constraint comparison
 kappa_Okounkova = 0.74
@@ -66,7 +66,7 @@ with open(paths.output/"M_PV_constraint.txt", "w") as f:
     f.write(rf"$M_{{\rm PV}} \gtrsim {M_PV_this_work/1e-21:.1f} \times 10^{{-21}}\, {{\rm GeV}}$")
 
 with open(paths.output/"comparison_summary.txt", "w") as f:
-    f.write(r"\begin{tabular}{lccc} & $M_{\rm PV}$ ($10^{-21}\, {\rm GeV}$) & $|\kappa|$ & CL (\%) \\ \hline ")
+    f.write(r"\begin{tabular}{lccc} & $M_{\rm PV}$ ($10^{-21}\, {\rm GeV}$) & $|\kappa|$ ($\mathrm{Gpc}^{-1}$) & CL (\%) \\ \hline ")
     f.write(rf"\citet{{Wang_2021}} & $> {M_PV_Wang/1e-21:.2f}$ & $< {kappa_Wang:.2f}$ & 90 \\ ")
     f.write(rf"\citet{{Okounkova_2022}} & $> {M_PV_Okounkova/1e-21:.2f}$ & $< {kappa_Okounkova:.2f}$ & 68 \\ ")
     f.write(rf"Ng \emph{{et al.}} (this work) & $> {M_PV_this_work/1e-21:.2f}$ & $< {kappa_this_work:.2f}$ & 90")
