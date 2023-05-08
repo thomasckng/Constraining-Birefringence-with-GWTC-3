@@ -18,6 +18,7 @@ jobs:
         id: matplotlib_LaTex
         shell: bash -l {0}
         run: |
+          sudo apt-get update
           sudo apt install texlive texlive-latex-extra texlive-fonts-recommended dvipng cm-super
 
       - name: Build the article PDF

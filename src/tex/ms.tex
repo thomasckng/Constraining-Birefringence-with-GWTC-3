@@ -172,7 +172,7 @@ That fact can be used to constrain frequency-independent birefringence by search
 
 By implementing Eq.~\eqref{eq:waveform_modification}, which is a first-order approximation of the birefringence model, we generally break the degeneracy between birefringence and source orientation; this was also the case in the frequency-dependent relations studied in \cite{Yamada_2020,Wang_2021}.
 Nevertheless, there exist systems for which the degeneracy cannot be broken in practice because not enough frequencies are available in the data.
-This may be the case for quasimonochromatic sources, like nonaxisymmetric pulsars or very light binaries, which are well approximated by a single Fourier mode.
+This may also be the case for quasimonochromatic sources, like nonaxisymmetric pulsars or very light binaries, which are well approximated by a single Fourier mode.
 
 As we will find in Sec.~\ref{sec:Results}, the effect of birefringence can be (partially) degenerate with other parameters besides source inclination.
 Indeed, the frequency-dependent amplification or dampening of polarizations caused by $\kappa$ can sometimes be absorbed by changes in intrinsic parameters, like the spins, with concurrent adjustments to the source inclination and distance.
@@ -204,7 +204,7 @@ We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We estimate source parameters using a custom version of the \textsc{Bilby} software \citep{Bilby}, modified from the baseline version to apply Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
 We take the \ac{PE} configuration in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
-We apply a distance prior corresponding to a uniform distribution over comoving volume and source-frame time, and set the prior on $\kappa$ to be uniform between $-1$ and $1$. 
+We apply a distance prior corresponding to a uniform distribution over comoving volume and source-frame time, and set the prior on $\kappa$ to be uniform between $-1 \, \mathrm{Gpc}^{-1}$ and $1 \, \mathrm{Gpc}^{-1}$. 
 
 For GW190521, we increase the maximum distance allowed by the prior to $1.5\times$ the original value in \cite{GWTC-2.1_dataset}, as the birefringence effect results in posterior support at larger distances.
 For GW190720, we decrease the analysis segment from 16 s to 8 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
@@ -353,7 +353,7 @@ However, even though $\sigma = 0$ is well supported, the $\sigma$ posterior peak
 This could be a sign of the presence of outliers in our sample.
 
 As a visual check for outliers, we reconsider the set of measurements in Fig.~\ref{fig:violin_kappa} in light of the hierarchical result for $\mu$ and $\sigma$ in Fig.~\ref{fig:corner_Gaussian}, including GW200129 (blue curve).
-This amounts to reweighting the $\kappa$ posterior for each event under a population prior marginalized over $\mu$ and $\sigma$, conditional on the measurements from all other events \cite{Callister:T2100301}.
+This amounts to reweighting the $\kappa$ posterior for each event under a population prior marginalized over $\mu$ and $\sigma$, conditional on the measurements from all other events \cite{Miller2020,Callister:T2100301}.
 The result in Figure \ref{fig:reweighted_kappa} does not show evidence for any of the events being in obvious tension with the population, even though the GW170818 curve stands out from the rest due to its higher support for $\kappa > 0$.
 This feature appears to offset a few other events which tend to favor $\kappa < 0$.
 The interaction between these distributions leads to a hyperposterior that is fully consistent with $\mu = 0$ while offering some support for $\sigma > 0$ (Fig.~\ref{fig:corner_Gaussian}).
@@ -390,8 +390,8 @@ The hierarchical measurement leads to an expectation that \variable{output/gener
 \subsection{Notable events}
 \label{sec:results:notable}
 
-Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on four events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:violin_kappa}: GW170818, GW190521 and GW200129.
-When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$, the third is the most extreme representative of a class of events with bimodal $\kappa$ posteriors, and the third shows signs of potential noise anomalies.
+Having established that the collection of detections is globally consistent with $\kappa=0$, here we focus on three events whose $\kappa$ posteriors stand out in Fig.~\ref{fig:violin_kappa}: GW170818, GW190521 and GW200129.
+When considered in isolation, the first of these is the unimodal event with the most significant support for nonzero $\kappa$, the second is the most extreme representative of a class of events with bimodal $\kappa$ posteriors, and the third shows signs of potential noise anomalies.
 Through these examples, we elucidate some of the interactions between $\kappa$ and the source luminosity distance, inclination and spin parameters.
 
 % Case: GW170818

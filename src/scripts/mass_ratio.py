@@ -38,17 +38,17 @@ def kdeplot1d(x, **kws):
 
 for e, ax_row in zip(events, axs):
 
-    result_GR = CBCResult.from_json(filename=paths.data/f"{e}_GR.json.gz").posterior
-    result_GR = result_GR.sample(n=nsamples, random_state=rng)
-    result_GR['kappa'] = np.full(len(result_GR), None)
-    
     result_BR = all_result_BR[all_result_BR.event == e]
     result_BR = result_BR.sample(n=nsamples, random_state=rng)
 
+    result_GR = CBCResult.from_json(filename=paths.data/f"{e}_GR.json.gz").posterior
+    result_GR = result_GR.sample(n=nsamples, random_state=rng)
+    result_GR['kappa'] = np.full(len(result_GR), None)
+
     plt.sca(ax_row[0])
 
-    kdeplot1d(result_GR['mass_ratio'], label='GR')
     kdeplot1d(result_BR['mass_ratio'], label='BR')
+    kdeplot1d(result_GR['mass_ratio'], label='GR')
 
     plt.xlim(0, 1)
     plt.ylim(bottom=0)
@@ -58,13 +58,12 @@ for e, ax_row in zip(events, axs):
 
     plt.sca(ax_row[1])
 
-    kdeplot1d(result_GR['chi_p'], label='GR')
     kdeplot1d(result_BR['chi_p'], label='BR')
+    kdeplot1d(result_GR['chi_p'], label='GR')
 
     plt.xlim(0, 1)
     plt.ylim(bottom=0)
     plt.xlabel('$\chi_p$')
-    # plt.ylabel('$p(\chi_p)$')
     plt.annotate(e, (0.03, 0.15), ha='left', color='white', fontsize=14)
 
 axs[0,1].legend(loc='lower right', bbox_to_anchor=(1.05, 0.9), fontsize=14,
