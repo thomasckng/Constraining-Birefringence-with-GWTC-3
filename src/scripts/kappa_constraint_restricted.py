@@ -62,6 +62,9 @@ M_PV_Okounkova = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_Okounkova)/1e9
 kappa_this_work = restricted_absolute_kappa_90
 M_PV_this_work = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_this_work)/1e9
 
+M_PV_Zhu = 4.1e-22 # GeV
+kappa_Zhu = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(M_PV_Zhu*1e9)
+
 with open(paths.output/"M_PV_constraint.txt", "w") as f:
     f.write(rf"$M_{{\rm PV}} \gtrsim {M_PV_this_work/1e-21:.1f} \times 10^{{-21}}\, {{\rm GeV}}$")
 
@@ -69,5 +72,6 @@ with open(paths.output/"comparison_summary.txt", "w") as f:
     f.write(r"\begin{tabular}{lccc} & $M_{\rm PV}$ ($10^{-21}\, {\rm GeV}$) & $|\kappa|$ ($\mathrm{Gpc}^{-1}$) & CL (\%) \\ \hline ")
     f.write(rf"\citet{{Wang_2021}} & $> {M_PV_Wang/1e-21:.2f}$ & $< {kappa_Wang:.2f}$ & 90 \\ ")
     f.write(rf"\citet{{Okounkova_2022}} & $> {M_PV_Okounkova/1e-21:.2f}$ & $< {kappa_Okounkova:.2f}$ & 68 \\ ")
+    f.write(rf"\citet{{Zhu:2023wci}} & $> {M_PV_Zhu/1e-21:.2f}$ & $< {kappa_Zhu:.2f}$ & 90 \\ ")
     f.write(rf"Ng \emph{{et al.}} (this work) & $> {M_PV_this_work/1e-21:.2f}$ & $< {kappa_this_work:.2f}$ & 90")
     f.write(r" \end{tabular}")
