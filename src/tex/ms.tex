@@ -68,6 +68,7 @@ Here we constrain the magnitude of possible amplitude birefringence using \ac{BB
 Previous studies have constrained amplitude birefringence by performing different statistical analyses.
 \citet{Yamada_2020} and \citet{Wang_2021} both performed \ac{PE} on the events in the first \ac{GW} transient catalog \citep{GWTC-1}, GWTC-1, using birefringent templates.
 \citet{Okounkova_2022} considered the distribution of observed inclinations of the \ac{GW} events in the second \ac{GW} transient catalog \citep{GWTC-2}, GWTC-2, to look for signs of birefringence.
+While this manuscript was finalized, \citet{Zhu:2023wci} reported an analysis of GWTC-3.
 
 % What's new?
 In this study, we use a frequency-dependent birefringence model to constrain the strength of \ac{GW} amplitude birefringence by performing \ac{PE} on \ac{LVK} binaries.
@@ -592,6 +593,9 @@ where $h$ is Planck's constant.
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}, or \variable{output/M_PV_constraint.txt}.
 
+The parameterization of \citet{Wang_2021} is the same as that in the more recent work by \citet{Zhu:2023wci}.
+That work, which appeared while this manuscript was finalized, reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}$ based on GWTC-3.
+
 \subsection{Parameter degeneracies}
 \label{sec:degeneracies}
 
@@ -638,7 +642,7 @@ We found no evidence of amplitude birefringence in the GWTC-3 data, and constrai
 This measurement is significantly more stringent than past constraints (Table \ref{tab:comparison_summary}).
 As an additional check, we implemented a hierarchical analysis that allowed for each event to probe different effective values of $\kappa$, as might be the case if birefringence is mediated by a field that is nonuniform over the angular separations between detected sources (Sec.~\ref{sec:results:hier}).
 The result of that analysis was consistent with a vanishing $\kappa$ for all events in our catalog within 90\% credibility, but hinted at some possible variance in the population.
-Future catalogs with more events will shed light on this feature.
+Future catalogs with more events will shed light on this feature, and enable richer models with explicit correlations between birefringent attenuation and source parameters like sky location \citep{Goyal:2023uvm,Ezquiaga:2021ler}.
 
 From the set of results from individual events, we highlighted two, GW170818 and GW190521, whose posterior manifests interactions between birefringence and our inference of source parameters (Sec.~\ref{sec:results:notable}).
 In particular, we identified the relevance of spins and their (partial) degeneracy with $\kappa$, in addition to expected correlations with source inclination and distance.
