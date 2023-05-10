@@ -1,4 +1,4 @@
-\documentclass[aps,prd,twocolumn,superscriptaddress,preprintnumbers,floatfix,nofootinbib]{revtex4-2}
+\documentclass[aps,prd,twocolumn,superscriptaddress,preprintnumbers,nofootinbib]{revtex4-2}
 
 \usepackage{showyourwork}
 \usepackage{amsfonts,amssymb,amsmath}
@@ -346,6 +346,16 @@ This is not unexpected: assuming independent Gaussian noise instantiations for e
 To further assess the statistical properties of the set of posteriors in Fig.~\ref{fig:violin_kappa}, we apply the hierarchical analysis described in Sec.~\ref{sec:method:hier}.
 By characterizing the population mean and standard deviation over events, this also allows us to obtain a collective measurement that does not assume all events share the same value of $\kappa$.
 
+\begin{figure}
+    \script{reweighed_kappa.py}
+    \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
+    \caption{
+        Individual-event $\kappa_i$ distributions of Fig.~\ref{fig:violin_kappa} reweighted in light of the population-level inference of Fig.~\ref{fig:corner_Gaussian}, marginalizing over $\mu$ and $\sigma$.
+        Curves are colored by the magnitude of the supported deviation, as represented by the respective posterior $|\mu_i / \sigma_i|$; we label the events most in tension with $\kappa_i = 0$ by that same measure.
+    }
+    \label{fig:reweighted_kappa}
+\end{figure}
+
 We summarize the result of this exercise in Fig.~\ref{fig:corner_Gaussian}, which shows the posterior on the population mean $\mu$ and standard deviation $\sigma$ inferred from the collection of observations in Fig.~\ref{fig:violin_kappa}.
 The figure shows two distributions, which result from analyses with (blue) and without (orange) the potentially-contaminated event GW200129; the difference between the two is mainly restricted to a slight shift in $\mu$, indicating that GW200129 has a small effect on our overall population inference.
 
@@ -359,16 +369,6 @@ The result in Figure \ref{fig:reweighted_kappa} does not show evidence for any o
 This feature appears to offset a few other events which tend to favor $\kappa < 0$.
 The interaction between these distributions leads to a hyperposterior that is fully consistent with $\mu = 0$ while offering some support for $\sigma > 0$ (Fig.~\ref{fig:corner_Gaussian}).
 Future observations will determine whether there is truly evidence for a nonvanishing variance in this population.
-
-\begin{figure}
-    \script{reweighed_kappa.py}
-    \includegraphics[width=\columnwidth]{figures/reweighed_kappa.pdf}
-    \caption{
-        Individual-event $\kappa_i$ distributions of Fig.~\ref{fig:violin_kappa} reweighted in light of the population-level inference of Fig.~\ref{fig:corner_Gaussian}, marginalizing over $\mu$ and $\sigma$.
-        Curves are colored by the magnitude of the supported deviation, as represented by the respective posterior $|\mu_i / \sigma_i|$; we label the events most in tension with $\kappa_i = 0$ by that same measure.
-    }
-    \label{fig:reweighted_kappa}
-\end{figure}
 
 % Constraint on $\kappa$
 Finally, the hierarchical result in Fig.~\ref{fig:corner_Gaussian} can be translated into an overall expectation for $\kappa_i$ under the assumption of a Gaussian distribution via Eq.~\eqref{eq:generic_posterior}.
