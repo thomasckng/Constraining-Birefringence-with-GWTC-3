@@ -18,11 +18,13 @@ df_Gaussian_samples_all = pd.DataFrame()
 df_Gaussian_samples_all['mu'] = samples_all[:,0]
 df_Gaussian_samples_all['sigma'] = samples_all[:,1]
 
-reweighted_kappa_samples = pd.DataFrame()
-
 rng = np.random.default_rng(12345)
 
-for event in result_DataFrame['event'].unique():
+events = result_DataFrame['event'].unique()
+# events = events[events!='GW200129_065458'] # use this for reweighted_kappa_samples_without_GW200129.feather
+
+reweighted_kappa_samples = pd.DataFrame()
+for event in events:
     samples_reweighted = []
     event_kappa_samples = np.array(result_DataFrame[result_DataFrame.event == event]['kappa'])
     length = len(event_kappa_samples)
