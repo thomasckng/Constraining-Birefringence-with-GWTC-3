@@ -102,7 +102,9 @@ kappa_array = jnp.stack([result_dict[event]['kappa'].values for event in events]
 def normal_distribution(x, mu, sigma):
     return (1/(sigma*jnp.sqrt(2*jnp.pi)))*jnp.exp(-0.5*((x-mu)/sigma)**2)
 
-pop_likelihood = lambda x: jnp.sum(jnp.log(jnp.mean(normal_distribution(kappa_array, x[0], x[1]),axis=1)))
+Nsamp=len(kappa_array[0])
+bws = np.std(kappa_array, axis=0)/Nsamp**(1.0/5.0)
+pop_likelihood = lambda x: jnp.sum(jnp.log(jnp.mean(normal_distribution(kappa_array, x[0], jnp.sqrt(jnp.square(x[1]) + bws)),axis=1))) + jax.lax.cond(x[1]>=0, lambda: .0, lambda: -jnp.inf)
 
 n_dim = 2
 n_chains = 1000
