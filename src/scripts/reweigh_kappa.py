@@ -30,7 +30,7 @@ for event in events:
     length = len(event_kappa_samples)
     for _ in range(3000):
         Gaussian = np.full(shape=(length, 2), fill_value=df_Gaussian_samples_all.sample(1, random_state=rng))
-        weight = np.array([normal_distribution(event_kappa_samples[i], Gaussian[i,0], Gaussian[i,1]) for i in range(len(event_kappa_samples))])
+        weight = np.array([normal_distribution(event_kappa_samples[i], Gaussian[i,0], Gaussian[i,1]) for i in range(length)])
         weight /= weight.sum()
         samples_reweighted.append(np.random.choice(a=np.array(event_kappa_samples), size=1, p=weight))
     reweighted_kappa_samples[event] = np.array(samples_reweighted).reshape(-1)
