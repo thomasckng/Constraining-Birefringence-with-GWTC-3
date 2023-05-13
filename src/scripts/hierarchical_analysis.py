@@ -1,3 +1,5 @@
+# following script is used to generate reweighted_kappa_samples.feather and reweighted_kappa_samples_without_GW200129.feather
+
 import pandas as pd
 import numpy as np
 import jax
@@ -70,7 +72,7 @@ events = [
 "GW191230_180458",
 "GW200112_155838",
 "GW200128_022011",
-"GW200129_065458", #V1 Glitch
+"GW200129_065458", #V1 Glitch # comment out for reweighted_kappa_samples_without_GW200129.feather
 "GW200202_154313",
 "GW200208_130117",
 "GW200209_085452",
@@ -133,4 +135,5 @@ chains,log_prob,local_accs, global_accs = nf_sampler.get_sampler_state().values(
 
 corner.corner(np.array(chains.reshape(-1,2))).savefig(paths.static/"corner_Gaussian_test.pdf")
 
-chains.savez(paths.static/"samples_Gaussian.npz")
+np.savez("./samples_Gaussian.npz", chains=chains, log_prob=log_prob, local_accs=local_accs, global_accs=global_accs)
+# np.savez("./samples_Gaussian_without_GW200129.npz", chains=chains, log_prob=log_prob, local_accs=local_accs, global_accs=global_accs)
