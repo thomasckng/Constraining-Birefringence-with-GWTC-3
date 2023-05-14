@@ -18,8 +18,6 @@ df_Gaussian_samples_all = pd.DataFrame()
 df_Gaussian_samples_all['mu'] = samples_all[:,0]
 df_Gaussian_samples_all['sigma'] = samples_all[:,1]
 
-rng = np.random.default_rng(1234)
-
 events = result_DataFrame['event'].unique()
 # events = events[events!='GW200129_065458'] # use this for reweighted_kappa_samples_without_GW200129.feather
 
@@ -29,7 +27,7 @@ for event in events:
     event_kappa_samples = np.array(result_DataFrame[result_DataFrame.event == event]['kappa'])
     length = len(event_kappa_samples)
     for _ in range(3000):
-        Gaussian = np.full(shape=(length, 2), fill_value=df_Gaussian_samples_all.sample(1, random_state=rng))
+        Gaussian = np.full(shape=(length, 2), fill_value=df_Gaussian_samples_all.sample(1))
         weight = np.array([normal_distribution(event_kappa_samples[i], Gaussian[i,0], Gaussian[i,1]) for i in range(length)])
         weight /= weight.sum()
         samples_reweighted.append(np.random.choice(a=np.array(event_kappa_samples), size=1, p=weight))
