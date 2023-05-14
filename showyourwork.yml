@@ -61,7 +61,7 @@ dependencies:
         - src/tex/bib.bib
 
 datasets:
-    10.5072/zenodo.1201531:
+    10.5281/zenodo.7935107:
         destination: src/data/
         contents:
             GW170104_GR.json.gz:
