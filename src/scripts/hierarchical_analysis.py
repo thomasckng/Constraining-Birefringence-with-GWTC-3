@@ -1,4 +1,4 @@
-# following script is used to generate reweighted_kappa_samples.feather and reweighted_kappa_samples_without_GW200129.feather
+# following script is used to generate samples_Gaussian.npz and samples_Gaussian_without_GW200129.npz
 
 import pandas as pd
 import numpy as np
