@@ -159,7 +159,7 @@ def kdeplot_2d_clevels(xs, ys, levels=11, rng=None, min_size=500, **kwargs):
         kwargs['yhigh'] = max(ys)
     kde_kws = {k: kwargs.pop(k, None) for k in ['xlow', 'xhigh', 'ylow', 'yhigh']}
     k = Bounded_2d_kde(np.column_stack((xs, ys)), **kde_kws)
-    size = max(10*(len(f)+2), min_size)
+    size = max([10*(len(f)+2), min_size])
     if not isinstance(rng, np.random.Generator):
         rng = np.random.default_rng(rng)
     c = rng.choice(len(xs), size=size)
