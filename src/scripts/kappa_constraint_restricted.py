@@ -1,12 +1,13 @@
 import numpy as np
 import pandas as pd
+from bilby.gw.cosmology import get_cosmology
 import scipy
 import paths
 
 # constants
 h = 4.135667696e-15 # eV s
 c = 299792.458 # km/s
-H_0 = 68.3 # km/s/Mpc
+H_0 = get_cosmology().H0.value # km/s/Mpc
 
 result_dict = {}
 result_DataFrame = pd.read_feather(paths.data/"samples_posterior_birefringence.feather")
