@@ -35,6 +35,7 @@ for i, (z,line) in enumerate(zip(zscores, g.get_lines()[::-1])):
     line.set_alpha(norm_alpha(z))
     if zscores.index[i]=='GW170818':
       line.set_label(zscores.index[i].replace('_', r'\_'))
+      line.set_linestyle('--')
     else:
       line.set_label(None)
 g.legend(fontsize=14)
