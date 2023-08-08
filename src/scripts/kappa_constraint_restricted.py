@@ -50,13 +50,12 @@ restricted_absolute_kappa_90 = np.interp(0.9,restricted_cdf_absolute_kappa,absol
 with open(paths.output/"restricted_absolute_kappa_90.txt", "w") as f:
     f.write(f"$|\kappa| < {restricted_absolute_kappa_90:.2f} \\, \\mathrm{{Gpc}}^{{-1}}$")
 
-# Wang's constraint in kappa
+# Constraint comparison
 M_PV_Wang = 1e-22 # GeV
 kappa_Wang = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(M_PV_Wang*1e9)
 with open(paths.output/"kappa_Wang.txt", "w") as f:
     f.write(f"$|\kappa| \lesssim {kappa_Wang:.2f} \, \mathrm{{Gpc}}^{{-1}}$")
 
-# Constraint comparison
 kappa_Okounkova = 0.74
 M_PV_Okounkova = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_Okounkova)/1e9
 
@@ -65,6 +64,8 @@ M_PV_this_work = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(kappa_this_work)/1e9
 
 M_PV_Zhu = 4.1e-22 # GeV
 kappa_Zhu = (h*np.pi*H_0/c)*(1e3)*(100)*np.reciprocal(M_PV_Zhu*1e9)
+with open(paths.output/"kappa_Zhu.txt", "w") as f:
+    f.write(f"$|\kappa| \lesssim {kappa_Zhu:.2f} \, \mathrm{{Gpc}}^{{-1}}$")
 
 with open(paths.output/"M_PV_constraint.txt", "w") as f:
     f.write(rf"$M_{{\rm PV}} \gtrsim {M_PV_this_work/1e-21:.1f} \times 10^{{-21}}\, {{\rm GeV}}$")
