@@ -131,7 +131,8 @@ Since it originates from a truncated series expansion%
 \footnote{Often the birefringent effect is written as an expansion in redshift, $z$ \cite[e.g.][]{Zhao:2019xmm}, rather than distance.  Here we use $d_C$ to emphasize that the effect accumulates \emph{per cycle}, or with propagation distance.  Thus, current ground-based experiments, which can detect gravitational waves to $z \simeq 1$, $d_C \simeq d_H$ (Hubble distance), are already observing propagation over a large fraction of the universe and constrain this effect meaningfully.}, %
 Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
 \begin{equation}
-\left|\kappa\right| \left(d_c/1\, \mathrm{Gpc}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, \mathrm{Gpc}^{-1}\,.
+    \left|\kappa\right| \left(d_c/1\, \mathrm{Gpc}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, \mathrm{Gpc}^{-1}\,.
+    \label{eq:small_exponent}
 \end{equation}
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
 
@@ -408,8 +409,7 @@ Through these examples, we elucidate some of the interactions between $\kappa$ a
     \includegraphics[width=\columnwidth]{figures/corner_GW170818.pdf}
     \caption{
         GW170818 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
-        The top right panel shows the marginalized posterior on $\chi_p$: allowing for birefringence reduces the preference for precession.
-        (See Fig.~\ref{fig:corner_GW170818_appendix} for a full corner plot.)
+        The top right panel shows the marginalized posterior on $\chi_p$: allowing for birefringence reduces the preference for precession. (See Fig.~\ref{fig:corner_GW170818_appendix} for a full corner plot.)
     }
     \label{fig:corner_GW170818}
 \end{figure}
@@ -463,7 +463,8 @@ The poor determination of the polarization state of the detected signal is evide
     \includegraphics[width=\columnwidth]{figures/corner_GW190521.pdf}
     \caption{
         GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
-        The marginalized posterior on $\chi_p$ is shown in the top right panel.
+        The marginalized posterior on $\chi_p$ is shown in the top right panel. (See Fig.~\ref{fig:corner_GW190521_appendix} for a full corner plot.)
+        Note that the condition in Eq.~\eqref{eq:small_exponent} is not violated as the distance posterior shown here is the luminosity distance, not the comoving distance.
     }
     \label{fig:corner_GW190521}
 \end{figure}
