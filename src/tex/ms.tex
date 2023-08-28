@@ -608,19 +608,35 @@ Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \appr
 where $h$ is Planck's constant.
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}, or \variable{output/M_PV_constraint.txt}.
+Note that our constraints from each event are stronger compared to the constraint from \citet{Wang_2021}, details of which are given in Sec.~\ref{sec:comparison_Zhu}.
 
 \deleted{The parameterization of \cite{Wang_2021} is the same as that in the more recent work by \cite{Zhu:2023wci}.
 That work, which appeared while this manuscript was finalized, reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}$ based on GWTC-3.}
 
 \subsubsection{\added{Zhu et al.}}
+\label{sec:comparison_Zhu}
 
 A more recent work by \citet{Zhu:2023wci}, which appeared while this manuscript was finalized, performed \ac{PE} on GWTC-3 events with a frequency-dependent model of amplitude birefringence.
-Their model is similar to the one used in \citet{Wang_2021}, which allows us to compare our results, as we did in Sec.~\ref{sec:comparison_Wang}.
+Their model is the same as used in \citet{Wang_2021}, which allows us to compare our results, as we did in Sec.~\ref{sec:comparison_Wang}.
 \citet{Zhu:2023wci} reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Zhu.txt}.
-This result constrain the birefringence effect much weaker than our result.
+This result constrains the birefringence effect much weaker than our result.
 This is an unexpected result, as the analysis in \citet{Zhu:2023wci} is similar to ours\footnote{Note that the prior on the birefringence parameter and luminosity distance are different between the analysis by \citet{Zhu:2023wci}and ours, but it is unlikely to be the cause of the difference in the constraint.} and they included more events than we did.
-However, we could not compare the analysis in \citet{Zhu:2023wci} with ours in detail, as the analysis is not publicly available, and the list of events included is not provided in the paper.
 
+In \ref{fig:posterior_MPV}, we show the posterior on $M_{\rm PV}^{-1}$ for each event in our analysis.
+Compared to Fig.~I in \citet{Zhu:2023wci}, we can see that the posteriors on some events are different between our analysis and theirs.
+For example, the posterior for GW190727\_060333 peaks at zero in our analysis, but peaks at a nonzero value in \citet{Zhu:2023wci}.
+This shows that the difference in the combined constraint may come from the difference in the individual event analyses.
+However, we could not compare the analysis in \citet{Zhu:2023wci} with ours in detail, as their analysis result is not publicly available.
+
+\begin{figure}
+    \script{posterior_MPV.py}
+    \includegraphics[width=\columnwidth]{figures/posterior_MPV.pdf}
+    \caption{
+        Individual-event $M_\mathrm{PV}^{-1}$ posteriors from our analysis, converted from the $\kappa$ posteriors in Fig.~\ref{fig:violin_kappa}.
+        Chosen events are those labeled in Fig.~I of \citet{Zhu:2023wci}.
+    }
+    \label{fig:posterior_MPV}
+\end{figure}
 
 \subsection{Parameter degeneracies}
 \label{sec:degeneracies}
