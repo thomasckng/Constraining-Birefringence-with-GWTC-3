@@ -110,8 +110,7 @@ Yet, parity odd extensions of \ac{GR} may make distinctions between the two circ
 The latter can manifest in changes to the relative amplitude and phase of the polarizations that accrue as the wave propagates, giving us hope of detecting initially small effects that compound over long propagation distances.
 
 In particular, \emph{amplitude} birefringence would enhance one polarization mode over the other.
-Following \cite{Alexander:2009tp}, the effect of birefringence can be modeled as a frequency-dependent amplification or dampening;
-\added{similar derivations can be found in \cite{Zhao:2019xmm, Ezquiaga:2021ler, Zhu:2023wci}.}
+\added{Following \cite{Alexander:2009tp}, the effect of birefringence can be modeled as a frequency-dependent amplification or dampening; similar derivations can be found in \cite{Zhao:2019xmm, Ezquiaga:2021ler, Zhu:2023wci}.}
 To first order, in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source can be written as
 \begin{equation}
     h_{L/R}^{\mathrm{br}}(f) =
@@ -134,11 +133,10 @@ Since it originates from a truncated series expansion%
 \footnote{Often the birefringent effect is written as an expansion in redshift, $z$ \cite[e.g.][]{Zhao:2019xmm}, rather than distance.  Here we use $d_C$ to emphasize that the effect accumulates \emph{per cycle}, or with propagation distance.  Thus, current ground-based experiments, which can detect gravitational waves to $z \simeq 1$, $d_C \simeq d_H$ (Hubble distance), are already observing propagation over a large fraction of the universe and constrain this effect meaningfully.}, %
 Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
 \begin{equation}
-    \left|\kappa\right| \left(d_c/1\, \mathrm{Gpc}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, \mathrm{Gpc}^{-1}\,.
+    \left|\kappa\right| \left(d_c\added{/1\, \mathrm{Gpc}}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, \added{\mathrm{Gpc}^{-1}}\,.
     \label{eq:small_exponent}
 \end{equation}
 Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
-
 \begin{figure}
     \script{birefringence.py}
     \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
@@ -303,7 +301,7 @@ The collective measurement obtained by assuming a shared $\kappa$ across events,
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}, in order of increasing standard deviation $\sigma_i$.
 That table also shows the credible level (CL) at which the posterior supports $\kappa = 0$, whereby $\mathrm{CL} = 0$ ($\mathrm{CL} = 1$) means the posterior supports that value with high (low) probability.
-This quantity can be understood as the relative height of the probability density function at a given value, and does not assume any symmetric interval or modality.
+\added{This quantity can be understood as the relative height of the probability density function at a given value, and does not assume any symmetric interval or modality.}
 
 Judging by $\mu_i/\sigma_i$, the two events that show the largest tension with $\kappa = 0$ are GW170818, for which \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which \variable{output/GW200129_constraint.txt}.
 However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that the preference for $\kappa < 0$ in GW200129 might be driven by noise anomalies in the Virgo detector; with that in mind, in the next section we consider the effect of excluding this event from the joint result (we find its impact to be minimal).
@@ -469,7 +467,7 @@ The poor determination of the polarization state of the detected signal is evide
     \caption{
         GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
         The marginalized posterior on $\chi_p$ is shown in the top right panel. (See Fig.~\ref{fig:corner_GW190521_appendix} for a full corner plot.)
-        Note that the condition in Eq.~\eqref{eq:small_exponent} is not violated as the distance posterior shown here is the posterior on the luminosity distance $d_L$, not on the comoving distance $d_C$.
+        \added{Note that the condition in Eq.~\eqref{eq:small_exponent} is not violated as the distance posterior shown here is the posterior on the luminosity distance $d_L$, not on the comoving distance $d_C$.}
     }
     \label{fig:corner_GW190521}
 \end{figure}
@@ -604,13 +602,14 @@ assuming a small $\delta h$ and $\delta \Psi$ in the last line.
 To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z / M_{\rm PV}$, where $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction.%
 \footnote{Concretely, \citet{Wang_2021} write $\delta h = - A_\nu \pi f$ with $A_\nu = M_{\rm PV}^{-1} \left[\alpha_\nu (z=0) - \alpha_\nu(z) \left(1+z\right)\right]$, for $\alpha_\nu$ some function of redshift encoding the evolution of a birefringence-mediating field; to produce their constraint, however, they further set $\alpha_\nu(z) = 1$, yielding $A_\nu = -z / M_{\rm PV}$ and hence $\delta h = \pi f z / M_{\rm PV}$.}
 Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ via the Hubble constant, $H_0$, this means
-\begin{equation} \label{eq:kappa-to-Mpv}
+\begin{equation}
+    \label{eq:kappa-to-Mpv}
     |\kappa| \simeq \frac{\pi H_0}{c} \frac{h \left( 100 \, \mathrm{Hz} \right)}{M_{\rm PV}} \simeq \frac{3.0 \times 10^{-22} \, \mathrm{GeV}}{M_\mathrm{PV}} \, \mathrm{Gpc}^{-1},
 \end{equation}
 where $h$ is Planck's constant.
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}, or \variable{output/M_PV_constraint.txt}.
-Note that our constraints from each event are stronger compared to the constraint from \citet{Wang_2021}, details of which are given in Sec.~\ref{sec:comparison_Zhu}.
+\added{Note that our constraints from each event are stronger compared to the constraint from \citet{Wang_2021}, details of which are given in Sec.~\ref{sec:comparison_Zhu}.}
 
 \deleted{The parameterization of \cite{Wang_2021} is the same as that in the more recent work by \cite{Zhu:2023wci}.
 That work, which appeared while this manuscript was finalized, reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}$ based on GWTC-3.}
@@ -624,11 +623,11 @@ Their model is the same as the one used in \citet{Wang_2021}, which allows us to
 
 This constraint is weaker than ours in spite of the similar number of events considered, a discrepancy that might be explained by a number of factors.
 First, there are difference in priors, since \citet{Zhu:2023wci} assume a distribution uniform in $z/M_{\rm PV}$ rather than $\kappa$ or $M_{\rm PV}$ itself.
-Second, as reported in \citep{Zhu:2023wci}, their combined result was computed by multiplying $M_{\rm PV}^{-1}$ posteriors from individual events; however, this is not the correct way of combining $M_{\rm PV}$ measurements from independent observations: instead of multiplying posteriors, one should multiply the \emph{likelihoods}Z to avoid double counting the prior every time a new event is added to the combined constraint.
+Second, as reported in \citep{Zhu:2023wci}, their combined result was computed by multiplying $M_{\rm PV}^{-1}$ posteriors from individual events; however, this is not the correct way of combining $M_{\rm PV}$ measurements from independent observations: instead of multiplying posteriors, one should multiply the \emph{likelihoods} to avoid double counting the prior every time a new event is added to the combined constraint.
 Finally, \citet{Zhu:2023wci} report \emph{ad hoc} exclusion of certain events from the combined constraint, without explicitly providing a list of events considered.
 All these factors combined preclude a clear interpretation of the results in \citep{Zhu:2023wci}.
 In \ref{fig:posterior_MPV}, we show the posterior on $M_{\rm PV}^{-1}$ for each event in our analysis.
-Compared to Fig.~1 in \citet{Zhu:2023wci}, we can see that the posteriors on some events are different \added[id=WF]{in both scale and shape} between our analysis and theirs.
+Compared to Fig.~1 in \citet{Zhu:2023wci}, we can see that the posteriors on some events are different in both scale and shape between our analysis and theirs.
 For example, the posterior for GW190727\_060333 peaks at zero in our analysis, but peaks at a nonzero value in \citet{Zhu:2023wci}.
 This shows that the difference in the combined constraint may come from the difference in the individual event analyses.
 However, we could not compare the analysis in \citet{Zhu:2023wci} with ours in detail, as their analysis result is not publicly available.
@@ -700,9 +699,11 @@ However, lower mass systems involving neutron stars may also be informative than
 Analysis of future catalogs will benefit from the inclusion of those events, as well as a much larger number of \ac{BBH} sources at increasingly greater distances.
 Future measurements will also be enriched by the addition of KAGRA \cite{KAGRA} and LIGO India to the \ac{GW} detector network, which will allow us to better disambiguate between polarization states and hence between models of birefringent propagation.
 
+\added{%
 Encouraged by Chern-Simons gravity, this study only focused on amplitude birefringence.
 Other parity-violating gravity theories also predict velocity birefringence, which dominates over amplitude birefringence in terms of amplitude and phase corrections to the waveform when both birefringence are present \cite{Zhao:2019xmm}.
 Velocity birefringence was tested with GWTC-3 in \citet{Wang:2021gqm} and \citet{Haegel:2022ymk}.
+}
 
 All our data are available in \citet{dataset}.
 
