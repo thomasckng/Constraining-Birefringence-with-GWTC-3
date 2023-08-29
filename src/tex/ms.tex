@@ -602,7 +602,7 @@ assuming a small $\delta h$ and $\delta \Psi$ in the last line.
 To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z / M_{\rm PV}$, where $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction.%
 \footnote{Concretely, \citet{Wang_2021} write $\delta h = - A_\nu \pi f$ with $A_\nu = M_{\rm PV}^{-1} \left[\alpha_\nu (z=0) - \alpha_\nu(z) \left(1+z\right)\right]$, for $\alpha_\nu$ some function of redshift encoding the evolution of a birefringence-mediating field; to produce their constraint, however, they further set $\alpha_\nu(z) = 1$, yielding $A_\nu = -z / M_{\rm PV}$ and hence $\delta h = \pi f z / M_{\rm PV}$.}
 Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ via the Hubble constant, $H_0$, this means
-\begin{equation}
+\begin{equation} \label{eq:kappa-to-Mpv}
     |\kappa| \simeq \frac{\pi H_0}{c} \frac{h \left( 100 \, \mathrm{Hz} \right)}{M_{\rm PV}} \simeq \frac{3.0 \times 10^{-22} \, \mathrm{GeV}}{M_\mathrm{PV}} \, \mathrm{Gpc}^{-1},
 \end{equation}
 where $h$ is Planck's constant.
@@ -615,12 +615,14 @@ That work, which appeared while this manuscript was finalized, reported a constr
 \subsubsection{\added{Zhu et al.}}
 
 A more recent work by \citet{Zhu:2023wci}, which appeared while this manuscript was finalized, performed \ac{PE} on GWTC-3 events with a frequency-dependent model of amplitude birefringence.
-Their model is similar to the one used in \citet{Wang_2021}, which allows us to compare our results, as we did in Sec.~\ref{sec:comparison_Wang}.
-\citet{Zhu:2023wci} reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Zhu.txt}.
-This result constrain the birefringence effect much weaker than our result.
-This is an unexpected result, as the analysis in \citet{Zhu:2023wci} is similar to ours\footnote{Note that the prior on the birefringence parameter and luminosity distance are different between the analysis by \citet{Zhu:2023wci}and ours, but it is unlikely to be the cause of the difference in the constraint.} and they included more events than we did.
-However, we could not compare the analysis in \citet{Zhu:2023wci} with ours in detail, as the analysis is not publicly available, and the list of events included is not provided in the paper.
+Their model is the same as the one used in \citet{Wang_2021}, which allows us to compare to our results as we did in Sec.~\ref{sec:comparison_Wang}.
+\citet{Zhu:2023wci} reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Zhu.txt} per Eq.~\eqref{eq:kappa-to-Mpv} above.
 
+This constraint is weaker than ours in spite of the similar number of events considered, a discrepancy that might be explained by a number of factors.
+First, there are difference in priors, since \citet{Zhu:2023wci} assume a distribution uniform in $z/M_{\rm PV}$ rather than $\kappa$ or $M_{\rm PV}$ itself.
+Second, as reported in \citep{Zhu:2023wci}, their combined result was computed by multiplying $M_{\rm PV}^{-1}$ posteriors from individual events; however, this is not the correct way of combining $M_{\rm PV}$ measurements from independent observations: instead of multiplying posteriors, one should multiply the \emph{likelihoods}Z to avoid double counting the prior every time a new event is added to the combined constraint.
+Finally, \citet{Zhu:2023wci} report \emph{ad hoc} exclusion of certain events from the combined constraint, without explicitly providing a list of events considered.
+All these factors combined preclude a clear interpretation of the results in \citep{Zhu:2023wci}.
 
 \subsection{Parameter degeneracies}
 \label{sec:degeneracies}
