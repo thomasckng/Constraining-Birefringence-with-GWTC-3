@@ -609,7 +609,6 @@ Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \appr
 where $h$ is Planck's constant.
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}, or \variable{output/M_PV_constraint.txt}.
-\added{Note that our constraints from each event are stronger compared to the constraint from \citet{Wang_2021}, details of which are given in Sec.~\ref{sec:comparison_Zhu}.}
 
 \deleted{The parameterization of \cite{Wang_2021} is the same as that in the more recent work by \cite{Zhu:2023wci}.
 That work, which appeared while this manuscript was finalized, reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}$ based on GWTC-3.}
@@ -621,23 +620,27 @@ A more recent work by \citet{Zhu:2023wci}, which appeared while this manuscript 
 Their model is the same as the one used in \citet{Wang_2021}, which allows us to compare to our results as we did in Sec.~\ref{sec:comparison_Wang}.
 \citet{Zhu:2023wci} reported a constraint of $M_{\rm PV} > 4.1 \times 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Zhu.txt} per Eq.~\eqref{eq:kappa-to-Mpv} above.
 
-This constraint is weaker than ours in spite of the similar number of events considered, a discrepancy that might be explained by a number of factors.
-First, there are difference in priors, since \citet{Zhu:2023wci} assume a distribution uniform in $z/M_{\rm PV}$ rather than $\kappa$ or $M_{\rm PV}$ itself.
-Second, as reported in \citep{Zhu:2023wci}, their combined result was computed by multiplying $M_{\rm PV}^{-1}$ posteriors from individual events; however, this is not the correct way of combining $M_{\rm PV}$ measurements from independent observations: instead of multiplying posteriors, one should multiply the \emph{likelihoods} to avoid double counting the prior every time a new event is added to the combined constraint.
-Finally, \citet{Zhu:2023wci} report \emph{ad hoc} exclusion of certain events from the combined constraint, without explicitly providing a list of events considered.
-All these factors combined preclude a clear interpretation of the results in \citep{Zhu:2023wci}.
-In \ref{fig:posterior_MPV}, we show the posterior on $M_{\rm PV}^{-1}$ for each event in our analysis.
-Compared to Fig.~1 in \citet{Zhu:2023wci}, we can see that the posteriors on some events are different in both scale and shape between our analysis and theirs.
+This constraint is weaker than ours in spite of the similar number of events considered, a discrepancy that we trace back to inference at the individual-event level.
+Figure \ref{fig:posterior_MPV} shows the posteriors on $M_\mathrm{PV}^{-1}$ derived from our analysis via Eq.~\eqref{eq:kappa-to-Mpv} for each event highlighted in Fig.~1 of \citet{Zhu:2023wci}.
+Our posteriors differ from those in \citet{Zhu:2023wci} in both overall scale and specific shape.
 For example, the posterior for GW190727\_060333 peaks at zero in our analysis, but peaks at a nonzero value in \citet{Zhu:2023wci}.
-This shows that the difference in the combined constraint may come from the difference in the individual event analyses.
-However, we could not compare the analysis in \citet{Zhu:2023wci} with ours in detail, as their analysis result is not publicly available.
+All distributions are narrower in our analysis by a factor of ${\sim}10\times$.
+% However, we could not compare the analysis in \citet{Zhu:2023wci} with ours in detail, as their analysis result is not publicly available.
+This might be explained by a number of analysis differences.
+The fact that posteriors disagree at the individual-event level suggests that the discrepancy originates in the different choice of parameterization and corresponding priors, in addition to potentially unstated differences in implementation.
+
+% First, there are differences in priors, since \citet{Zhu:2023wci} assume a distribution uniform in $z/M_{\rm PV}$ rather than $\kappa$ or $M_{\rm PV}$ itself.
+% Second, as reported in \citep{Zhu:2023wci}, their combined result was computed by multiplying $M_{\rm PV}^{-1}$ posteriors from individual events; however, this is not the correct way of combining $M_{\rm PV}$ measurements from independent observations: instead of multiplying posteriors, one should multiply the \emph{likelihoods} to avoid double counting the prior every time a new event is added to the combined constraint.
+% Finally, \citet{Zhu:2023wci} report \emph{ad hoc} exclusion of certain events from the combined constraint, without explicitly providing a list of events considered.
+% All these factors combined preclude a clear interpretation of the results in \citep{Zhu:2023wci}.
+% In \ref{fig:posterior_MPV}, we show the posterior on $M_{\rm PV}^{-1}$ for each event in our analysis.
 
 \begin{figure}
     \script{posterior_MPV.py}
     \includegraphics[width=\columnwidth]{figures/posterior_MPV.pdf}
     \caption{
-        Individual-event $M_\mathrm{PV}^{-1}$ posteriors from our analysis, converted from the $\kappa$ posteriors in Fig.~\ref{fig:violin_kappa}.
-        Chosen events are those labeled in Fig.~1 of \citet{Zhu:2023wci}.
+        Individual-event $M_\mathrm{PV}^{-1}$ posteriors from our analysis, converted from the $\kappa$ posteriors in Fig.~\ref{fig:violin_kappa} via Eq.~\eqref{eq:kappa-to-Mpv}.
+        Chosen events are those highlighted in Fig.~1 of \citet{Zhu:2023wci}.
     }
     \label{fig:posterior_MPV}
 \end{figure}
