@@ -18,7 +18,7 @@ approximant = lalsim.SimInspiralGetApproximantFromString("IMRPhenomD")
 # frequency array parameters
 df = 0.125
 f_min = 20
-f_max = 2048
+f_max = 2048*16 # using higher frequency to produce smoother TD waveform
 f_ref = 100
 
 # source parameters
@@ -81,7 +81,7 @@ axs[0].loglog(freq, np.abs(hl_fd), ls=':', c=c1, label=r"L (GR)")
 axs[0].loglog(freq, np.abs(hr_fd), ls=':', c=c2, label=r"R (GR)")
 axs[0].loglog(freq, np.abs(hl_bi_fd), c=c1, label=r"L (BR)")
 axs[0].loglog(freq, np.abs(hr_bi_fd), c=c2, label=r"R (BR)")
-axs[0].set_xlim(f_min+1,f_max-22)
+axs[0].set_xlim(f_min+1,2048-22) # force x_max to the max value for IMRPhenomD
 axs[0].set_ylim(1e-30,1e-20)
 axs[0].legend()
 axs[0].set_ylabel(r"$|\tilde{h}|$")
