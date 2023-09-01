@@ -205,7 +205,9 @@ We chart this and other approximate degeneracies as part of the results presente
 \subsection{Single-event parameter estimation}
 
 To constrain birefringence, we reanalyze events from GWTC-3 \citep{GWTC-2.1, GWTC-3} implementing Eq.~\eqref{eq:waveform_modification} to directly obtain a posterior on $\kappa$ from the strain of each event.
-We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$; to avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
+We analyze the 71 \acp{BBH} that were detected with $\mathrm{FAR} < 1/\mathrm{yr}$\added{, less stringent than the typical \ac{LVK} threshold of $1/1000\,\mathrm{yr}$ \cite{LIGOScientific:2020tif,LIGOScientific:2021sio}.
+The \ac{FAR} values are typically determined by \ac{GR} pipelines, which could down-rank signals beyond \ac{GR} \cite{LIGOScientific:2020tif,Chia:2020psj,tgrsel}; however, since detectability through matched-filtering is most sensitive to the phase, not the amplitude, we expect only a minor decrease in sensitivity to the kind of birefringent signals explored here.}
+To avoid extended computations on longer signals and considering these are generally at closer distances, we do not analyze systems involving neutron stars in this work.
 We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We estimate source parameters using a custom version of the \textsc{Bilby} software \citep{Bilby}, modified from the baseline version to apply Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
@@ -599,14 +601,13 @@ h^{\rm BR}_{L/R}(f) &= h^{\rm GR}_{L/R}(f) \left(1 \mp \delta h \mp i \delta \Ps
 &\approx h^{\rm GR}_{L/R}(f) \exp(\mp \delta h \mp i \delta \Psi) \, ,
 \end{align}
 assuming a small $\delta h$ and $\delta \Psi$ in the last line.
-To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z / M_{\rm PV}$, where $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction.%
-\footnote{Concretely, \citet{Wang_2021} write $\delta h = - A_\nu \pi f$ with $A_\nu = M_{\rm PV}^{-1} \left[\alpha_\nu (z=0) - \alpha_\nu(z) \left(1+z\right)\right]$, for $\alpha_\nu$ some function of redshift encoding the evolution of a birefringence-mediating field; to produce their constraint, however, they further set $\alpha_\nu(z) = 1$, yielding $A_\nu = -z / M_{\rm PV}$ and hence $\delta h = \pi f z / M_{\rm PV}$.}
-Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ via the Hubble constant, $H_0$, this means
+To consider only amplitude birefringence, as in this work, we must compare to the result in Ref.~\citep{Wang_2021} that set $\delta \Psi = 0$ and parameterized $\delta h = \pi f z h_P / M_{\rm PV}$, where $h_P$ is Planck's constant and $M_{\rm PV}$ is the energy scale of the birefringent (parity-violating) correction.%
+\footnote{Concretely, \citet{Wang_2021} write $\delta h = - A_\nu \pi f$ with $A_\nu = M_{\rm PV}^{-1} \left[\alpha_\nu (z=0) - \alpha_\nu(z) \left(1+z\right)\right]$, for $\alpha_\nu$ some function of redshift encoding the evolution of a birefringence-mediating field; to produce their constraint, however, they further set $\alpha_\nu(z) = 1$, yielding $A_\nu = -z / M_{\rm PV}$ and hence $\delta h = \pi f z h_P / M_{\rm PV}$, multiplying by $h_P$ to obtain the right dimensions.}
+Comparing to our Eq.~\eqref{eq:waveform_modification} and approximating $z \approx d_C H_0/c$ via the Hubble constant, $H_0$, this means that
 \begin{equation}
     \label{eq:kappa-to-Mpv}
-    |\kappa| \simeq \frac{\pi H_0}{c} \frac{h \left( 100 \, \mathrm{Hz} \right)}{M_{\rm PV}} \simeq \frac{3.0 \times 10^{-22} \, \mathrm{GeV}}{M_\mathrm{PV}} \, \mathrm{Gpc}^{-1},
+    |\kappa| \simeq \frac{\pi H_0}{c} \frac{h_P \left( 100 \, \mathrm{Hz} \right)}{M_{\rm PV}} \simeq \frac{3.0 \times 10^{-22} \, \mathrm{GeV}}{M_\mathrm{PV}} \, \mathrm{Gpc}^{-1} .
 \end{equation}
-where $h$ is Planck's constant.
 \citet{Wang_2021} quote a constraint of $M_{\rm PV} > 10^{-22}\, {\rm GeV}$ at 90\% credibility, which translates into \variable{output/kappa_Wang.txt}.
 We obtained a tighter 90\% upper limit of \variable{output/restricted_absolute_kappa_90.txt}, or \variable{output/M_PV_constraint.txt}.
 
