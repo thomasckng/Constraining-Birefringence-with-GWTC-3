@@ -4,7 +4,7 @@
 \usepackage{amsfonts,amssymb,amsmath}
 \usepackage[nolist,nohyperlinks]{acronym}
 \usepackage{bookmark}
-\usepackage{changes}
+\usepackage[final]{changes}
 %\usepackage[all]{hypcap}
 
 \newcommand{\infd}{\mathrm{d}}
@@ -110,16 +110,17 @@ Yet, parity odd extensions of \ac{GR} may make distinctions between the two circ
 The latter can manifest in changes to the relative amplitude and phase of the polarizations that accrue as the wave propagates, giving us hope of detecting initially small effects that compound over long propagation distances.
 
 In particular, \emph{amplitude} birefringence would enhance one polarization mode over the other.
-\added{Following \cite{Alexander:2009tp}, the effect of birefringence can be modeled as a frequency-dependent amplification or dampening; similar derivations can be found in \cite{Zhao:2019xmm, Ezquiaga:2021ler, Zhu:2023wci}.}
-To first order, in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source can be written as
+\added{Following \cite{Alexander:2009tp}, the effect of birefringence can be modeled as a frequency-dependent amplification or dampening; similar derivations can be found in \cite{Zhao:2019xmm, Ezquiaga:2021ler, Zhu:2023wci,Jenks:2023pmk}.}
+To first order \added{in the equations of motion}, in theories like Chern-Simons gravity, the Fourier-domain waveform observed a comoving distance $d_C$ away from the source can be written as
 \begin{equation}
     h_{L/R}^{\mathrm{br}}(f) =
     h_{L/R}^{\mathrm{GR}}(f) \times
-    \exp\left(\pm\kappa d_C \frac{f}{100\,\mathrm{Hz}}\right)\,,
+    \exp\left(\pm\kappa\, d_C \frac{f}{100\,\mathrm{Hz}}\right)\,,
     \label{eq:waveform_modification}
 \end{equation}
 where the emitted waveform $h_{L/R}^{\mathrm{GR}}$ is modified by an exponential birefringent factor to yield the observed waveform $h_{L/R}^{\mathrm{br}}$.
-The overall magnitude of this effect for a given frequency $f$ is set by an attenuation coefficient, $\kappa$, which encodes the intrinsic strength of the birefringence.
+The overall magnitude of this effect for a given frequency $f$ is set by an attenuation coefficient, $\kappa$, which encodes the intrinsic strength of the birefringence:
+\added{$\kappa^{-1}$ represents an ``attenuation length'' encoding the typical distance that yields an $e$-folding in the amplification or dampening of the polarizations at a fiducial signal frequency of 100 Hz at the detector.}
 The emitted waveform for a given source (i.e., the waveform observed in the near zone, very close to the source) will generally differ from the analogous waveform predicted by \ac{GR} \cite{Alexander:2009tp,Okounkova:2019zjf}; however, since we expect most viable modifications to \ac{GR} to be intrinsically small (e.g., \cite{Okounkova:2022grv}), it is standard to approximate the emitted waveform by the prediction from \ac{GR} (hence the notation ``$h^{\rm GR}$'' above).
 
 Although the intrinsic modification is small, the effect targeted by Eq.~\eqref{eq:waveform_modification} accumulates as the \ac{GW} propagates.
@@ -129,14 +130,15 @@ when $\kappa=0$, the observed waveform is the same as \ac{GR} predicts, meaning 
 
 Equation \eqref{eq:waveform_modification} can be derived as the first order effect in an expansion away from \ac{GR} under multiple frameworks.
 In general, $\kappa$ will be a function of the theory parameters and the cosmological history, e.g., the value of the pseudo-scalar field and its derivative in Chern-Simons gravity \cite{Alexander:2009tp}.
-Since it originates from a truncated series expansion%
-\footnote{Often the birefringent effect is written as an expansion in redshift, $z$ \cite[e.g.][]{Zhao:2019xmm}, rather than distance.  Here we use $d_C$ to emphasize that the effect accumulates \emph{per cycle}, or with propagation distance.  Thus, current ground-based experiments, which can detect gravitational waves to $z \simeq 1$, $d_C \simeq d_H$ (Hubble distance), are already observing propagation over a large fraction of the universe and constrain this effect meaningfully.}, %
-Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, 
+Since it originates from a truncated series expansion,%
+\footnote{Often the birefringent effect is written as an expansion in redshift, $z$ \cite[e.g.][]{Zhao:2019xmm}, rather than distance. Here we use $d_C$ to emphasize that the effect accumulates \emph{per cycle}, or with propagation distance.  Thus, current ground-based experiments, which can detect gravitational waves to $z \simeq 1$, $d_C \simeq d_H$ (Hubble distance), are already observing propagation over a large fraction of the universe and constrain this effect meaningfully.} %
+Eq.~\eqref{eq:waveform_modification} is a good approximation only for small exponents, namely
 \begin{equation}
-    \left|\kappa\right| \left(d_c\added{/1\, \mathrm{Gpc}}\right) \left(f/100\, \mathrm{Hz}\right) < 1\, \added{\mathrm{Gpc}^{-1}}\,.
+    \left(\frac{\left|\kappa\right|}{\added{\mathrm{Gpc}^{-1}}}\right) \left(\frac{d_c}{\added{\mathrm{Gpc}}}\right) \left(\frac{f}{100\, \mathrm{Hz}}\right) < 1\,,
     \label{eq:small_exponent}
 \end{equation}
-Otherwise, more frequency-dependent terms would enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
+recalling that $\kappa$ has dimensions of inverse length.
+Otherwise, more frequency-dependent terms could enter the exponent of Eq.~\eqref{eq:waveform_modification} in a theory-dependent way.
 \begin{figure}
     \script{birefringence.py}
     \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
@@ -212,7 +214,7 @@ We procure strain data from \ac{GWOSC} \citep{GWOSC}.
 
 We estimate source parameters using a custom version of the \textsc{Bilby} software \citep{Bilby}, modified from the baseline version to apply Eq.~\eqref{eq:waveform_modification} for any \ac{GR} baseline waveform.
 We take the \ac{PE} configuration in \citep{GWTC-2.1, GWTC-3, GWTC-2.1_dataset, GWTC-3_dataset} as a starting point, with \textsc{IMRPhenomXPHM} \citep{Pratten:2020ceb} as the reference waveform.
-We apply a distance prior corresponding to a uniform distribution over comoving volume and source-frame time, and set the prior on $\kappa$ to be uniform between $-1 \, \mathrm{Gpc}^{-1}$ and $1 \, \mathrm{Gpc}^{-1}$. 
+We apply a distance prior corresponding to a uniform distribution over comoving volume and source-frame time \added{(see, e.g., Eq.~10 in \cite{LIGOScientific:2019zcs})}, and set the prior on $\kappa$ to be uniform between $-1 \, \mathrm{Gpc}^{-1}$ and $1 \, \mathrm{Gpc}^{-1}$. 
 
 For GW190521, we increase the maximum distance allowed by the prior to $1.5\times$ the original value in \cite{GWTC-2.1_dataset}, as the birefringence effect results in posterior support at larger distances.
 For GW190720, we decrease the analysis segment from 16 s to 8 s, in order to accommodate missing data near the edges of the 16 s segment in Virgo.
@@ -279,7 +281,7 @@ To sample the posterior distribution of $\mu$ and $\sigma$, we use the sampling 
 \label{sec:Results}
 
 In this section, we present the results of our study.
-We first show the $\kappa$ measurements of all events in our set, as well as the resulting global measurement of $\kappa$ that represents our primary constraint on birefringence (Sec.~\ref{sec:results:gwtc}).
+We first show the $\kappa$ measurements from \deleted{of} all events in our set, as well as the resulting global measurement of $\kappa$ that represents our primary constraint on birefringence (Sec.~\ref{sec:results:gwtc}).
 We then assess the collection of measurements in more detail through a hierarchical analysis (Sec.~\ref{sec:results:hier}).
 Finally, we discuss some special events individually, and outline the degeneracies that arise between birefringence and orbital precession (Sec.~\ref{sec:results:notable}).
 
@@ -303,7 +305,7 @@ The collective measurement obtained by assuming a shared $\kappa$ across events,
 Figure \ref{fig:violin_kappa} makes it clear that not all \acp{BBH} in GWTC-3 are equally informative about birefringence.
 When considered individually, the events that best constrain $\kappa$ are listed in Table~\ref{tab:best_events_kappa}, in order of increasing standard deviation $\sigma_i$.
 That table also shows the credible level (CL) at which the posterior supports $\kappa = 0$, whereby $\mathrm{CL} = 0$ ($\mathrm{CL} = 1$) means the posterior supports that value with high (low) probability.
-\added{This quantity can be understood as the relative height of the probability density function at a given value, and does not assume any symmetric interval or modality.}
+\added{This quantity represents the relative height of the probability density function at $\kappa = 0$, and is not tied to a symmetric interval, making it particularly useful in assessing bimodal posteriors.}
 
 Judging by $\mu_i/\sigma_i$, the two events that show the largest tension with $\kappa = 0$ are GW170818, for which \variable{output/GW170818_constraint.txt}, and GW200129\_065458 (henceforth GW200129), for which \variable{output/GW200129_constraint.txt}.
 However, as we discuss in Sec.~\ref{sec:GW200129}, we have reason to think that the preference for $\kappa < 0$ in GW200129 might be driven by noise anomalies in the Virgo detector; with that in mind, in the next section we consider the effect of excluding this event from the joint result (we find its impact to be minimal).
@@ -469,7 +471,7 @@ The poor determination of the polarization state of the detected signal is evide
     \caption{
         GW190521 posterior on $\kappa$, luminosity distance $d_L$ and inclination $\cos\iota$ from our birefringence analysis (blue), compared to the GR result (orange).
         The marginalized posterior on $\chi_p$ is shown in the top right panel. (See Fig.~\ref{fig:corner_GW190521_appendix} for a full corner plot.)
-        \added{Note that the condition in Eq.~\eqref{eq:small_exponent} is not violated as the distance posterior shown here is the posterior on the luminosity distance $d_L$, not on the comoving distance $d_C$.}
+        \added{Note that, although we show $d_L$ in this plot, our definition of $\kappa$ is associated with $d_C$, meaning that the condition in Eq.~\eqref{eq:small_exponent} is satisfied even for the largest values of $d_L$ supported in this posterior.}
     }
     \label{fig:corner_GW190521}
 \end{figure}
@@ -698,17 +700,16 @@ From the set of results from individual events, we highlighted two, GW170818 and
 In particular, we identified the relevance of spins and their (partial) degeneracy with $\kappa$, in addition to expected correlations with source inclination and distance.
 The mass ratio can also play a role, by coupling with the spins or $\kappa$ directly (Sec.~\ref{sec:degeneracies}).
 
+\added{%
+Motivated by Chern-Simons gravity, this study only focused on amplitude birefringence.
+Other parity-violating gravity theories also predict velocity birefringence, which can dominate over amplitude birefringence when both are present \cite{Zhao:2019xmm}.
+Velocity birefringence was tested with GWTC-3 in \citet{Wang:2021gqm} and \citet{Haegel:2022ymk}.
+}
+
 This study was restricted to \acp{BBH} because of the expectation that they should dominate the birefringence constraint thanks to their larger redshifts.
 However, lower mass systems involving neutron stars may also be informative thanks to the wide band of frequencies spanned by their signals, in spite of their closer distances.
 Analysis of future catalogs will benefit from the inclusion of those events, as well as a much larger number of \ac{BBH} sources at increasingly greater distances.
 Future measurements will also be enriched by the addition of KAGRA \cite{KAGRA} and LIGO India to the \ac{GW} detector network, which will allow us to better disambiguate between polarization states and hence between models of birefringent propagation.
-
-\added{%
-Encouraged by Chern-Simons gravity, this study only focused on amplitude birefringence.
-Other parity-violating gravity theories also predict velocity birefringence, which dominates over amplitude birefringence in terms of amplitude and phase corrections to the waveform when both birefringence are present \cite{Zhao:2019xmm}.
-Velocity birefringence was tested with GWTC-3 in \citet{Wang:2021gqm} and \citet{Haegel:2022ymk}.
-}
-
 All our data are available in \citet{dataset}.
 
 \begin{acknowledgments}
