@@ -33,8 +33,9 @@ g.set_xlim(-.2,.2)
 norm_alpha = matplotlib.colors.Normalize(vmin=-1E-3, vmax=zscores.max()*1.1)
 for i, (z,line) in enumerate(zip(zscores, g.get_lines()[::-1])):
     line.set_alpha(norm_alpha(z))
-    if i < 3:
+    if zscores.index[i]=='GW170818':
       line.set_label(zscores.index[i].replace('_', r'\_'))
+      line.set_linestyle('--')
     else:
       line.set_label(None)
 g.legend(fontsize=14)

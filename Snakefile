@@ -27,6 +27,7 @@ rule compute_kappa_constraint_restricted:
         "src/tex/output/improvement_Okounkova.txt",
         "src/tex/output/restricted_absolute_kappa_90.txt",
         "src/tex/output/kappa_Wang.txt",
+        "src/tex/output/kappa_Zhu.txt",
         "src/tex/output/comparison_summary.txt"
     script:
         "src/scripts/kappa_constraint_restricted.py"
