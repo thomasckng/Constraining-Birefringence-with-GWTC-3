@@ -4,7 +4,6 @@
 \usepackage{amsfonts,amssymb,amsmath}
 \usepackage[nolist,nohyperlinks]{acronym}
 \usepackage{bookmark}
-\usepackage{changes}
 
 \newcommand{\infd}{\mathrm{d}}
 
@@ -34,7 +33,7 @@
 \begin{abstract}
     The propagation of gravitational waves can reveal fundamental features of the structure of spacetime.
     For instance, differences in the propagation of gravitational-wave polarizations would be a smoking gun for parity violations in the gravitational sector, as expected from birefringent theories like Chern-Simons gravity.
-    Here we look for evidence of amplitude birefringence in the \replaced{third catalog of detections by the Laser Interferometer Gravitational Wave Observatory and Virgo}{latest Laser Interferometer Gravitational Wave Observatory-Virgo catalog (GWTC-3)} through the use of birefringent templates inspired by dynamical Chern-Simons gravity.
+    Here we look for evidence of amplitude birefringence in the third catalog of detections by the Laser Interferometer Gravitational Wave Observatory and Virgo through the use of birefringent templates inspired by dynamical Chern-Simons gravity.
     From 71 binary-black-hole signals, we obtain the most precise constraints on gravitational-wave amplitude birefringence yet, measuring a birefringent attenuation of \variable{output/restricted_kappa_median.txt} at $100 \, \mathrm{Hz}$ with 90\% credibility, equivalent to a parity-violation energy scale of \variable{output/M_PV_constraint.txt}.
 \end{abstract}
 
@@ -82,7 +81,7 @@ In Sec.~\ref{sec:Method}, we describe the modification we apply to the baseline 
 In Sec.~\ref{sec:Results}, we present our constraint on \ac{GW} amplitude birefringence, discussing individual events and the catalog collectively.
 In Sec.~\ref{sec:Discussion}, we discuss the implications of our result, comparing to previous constraints in the literature and outlining correlation structures that appear in our measurements.
 Finally, we conclude in Sec.~\ref{sec:Discussion} with a summary.
-\added{In the Appendix, we provide extended results and discussion for two notable events (GW170818 and GW190521).}
+In the Appendix, we provide extended results and discussion for two notable events (GW170818 and GW190521).
 
 \section{Background}
 \label{sec:Background}
@@ -139,7 +138,7 @@ Otherwise, more frequency-dependent terms could enter the exponent of Eq.~\eqref
     \includegraphics[width=\columnwidth]{figures/birefringence.pdf}
     \caption{
         Illustration of amplitude birefringence. The GR waveform for the $\ell=|m|=2$ mode of a nonprecessing BBH seen edge-on ($\cos\iota = 0$) is linearly polarized and thus contains equal amounts of left- and right-handed modes for all frequencies (dotted, top).
-        However, if spacetime were birefringent \added{(BR)} following Eq.~\protect\eqref{eq:waveform_modification}, then the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
+        However, if spacetime were birefringent (BR) following Eq.~\protect\eqref{eq:waveform_modification}, then the waveform observed on Earth would contain different fractions of the two circular modes, with higher frequencies affected more strongly (solid, top). 
         In the time domain, this manifests as a time-dependent amplification of the waveform, with a stronger effect at later times when the chirp reaches a higher instantaneous frequency (bottom).
         For this example, the black holes do not spin and have equal masses $m_1 = m_2 = 10\, M_\odot$, and we have chosen a luminosity distance $d_L = 400\, {\rm Mpc}$ and $\kappa = 0.6$.
         }
@@ -518,7 +517,7 @@ GW200129 is the event with the second largest $|\mu_i/\sigma_i|$ in Fig.~\ref{fi
 However, data for this event were affected by a non-Gaussian noise disturbance (glitch) in the Virgo instrument, which was subtracted from the publicly-available data used for parameter estimation \cite{Davis:2022ird}.
 Since previous work suggests the degree of glitch subtraction affects the inference for this event \citep{GW200129_glitch}, we consider whether the apparent preference for $\kappa < 0$ could also be tied to the instrumental artifact.
 
-To this end, we perform three additional \ac{PE} runs for GW200129, considering only two detectors at a time: LIGO Hanford and Virgo (\replaced{HV}{HVL}), LIGO Livingston and Virgo (LV), and LIGO Hanford and LIGO Livingston (HL).
+To this end, we perform three additional \ac{PE} runs for GW200129, considering only two detectors at a time: LIGO Hanford and Virgo (HV), LIGO Livingston and Virgo (LV), and LIGO Hanford and LIGO Livingston (HL).
 If the preference for $\kappa < 0$ is tied to the glitch in Virgo, we expect it to disappear in the HL run, which excludes Virgo data.
 
 This is indeed the case, as we show in Fig.~\ref{fig:corner_GW200129}: all runs including Virgo lean towards $\kappa < 0$ (solid curves in color), whereas the LIGO-only run is fully consistent with $\kappa = 0$ (dashed black).
