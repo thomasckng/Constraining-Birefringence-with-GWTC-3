@@ -1,16 +1,16 @@
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
   - pip
   - python
+  - lalsuite
   - numpy
   - matplotlib
   - pandas
   - seaborn
   - scipy
+  - bilby
+  - pyarrow
   - pip:
-      - bilby
-      - lalsuite
       - latex
-      - pyarrow
