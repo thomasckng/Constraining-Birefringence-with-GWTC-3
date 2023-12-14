@@ -43,7 +43,6 @@ likelihood = likelihood / np.trapz(likelihood, x=kappa)
 #result_DataFrame['hue'] = 'True'
 g = sns.violinplot(data=result_DataFrame, y="event", x="kappa",
                    density_norm="width",
-                   width=1.5,
                     inner=None,
                     #palette={True: color_dict, False: color_dict},
                     hue=True,
